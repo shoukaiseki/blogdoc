@@ -148,5 +148,6 @@ asusお早う 、馬鹿野郎！Linux Fedora Asus Shoukaiseki
 ```
     <deployer extension=".class" directory="my" class="org.apache.axis2.deployment.POJODeployer"/>
 ```
-    上面的配置允许在<Tomcat安装目录>\webapps\axis2\WEB-INF\my目录中发布WebService。例如，将本例中的SimpleService.class复制到my目录中也可以成功发布（但要删除pojo目录中的SimpleService.class，否则WebService会重名）。
+
+上面的配置允许在<Tomcat安装目录>\webapps\axis2\WEB-INF\my目录中发布WebService。例如，将本例中的SimpleService.class复制到my目录中也可以成功发布（但要删除pojo目录中的SimpleService.class，否则WebService会重名）。
 
