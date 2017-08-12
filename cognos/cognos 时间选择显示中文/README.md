@@ -1,6 +1,6 @@
-#cognos 时间选择显示中文
+# cognos 时间选择显示中文
 
-##时间汉化修改
+## 时间汉化修改
 --在 火狐浏览器中,lang参数失效,且偶尔有效,汉化不稳定
 
 D:\IBM\cognos\c10_64\webcontent\prompting\prmt_core.js

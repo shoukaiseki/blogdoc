@@ -2,8 +2,11 @@
 
 ##时间汉化修改
 --在 火狐浏览器中,lang参数失效,且偶尔有效,汉化不稳定
+
 D:\IBM\cognos\c10_64\webcontent\prompting\prmt_core.js
+
 修改该文件,去 http://tool.oschina.net/codeformat/js 网站进行JavaScript格式化
+
 格式化完成之后在 function CClock(_qe, _nf, _nx, _kW, _ne, _kV) 前面添加下面代码就ok了
 
 
