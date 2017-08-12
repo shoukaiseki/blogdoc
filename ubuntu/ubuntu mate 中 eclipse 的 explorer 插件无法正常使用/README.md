@@ -1,13 +1,19 @@
 # ubuntu mate 中 eclipse 的 explorer 插件无法正常使用  
 
 安装 nautilus 目录管理器
+
 sudo apt-get install nautilus
 
 问题处理方案：
+
 先把 eclipse 关了，打开终端
+
 ALT +F2 运行 mate-terminal
+
 再在 终端运行eclipse
+
 eclipse运行后点击项目右键 选择 open in explorer 
+
 就能发现终端有以下错误，就能够它是看到调用了 nautilus 命令打开对应目录的
 ```
 (Eclipse:14100): Gtk-WARNING **: Allocating size to GtkBox 0x7f2616ee82c0 without calling gtk_widget_get_preferred_width/height(). How does the code know the size to allocate?
