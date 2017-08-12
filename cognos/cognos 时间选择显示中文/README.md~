@@ -1,0 +1,101 @@
+#cognos 时间选择显示中文
+
+##时间汉化修改
+--在 火狐浏览器中,lang参数失效,且偶尔有效,汉化不稳定
+D:\IBM\cognos\c10_64\webcontent\prompting\prmt_core.js
+修改该文件,去 http://tool.oschina.net/codeformat/js 网站进行JavaScript格式化
+格式化完成之后在 function CClock(_qe, _nf, _nx, _kW, _ne, _kV) 前面添加下面代码就ok了
+
+
+```
+g_amString ="上午";
+g_pmString ="下午";
+g_startDayOfWeek = 1;
+g_mediumFormat ="yyyy-M-d ah:mm:ss";
+g_shortFormat ="yy-M-d ah:mm";
+g_shortFormatDateOrder ="YMD";
+g_mediumFormatDateOrder ="YMD";
+g_dateOrder ="YMD";
+g_yearFormatMedium ="yyyy";
+g_monthFormatMedium ="M";
+g_dayFormatMedium ="d";
+g_hourFormatMedium ="h";
+g_minuteFormatMedium ="mm";
+g_secondFormatMedium ="ss";
+g_yearFormatShort ="yy";
+g_monthFormatShort ="M";
+g_dayFormatShort ="d";
+g_hourFormatShort ="h";
+g_minuteFormatShort ="mm";
+g_secondFormatShort ="";
+g_dateSeparatorMedium ="-";
+g_dateSeparatorShort ="-";
+g_timeSeparator =":";
+g_AMPMLocation ="left";
+g_24HourClock ="false";
+g_decimalSeparator =".";
+g_groupingSeparator =",";
+g_groupingSize = 3;
+g_secondaryGroupingSize = 0;
+g_maximumIntegerDigits = 309;
+g_minimumIntegerDigits = 1;
+g_maximumFractionDigits = 3;
+g_minimumFractionDigits = 0;
+g_positivePrefix ="";
+g_positiveSuffix ="";
+g_negativePrefix ="-";
+g_negativeSuffix ="";
+g_minusSign ="-";
+g_plusSign ="+";
+g_zeroDigit ="0";
+g_listSeparator =",";
+g_negativeLocation ="left";
+g_positiveLocation ="none";
+g_currencySymbol ="￥";
+g_monetaryDecimalSeparator =".";
+g_currencyLocation ="left";
+g_currencyDecimalSeparator =".";
+g_currencyGroupingSeparator =",";
+g_currencyGroupingSize = 3;
+g_currencySecondaryGroupingSize = 0;
+g_currencyPositivePrefix ="￥";
+g_currencyPositiveSuffix ="";
+g_currencyNegativePrefix ="-￥";
+g_currencyNegativeSuffix ="";
+g_currencyMinusSign ="-";
+g_currencyPlusSign ="+";
+g_currencyZeroDigit ="0";
+g_currencyNegativeLocation ="left";
+g_currencyPositiveLocation ="none";
+g_percentSymbol ="%";
+g_percentLocation ="right";
+g_percentageDecimalSeparator =".";
+g_percentageGroupingSeparator =",";
+g_percentageGroupingSize = 3;
+g_percentageSecondaryGroupingSize = 0;
+g_percentagePositivePrefix ="";
+g_percentagePositiveSuffix ="%";
+g_percentageNegativePrefix ="-";
+g_percentageNegativeSuffix ="%";
+g_percentageMinusSign ="-";
+g_percentagePlusSign ="+";
+g_percentageZeroDigit ="0";
+g_percentageNegativeLocation ="left";
+g_percentagePositiveLocation ="right";
+g_exponentialSymbol ="E";
+g_scientificDecimalSeparator =".";
+g_scientificGroupingSeparator =",";
+g_scientificGroupingSize = 0;
+g_scientificSecondaryGroupingSize = 0;
+g_scientificPositivePrefix ="";
+g_scientificPositiveSuffix ="";
+g_scientificNegativePrefix ="-";
+g_scientificNegativeSuffix ="";
+g_scientificMinusSign ="-";
+g_scientificPlusSign ="+";
+g_scientificZeroDigit ="0";
+g_scientificNegativeLocation ="left";
+g_scientificPositiveLocation ="none";
+
+```
+
