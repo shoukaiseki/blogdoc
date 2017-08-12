@@ -1,4 +1,4 @@
-#三种不同的webservice获取HttpServerltRequest的方法
+# 三种不同的webservice获取HttpServerltRequest的方法
 
 转自  http://blog.csdn.net/u013262276/article/details/50956146
 
