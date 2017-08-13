@@ -8,9 +8,14 @@ set t_Co=256
 ```
 VIM 終端256色配色,256種顏色
 
-<font color="#0099ff">1=#0099ff</font>
+- ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) `#f03c15`
+- ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) `#c5f015`
+- ![#1589F0](https://placehold.it/15/1589F0/000000?text=+) `#1589F0`
+- ![#1589F0]() `#1589F0`
 
-<font color=red>内容</font>
+<p style='color:red'>This is some red text.</p>
+<font color="red">This is some text!</font>
+These are <b style='color:red'>red words</b>.
 
 <table > 
 <tr>
