@@ -10,7 +10,7 @@ VIM 終端256色配色,256種顏色
 
 <table > 
 <tr>
-<td style="color:#c00000;">1=#c00000</td>
+<td style="color:#c00000;"><font color=#0099ff>1=#0099ff</font></td>
 </tr> 
 <tr>
 <td style="color:#008000;">2=#008000</td>
