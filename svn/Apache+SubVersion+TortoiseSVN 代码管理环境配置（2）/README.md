@@ -24,7 +24,7 @@
 
 对于库中的同一文件，如果有两个人都对其中的同一部分进行了修改，那么后提交的人就会在提交时获得该文件要求更新的警告，在更新以后，TortoiseSVN会提示当前工作的版本与服务器中的文件相冲突。这时文件的图标是一个感叹号。这时在该文件上点击右键，进入TortoiseSVN子菜单->Edit Conflicts(已解决的),会弹出如图的编辑框TortoiseMerge：如图
 
-![image](https://raw.githubusercontent.com/shoukaiseki/blogdoc/master/snv/Apache+SubVersion+TortoiseSVN%20%E4%BB%A3%E7%A0%81%E7%AE%A1%E7%90%86%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%EF%BC%882%EF%BC%89/img/001.bmp)
+![image](https://raw.githubusercontent.com/shoukaiseki/blogdoc/master/svn/Apache+SubVersion+TortoiseSVN%20%E4%BB%A3%E7%A0%81%E7%AE%A1%E7%90%86%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%EF%BC%882%EF%BC%89/img/001.bmp)
   
 
 左上部是显示的服务器的文件，右上部是显示的本地文件，在下边是你处理合并后的文件，在TortoiseMerge中做的修改会反应到本地文件中，然后就可以提交。当然，你可以选择别的编辑工具编辑本地文件，以使其与服务器上的文件避开冲突。
