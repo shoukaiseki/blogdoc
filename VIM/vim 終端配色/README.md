@@ -8,6 +8,10 @@ set t_Co=256
 ```
 VIM 終端256色配色,256種顏色
 
+<font color="#0099ff">1=#0099ff</font>
+
+<font color=red>内容</font>
+
 <table > 
 <tr>
 <td style="color:#c00000;"><font color="#0099ff">1=#0099ff</font></td>
