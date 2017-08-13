@@ -1,12 +1,13 @@
 # 博客转移为markdown语法
 
-```
+```Java
 public static void main(String[] age){
    System.out.println("Hello world");
 }
 ```
 
 ## 目录1
+- ![#c00000](https://placehold.it/15/c00000/000000?text=+) `1=#c00000`
 
 ## 目录2
 
