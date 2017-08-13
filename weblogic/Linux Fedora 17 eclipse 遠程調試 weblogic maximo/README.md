@@ -32,9 +32,9 @@ Myeclipse中設置遠程調試端口,
 
 Run->Debug->Configurations  右鍵點擊Remote Java Application 選擇新建,Project是你想遠程調試的Eclipse對應的項目名稱
  
-![image](https://raw.githubusercontent.com/shoukaiseki/blogdoc/master/weblogic/Linux%20Fedora%2017%20eclipse%20%E9%81%A0%E7%A8%8B%E8%AA%BF%E8%A9%A6%20weblogic%20maximo/img/001.png)
+![image](https://raw.githubusercontent.com/shoukaiseki/blogdoc/master/weblogic/Linux%20Fedora%2017%20eclipse%20%E9%81%A0%E7%A8%8B%E8%AA%BF%E8%A9%A6%20weblogic%20maximo/img/001.jpg)
  
-![image](https://raw.githubusercontent.com/shoukaiseki/blogdoc/master/weblogic/Linux%20Fedora%2017%20eclipse%20%E9%81%A0%E7%A8%8B%E8%AA%BF%E8%A9%A6%20weblogic%20maximo/img/002.png)
+![image](https://raw.githubusercontent.com/shoukaiseki/blogdoc/master/weblogic/Linux%20Fedora%2017%20eclipse%20%E9%81%A0%E7%A8%8B%E8%AA%BF%E8%A9%A6%20weblogic%20maximo/img/002.jpg)
 
 #常見問題
 當weblogic重啓後,遠程端口關閉,eclipse不會自動重連,
