@@ -24,7 +24,7 @@ set JAVA_OPTIONS=%JAVA_OPTIONS% -Djava.compiler=NONE -Xdebug -Xnoagent  -Xrunjdw
 ```
 
 之後可以用以下命令查看端口是否已經打開
-```
+```Bat
 netstat -an 
 ```
 
@@ -38,12 +38,14 @@ Run->Debug->Configurations  右鍵點擊Remote Java Application 選擇新建,Pro
 
 #常見問題
 當weblogic重啓後,遠程端口關閉,eclipse不會自動重連,
+```
 #以下爲大家提供更多的關鍵字能夠搜索到該問題,無實際意義
 
 weblogic 服務重啓 eclipse 斷開連接 
 
 weblogic 遠程調試 服務重啓 eclipse 斷開連接
 weblogic 遠程調試 服務器重啓後失效
+```
 
 Show View as a Fast View->Debug(即最左下圖標)
 在Debug窗口選中Remote Java Application建立時候的名字右鍵點擊->relaunch
