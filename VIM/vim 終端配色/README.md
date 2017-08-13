@@ -8,779 +8,258 @@ set t_Co=256
 ```
 VIM 終端256色配色,256種顏色
 
-- ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) `#f03c15`
-- ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) `#c5f015`
-- ![#1589F0](https://placehold.it/15/1589F0/000000?text=+) `#1589F0`
-- ![#1589F0]() `#1589F0`
-
-<p style='color:red'>This is some red text.</p>
-<font color="red">This is some text!</font>
-These are <b style='color:red'>red words</b>.
-
-<table > 
-<tr>
-<td style="color:#c00000;"><font color="#0099ff">1=#0099ff</font></td>
-</tr> 
-<tr>
-<td style="color:#008000;">2=#008000</td>
-</tr> 
-<tr>
-<td style="color:#804000;">3=#804000</td>
-</tr> 
-<tr>
-<td style="color:#0000c0;">4=#0000c0</td>
-</tr> 
-<tr>
-<td style="color:#c000c0;">5=#c000c0</td>
-</tr> 
-<tr>
-<td style="color:#008080;">6=#008080</td>
-</tr> 
-<tr>
-<td style="color:#c0c0c0;">7=#c0c0c0</td>
-</tr> 
-<tr>
-<td style="color:#808080;">8=#808080</td>
-</tr> 
-<tr>
-<td style="color:#ff6060;">9=#ff6060</td>
-</tr> 
-<tr>
-<td style="color:#00ff00;">10=#00ff00</td>
-</tr> 
-<tr>
-<td style="color:#ffff00;">11=#ffff00</td>
-</tr> 
-<tr>
-<td style="color:#8080ff;">12=#8080ff</td>
-</tr> 
-<tr>
-<td style="color:#ff40ff;">13=#ff40ff</td>
-</tr> 
-<tr>
-<td style="color:#00ffff;">14=#00ffff</td>
-</tr> 
-<tr>
-<td style="color:#00ffff;">15=#00ffff</td>
-</tr> 
-<tr>
-<td style="color:#000000;">16=#000000</td>
-</tr> 
-<tr>
-<td style="color:#00005f;">17=#00005f</td>
-</tr> 
-<tr>
-<td style="color:#000087;">18=#000087</td>
-</tr> 
-<tr>
-<td style="color:#0000af;">19=#0000af</td>
-</tr> 
-<tr>
-<td style="color:#0000d7;">20=#0000d7</td>
-</tr> 
-<tr>
-<td style="color:#0000ff;">21=#0000ff</td>
-</tr> 
-<tr>
-<td style="color:#005f00;">22=#005f00</td>
-</tr> 
-<tr>
-<td style="color:#005f5f;">23=#005f5f</td>
-</tr> 
-<tr>
-<td style="color:#005f87;">24=#005f87</td>
-</tr> 
-<tr>
-<td style="color:#005faf;">25=#005faf</td>
-</tr> 
-<tr>
-<td style="color:#005fd7;">26=#005fd7</td>
-</tr> 
-<tr>
-<td style="color:#005fff;">27=#005fff</td>
-</tr> 
-<tr>
-<td style="color:#008700;">28=#008700</td>
-</tr> 
-<tr>
-<td style="color:#00875f;">29=#00875f</td>
-</tr> 
-<tr>
-<td style="color:#008787;">30=#008787</td>
-</tr> 
-<tr>
-<td style="color:#0087af;">31=#0087af</td>
-</tr> 
-<tr>
-<td style="color:#0087d7;">32=#0087d7</td>
-</tr> 
-<tr>
-<td style="color:#0087ff;">33=#0087ff</td>
-</tr> 
-<tr>
-<td style="color:#00af00;">34=#00af00</td>
-</tr> 
-<tr>
-<td style="color:#00af5f;">35=#00af5f</td>
-</tr> 
-<tr>
-<td style="color:#00af87;">36=#00af87</td>
-</tr> 
-<tr>
-<td style="color:#00afaf;">37=#00afaf</td>
-</tr> 
-<tr>
-<td style="color:#00afd7;">38=#00afd7</td>
-</tr> 
-<tr>
-<td style="color:#00afff;">39=#00afff</td>
-</tr> 
-<tr>
-<td style="color:#00d700;">40=#00d700</td>
-</tr> 
-<tr>
-<td style="color:#00d75f;">41=#00d75f</td>
-</tr> 
-<tr>
-<td style="color:#00d787;">42=#00d787</td>
-</tr> 
-<tr>
-<td style="color:#00d7af;">43=#00d7af</td>
-</tr> 
-<tr>
-<td style="color:#00d7d7;">44=#00d7d7</td>
-</tr> 
-<tr>
-<td style="color:#00d7ff;">45=#00d7ff</td>
-</tr> 
-<tr>
-<td style="color:#00ff00;">46=#00ff00</td>
-</tr> 
-<tr>
-<td style="color:#00ff5f;">47=#00ff5f</td>
-</tr> 
-<tr>
-<td style="color:#00ff87;">48=#00ff87</td>
-</tr> 
-<tr>
-<td style="color:#00ffaf;">49=#00ffaf</td>
-</tr> 
-<tr>
-<td style="color:#00ffd7;">50=#00ffd7</td>
-</tr> 
-<tr>
-<td style="color:#00ffff;">51=#00ffff</td>
-</tr> 
-<tr>
-<td style="color:#5f0000;">52=#5f0000</td>
-</tr> 
-<tr>
-<td style="color:#5f005f;">53=#5f005f</td>
-</tr> 
-<tr>
-<td style="color:#5f0087;">54=#5f0087</td>
-</tr> 
-<tr>
-<td style="color:#5f00af;">55=#5f00af</td>
-</tr> 
-<tr>
-<td style="color:#5f00d7;">56=#5f00d7</td>
-</tr> 
-<tr>
-<td style="color:#5f00ff;">57=#5f00ff</td>
-</tr> 
-<tr>
-<td style="color:#5f5f00;">58=#5f5f00</td>
-</tr> 
-<tr>
-<td style="color:#5f5f5f;">59=#5f5f5f</td>
-</tr> 
-<tr>
-<td style="color:#5f5f87;">60=#5f5f87</td>
-</tr> 
-<tr>
-<td style="color:#5f5faf;">61=#5f5faf</td>
-</tr> 
-<tr>
-<td style="color:#5f5fd7;">62=#5f5fd7</td>
-</tr> 
-<tr>
-<td style="color:#5f5fff;">63=#5f5fff</td>
-</tr> 
-<tr>
-<td style="color:#5f8700;">64=#5f8700</td>
-</tr> 
-<tr>
-<td style="color:#5f875f;">65=#5f875f</td>
-</tr> 
-<tr>
-<td style="color:#5f8787;">66=#5f8787</td>
-</tr> 
-<tr>
-<td style="color:#5f87af;">67=#5f87af</td>
-</tr> 
-<tr>
-<td style="color:#5f87d7;">68=#5f87d7</td>
-</tr> 
-<tr>
-<td style="color:#5f87ff;">69=#5f87ff</td>
-</tr> 
-<tr>
-<td style="color:#5faf00;">70=#5faf00</td>
-</tr> 
-<tr>
-<td style="color:#5faf5f;">71=#5faf5f</td>
-</tr> 
-<tr>
-<td style="color:#5faf87;">72=#5faf87</td>
-</tr> 
-<tr>
-<td style="color:#5fafaf;">73=#5fafaf</td>
-</tr> 
-<tr>
-<td style="color:#5fafd7;">74=#5fafd7</td>
-</tr> 
-<tr>
-<td style="color:#5fafff;">75=#5fafff</td>
-</tr> 
-<tr>
-<td style="color:#5fd700;">76=#5fd700</td>
-</tr> 
-<tr>
-<td style="color:#5fd75f;">77=#5fd75f</td>
-</tr> 
-<tr>
-<td style="color:#5fd787;">78=#5fd787</td>
-</tr> 
-<tr>
-<td style="color:#5fd7af;">79=#5fd7af</td>
-</tr> 
-<tr>
-<td style="color:#5fd7d7;">80=#5fd7d7</td>
-</tr> 
-<tr>
-<td style="color:#5fd7ff;">81=#5fd7ff</td>
-</tr> 
-<tr>
-<td style="color:#5fff00;">82=#5fff00</td>
-</tr> 
-<tr>
-<td style="color:#5fff5f;">83=#5fff5f</td>
-</tr> 
-<tr>
-<td style="color:#5fff87;">84=#5fff87</td>
-</tr> 
-<tr>
-<td style="color:#5fffaf;">85=#5fffaf</td>
-</tr> 
-<tr>
-<td style="color:#5fffd7;">86=#5fffd7</td>
-</tr> 
-<tr>
-<td style="color:#5fffff;">87=#5fffff</td>
-</tr> 
-<tr>
-<td style="color:#870000;">88=#870000</td>
-</tr> 
-<tr>
-<td style="color:#87005f;">89=#87005f</td>
-</tr> 
-<tr>
-<td style="color:#870087;">90=#870087</td>
-</tr> 
-<tr>
-<td style="color:#8700af;">91=#8700af</td>
-</tr> 
-<tr>
-<td style="color:#8700d7;">92=#8700d7</td>
-</tr> 
-<tr>
-<td style="color:#8700ff;">93=#8700ff</td>
-</tr> 
-<tr>
-<td style="color:#875f00;">94=#875f00</td>
-</tr> 
-<tr>
-<td style="color:#875f5f;">95=#875f5f</td>
-</tr> 
-<tr>
-<td style="color:#875f87;">96=#875f87</td>
-</tr> 
-<tr>
-<td style="color:#875faf;">97=#875faf</td>
-</tr> 
-<tr>
-<td style="color:#875fd7;">98=#875fd7</td>
-</tr> 
-<tr>
-<td style="color:#875fff;">99=#875fff</td>
-</tr> 
-<tr>
-<td style="color:#878700;">100=#878700</td>
-</tr> 
-<tr>
-<td style="color:#87875f;">101=#87875f</td>
-</tr> 
-<tr>
-<td style="color:#878787;">102=#878787</td>
-</tr> 
-<tr>
-<td style="color:#8787af;">103=#8787af</td>
-</tr> 
-<tr>
-<td style="color:#8787d7;">104=#8787d7</td>
-</tr> 
-<tr>
-<td style="color:#8787ff;">105=#8787ff</td>
-</tr> 
-<tr>
-<td style="color:#87af00;">106=#87af00</td>
-</tr> 
-<tr>
-<td style="color:#87af5f;">107=#87af5f</td>
-</tr> 
-<tr>
-<td style="color:#87af87;">108=#87af87</td>
-</tr> 
-<tr>
-<td style="color:#87afaf;">109=#87afaf</td>
-</tr> 
-<tr>
-<td style="color:#87afd7;">110=#87afd7</td>
-</tr> 
-<tr>
-<td style="color:#87afff;">111=#87afff</td>
-</tr> 
-<tr>
-<td style="color:#87d700;">112=#87d700</td>
-</tr> 
-<tr>
-<td style="color:#87d75f;">113=#87d75f</td>
-</tr> 
-<tr>
-<td style="color:#87d787;">114=#87d787</td>
-</tr> 
-<tr>
-<td style="color:#87d7af;">115=#87d7af</td>
-</tr> 
-<tr>
-<td style="color:#87d7d7;">116=#87d7d7</td>
-</tr> 
-<tr>
-<td style="color:#87d7ff;">117=#87d7ff</td>
-</tr> 
-<tr>
-<td style="color:#87ff00;">118=#87ff00</td>
-</tr> 
-<tr>
-<td style="color:#87ff5f;">119=#87ff5f</td>
-</tr> 
-<tr>
-<td style="color:#87ff87;">120=#87ff87</td>
-</tr> 
-<tr>
-<td style="color:#87ffaf;">121=#87ffaf</td>
-</tr> 
-<tr>
-<td style="color:#87ffd7;">122=#87ffd7</td>
-</tr> 
-<tr>
-<td style="color:#87ffff;">123=#87ffff</td>
-</tr> 
-<tr>
-<td style="color:#af0000;">124=#af0000</td>
-</tr> 
-<tr>
-<td style="color:#af005f;">125=#af005f</td>
-</tr> 
-<tr>
-<td style="color:#af0087;">126=#af0087</td>
-</tr> 
-<tr>
-<td style="color:#af00af;">127=#af00af</td>
-</tr> 
-<tr>
-<td style="color:#af00d7;">128=#af00d7</td>
-</tr> 
-<tr>
-<td style="color:#af00ff;">129=#af00ff</td>
-</tr> 
-<tr>
-<td style="color:#af5f00;">130=#af5f00</td>
-</tr> 
-<tr>
-<td style="color:#af5f5f;">131=#af5f5f</td>
-</tr> 
-<tr>
-<td style="color:#af5f87;">132=#af5f87</td>
-</tr> 
-<tr>
-<td style="color:#af5faf;">133=#af5faf</td>
-</tr> 
-<tr>
-<td style="color:#af5fd7;">134=#af5fd7</td>
-</tr> 
-<tr>
-<td style="color:#af5fff;">135=#af5fff</td>
-</tr> 
-<tr>
-<td style="color:#af8700;">136=#af8700</td>
-</tr> 
-<tr>
-<td style="color:#af875f;">137=#af875f</td>
-</tr> 
-<tr>
-<td style="color:#af8787;">138=#af8787</td>
-</tr> 
-<tr>
-<td style="color:#af87af;">139=#af87af</td>
-</tr> 
-<tr>
-<td style="color:#af87d7;">140=#af87d7</td>
-</tr> 
-<tr>
-<td style="color:#af87ff;">141=#af87ff</td>
-</tr> 
-<tr>
-<td style="color:#afaf00;">142=#afaf00</td>
-</tr> 
-<tr>
-<td style="color:#afaf5f;">143=#afaf5f</td>
-</tr> 
-<tr>
-<td style="color:#afaf87;">144=#afaf87</td>
-</tr> 
-<tr>
-<td style="color:#afafaf;">145=#afafaf</td>
-</tr> 
-<tr>
-<td style="color:#afafd7;">146=#afafd7</td>
-</tr> 
-<tr>
-<td style="color:#afafff;">147=#afafff</td>
-</tr> 
-<tr>
-<td style="color:#afd700;">148=#afd700</td>
-</tr> 
-<tr>
-<td style="color:#afd75f;">149=#afd75f</td>
-</tr> 
-<tr>
-<td style="color:#afd787;">150=#afd787</td>
-</tr> 
-<tr>
-<td style="color:#afd7af;">151=#afd7af</td>
-</tr> 
-<tr>
-<td style="color:#afd7d7;">152=#afd7d7</td>
-</tr> 
-<tr>
-<td style="color:#afd7ff;">153=#afd7ff</td>
-</tr> 
-<tr>
-<td style="color:#afff00;">154=#afff00</td>
-</tr> 
-<tr>
-<td style="color:#afff5f;">155=#afff5f</td>
-</tr> 
-<tr>
-<td style="color:#afff87;">156=#afff87</td>
-</tr> 
-<tr>
-<td style="color:#afffaf;">157=#afffaf</td>
-</tr> 
-<tr>
-<td style="color:#afffd7;">158=#afffd7</td>
-</tr> 
-<tr>
-<td style="color:#afffff;">159=#afffff</td>
-</tr> 
-<tr>
-<td style="color:#d70000;">160=#d70000</td>
-</tr> 
-<tr>
-<td style="color:#d7005f;">161=#d7005f</td>
-</tr> 
-<tr>
-<td style="color:#d70087;">162=#d70087</td>
-</tr> 
-<tr>
-<td style="color:#d700af;">163=#d700af</td>
-</tr> 
-<tr>
-<td style="color:#d700d7;">164=#d700d7</td>
-</tr> 
-<tr>
-<td style="color:#d700ff;">165=#d700ff</td>
-</tr> 
-<tr>
-<td style="color:#d75f00;">166=#d75f00</td>
-</tr> 
-<tr>
-<td style="color:#d75f5f;">167=#d75f5f</td>
-</tr> 
-<tr>
-<td style="color:#d75f87;">168=#d75f87</td>
-</tr> 
-<tr>
-<td style="color:#d75faf;">169=#d75faf</td>
-</tr> 
-<tr>
-<td style="color:#d75fd7;">170=#d75fd7</td>
-</tr> 
-<tr>
-<td style="color:#d75fff;">171=#d75fff</td>
-</tr> 
-<tr>
-<td style="color:#d78700;">172=#d78700</td>
-</tr> 
-<tr>
-<td style="color:#d7875f;">173=#d7875f</td>
-</tr> 
-<tr>
-<td style="color:#d78787;">174=#d78787</td>
-</tr> 
-<tr>
-<td style="color:#d787af;">175=#d787af</td>
-</tr> 
-<tr>
-<td style="color:#d787d7;">176=#d787d7</td>
-</tr> 
-<tr>
-<td style="color:#d787ff;">177=#d787ff</td>
-</tr> 
-<tr>
-<td style="color:#d7af00;">178=#d7af00</td>
-</tr> 
-<tr>
-<td style="color:#d7af5f;">179=#d7af5f</td>
-</tr> 
-<tr>
-<td style="color:#d7af87;">180=#d7af87</td>
-</tr> 
-<tr>
-<td style="color:#d7afaf;">181=#d7afaf</td>
-</tr> 
-<tr>
-<td style="color:#d7afd7;">182=#d7afd7</td>
-</tr> 
-<tr>
-<td style="color:#d7afff;">183=#d7afff</td>
-</tr> 
-<tr>
-<td style="color:#d7d700;">184=#d7d700</td>
-</tr> 
-<tr>
-<td style="color:#d7d75f;">185=#d7d75f</td>
-</tr> 
-<tr>
-<td style="color:#d7d787;">186=#d7d787</td>
-</tr> 
-<tr>
-<td style="color:#d7d7af;">187=#d7d7af</td>
-</tr> 
-<tr>
-<td style="color:#d7d7d7;">188=#d7d7d7</td>
-</tr> 
-<tr>
-<td style="color:#d7d7ff;">189=#d7d7ff</td>
-</tr> 
-<tr>
-<td style="color:#d7ff00;">190=#d7ff00</td>
-</tr> 
-<tr>
-<td style="color:#d7ff5f;">191=#d7ff5f</td>
-</tr> 
-<tr>
-<td style="color:#d7ff87;">192=#d7ff87</td>
-</tr> 
-<tr>
-<td style="color:#d7ffaf;">193=#d7ffaf</td>
-</tr> 
-<tr>
-<td style="color:#d7ffd7;">194=#d7ffd7</td>
-</tr> 
-<tr>
-<td style="color:#d7ffff;">195=#d7ffff</td>
-</tr> 
-<tr>
-<td style="color:#ff0000;">196=#ff0000</td>
-</tr> 
-<tr>
-<td style="color:#ff005f;">197=#ff005f</td>
-</tr> 
-<tr>
-<td style="color:#ff0087;">198=#ff0087</td>
-</tr> 
-<tr>
-<td style="color:#ff00af;">199=#ff00af</td>
-</tr> 
-<tr>
-<td style="color:#ff00d7;">200=#ff00d7</td>
-</tr> 
-<tr>
-<td style="color:#ff00ff;">201=#ff00ff</td>
-</tr> 
-<tr>
-<td style="color:#ff5f00;">202=#ff5f00</td>
-</tr> 
-<tr>
-<td style="color:#ff5f5f;">203=#ff5f5f</td>
-</tr> 
-<tr>
-<td style="color:#ff5f87;">204=#ff5f87</td>
-</tr> 
-<tr>
-<td style="color:#ff5faf;">205=#ff5faf</td>
-</tr> 
-<tr>
-<td style="color:#ff5fd7;">206=#ff5fd7</td>
-</tr> 
-<tr>
-<td style="color:#ff5fff;">207=#ff5fff</td>
-</tr> 
-<tr>
-<td style="color:#ff8700;">208=#ff8700</td>
-</tr> 
-<tr>
-<td style="color:#ff875f;">209=#ff875f</td>
-</tr> 
-<tr>
-<td style="color:#ff8787;">210=#ff8787</td>
-</tr> 
-<tr>
-<td style="color:#ff87af;">211=#ff87af</td>
-</tr> 
-<tr>
-<td style="color:#ff87d7;">212=#ff87d7</td>
-</tr> 
-<tr>
-<td style="color:#ff87ff;">213=#ff87ff</td>
-</tr> 
-<tr>
-<td style="color:#ffaf00;">214=#ffaf00</td>
-</tr> 
-<tr>
-<td style="color:#ffaf5f;">215=#ffaf5f</td>
-</tr> 
-<tr>
-<td style="color:#ffaf87;">216=#ffaf87</td>
-</tr> 
-<tr>
-<td style="color:#ffafaf;">217=#ffafaf</td>
-</tr> 
-<tr>
-<td style="color:#ffafd7;">218=#ffafd7</td>
-</tr> 
-<tr>
-<td style="color:#ffafff;">219=#ffafff</td>
-</tr> 
-<tr>
-<td style="color:#ffd700;">220=#ffd700</td>
-</tr> 
-<tr>
-<td style="color:#ffd75f;">221=#ffd75f</td>
-</tr> 
-<tr>
-<td style="color:#ffd787;">222=#ffd787</td>
-</tr> 
-<tr>
-<td style="color:#ffd7af;">223=#ffd7af</td>
-</tr> 
-<tr>
-<td style="color:#ffd7d7;">224=#ffd7d7</td>
-</tr> 
-<tr>
-<td style="color:#ffd7ff;">225=#ffd7ff</td>
-</tr> 
-<tr>
-<td style="color:#ffff00;">226=#ffff00</td>
-</tr> 
-<tr>
-<td style="color:#ffff5f;">227=#ffff5f</td>
-</tr> 
-<tr>
-<td style="color:#ffff87;">228=#ffff87</td>
-</tr> 
-<tr>
-<td style="color:#ffffaf;">229=#ffffaf</td>
-</tr> 
-<tr>
-<td style="color:#ffffd7;">230=#ffffd7</td>
-</tr> 
-<tr>
-<td style="color:#ffffff;">231=#ffffff</td>
-</tr> 
-<tr>
-<td style="color:#080808;">232=#080808</td>
-</tr> 
-<tr>
-<td style="color:#121212;">233=#121212</td>
-</tr> 
-<tr>
-<td style="color:#1c1c1c;">234=#1c1c1c</td>
-</tr> 
-<tr>
-<td style="color:#262626;">235=#262626</td>
-</tr> 
-<tr>
-<td style="color:#303030;">236=#303030</td>
-</tr> 
-<tr>
-<td style="color:#3a3a3a;">237=#3a3a3a</td>
-</tr> 
-<tr>
-<td style="color:#444444;">238=#444444</td>
-</tr> 
-<tr>
-<td style="color:#4e4e4e;">239=#4e4e4e</td>
-</tr> 
-<tr>
-<td style="color:#585858;">240=#585858</td>
-</tr> 
-<tr>
-<td style="color:#626262;">241=#626262</td>
-</tr> 
-<tr>
-<td style="color:#6c6c6c;">242=#6c6c6c</td>
-</tr> 
-<tr>
-<td style="color:#767676;">243=#767676</td>
-</tr> 
-<tr>
-<td style="color:#808080;">244=#808080</td>
-</tr> 
-<tr>
-<td style="color:#8a8a8a;">245=#8a8a8a</td>
-</tr> 
-<tr>
-<td style="color:#949494;">246=#949494</td>
-</tr> 
-<tr>
-<td style="color:#9e9e9e;">247=#9e9e9e</td>
-</tr> 
-<tr>
-<td style="color:#a8a8a8;">248=#a8a8a8</td>
-</tr> 
-<tr>
-<td style="color:#b2b2b2;">249=#b2b2b2</td>
-</tr> 
-<tr>
-<td style="color:#bcbcbc;">250=#bcbcbc</td>
-</tr> 
-<tr>
-<td style="color:#c6c6c6;">251=#c6c6c6</td>
-</tr> 
-<tr>
-<td style="color:#d0d0d0;">252=#d0d0d0</td>
-</tr> 
-<tr>
-<td style="color:#dadada;">253=#dadada</td>
-</tr> 
-<tr>
-<td style="color:#e4e4e4;">254=#e4e4e4</td>
-</tr> 
-<tr>
-<td style="color:#eeeeee;">255=#eeeeee</td>
-</tr> 
-</table> 
+- ![#c00000](https://placehold.it/15/c00000/000000?text=+) `1=#c00000`
+- ![#008000](https://placehold.it/15/008000/000000?text=+) `2=#008000`
+- ![#804000](https://placehold.it/15/804000/000000?text=+) `3=#804000`
+- ![#0000c0](https://placehold.it/15/0000c0/000000?text=+) `4=#0000c0`
+- ![#c000c0](https://placehold.it/15/c000c0/000000?text=+) `5=#c000c0`
+- ![#008080](https://placehold.it/15/008080/000000?text=+) `6=#008080`
+- ![#c0c0c0](https://placehold.it/15/c0c0c0/000000?text=+) `7=#c0c0c0`
+- ![#808080](https://placehold.it/15/808080/000000?text=+) `8=#808080`
+- ![#ff6060](https://placehold.it/15/ff6060/000000?text=+) `9=#ff6060`
+- ![#00ff00](https://placehold.it/15/00ff00/000000?text=+) `10=#00ff00`
+- ![#ffff00](https://placehold.it/15/ffff00/000000?text=+) `11=#ffff00`
+- ![#8080ff](https://placehold.it/15/8080ff/000000?text=+) `12=#8080ff`
+- ![#ff40ff](https://placehold.it/15/ff40ff/000000?text=+) `13=#ff40ff`
+- ![#00ffff](https://placehold.it/15/00ffff/000000?text=+) `14=#00ffff`
+- ![#00ffff](https://placehold.it/15/00ffff/000000?text=+) `15=#00ffff`
+- ![#000000](https://placehold.it/15/000000/000000?text=+) `16=#000000`
+- ![#00005f](https://placehold.it/15/00005f/000000?text=+) `17=#00005f`
+- ![#000087](https://placehold.it/15/000087/000000?text=+) `18=#000087`
+- ![#0000af](https://placehold.it/15/0000af/000000?text=+) `19=#0000af`
+- ![#0000d7](https://placehold.it/15/0000d7/000000?text=+) `20=#0000d7`
+- ![#0000ff](https://placehold.it/15/0000ff/000000?text=+) `21=#0000ff`
+- ![#005f00](https://placehold.it/15/005f00/000000?text=+) `22=#005f00`
+- ![#005f5f](https://placehold.it/15/005f5f/000000?text=+) `23=#005f5f`
+- ![#005f87](https://placehold.it/15/005f87/000000?text=+) `24=#005f87`
+- ![#005faf](https://placehold.it/15/005faf/000000?text=+) `25=#005faf`
+- ![#005fd7](https://placehold.it/15/005fd7/000000?text=+) `26=#005fd7`
+- ![#005fff](https://placehold.it/15/005fff/000000?text=+) `27=#005fff`
+- ![#008700](https://placehold.it/15/008700/000000?text=+) `28=#008700`
+- ![#00875f](https://placehold.it/15/00875f/000000?text=+) `29=#00875f`
+- ![#008787](https://placehold.it/15/008787/000000?text=+) `30=#008787`
+- ![#0087af](https://placehold.it/15/0087af/000000?text=+) `31=#0087af`
+- ![#0087d7](https://placehold.it/15/0087d7/000000?text=+) `32=#0087d7`
+- ![#0087ff](https://placehold.it/15/0087ff/000000?text=+) `33=#0087ff`
+- ![#00af00](https://placehold.it/15/00af00/000000?text=+) `34=#00af00`
+- ![#00af5f](https://placehold.it/15/00af5f/000000?text=+) `35=#00af5f`
+- ![#00af87](https://placehold.it/15/00af87/000000?text=+) `36=#00af87`
+- ![#00afaf](https://placehold.it/15/00afaf/000000?text=+) `37=#00afaf`
+- ![#00afd7](https://placehold.it/15/00afd7/000000?text=+) `38=#00afd7`
+- ![#00afff](https://placehold.it/15/00afff/000000?text=+) `39=#00afff`
+- ![#00d700](https://placehold.it/15/00d700/000000?text=+) `40=#00d700`
+- ![#00d75f](https://placehold.it/15/00d75f/000000?text=+) `41=#00d75f`
+- ![#00d787](https://placehold.it/15/00d787/000000?text=+) `42=#00d787`
+- ![#00d7af](https://placehold.it/15/00d7af/000000?text=+) `43=#00d7af`
+- ![#00d7d7](https://placehold.it/15/00d7d7/000000?text=+) `44=#00d7d7`
+- ![#00d7ff](https://placehold.it/15/00d7ff/000000?text=+) `45=#00d7ff`
+- ![#00ff00](https://placehold.it/15/00ff00/000000?text=+) `46=#00ff00`
+- ![#00ff5f](https://placehold.it/15/00ff5f/000000?text=+) `47=#00ff5f`
+- ![#00ff87](https://placehold.it/15/00ff87/000000?text=+) `48=#00ff87`
+- ![#00ffaf](https://placehold.it/15/00ffaf/000000?text=+) `49=#00ffaf`
+- ![#00ffd7](https://placehold.it/15/00ffd7/000000?text=+) `50=#00ffd7`
+- ![#00ffff](https://placehold.it/15/00ffff/000000?text=+) `51=#00ffff`
+- ![#5f0000](https://placehold.it/15/5f0000/000000?text=+) `52=#5f0000`
+- ![#5f005f](https://placehold.it/15/5f005f/000000?text=+) `53=#5f005f`
+- ![#5f0087](https://placehold.it/15/5f0087/000000?text=+) `54=#5f0087`
+- ![#5f00af](https://placehold.it/15/5f00af/000000?text=+) `55=#5f00af`
+- ![#5f00d7](https://placehold.it/15/5f00d7/000000?text=+) `56=#5f00d7`
+- ![#5f00ff](https://placehold.it/15/5f00ff/000000?text=+) `57=#5f00ff`
+- ![#5f5f00](https://placehold.it/15/5f5f00/000000?text=+) `58=#5f5f00`
+- ![#5f5f5f](https://placehold.it/15/5f5f5f/000000?text=+) `59=#5f5f5f`
+- ![#5f5f87](https://placehold.it/15/5f5f87/000000?text=+) `60=#5f5f87`
+- ![#5f5faf](https://placehold.it/15/5f5faf/000000?text=+) `61=#5f5faf`
+- ![#5f5fd7](https://placehold.it/15/5f5fd7/000000?text=+) `62=#5f5fd7`
+- ![#5f5fff](https://placehold.it/15/5f5fff/000000?text=+) `63=#5f5fff`
+- ![#5f8700](https://placehold.it/15/5f8700/000000?text=+) `64=#5f8700`
+- ![#5f875f](https://placehold.it/15/5f875f/000000?text=+) `65=#5f875f`
+- ![#5f8787](https://placehold.it/15/5f8787/000000?text=+) `66=#5f8787`
+- ![#5f87af](https://placehold.it/15/5f87af/000000?text=+) `67=#5f87af`
+- ![#5f87d7](https://placehold.it/15/5f87d7/000000?text=+) `68=#5f87d7`
+- ![#5f87ff](https://placehold.it/15/5f87ff/000000?text=+) `69=#5f87ff`
+- ![#5faf00](https://placehold.it/15/5faf00/000000?text=+) `70=#5faf00`
+- ![#5faf5f](https://placehold.it/15/5faf5f/000000?text=+) `71=#5faf5f`
+- ![#5faf87](https://placehold.it/15/5faf87/000000?text=+) `72=#5faf87`
+- ![#5fafaf](https://placehold.it/15/5fafaf/000000?text=+) `73=#5fafaf`
+- ![#5fafd7](https://placehold.it/15/5fafd7/000000?text=+) `74=#5fafd7`
+- ![#5fafff](https://placehold.it/15/5fafff/000000?text=+) `75=#5fafff`
+- ![#5fd700](https://placehold.it/15/5fd700/000000?text=+) `76=#5fd700`
+- ![#5fd75f](https://placehold.it/15/5fd75f/000000?text=+) `77=#5fd75f`
+- ![#5fd787](https://placehold.it/15/5fd787/000000?text=+) `78=#5fd787`
+- ![#5fd7af](https://placehold.it/15/5fd7af/000000?text=+) `79=#5fd7af`
+- ![#5fd7d7](https://placehold.it/15/5fd7d7/000000?text=+) `80=#5fd7d7`
+- ![#5fd7ff](https://placehold.it/15/5fd7ff/000000?text=+) `81=#5fd7ff`
+- ![#5fff00](https://placehold.it/15/5fff00/000000?text=+) `82=#5fff00`
+- ![#5fff5f](https://placehold.it/15/5fff5f/000000?text=+) `83=#5fff5f`
+- ![#5fff87](https://placehold.it/15/5fff87/000000?text=+) `84=#5fff87`
+- ![#5fffaf](https://placehold.it/15/5fffaf/000000?text=+) `85=#5fffaf`
+- ![#5fffd7](https://placehold.it/15/5fffd7/000000?text=+) `86=#5fffd7`
+- ![#5fffff](https://placehold.it/15/5fffff/000000?text=+) `87=#5fffff`
+- ![#870000](https://placehold.it/15/870000/000000?text=+) `88=#870000`
+- ![#87005f](https://placehold.it/15/87005f/000000?text=+) `89=#87005f`
+- ![#870087](https://placehold.it/15/870087/000000?text=+) `90=#870087`
+- ![#8700af](https://placehold.it/15/8700af/000000?text=+) `91=#8700af`
+- ![#8700d7](https://placehold.it/15/8700d7/000000?text=+) `92=#8700d7`
+- ![#8700ff](https://placehold.it/15/8700ff/000000?text=+) `93=#8700ff`
+- ![#875f00](https://placehold.it/15/875f00/000000?text=+) `94=#875f00`
+- ![#875f5f](https://placehold.it/15/875f5f/000000?text=+) `95=#875f5f`
+- ![#875f87](https://placehold.it/15/875f87/000000?text=+) `96=#875f87`
+- ![#875faf](https://placehold.it/15/875faf/000000?text=+) `97=#875faf`
+- ![#875fd7](https://placehold.it/15/875fd7/000000?text=+) `98=#875fd7`
+- ![#875fff](https://placehold.it/15/875fff/000000?text=+) `99=#875fff`
+- ![#878700](https://placehold.it/15/878700/000000?text=+) `100=#878700`
+- ![#87875f](https://placehold.it/15/87875f/000000?text=+) `101=#87875f`
+- ![#878787](https://placehold.it/15/878787/000000?text=+) `102=#878787`
+- ![#8787af](https://placehold.it/15/8787af/000000?text=+) `103=#8787af`
+- ![#8787d7](https://placehold.it/15/8787d7/000000?text=+) `104=#8787d7`
+- ![#8787ff](https://placehold.it/15/8787ff/000000?text=+) `105=#8787ff`
+- ![#87af00](https://placehold.it/15/87af00/000000?text=+) `106=#87af00`
+- ![#87af5f](https://placehold.it/15/87af5f/000000?text=+) `107=#87af5f`
+- ![#87af87](https://placehold.it/15/87af87/000000?text=+) `108=#87af87`
+- ![#87afaf](https://placehold.it/15/87afaf/000000?text=+) `109=#87afaf`
+- ![#87afd7](https://placehold.it/15/87afd7/000000?text=+) `110=#87afd7`
+- ![#87afff](https://placehold.it/15/87afff/000000?text=+) `111=#87afff`
+- ![#87d700](https://placehold.it/15/87d700/000000?text=+) `112=#87d700`
+- ![#87d75f](https://placehold.it/15/87d75f/000000?text=+) `113=#87d75f`
+- ![#87d787](https://placehold.it/15/87d787/000000?text=+) `114=#87d787`
+- ![#87d7af](https://placehold.it/15/87d7af/000000?text=+) `115=#87d7af`
+- ![#87d7d7](https://placehold.it/15/87d7d7/000000?text=+) `116=#87d7d7`
+- ![#87d7ff](https://placehold.it/15/87d7ff/000000?text=+) `117=#87d7ff`
+- ![#87ff00](https://placehold.it/15/87ff00/000000?text=+) `118=#87ff00`
+- ![#87ff5f](https://placehold.it/15/87ff5f/000000?text=+) `119=#87ff5f`
+- ![#87ff87](https://placehold.it/15/87ff87/000000?text=+) `120=#87ff87`
+- ![#87ffaf](https://placehold.it/15/87ffaf/000000?text=+) `121=#87ffaf`
+- ![#87ffd7](https://placehold.it/15/87ffd7/000000?text=+) `122=#87ffd7`
+- ![#87ffff](https://placehold.it/15/87ffff/000000?text=+) `123=#87ffff`
+- ![#af0000](https://placehold.it/15/af0000/000000?text=+) `124=#af0000`
+- ![#af005f](https://placehold.it/15/af005f/000000?text=+) `125=#af005f`
+- ![#af0087](https://placehold.it/15/af0087/000000?text=+) `126=#af0087`
+- ![#af00af](https://placehold.it/15/af00af/000000?text=+) `127=#af00af`
+- ![#af00d7](https://placehold.it/15/af00d7/000000?text=+) `128=#af00d7`
+- ![#af00ff](https://placehold.it/15/af00ff/000000?text=+) `129=#af00ff`
+- ![#af5f00](https://placehold.it/15/af5f00/000000?text=+) `130=#af5f00`
+- ![#af5f5f](https://placehold.it/15/af5f5f/000000?text=+) `131=#af5f5f`
+- ![#af5f87](https://placehold.it/15/af5f87/000000?text=+) `132=#af5f87`
+- ![#af5faf](https://placehold.it/15/af5faf/000000?text=+) `133=#af5faf`
+- ![#af5fd7](https://placehold.it/15/af5fd7/000000?text=+) `134=#af5fd7`
+- ![#af5fff](https://placehold.it/15/af5fff/000000?text=+) `135=#af5fff`
+- ![#af8700](https://placehold.it/15/af8700/000000?text=+) `136=#af8700`
+- ![#af875f](https://placehold.it/15/af875f/000000?text=+) `137=#af875f`
+- ![#af8787](https://placehold.it/15/af8787/000000?text=+) `138=#af8787`
+- ![#af87af](https://placehold.it/15/af87af/000000?text=+) `139=#af87af`
+- ![#af87d7](https://placehold.it/15/af87d7/000000?text=+) `140=#af87d7`
+- ![#af87ff](https://placehold.it/15/af87ff/000000?text=+) `141=#af87ff`
+- ![#afaf00](https://placehold.it/15/afaf00/000000?text=+) `142=#afaf00`
+- ![#afaf5f](https://placehold.it/15/afaf5f/000000?text=+) `143=#afaf5f`
+- ![#afaf87](https://placehold.it/15/afaf87/000000?text=+) `144=#afaf87`
+- ![#afafaf](https://placehold.it/15/afafaf/000000?text=+) `145=#afafaf`
+- ![#afafd7](https://placehold.it/15/afafd7/000000?text=+) `146=#afafd7`
+- ![#afafff](https://placehold.it/15/afafff/000000?text=+) `147=#afafff`
+- ![#afd700](https://placehold.it/15/afd700/000000?text=+) `148=#afd700`
+- ![#afd75f](https://placehold.it/15/afd75f/000000?text=+) `149=#afd75f`
+- ![#afd787](https://placehold.it/15/afd787/000000?text=+) `150=#afd787`
+- ![#afd7af](https://placehold.it/15/afd7af/000000?text=+) `151=#afd7af`
+- ![#afd7d7](https://placehold.it/15/afd7d7/000000?text=+) `152=#afd7d7`
+- ![#afd7ff](https://placehold.it/15/afd7ff/000000?text=+) `153=#afd7ff`
+- ![#afff00](https://placehold.it/15/afff00/000000?text=+) `154=#afff00`
+- ![#afff5f](https://placehold.it/15/afff5f/000000?text=+) `155=#afff5f`
+- ![#afff87](https://placehold.it/15/afff87/000000?text=+) `156=#afff87`
+- ![#afffaf](https://placehold.it/15/afffaf/000000?text=+) `157=#afffaf`
+- ![#afffd7](https://placehold.it/15/afffd7/000000?text=+) `158=#afffd7`
+- ![#afffff](https://placehold.it/15/afffff/000000?text=+) `159=#afffff`
+- ![#d70000](https://placehold.it/15/d70000/000000?text=+) `160=#d70000`
+- ![#d7005f](https://placehold.it/15/d7005f/000000?text=+) `161=#d7005f`
+- ![#d70087](https://placehold.it/15/d70087/000000?text=+) `162=#d70087`
+- ![#d700af](https://placehold.it/15/d700af/000000?text=+) `163=#d700af`
+- ![#d700d7](https://placehold.it/15/d700d7/000000?text=+) `164=#d700d7`
+- ![#d700ff](https://placehold.it/15/d700ff/000000?text=+) `165=#d700ff`
+- ![#d75f00](https://placehold.it/15/d75f00/000000?text=+) `166=#d75f00`
+- ![#d75f5f](https://placehold.it/15/d75f5f/000000?text=+) `167=#d75f5f`
+- ![#d75f87](https://placehold.it/15/d75f87/000000?text=+) `168=#d75f87`
+- ![#d75faf](https://placehold.it/15/d75faf/000000?text=+) `169=#d75faf`
+- ![#d75fd7](https://placehold.it/15/d75fd7/000000?text=+) `170=#d75fd7`
+- ![#d75fff](https://placehold.it/15/d75fff/000000?text=+) `171=#d75fff`
+- ![#d78700](https://placehold.it/15/d78700/000000?text=+) `172=#d78700`
+- ![#d7875f](https://placehold.it/15/d7875f/000000?text=+) `173=#d7875f`
+- ![#d78787](https://placehold.it/15/d78787/000000?text=+) `174=#d78787`
+- ![#d787af](https://placehold.it/15/d787af/000000?text=+) `175=#d787af`
+- ![#d787d7](https://placehold.it/15/d787d7/000000?text=+) `176=#d787d7`
+- ![#d787ff](https://placehold.it/15/d787ff/000000?text=+) `177=#d787ff`
+- ![#d7af00](https://placehold.it/15/d7af00/000000?text=+) `178=#d7af00`
+- ![#d7af5f](https://placehold.it/15/d7af5f/000000?text=+) `179=#d7af5f`
+- ![#d7af87](https://placehold.it/15/d7af87/000000?text=+) `180=#d7af87`
+- ![#d7afaf](https://placehold.it/15/d7afaf/000000?text=+) `181=#d7afaf`
+- ![#d7afd7](https://placehold.it/15/d7afd7/000000?text=+) `182=#d7afd7`
+- ![#d7afff](https://placehold.it/15/d7afff/000000?text=+) `183=#d7afff`
+- ![#d7d700](https://placehold.it/15/d7d700/000000?text=+) `184=#d7d700`
+- ![#d7d75f](https://placehold.it/15/d7d75f/000000?text=+) `185=#d7d75f`
+- ![#d7d787](https://placehold.it/15/d7d787/000000?text=+) `186=#d7d787`
+- ![#d7d7af](https://placehold.it/15/d7d7af/000000?text=+) `187=#d7d7af`
+- ![#d7d7d7](https://placehold.it/15/d7d7d7/000000?text=+) `188=#d7d7d7`
+- ![#d7d7ff](https://placehold.it/15/d7d7ff/000000?text=+) `189=#d7d7ff`
+- ![#d7ff00](https://placehold.it/15/d7ff00/000000?text=+) `190=#d7ff00`
+- ![#d7ff5f](https://placehold.it/15/d7ff5f/000000?text=+) `191=#d7ff5f`
+- ![#d7ff87](https://placehold.it/15/d7ff87/000000?text=+) `192=#d7ff87`
+- ![#d7ffaf](https://placehold.it/15/d7ffaf/000000?text=+) `193=#d7ffaf`
+- ![#d7ffd7](https://placehold.it/15/d7ffd7/000000?text=+) `194=#d7ffd7`
+- ![#d7ffff](https://placehold.it/15/d7ffff/000000?text=+) `195=#d7ffff`
+- ![#ff0000](https://placehold.it/15/ff0000/000000?text=+) `196=#ff0000`
+- ![#ff005f](https://placehold.it/15/ff005f/000000?text=+) `197=#ff005f`
+- ![#ff0087](https://placehold.it/15/ff0087/000000?text=+) `198=#ff0087`
+- ![#ff00af](https://placehold.it/15/ff00af/000000?text=+) `199=#ff00af`
+- ![#ff00d7](https://placehold.it/15/ff00d7/000000?text=+) `200=#ff00d7`
+- ![#ff00ff](https://placehold.it/15/ff00ff/000000?text=+) `201=#ff00ff`
+- ![#ff5f00](https://placehold.it/15/ff5f00/000000?text=+) `202=#ff5f00`
+- ![#ff5f5f](https://placehold.it/15/ff5f5f/000000?text=+) `203=#ff5f5f`
+- ![#ff5f87](https://placehold.it/15/ff5f87/000000?text=+) `204=#ff5f87`
+- ![#ff5faf](https://placehold.it/15/ff5faf/000000?text=+) `205=#ff5faf`
+- ![#ff5fd7](https://placehold.it/15/ff5fd7/000000?text=+) `206=#ff5fd7`
+- ![#ff5fff](https://placehold.it/15/ff5fff/000000?text=+) `207=#ff5fff`
+- ![#ff8700](https://placehold.it/15/ff8700/000000?text=+) `208=#ff8700`
+- ![#ff875f](https://placehold.it/15/ff875f/000000?text=+) `209=#ff875f`
+- ![#ff8787](https://placehold.it/15/ff8787/000000?text=+) `210=#ff8787`
+- ![#ff87af](https://placehold.it/15/ff87af/000000?text=+) `211=#ff87af`
+- ![#ff87d7](https://placehold.it/15/ff87d7/000000?text=+) `212=#ff87d7`
+- ![#ff87ff](https://placehold.it/15/ff87ff/000000?text=+) `213=#ff87ff`
+- ![#ffaf00](https://placehold.it/15/ffaf00/000000?text=+) `214=#ffaf00`
+- ![#ffaf5f](https://placehold.it/15/ffaf5f/000000?text=+) `215=#ffaf5f`
+- ![#ffaf87](https://placehold.it/15/ffaf87/000000?text=+) `216=#ffaf87`
+- ![#ffafaf](https://placehold.it/15/ffafaf/000000?text=+) `217=#ffafaf`
+- ![#ffafd7](https://placehold.it/15/ffafd7/000000?text=+) `218=#ffafd7`
+- ![#ffafff](https://placehold.it/15/ffafff/000000?text=+) `219=#ffafff`
+- ![#ffd700](https://placehold.it/15/ffd700/000000?text=+) `220=#ffd700`
+- ![#ffd75f](https://placehold.it/15/ffd75f/000000?text=+) `221=#ffd75f`
+- ![#ffd787](https://placehold.it/15/ffd787/000000?text=+) `222=#ffd787`
+- ![#ffd7af](https://placehold.it/15/ffd7af/000000?text=+) `223=#ffd7af`
+- ![#ffd7d7](https://placehold.it/15/ffd7d7/000000?text=+) `224=#ffd7d7`
+- ![#ffd7ff](https://placehold.it/15/ffd7ff/000000?text=+) `225=#ffd7ff`
+- ![#ffff00](https://placehold.it/15/ffff00/000000?text=+) `226=#ffff00`
+- ![#ffff5f](https://placehold.it/15/ffff5f/000000?text=+) `227=#ffff5f`
+- ![#ffff87](https://placehold.it/15/ffff87/000000?text=+) `228=#ffff87`
+- ![#ffffaf](https://placehold.it/15/ffffaf/000000?text=+) `229=#ffffaf`
+- ![#ffffd7](https://placehold.it/15/ffffd7/000000?text=+) `230=#ffffd7`
+- ![#ffffff](https://placehold.it/15/ffffff/000000?text=+) `231=#ffffff`
+- ![#080808](https://placehold.it/15/080808/000000?text=+) `232=#080808`
+- ![#121212](https://placehold.it/15/121212/000000?text=+) `233=#121212`
+- ![#1c1c1c](https://placehold.it/15/1c1c1c/000000?text=+) `234=#1c1c1c`
+- ![#262626](https://placehold.it/15/262626/000000?text=+) `235=#262626`
+- ![#303030](https://placehold.it/15/303030/000000?text=+) `236=#303030`
+- ![#3a3a3a](https://placehold.it/15/3a3a3a/000000?text=+) `237=#3a3a3a`
+- ![#444444](https://placehold.it/15/444444/000000?text=+) `238=#444444`
+- ![#4e4e4e](https://placehold.it/15/4e4e4e/000000?text=+) `239=#4e4e4e`
+- ![#585858](https://placehold.it/15/585858/000000?text=+) `240=#585858`
+- ![#626262](https://placehold.it/15/626262/000000?text=+) `241=#626262`
+- ![#6c6c6c](https://placehold.it/15/6c6c6c/000000?text=+) `242=#6c6c6c`
+- ![#767676](https://placehold.it/15/767676/000000?text=+) `243=#767676`
+- ![#808080](https://placehold.it/15/808080/000000?text=+) `244=#808080`
+- ![#8a8a8a](https://placehold.it/15/8a8a8a/000000?text=+) `245=#8a8a8a`
+- ![#949494](https://placehold.it/15/949494/000000?text=+) `246=#949494`
+- ![#9e9e9e](https://placehold.it/15/9e9e9e/000000?text=+) `247=#9e9e9e`
+- ![#a8a8a8](https://placehold.it/15/a8a8a8/000000?text=+) `248=#a8a8a8`
+- ![#b2b2b2](https://placehold.it/15/b2b2b2/000000?text=+) `249=#b2b2b2`
+- ![#bcbcbc](https://placehold.it/15/bcbcbc/000000?text=+) `250=#bcbcbc`
+- ![#c6c6c6](https://placehold.it/15/c6c6c6/000000?text=+) `251=#c6c6c6`
+- ![#d0d0d0](https://placehold.it/15/d0d0d0/000000?text=+) `252=#d0d0d0`
+- ![#dadada](https://placehold.it/15/dadada/000000?text=+) `253=#dadada`
+- ![#e4e4e4](https://placehold.it/15/e4e4e4/000000?text=+) `254=#e4e4e4`
+- ![#eeeeee](https://placehold.it/15/eeeeee/000000?text=+) `255=#eeeeee`
