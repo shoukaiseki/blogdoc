@@ -1,7 +1,7 @@
 # vim 終端配色
 
 讓vim支持256色
-```
+```Vim
 set t_Co=256
 "經查看molokai配色,只檢查t_Co是否大於256,所以與固執多少值無關,只要大於256就行
 
@@ -264,6 +264,8 @@ VIM 終端256色配色,256種顏色
 - ![#e4e4e4](https://placehold.it/15/e4e4e4/000000?text=+) `254=#e4e4e4`
 - ![#eeeeee](https://placehold.it/15/eeeeee/000000?text=+) `255=#eeeeee`
 
+
+## 颜色代码
 ```
 - ![#c00000](https://placehold.it/15/c00000/000000?text=+) `1=#c00000`
 - ![#008000](https://placehold.it/15/008000/000000?text=+) `2=#008000`
