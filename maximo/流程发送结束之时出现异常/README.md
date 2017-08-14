@@ -18,6 +18,7 @@ select * from Maxrelationship where lower(Whereclause ) like '%:processname%' an
 
 <br />
 然后用oracle sql developer 执行 select * from WFCALLSTACK  where wfid = 5123;  找到了相关的 PROCESSNAME='KAIZENITEM' 的记录
+
 ![image](https://raw.githubusercontent.com/shoukaiseki/blogdoc/master/maximo/%E6%B5%81%E7%A8%8B%E5%8F%91%E9%80%81%E7%BB%93%E6%9D%9F%E4%B9%8B%E6%97%B6%E5%87%BA%E7%8E%B0%E5%BC%82%E5%B8%B8/img/001.png)
  
 最后问题找到了,之前导的库,没清理流程历史造成的
