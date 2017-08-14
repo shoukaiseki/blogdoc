@@ -1,9 +1,11 @@
 # MAXIMO客户机与服务器不同语言环境导致数据库配置保存错误  
 
 检查你要保存的表属性中 DEFAULTVALUE( 缺省值)的值是否有存在 &DATETIME& 之类的,因为不同语言环境只检查以下设置
-<br />
+
+```
 &AUTOKEY& &SYSDATE& &USERNAME& &APPNAME& &MBONAME& &OWNERNAME& &PERSONID& &SEQUENCE& 
-<br />
+```
+
 除此之外的不同语言环境下就会出现保存错误
 
 
