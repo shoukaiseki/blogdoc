@@ -8,7 +8,7 @@ SITEID,PONUM,REVISIONNUM。 您可能需要填充
 ```
 
 
-执行一下语句即可
+执行以下语句即可
 
 ```Sql
 INSERT INTO MAXLOOKUPMAP	
