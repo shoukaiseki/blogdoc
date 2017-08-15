@@ -4,7 +4,7 @@
 <br />
 1  --user-data-dir="[PATH]"            指定用户文件夹User Data路径，可以把书签这样的用户数据保存在系统分区以外的分区。
 <br />
-2  --disk-cache-dir="[PATH]"           指定缓存Cache路径           
+2  --disk-cache-dir="[PATH]"           指定缓存Cache路径
 <br />
 3  --disk-cache-size=                  指定Cache大小，单位Byte
 <br />
