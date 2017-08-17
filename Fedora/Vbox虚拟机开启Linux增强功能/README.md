@@ -15,6 +15,7 @@
 回到正题,在Linux下得装两个桌面系统,而在win下的话在virtualbox虚拟的话只需要把Linux改成字符界面就可以了,可以在此装Oracle,web服务器,还能随时关闭服务,开户服务,只需几个命令就搞定了,很方便非常适合我.
 <br>
 Virtualbox增强工具需要dkms与gcc才能全部成功安装完成,如果某项安装失败,可能执行下面这句安装所有编译需要的包吧,
+
 ```Shell
 yum -y install kernel gcc make kernel-headers kernel-devel  dkms 
 ```
