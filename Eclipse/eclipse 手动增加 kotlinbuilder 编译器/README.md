@@ -1,0 +1,60 @@
+# eclipse 手动增加 kotlinbuilder 编译器  
+
+在项目的 .project 按照以下代码增加
+```Xml
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>dunanjfinal</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.jetbrains.kotlin.ui.kotlinBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+		<nature>org.jetbrains.kotlin.core.kotlinNature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>classes</name>
+			<type>2</type>
+			<location>/media/backup/WIN10_SVN/dunanjfinal/WebContent/WEB-INF/classes</location>
+		</link>
+		<link>
+			<name>ktsrc</name>
+			<type>2</type>
+			<location>/media/backup/WIN10_SVN/dunanjfinal/ktsrc</location>
+		</link>
+		<link>
+			<name>resources</name>
+			<type>2</type>
+			<location>/media/backup/WIN10_SVN/dunanjfinal/resources</location>
+		</link>
+		<link>
+			<name>src</name>
+			<type>2</type>
+			<location>/media/backup/WIN10_SVN/dunanjfinal/src</location>
+		</link>
+		<link>
+			<name>testsrc</name>
+			<type>2</type>
+			<location>/media/backup/WIN10_SVN/dunanjfinal/testsrc</location>
+		</link>
+		<link>
+			<name>testwebsrc</name>
+			<type>2</type>
+			<location>/media/backup/WIN10_SVN/dunanjfinal/testwebsrc</location>
+		</link>
+	</linkedResources>
+</projectDescription>
+```
