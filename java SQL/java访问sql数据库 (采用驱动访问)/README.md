@@ -1,23 +1,16 @@
 # java访问sql数据库 (采用驱动访问)  
 
-1.安装microsoft SQL Server2000 开发版 SQLServer20004in1cn.iso 下载地址http://115.com/file/cljh65o1#
-<br>
+### 1.安装microsoft SQL Server2000 开发版 SQLServer20004in1cn.iso 下载地址http://115.com/file/cljh65o1#
    安装过程请查看SQL_Server_2000安装图解说明.doc 下载地址http://115.com/file/dn3zsxpk#
 <br>
    安装过程中的sa密码建议设置为空,当然也可设置自己想要的密码
-<br>
-2.安装SQL SP4补丁SQL2000.MSDE-KB884525-SP4-x86-CHS.exe 下载地址http://115.com/file/e6enx9hs#
-<br>
+### 2.安装SQL SP4补丁SQL2000.MSDE-KB884525-SP4-x86-CHS.exe 下载地址http://115.com/file/e6enx9hs#
    安装过程跟第一步一样,只是密码设置要安装第一步设置的密码,如果第一步密码为空这次也为空
-<br>
-3.安装java访问sql驱动sqlserver2000jdbcsericepack3.exe 下载地址http://115.com/file/cljh6eu2#
-<br>
+### 3.安装java访问sql驱动sqlserver2000jdbcsericepack3.exe 下载地址http://115.com/file/cljh6eu2#
    安装后的目录为C:\Program Files\Microsoft SQL Server 2000 Driver for JDBC\lib
 <br>
    可查看Java连接SQL_Server_2000.pdf 下载地址http://115.com/file/e6enxnma#
-<br>
-4.开始->程序->Microsoft SQL Server->企业管理器--->Microsoft SQL server->SQL server组->local->右键点击数据库
-<br>
+### 4.开始->程序->Microsoft SQL Server->企业管理器--->Microsoft SQL server->SQL server组->local->右键点击数据库
    ->新建数据库mydata->mydata->右键点击表->
 <br>
 新建表java访问sql数据库 (采用驱动访问) 
