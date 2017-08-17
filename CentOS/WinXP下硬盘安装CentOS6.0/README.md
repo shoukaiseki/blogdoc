@@ -94,19 +94,19 @@ http://115.com/file/e6a06vcz#
 
 打开Ext2 Volume Manager
 
-WinXP下硬盘安装CentOS6.0 - Linux Fedora 15 - 蒋カイセキ的博客
+![image](https://raw.githubusercontent.com/shoukaiseki/blogdoc/master/CentOS/WinXP%E4%B8%8B%E7%A1%AC%E7%9B%98%E5%AE%89%E8%A3%85CentOS6.0/img/001.jpg)
  
 右键点击刚刚格式化的分区-à配置文件系统
 
-WinXP下硬盘安装CentOS6.0 - Linux Fedora 15 - 蒋カイセキ的博客
+![image](https://raw.githubusercontent.com/shoukaiseki/blogdoc/master/CentOS/WinXP%E4%B8%8B%E7%A1%AC%E7%9B%98%E5%AE%89%E8%A3%85CentOS6.0/img/002.png)
  
 右键点击刚刚格式化的分区-à配置ext2卷属性
 
-WinXP下硬盘安装CentOS6.0 - Linux Fedora 15 - 蒋カイセキ的博客
+![image](https://raw.githubusercontent.com/shoukaiseki/blogdoc/master/CentOS/WinXP%E4%B8%8B%E7%A1%AC%E7%9B%98%E5%AE%89%E8%A3%85CentOS6.0/img/003.png)
  
 右键点击刚刚格式化的分区-à更改分区类型
 
-WinXP下硬盘安装CentOS6.0 - Linux Fedora 15 - 蒋カイセキ的博客
+![image](https://raw.githubusercontent.com/shoukaiseki/blogdoc/master/CentOS/WinXP%E4%B8%8B%E7%A1%AC%E7%9B%98%E5%AE%89%E8%A3%85CentOS6.0/img/004.png)
  
 大功告成,打开K盘,复制CentOS-6.0-i386-bin-DVD.iso到K盘根目录,注意不要改文件名
 
