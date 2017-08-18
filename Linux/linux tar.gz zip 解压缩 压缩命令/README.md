@@ -69,6 +69,7 @@ unzip file.zip //解压zip
 ```
 
 总结 
+<br />
 1、*.tar 用 tar –xvf 解压 
 <br>
 2、*.gz 用 gzip -d或者gunzip 解压 
