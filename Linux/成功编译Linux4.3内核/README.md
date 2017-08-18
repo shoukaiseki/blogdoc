@@ -45,7 +45,7 @@ cd /tmp
 
 ,然后自己需要调整内核功能自己选择,最后调到EXIT处回车,提示退出保存
 
- 选择YES回车即可报错配置
+ 选择YES回车即可保存配置
 
 ![image](https://raw.githubusercontent.com/shoukaiseki/blogdoc/master/Linux/%E6%88%90%E5%8A%9F%E7%BC%96%E8%AF%91Linux4.3%E5%86%85%E6%A0%B8/img/003.png)
  
