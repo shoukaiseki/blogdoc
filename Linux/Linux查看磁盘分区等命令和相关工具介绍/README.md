@@ -1,7 +1,7 @@
 # Linux查看磁盘分区等命令和相关工具介绍
 
-```Shell
 转自http://linux.chinaitlab.com/set/39411.html
+```Shell
 一、df 命令；
     df 是来自于coreutils 软件包，系统安装时，就自带的；我们通过这个命令可以查看磁盘的使用情况以及文件系统被挂载的位置；
     举例：
