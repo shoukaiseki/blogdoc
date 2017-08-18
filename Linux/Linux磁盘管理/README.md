@@ -1,14 +1,6 @@
-# 博客转移为markdown语法
+# Linux磁盘管理  
 
-```Java
-public static void main(String[] age){
-   System.out.println("Hello world");
-}
+```Shell
+tune2fs -L linux /dev/sda12  设置分区sda12的卷标名为linux
+fdisk -l 查看磁盘分区
 ```
-
-## 目录1
-- ![#c00000](https://placehold.it/15/c00000/000000?text=+) `1=#c00000`
-
-## 目录2
-
-![image](https://raw.githubusercontent.com/shoukaiseki/blogdoc/master/websphere/websphere/websphere LDAP 验证缓存超时设置/img/001.png)
