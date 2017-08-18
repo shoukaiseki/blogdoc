@@ -17,6 +17,7 @@ cd /tmp
 sh NVIDIA-Linux-x86-290.10.run
 ```
 按照提示安装,正确后会出现下图
+
 ![image](https://raw.githubusercontent.com/shoukaiseki/blogdoc/master/Linux/Linux%E5%AE%89%E8%A3%85%E4%B8%8E%E5%8D%B8%E8%BD%BDNVIDIA%E9%A9%B1%E5%8A%A8/img/001.jpg)
  
 
