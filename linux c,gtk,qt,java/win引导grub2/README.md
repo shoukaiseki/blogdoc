@@ -1,6 +1,6 @@
 # win引导grub2  
 
-```grub
+```Grub
 timeout 5
 # 设置动画图形菜单文件
 gfxmenu (hd0,0)/boot/grub/grub_chs.msg
