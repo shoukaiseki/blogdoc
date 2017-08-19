@@ -1,0 +1,25 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=gbk">
+<title>蒋カイセキ 的博客</title>
+<style type="text/css">
+.blogcnt{line-height:160%;font-size:14px;text-align:left;word-wrap:break-word;}
+.blogcnt *{line-height:160%;}
+.blogcnt p{margin:0 0 10px;}
+.blogcnt ul,.nbw-blog ol{margin:5px 0 5px 40px;padding:0}
+.blogcnt em{font-style:italic;}
+.blogcnt blockquote{font-size:1em;margin:auto 0 auto 35px;}
+.blogcnt img{border:0;max-width:100%;}
+</style>
+</head>
+<body style="color:#444444;">
+<h1 id="blog-Title"><a href="index.html">蒋カイセキ 的博客</a></h1>
+<div id="" style="padding:0 20px;">
+	<h2 id="">判断一个素数能被几个9整除</h2>
+	<h5 id="">2011-08-20 16:25:58&nbsp;&nbsp;&nbsp;<a href="http://blog.163.com/shoukaiseki/blog/static/192856149201172042235355/" target="_blank">查看原文&gt;&gt;</a></h5>
+	<div class="" id="" style="padding:0 20px;">
+		<div class="blogcnt" style="width:800px;"><div><div><div><span style="font-family: 'AR PL UKai CN'; line-height: normal; font-size: medium;"  ><div style="background-color: rgb(255, 255, 255); font-size: 14px; font-family: Arial, 宋体; margin-top: 10px; margin-right: 10px; margin-bottom: 10px; margin-left: 10px; cursor: text; line-height: 1.8; word-wrap: break-word;"  ><p style="margin-top: 0.5em; margin-bottom: 0.5em;"  ></p><p style="margin-top: 0.5em; margin-bottom: 0.5em;"  >/*</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;"  ><span style="font-size: 14px; font-family: Arial, 宋体;"  >很多论坛讨论"判断一个素数能被几个9整除"</span></p><p style="margin-top: 0.5em; margin-bottom: 0.5em;"  ></p><div>应该是2能被9+9整除,3能被9整除,5能被9+9+9+9+9整除</div><div>不过这样太没意思了,一个数如果是N,肯定能被N个9加起来整除的</div><div>如果是9+10*9+10^2*9+10^3*9.........10^n*9的话也不可能,至少2和5不能被个位是9的数整除</div><p></p><p style="margin-top: 0.5em; margin-bottom: 0.5em;"  >我记录下算法,执行结果不如任意,算法可贵阿</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;"  >*/</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;"  >#include&lt;stdio.h&gt;</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;"  >main()</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;"  ><br></p><p style="margin-top: 0.5em; margin-bottom: 0.5em;"  >{</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;"  >&nbsp; &nbsp; &nbsp;int i,n=1;</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;"  ><span style="white-space: pre;"  ></span>unsigned long int sum=9;</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;"  ><span style="white-space: pre;"  ></span>printf("Please enter a prime number:i= ");</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;"  ><span style="white-space: pre;"  ></span>scanf("%d",&amp;i);</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;"  ><span style="white-space: pre;"  ></span>while(sum%i!=0)</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;"  ><span style="white-space: pre;"  ></span>{</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;"  ><span style="white-space: pre;"  ></span>sum=sum*10+9;</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;"  ><span style="white-space: pre;"  ></span>n++;</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;"  ><span style="white-space: pre;"  ></span>}</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;"  ><span style="white-space: pre;"  ></span>printf("%lu%%%d=0\n%lu has %d 9",sum,i,sum,n);</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;"  ><span style="white-space: pre;"  ></span>printf("\nGood bye!\nPress any key to off exit!\n");</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;"  ><span style="white-space: pre;"  ></span>return 0;</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;"  >}</p><div><br></div><p></p></div></span></div></div></div><wbr></div>
+	</div>
+</div>
+</body>
+</html>

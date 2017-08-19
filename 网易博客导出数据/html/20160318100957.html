@@ -1,0 +1,25 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=gbk">
+<title>蒋カイセキ 的博客</title>
+<style type="text/css">
+.blogcnt{line-height:160%;font-size:14px;text-align:left;word-wrap:break-word;}
+.blogcnt *{line-height:160%;}
+.blogcnt p{margin:0 0 10px;}
+.blogcnt ul,.nbw-blog ol{margin:5px 0 5px 40px;padding:0}
+.blogcnt em{font-style:italic;}
+.blogcnt blockquote{font-size:1em;margin:auto 0 auto 35px;}
+.blogcnt img{border:0;max-width:100%;}
+</style>
+</head>
+<body style="color:#444444;">
+<h1 id="blog-Title"><a href="index.html">蒋カイセキ 的博客</a></h1>
+<div id="" style="padding:0 20px;">
+	<h2 id="">OCT服务器常用命令</h2>
+	<h5 id="">2016-03-18 10:09:57&nbsp;&nbsp;&nbsp;<a href="http://blog.163.com/shoukaiseki/blog/static/192856149201621810957681/" target="_blank">查看原文&gt;&gt;</a></h5>
+	<div class="" id="" style="padding:0 20px;">
+		<div class="blogcnt" style="width:800px;"><pre class="prettyprint"   ><p>启动 vnc 服务  <br>vncserver :1<br><br>启动IBM Http 服务<br>/opt/IBM/HTTPServer/bin/apachectl start<br></p><div><br></div></pre><div><br></div><div>maximo.ear 路径</div><div>/opt/IBM/WebSphere/AppServer1/profiles/AppSrv01/installedApps/EAMPRDAPPCell01/MAXIMO.ear</div><div><br></div><wbr><div>修改web.xml还需要更新至该目录</div><div>/opt/IBM/WebSphere/AppServer1/profiles/AppSrv01/config/cells/EAMPRDAPPCell01/applications/MAXIMO.ear/deployments/MAXIMO/maximouiweb.war/WEB-INF/web.xml</div><div><br></div><div><br></div><div><br></div><div><br></div><div><div>正式库112.123 ant svn自动更新使用说明</div><div>在终端有3个命令进行管理</div><div>maximo_build_class &nbsp;下载svn下的src源码之后进行javac编译，编译之后自动将*Set.class的类文件进行rmic创建sub接口类，最后会将class类文件复制到maximo.ear所在目录</div><div>maximo_checkout_lib &nbsp;检出svn下的lib包目录文件，是编译所需的所有jar，如果有新增jar包，则需要提交到svn之后执行该命令，如果无心中jar，则无需执行该命令</div><div>maximo_cleanBuild &nbsp;清空所有检出的svn文件以及class，基本无需执行，但是执行之后需要先执行 maximo_checkout_lib 才能执行 maximo_build_class</div></div></div>
+	</div>
+</div>
+</body>
+</html>

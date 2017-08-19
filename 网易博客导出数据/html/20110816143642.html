@@ -1,0 +1,25 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=gbk">
+<title>蒋カイセキ 的博客</title>
+<style type="text/css">
+.blogcnt{line-height:160%;font-size:14px;text-align:left;word-wrap:break-word;}
+.blogcnt *{line-height:160%;}
+.blogcnt p{margin:0 0 10px;}
+.blogcnt ul,.nbw-blog ol{margin:5px 0 5px 40px;padding:0}
+.blogcnt em{font-style:italic;}
+.blogcnt blockquote{font-size:1em;margin:auto 0 auto 35px;}
+.blogcnt img{border:0;max-width:100%;}
+</style>
+</head>
+<body style="color:#444444;">
+<h1 id="blog-Title"><a href="index.html">蒋カイセキ 的博客</a></h1>
+<div id="" style="padding:0 20px;">
+	<h2 id="">i++与++i</h2>
+	<h5 id="">2011-08-16 14:36:42&nbsp;&nbsp;&nbsp;<a href="http://blog.163.com/shoukaiseki/blog/static/192856149201171623642220/" target="_blank">查看原文&gt;&gt;</a></h5>
+	<div class="" id="" style="padding:0 20px;">
+		<div class="blogcnt" style="width:800px;"><span style="font-family: 'AR PL UKai CN'; line-height: normal; font-size: medium;"><div style="background-color: rgb(255, 255, 255); font-size: 14px; font-family: Arial, 宋体; margin-top: 10px; margin-right: 10px; margin-bottom: 10px; margin-left: 10px; cursor: text; line-height: 1.8; word-wrap: break-word;"><p style="margin-top: 0.5em; margin-bottom: 0.5em;">/*执行顺序</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">a++;//a=2</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">b++;//b=3</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">a+b=5</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">sum=fun(5,3)=8;</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">c++;//c=4</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">换成++c就是</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">c++;//c=4</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">sum=fun(5,4)=9</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">*/</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">#include &lt;math.h&gt;　　　　　//定义数学函数</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">#include &lt;stdio.h&gt;　　　　 //定义输入／输出函数</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">&nbsp;</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">fun(int x, int y){return(y+x);}</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">main()&nbsp;</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">{ int a=1,b=2,c=3,sum;&nbsp;</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">sum=fun((a++,b++,a+b),c++);//++c(加后再函数),c++为执行此条后再进行自加</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">&nbsp;</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">printf("sum=%d &nbsp;c=%d\n",sum,c);</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">&nbsp; getch();</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">&nbsp; return 0;</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">}&nbsp;</p></div></span><wbr></div>
+	</div>
+</div>
+</body>
+</html>

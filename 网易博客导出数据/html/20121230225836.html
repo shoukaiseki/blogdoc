@@ -1,0 +1,32 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=gbk">
+<title>蒋カイセキ 的博客</title>
+<style type="text/css">
+.blogcnt{line-height:160%;font-size:14px;text-align:left;word-wrap:break-word;}
+.blogcnt *{line-height:160%;}
+.blogcnt p{margin:0 0 10px;}
+.blogcnt ul,.nbw-blog ol{margin:5px 0 5px 40px;padding:0}
+.blogcnt em{font-style:italic;}
+.blogcnt blockquote{font-size:1em;margin:auto 0 auto 35px;}
+.blogcnt img{border:0;max-width:100%;}
+</style>
+</head>
+<body style="color:#444444;">
+<h1 id="blog-Title"><a href="index.html">蒋カイセキ 的博客</a></h1>
+<div id="" style="padding:0 20px;">
+	<h2 id="">首选项不存在: global_lexer</h2>
+	<h5 id="">2012-12-30 22:58:36&nbsp;&nbsp;&nbsp;<a href="http://blog.163.com/shoukaiseki/blog/static/19285614920121130105836590/" target="_blank">查看原文&gt;&gt;</a></h5>
+	<div class="" id="" style="padding:0 20px;">
+		<div class="blogcnt" style="width:800px;"><div> ORA-29855: 执行 ODCIINDEXCREATE 例行程序时出错<br> ORA-20000: Oracle Text 错误:<br> DRG-10700: 首选项不存在: global_lexer<br> ORA-06512: 在 "CTXSYS.DRUE", line 160<br> ORA-06512: 在 "CTXSYS.TEXTINDEXMETHODS", line 364<br><br><br>执行<br>begin&nbsp;Ctx_Ddl.Create_Preference&nbsp;('global_lexer','CHINESE_VGRAM_LEXER');&nbsp;end; </div><br>ctxsys用户必须启用,默认是关闭的<br>用 ctxsys用户登录执行&nbsp; grant execute on ctx_ddl to maximo_75;<br><br>全文索引<br>select * from person&nbsp; where ( contains(displayname,'&nbsp; $陈&nbsp; ') &gt; 0 );<br><br>创建person表DISPLAYNAME字段的全文索引<br>&nbsp;create index PERSON_NDX8 on PERSON ("DISPLAYNAME") <br>&nbsp;&nbsp; INDEXTYPE IS "CTXSYS"."CONTEXT"&nbsp; PARAMETERS ('lexer global_lexer language column LANGCODE');</div>
+	</div>
+	<h3>评论</h3>
+	<div class="" id="" style="padding:0 20px;">
+			<div id="">
+				<h5 id="">龙骑士大哥 - 2014-03-06 0:24:15</h5>
+				<div><img src="http://b.bst.126.net/common/portrait/face/preview/face21.gif"  ></div>
+			</div>
+	</div>
+</div>
+</body>
+</html>

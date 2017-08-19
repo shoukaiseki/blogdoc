@@ -1,0 +1,25 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=gbk">
+<title>蒋カイセキ 的博客</title>
+<style type="text/css">
+.blogcnt{line-height:160%;font-size:14px;text-align:left;word-wrap:break-word;}
+.blogcnt *{line-height:160%;}
+.blogcnt p{margin:0 0 10px;}
+.blogcnt ul,.nbw-blog ol{margin:5px 0 5px 40px;padding:0}
+.blogcnt em{font-style:italic;}
+.blogcnt blockquote{font-size:1em;margin:auto 0 auto 35px;}
+.blogcnt img{border:0;max-width:100%;}
+</style>
+</head>
+<body style="color:#444444;">
+<h1 id="blog-Title"><a href="index.html">蒋カイセキ 的博客</a></h1>
+<div id="" style="padding:0 20px;">
+	<h2 id="">vim添加java补全</h2>
+	<h5 id="">2012-05-27 22:21:53&nbsp;&nbsp;&nbsp;<a href="http://blog.163.com/shoukaiseki/blog/static/192856149201242795459148/" target="_blank">查看原文&gt;&gt;</a></h5>
+	<div class="" id="" style="padding:0 20px;">
+		<div class="blogcnt" style="width:800px;">javacomplete&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" rel="nofollow" href="http://www.vim.org/scripts/script.php?script_id=1785"  >http://www.vim.org/scripts/script.php?script_id=178 5</a><br>linux下 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a target="_blank" rel="nofollow" href="http://blog.csdn.net/wangran51/article/details/7248945"  > http://blog.csdn.net/wangran51/article/details/7248945</a><br><br>linux下测试正常了<br>win下我习惯放到 D:\usr_xp\Vim\vimfiles\autoload 目录，结果不行<br>应该放到 D:\usr_xp\Vim\vim73\autoload下，可以了，放到home下不好备份，毕竟win是个容易崩溃的系统，<br>所以我一般不考虑“C:\Documents and Settings\Administrator\vimfiles\autoload”<br><br>_vimrc先所有加了再说，可以用了慢慢调。<br><pre class="prettyprint"  ><p>setlocal omnifunc=javacomplete#Complete<br>autocmd Filetype java set omnifunc=javacomplete#Complete<br>autocmd Filetype java set completefunc=javacomplete#CompleteParamsInf<br>inoremap &lt;buffer&gt; &lt;C-X&gt;&lt;C-U&gt; &lt;C-X&gt;&lt;C-U&gt;&lt;C-P&gt;<br>autocmd Filetype java,javascript,jsp inoremap &lt;buffer&gt;  .  .&lt;C-X&gt;&lt;C-O&gt;&lt;C-P&gt;<br></p></pre>我一般不设置Classpath和path，因为好几个jdk混着用.<br><br><pre class="prettyprint"  ><p>@echo off<br>set JAVA_170=d:\usr_xp\Java\jdk1.7.0<br>set JAVA_HOME=%JAVA_170%<br>set PATH=%JAVA_HOME%\bin;%PATH%<br>set CLASSPATH=%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;D:\usr_xp\Vim\vim73\autoload;E:\Eclipse\Workspace\hello\bin;<br>start /B D:\usr_xp\Vim\vim73\gvim.exe -p --remote-tab-silent "%~f1"<br>echo exit<br></p></pre>选中文件-&gt;Ctrl+F10-&gt;i键用VIM打开文件<br><pre class="prettyprint"  ><p>Windows Registry Editor Version 5.00<br><br>[HKEY_CLASSES_ROOT\*\shell\I 国民党专用－用VIM打开\command]<br>@="D:\\usr_xp\\Vim\\vim73\\tab_vim.bat %1"<br></p></pre></div>
+	</div>
+</div>
+</body>
+</html>

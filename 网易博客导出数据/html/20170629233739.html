@@ -1,0 +1,25 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=gbk">
+<title>蒋カイセキ 的博客</title>
+<style type="text/css">
+.blogcnt{line-height:160%;font-size:14px;text-align:left;word-wrap:break-word;}
+.blogcnt *{line-height:160%;}
+.blogcnt p{margin:0 0 10px;}
+.blogcnt ul,.nbw-blog ol{margin:5px 0 5px 40px;padding:0}
+.blogcnt em{font-style:italic;}
+.blogcnt blockquote{font-size:1em;margin:auto 0 auto 35px;}
+.blogcnt img{border:0;max-width:100%;}
+</style>
+</head>
+<body style="color:#444444;">
+<h1 id="blog-Title"><a href="index.html">蒋カイセキ 的博客</a></h1>
+<div id="" style="padding:0 20px;">
+	<h2 id="">cognos 时间选择显示中文</h2>
+	<h5 id="">2017-06-29 23:37:39&nbsp;&nbsp;&nbsp;<a href="http://blog.163.com/shoukaiseki/blog/static/1928561492017529113739224/" target="_blank">查看原文&gt;&gt;</a></h5>
+	<div class="" id="" style="padding:0 20px;">
+		<div class="blogcnt" style="width:800px;"><div>---时间汉化修改---{{{1</div><div>--在 火狐浏览器中,lang参数失效,且偶尔有效,汉化不稳定</div><div>D:\IBM\cognos\c10_64\webcontent\prompting\prmt_core.js</div><div>修改该文件,去 http://tool.oschina.net/codeformat/js 网站进行JavaScript格式化</div><div>格式化完成之后在 function CClock(_qe, _nf, _nx, _kW, _ne, _kV) 前面添加下面代码就ok了</div><div><br></div><div><pre class="prettyprint"   ><p><br>g_amString ="上午";<br>g_pmString ="下午";<br>g_startDayOfWeek = 1;<br>g_mediumFormat ="yyyy-M-d ah:mm:ss";<br>g_shortFormat ="yy-M-d ah:mm";<br>g_shortFormatDateOrder ="YMD";<br>g_mediumFormatDateOrder ="YMD";<br>g_dateOrder ="YMD";<br>g_yearFormatMedium ="yyyy";<br>g_monthFormatMedium ="M";<br>g_dayFormatMedium ="d";<br>g_hourFormatMedium ="h";<br>g_minuteFormatMedium ="mm";<br>g_secondFormatMedium ="ss";<br>g_yearFormatShort ="yy";<br>g_monthFormatShort ="M";<br>g_dayFormatShort ="d";<br>g_hourFormatShort ="h";<br>g_minuteFormatShort ="mm";<br>g_secondFormatShort ="";<br>g_dateSeparatorMedium ="-";<br>g_dateSeparatorShort ="-";<br>g_timeSeparator =":";<br>g_AMPMLocation ="left";<br>g_24HourClock ="false";<br>g_decimalSeparator =".";<br>g_groupingSeparator =",";<br>g_groupingSize = 3;<br>g_secondaryGroupingSize = 0;<br>g_maximumIntegerDigits = 309;<br>g_minimumIntegerDigits = 1;<br>g_maximumFractionDigits = 3;<br>g_minimumFractionDigits = 0;<br>g_positivePrefix ="";<br>g_positiveSuffix ="";<br>g_negativePrefix ="-";<br>g_negativeSuffix ="";<br>g_minusSign ="-";<br>g_plusSign ="+";<br>g_zeroDigit ="0";<br>g_listSeparator =",";<br>g_negativeLocation ="left";<br>g_positiveLocation ="none";<br>g_currencySymbol ="￥";<br>g_monetaryDecimalSeparator =".";<br>g_currencyLocation ="left";<br>g_currencyDecimalSeparator =".";<br>g_currencyGroupingSeparator =",";<br>g_currencyGroupingSize = 3;<br>g_currencySecondaryGroupingSize = 0;<br>g_currencyPositivePrefix ="￥";<br>g_currencyPositiveSuffix ="";<br>g_currencyNegativePrefix ="-￥";<br>g_currencyNegativeSuffix ="";<br>g_currencyMinusSign ="-";<br>g_currencyPlusSign ="+";<br>g_currencyZeroDigit ="0";<br>g_currencyNegativeLocation ="left";<br>g_currencyPositiveLocation ="none";<br>g_percentSymbol ="%";<br>g_percentLocation ="right";<br>g_percentageDecimalSeparator =".";<br>g_percentageGroupingSeparator =",";<br>g_percentageGroupingSize = 3;<br>g_percentageSecondaryGroupingSize = 0;<br>g_percentagePositivePrefix ="";<br>g_percentagePositiveSuffix ="%";<br>g_percentageNegativePrefix ="-";<br>g_percentageNegativeSuffix ="%";<br>g_percentageMinusSign ="-";<br>g_percentagePlusSign ="+";<br>g_percentageZeroDigit ="0";<br>g_percentageNegativeLocation ="left";<br>g_percentagePositiveLocation ="right";<br>g_exponentialSymbol ="E";<br>g_scientificDecimalSeparator =".";<br>g_scientificGroupingSeparator =",";<br>g_scientificGroupingSize = 0;<br>g_scientificSecondaryGroupingSize = 0;<br>g_scientificPositivePrefix ="";<br>g_scientificPositiveSuffix ="";<br>g_scientificNegativePrefix ="-";<br>g_scientificNegativeSuffix ="";<br>g_scientificMinusSign ="-";<br>g_scientificPlusSign ="+";<br>g_scientificZeroDigit ="0";<br>g_scientificNegativeLocation ="left";<br>g_scientificPositiveLocation ="none";<br></p><div><br></div></pre><br></div></div>
+	</div>
+</div>
+</body>
+</html>

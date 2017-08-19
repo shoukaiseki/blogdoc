@@ -1,0 +1,25 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=gbk">
+<title>蒋カイセキ 的博客</title>
+<style type="text/css">
+.blogcnt{line-height:160%;font-size:14px;text-align:left;word-wrap:break-word;}
+.blogcnt *{line-height:160%;}
+.blogcnt p{margin:0 0 10px;}
+.blogcnt ul,.nbw-blog ol{margin:5px 0 5px 40px;padding:0}
+.blogcnt em{font-style:italic;}
+.blogcnt blockquote{font-size:1em;margin:auto 0 auto 35px;}
+.blogcnt img{border:0;max-width:100%;}
+</style>
+</head>
+<body style="color:#444444;">
+<h1 id="blog-Title"><a href="index.html">蒋カイセキ 的博客</a></h1>
+<div id="" style="padding:0 20px;">
+	<h2 id="">google_chrome临时目录设置</h2>
+	<h5 id="">2012-01-02 10:33:38&nbsp;&nbsp;&nbsp;<a href="http://blog.163.com/shoukaiseki/blog/static/19285614920120295238529/" target="_blank">查看原文&gt;&gt;</a></h5>
+	<div class="" id="" style="padding:0 20px;">
+		<div class="blogcnt" style="width:800px;"><div><div><font size="3"  color="#800000"  >几个实用的参数收集：</font><font size="3"  color="#800000"  >(转自</font><a rel="nofollow" href="http://apps.hi.baidu.com/share/detail/31172887"  >http://apps.hi.baidu.com/share/detail/31172887</a><span style="color: rgb(128, 0, 0); font-size: medium;"  >)</span></div><div>1 &nbsp;--user-data-dir="[PATH]" &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;指定用户文件夹User Data路径，可以把书签这样的用户数据保存在系统分区以外的分区。</div><div><br></div><div>2 &nbsp;--disk-cache-dir="[PATH]" &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 指定缓存Cache路径 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</div><div><br></div><div>3 &nbsp;--disk-cache-size= &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;指定Cache大小，单位Byte</div><div><br></div><div>4 &nbsp;--Firstrun &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;重置到初始状态</div><div><br></div><div>5 &nbsp;--incognito &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 隐身模式启动</div><div><br></div><div>6 &nbsp;--disable-javascript &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;禁用Javascript</div></div><div><br></div><div><br></div>将快捷方式修改为<div><span style="line-height: 21px;"  >"C:\Users\Administrator.NF5PELI6IUOHCU5\AppData\Local\Google\Chrome\Application\chrome.exe" -disk-cache-dir="w:\googlewap" "%1"</span>&nbsp;<br><div><br></div><div><font color="#ff0000"  >下文转自</font><a rel="nofollow" href="http://blog.lihaixin.name/search/label/chrome"  >http://blog.lihaixin.name/search/label/chrome</a></div><div><div>最后修改一下注册表：在注册表修改操作系统默认的游览器，操作如下：</div><div>1、开始→运行→输入regedit，打开注册表编辑器</div><div>2、找到HKEY_CLASSES_ROOT\http\shell\open\command，在右边的窗口中双击"默认"，将要用浏览器的可执行文件的完全路径输入到这里，例如设置IE为默认浏览器：输入"C:\Documents and Settings\lihx\Local Settings\Application Data\Google\Chrome\Application\chrome.exe"&nbsp; <span style="line-height: 22px;"  >-disk-cache-dir="w:\googlewap" "%1"</span>&nbsp;&nbsp;这里请修改自己chrome执行文件的绝对路径。</div><div>3、然后找到 HKEY_CLASSES_ROOT\http\shell\open\ddeexec\Application，在右边的窗口中双击"默认"，设置浏览器名，如果是Firefox则输入Firefox，如果是IE则输入IExplore。我输入：chrome（小提示：切记不能写错名称，如果你不知道浏览器的标准名称是什么，只需要到安装目录下查看该浏览器的名称即可）</div></div><div><br></div><div>还有的说要修改以下</div><div><span style="line-height: 22px;"  >HKEY_CLASSES_ROOT\ChromeHTML\shell\open\command</span><wbr style="line-height: 22px;"  ><div style="line-height: 22px;"  >"C:\Users\Administrator.NF5PELI6IUOHCU5\AppData\Local\Google\Chrome\Application\chrome.exe" -disk-cache-dir="w:\googlewap" "%1"</div></div><div><br></div><div>win7下更方便,采用类似Linux下的链接方式mklink,Linux下为ln,当然功能还是没有Linux下的强大</div></div><div><font color="#ff0000"  >下面说明转自</font><a rel="nofollow" href="http://hi.baidu.com/xdz66/blog/item/6e6d074fb3b89b25afc3ab02.html"  >http://hi.baidu.com/xdz66/blog/item/6e6d074fb3b89b25afc3ab02.html</a></div><div><div>MKLINK [[/D] | [/H] | [/J]] Link Target</div><div><br></div><div>&nbsp; &nbsp; &nbsp; &nbsp; /D &nbsp; &nbsp; &nbsp;创建目录符号链接。默认为文件</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 符号链接。</div><div>&nbsp; &nbsp; &nbsp; &nbsp; /H &nbsp; &nbsp; &nbsp;创建硬链接，而不是符号链接。</div><div>&nbsp; &nbsp; &nbsp; &nbsp; /J &nbsp; &nbsp; &nbsp;创建目录联接。</div><div>&nbsp; &nbsp; &nbsp; &nbsp; Link &nbsp; &nbsp;指定新的符号链接名称。</div><div>&nbsp; &nbsp; &nbsp; &nbsp; Target &nbsp;指定新链接引用的路径</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (相对或绝对)。</div></div><div>建立链接之前,首先要删除该目录,下面的<span style="line-height: 22px;"  ><font color="#3366ff"  >Administrator.NF5PELI6IUOHCU5</font>为用户名</span></div><div>rd /S "C:\Users\Administrator.NF5PELI6IUOHCU5\AppData\Local\Google\Chrome\User Data\Default\Cache"</div><div>mklink /D "C:\Users\Administrator.NF5PELI6IUOHCU5\AppData\Local\Google\Chrome\User Data\Default\Cache" &nbsp;"W:\googlewap"</div><div>既然这么方便,顺便把<span style="line-height: 22px;"  >Media Cache目录也建立一个链接吧</span></div><div>rd /S "C:\Users\Administrator.NF5PELI6IUOHCU5\AppData\Local\Google\Chrome\User Data\Default\Media Cache"</div><div>mklink /D "C:\Users\Administrator.NF5PELI6IUOHCU5\AppData\Local\Google\Chrome\User Data\Default\Media Cache" &nbsp;"W:\googlemwap"</div></div>
+	</div>
+</div>
+</body>
+</html>

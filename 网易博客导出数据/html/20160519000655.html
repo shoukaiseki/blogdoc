@@ -1,0 +1,25 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=gbk">
+<title>蒋カイセキ 的博客</title>
+<style type="text/css">
+.blogcnt{line-height:160%;font-size:14px;text-align:left;word-wrap:break-word;}
+.blogcnt *{line-height:160%;}
+.blogcnt p{margin:0 0 10px;}
+.blogcnt ul,.nbw-blog ol{margin:5px 0 5px 40px;padding:0}
+.blogcnt em{font-style:italic;}
+.blogcnt blockquote{font-size:1em;margin:auto 0 auto 35px;}
+.blogcnt img{border:0;max-width:100%;}
+</style>
+</head>
+<body style="color:#444444;">
+<h1 id="blog-Title"><a href="index.html">蒋カイセキ 的博客</a></h1>
+<div id="" style="padding:0 20px;">
+	<h2 id="">MAXIMO中workorder表的 ORIGRECORDID 和 ORIGRECORDCLASS 字段</h2>
+	<h5 id="">2016-05-19 0:06:55&nbsp;&nbsp;&nbsp;<a href="http://blog.163.com/shoukaiseki/blog/static/1928561492016419051218/" target="_blank">查看原文&gt;&gt;</a></h5>
+	<div class="" id="" style="padding:0 20px;">
+		<div class="blogcnt" style="width:800px;"><div>ORIGRECORDCLASS &nbsp;原始记录的类</div><div>ORIGRECORDID &nbsp; 原始记录编号</div><div>当ORIGRECORDID 为空时&nbsp;ORIGRECORDCLASS &nbsp;也必须为空,否则在变更状态为 CLOSE 的时候,会出现工作流不能关闭,而状态却变更了</div><div>而后台会报以下错误</div><div><pre class="prettyprint"   ><p>[5/18/16 22:46:58:083 CST] 0000003a SystemErr     R Caused by: java.lang.NullPointerException<br>[5/18/16 22:46:58:084 CST] 0000003a SystemErr     R 	at psdi.app.workorder.WO.changeOriginatorStatus(WO.java:7300)<br>[5/18/16 22:46:58:084 CST] 0000003a SystemErr     R 	at psdi.app.workorder.WO.changeStatus(WO.java:7247)<br>[5/18/16 22:46:58:084 CST] 0000003a SystemErr     R 	at psdi.app.workorder.WO.changeStatus(WO.java:7137)<br>[5/18/16 22:46:58:084 CST] 0000003a SystemErr     R 	at psdi.common.action.Action.executeChangeStatus(Action.java:529)<br>[5/18/16 22:46:58:084 CST] 0000003a SystemErr     R 	at psdi.common.action.Action.executeAction(Action.java:323)<br>[5/18/16 22:46:58:084 CST] 0000003a SystemErr     R 	at psdi.workflow.WFAction.applyWorkflowAction(WFAction.java:175)<br>[5/18/16 22:46:58:084 CST] 0000003a SystemErr     R 	at psdi.workflow.WFNode.applyWorkflowAction(WFNode.java:181)<br>[5/18/16 22:46:58:085 CST] 0000003a SystemErr     R 	at psdi.workflow.WFCallStackSet.applyWorkflowAction(WFCallStackSet.java:208)<br>[5/18/16 22:46:58:085 CST] 0000003a SystemErr     R 	at psdi.workflow.WFCallStackSet.completeWorkflowAssignment(WFCallStackSet.java:156)<br>[5/18/16 22:46:58:085 CST] 0000003a SystemErr     R 	at psdi.workflow.WFInstance.completeWorkflowAssignment(WFInstance.java:172)<br>[5/18/16 22:46:58:085 CST] 0000003a SystemErr     R 	at psdi.workflow.virtual.CompleteWFSet.execute(CompleteWFSet.java:71)<br>[5/18/16 22:46:58:085 CST] 0000003a SystemErr     R 	at psdi.webclient.system.beans.WorkflowBean.execute(WorkflowBean.java:85)<br>[5/18/16 22:46:58:085 CST] 0000003a SystemErr     R 	... 57 more<br></p><div><br></div></pre></div><div><br></div><div>因为在 workorder 变更为已关闭的时候,会将关联的 原始记录也变更为已关闭,在psdi.app.workorder.WO类中的changeOriginatorStatus 方法中写了变更 原始记录 的代码</div><div>代码如下:</div><div><pre class="prettyprint"   ><p>/*  7285 */     Translate translator = getMboServer().getMaximoDD().getTranslator();<br>/*  7286 */     String mboName = translator.toInternalStringNoException("TKCLASS", getString("ORIGRECORDCLASS"), this);<br>/*       */     <br>/*       */ <br>/*  7289 */     if (mboName == null)<br>/*       */     {<br>/*       */ <br>/*  7292 */       return;<br>/*       */     }<br>/*       */     <br>/*       */ <br>/*  7296 */     MboSetRemote origSet = getMboSet("$ORIGSET", mboName, "ticketid=:origrecordid");<br>/*  7297 */     Ticket originator = (Ticket)origSet.getMbo(0);<br>/*       */     <br>/*       */ <br>/*  7300 */     if (!originator.getBoolean("InheritStatus"))<br>/*       */     {<br>/*       */ <br>/*  7303 */       return;<br>/*       */     }</p></pre><br></div></div>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=gbk">
+<title>蒋カイセキ 的博客</title>
+<style type="text/css">
+.blogcnt{line-height:160%;font-size:14px;text-align:left;word-wrap:break-word;}
+.blogcnt *{line-height:160%;}
+.blogcnt p{margin:0 0 10px;}
+.blogcnt ul,.nbw-blog ol{margin:5px 0 5px 40px;padding:0}
+.blogcnt em{font-style:italic;}
+.blogcnt blockquote{font-size:1em;margin:auto 0 auto 35px;}
+.blogcnt img{border:0;max-width:100%;}
+</style>
+</head>
+<body style="color:#444444;">
+<h1 id="blog-Title"><a href="index.html">蒋カイセキ 的博客</a></h1>
+<div id="" style="padding:0 20px;">
+	<h2 id="">子表点击任何行任一列时光标都在该列第一行</h2>
+	<h5 id="">2017-07-26 16:31:30&nbsp;&nbsp;&nbsp;<a href="http://blog.163.com/shoukaiseki/blog/static/19285614920176264145121/" target="_blank">查看原文&gt;&gt;</a></h5>
+	<div class="" id="" style="padding:0 20px;">
+		<div class="blogcnt" style="width:800px;"><div>问题描述:如下图,在点击第二行描述的时候,光标却在第一行,而行选中却在第二行,如果进行更改内容,则第一行的内容会变更,只能通过点击最左边的详细信息在下面tabledetails中进行更改</div><div><br></div><div><div><img title="子表点击任何行任一列时光标都在该列第一行 - Linux Fedora 15 - 蒋カイセキ的博客"   alt="子表点击任何行任一列时光标都在该列第一行 - Linux Fedora 15 - 蒋カイセキ的博客"   style="margin:0 10px 0 0;"   src="http://img2.ph.126.net/xtSaClsw0AS6EYROIMu2-g==/6632332204072824971.png"   ></div>&nbsp;在其它应用中没问题,那么最可能的是签名的问题</div><div>那么就把所有签名删除掉,导出xml之后使用vim进行全部替换,将所有签名删除</div><div><pre class="prettyprint"   ><p>%s/sigoption="[A-Za-z]\+"</p></pre>重新导入之后,问题不再存在,然而没有签名满足不了业务需求,还得进一步解决有签名时候的问题</div><div><pre class="prettyprint"   ><p>declare<br>  l_sql varchar2(32767);<br>  c_tab_comment varchar2(32767);<br>  procedure run(p_sql varchar2) as<br>  begin <br>     execute immediate p_sql;<br>     <br>  end; <br>begin<br>run('create table "MAXIMO".CTRLCONDITION_BAK as select * from "MAXIMO"."CTRLCONDITION" where '||11||' = 11');<br>select comments into c_tab_comment from sys.all_TAB_comments where owner = 'MAXIMO' and table_name = 'CTRLCONDITION' and comments is not null;<br>run('comment on table MAXIMO.CTRLCONDITION_BAK is '||''''||REPLACE(c_tab_comment, q'[']', q'['']')||'''');<br><br>for tc in (select column_name from sys.all_tab_cols where owner = 'MAXIMO' and table_name = 'CTRLCONDITION')<br>    loop<br>   for c in (select comments from sys.all_col_comments where owner = 'MAXIMO' and table_name = 'CTRLCONDITION' and column_name=tc.column_name) <br>   loop <br>   run ('comment on column MAXIMO.CTRLCONDITION_BAK.'||tc.column_name||' is '||''''||REPLACE(c.comments, q'[']', q'['']')||'''');<br> end loop;<br>end loop;<br>EXCEPTION<br>  WHEN OTHERS THEN NULL; <br>end;<br>	</p><p>update CTRLCONDITION set REEVALUATE=0;</p><p><br></p><p>update CTRLCONDITION set REEVALUATE=(select REEVALUATE from CTRLCONDITION_bak where </p><p>CTRLCONDITION_bak.CTRLCONDITIONID=CTRLCONDITION.CTRLCONDITIONID);--恢复重新评估的值</p><p><br></p></pre></div><div>重启服务器后问题依旧,那就恢复重新评估字段的值;</div><div>接着将"安全措施"选项卡设置为第一个位置,如下图:</div><div><div><img title="子表点击任何行任一列时光标都在该列第一行 - Linux Fedora 15 - 蒋カイセキ的博客"   alt="子表点击任何行任一列时光标都在该列第一行 - Linux Fedora 15 - 蒋カイセキ的博客"   style="margin:0 10px 0 0;"   src="http://img0.ph.126.net/OY8Ev4bZG1M3XiwOTUSoGA==/6632577395165815047.png"   ></div>&nbsp;可以看出正常了,但是点击了含有签名的选项卡之后</div><div><div><img title="子表点击任何行任一列时光标都在该列第一行 - Linux Fedora 15 - 蒋カイセキ的博客"   alt="子表点击任何行任一列时光标都在该列第一行 - Linux Fedora 15 - 蒋カイセキ的博客"   style="margin:0 10px 0 0;"   src="http://img0.ph.126.net/4gW3211k2RWGLUdWoULiLg==/6632557603956519828.png"   ></div>&nbsp;<img title="子表点击任何行任一列时光标都在该列第一行 - Linux Fedora 15 - 蒋カイセキ的博客"   alt="子表点击任何行任一列时光标都在该列第一行 - Linux Fedora 15 - 蒋カイセキ的博客"   src="http://img2.ph.126.net/UkiG8YCconwetGInlh9ijQ==/6632339900654219381.png"   style="margin: 0px 10px 0px 0px;"   ></div>&nbsp;再点回来问题有出现了,可以看出签名判断又引发了问题,签名是不会存在这种bug的,那么原因只有一个,主选项组的签名导致的,如果将这些签名设在某个选项卡下的选项卡组中,那么应该就能解决问题了<div><div><img title="子表点击任何行任一列时光标都在该列第一行 - Linux Fedora 15 - 蒋カイセキ的博客"   alt="子表点击任何行任一列时光标都在该列第一行 - Linux Fedora 15 - 蒋カイセキ的博客"   style="margin:0 10px 0 0;"   src="http://img0.ph.126.net/hZVoshaaO9bCfJDuBce-Ww==/6632564201026287054.png"   ></div>&nbsp;将上图改成下图这种方式,然后把工作票的签名去掉<div><img title="子表点击任何行任一列时光标都在该列第一行 - Linux Fedora 15 - 蒋カイセキ的博客"   alt="子表点击任何行任一列时光标都在该列第一行 - Linux Fedora 15 - 蒋カイセキ的博客"   style="margin:0 10px 0 0;"   src="http://img1.ph.126.net/16UY7TQKnm0x5d74IzqWbw==/6632273929956553825.png"   ></div>&nbsp;<br><div>问题就解决了</div><div><br></div><div>警告:主选项卡的任意选项卡都不要使用签名,容易导致页面出现不可预料的问题</div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div></div></div>
+	</div>
+</div>
+</body>
+</html>

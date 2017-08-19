@@ -1,0 +1,25 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=gbk">
+<title>蒋カイセキ 的博客</title>
+<style type="text/css">
+.blogcnt{line-height:160%;font-size:14px;text-align:left;word-wrap:break-word;}
+.blogcnt *{line-height:160%;}
+.blogcnt p{margin:0 0 10px;}
+.blogcnt ul,.nbw-blog ol{margin:5px 0 5px 40px;padding:0}
+.blogcnt em{font-style:italic;}
+.blogcnt blockquote{font-size:1em;margin:auto 0 auto 35px;}
+.blogcnt img{border:0;max-width:100%;}
+</style>
+</head>
+<body style="color:#444444;">
+<h1 id="blog-Title"><a href="index.html">蒋カイセキ 的博客</a></h1>
+<div id="" style="padding:0 20px;">
+	<h2 id="">maximo 预留类型</h2>
+	<h5 id="">2015-12-08 15:03:21&nbsp;&nbsp;&nbsp;<a href="http://blog.163.com/shoukaiseki/blog/static/1928561492015118104742436/" target="_blank">查看原文&gt;&gt;</a></h5>
+	<div class="" id="" style="padding:0 20px;">
+		<div class="blogcnt" style="width:800px;">APSOFT &nbsp; 自动软预留<wbr><div>APHARD &nbsp; 自动硬预留</div><div><div>工单的预留自动作用为是根据物料行中的需求日期判断,比如今日为 2015-12-08,你的需求日期填写为2015-12-12,那么今日工单批准后,预留类型是为 APSOFT,当到了2015-12-12之后后台有个定时任务&nbsp;psdi.app.inventory.InvReservationResTypeUpdateCronTask 会将到需求时间点的预留物资的预留类型改为 APHARD</div><div><br></div><div>自动软预留来源与在工单中新建物料时,由&nbsp;psdi.app.workorder.WPMaterial 中的 add() 方法自动设置</div><div><pre class="prettyprint"   ><font face="Hiragino Sans GB W3, Hiragino Sans GB, Arial, Helvetica, simsun, 宋体"   >setValue("restype", getTranslator().toExternalDefaultValue("DISPLAYRESTYPE", "AUTOMATIC", this), ,MboConstants.NOACCESSCHECK);//获取SYNONYMDOMAIN内部值为</font><span style="line-height: 28px; font-family: 'Hiragino Sans GB W3', 'Hiragino Sans GB', Arial, Helvetica, simsun, 宋体;"   >AUTOMATIC 对应 </span><span style="line-height: 28px; font-family: 'Hiragino Sans GB W3', 'Hiragino Sans GB', Arial, Helvetica, simsun, 宋体;"   >siteid的默认值</span></pre><br></div><div>所以即使你将</div><div>WORKORDER 物料子表&nbsp;<span style="line-height: 28px;"   >WPMATERIAL.REQUIREDATE 默认值设置为"软"也是无效果的,</span></div><div><span style="line-height: 28px;"   >写个Mbo和MboSet等类继承它就OK了</span></div></div><div><pre class="prettyprint"   ><p>	@Override<br>	public void add() throws MXException, RemoteException {<br>		// TODO Auto-generated method stub<br>		super.add();<br>		setValue("restype",getTranslator().toExternalDefaultValue("DISPLAYRESTYPE", "SOFT", this),MboConstants.NOACCESSCHECK);<br>	}</p></pre><br></div><div><span style="line-height: 28px;"   ><br></span></div></div>
+	</div>
+</div>
+</body>
+</html>

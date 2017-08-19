@@ -1,0 +1,25 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=gbk">
+<title>蒋カイセキ 的博客</title>
+<style type="text/css">
+.blogcnt{line-height:160%;font-size:14px;text-align:left;word-wrap:break-word;}
+.blogcnt *{line-height:160%;}
+.blogcnt p{margin:0 0 10px;}
+.blogcnt ul,.nbw-blog ol{margin:5px 0 5px 40px;padding:0}
+.blogcnt em{font-style:italic;}
+.blogcnt blockquote{font-size:1em;margin:auto 0 auto 35px;}
+.blogcnt img{border:0;max-width:100%;}
+</style>
+</head>
+<body style="color:#444444;">
+<h1 id="blog-Title"><a href="index.html">蒋カイセキ 的博客</a></h1>
+<div id="" style="padding:0 20px;">
+	<h2 id="">java方法的重载操作</h2>
+	<h5 id="">2011-08-20 14:58:42&nbsp;&nbsp;&nbsp;<a href="http://blog.163.com/shoukaiseki/blog/static/192856149201172025842348/" target="_blank">查看原文&gt;&gt;</a></h5>
+	<div class="" id="" style="padding:0 20px;">
+		<div class="blogcnt" style="width:800px;"><div>// 以下程序说明了方法的重载操作</div><div>public class array010</div><div>{</div><div><span style="white-space:pre;"  > </span>public static void main(String[] args)</div><div><span style="white-space:pre;"  > </span>{</div><div><span style="white-space:pre;"  >  </span>int int_sum;</div><div><span style="white-space:pre;"  >  </span>double double_sum;</div><div><span style="white-space:pre;"  >  </span>int_sum=add(3,5);</div><div><span style="white-space:pre;"  >  </span>System.out.println("int_sum = add(3,5) is : "+int_sum);</div><div><span style="white-space:pre;"  >  </span>int_sum=add(3,5,6);</div><div><span style="white-space:pre;"  >  </span>System.out.println("int_sum = add(3,5,6) is : "+int_sum);</div><div><span style="white-space:pre;"  >  </span>double_sum=add(3.2,6.5);</div><div><span style="white-space:pre;"  >  </span>System.out.println("double_sum = double(3.2,6.5) is : "+double_sum);</div><div><span style="white-space:pre;"  > </span>}</div><div><span style="white-space:pre;"  > </span>public static int add(int x,int y)//返回值int类型</div><div><span style="white-space:pre;"  > </span>{</div><div><span style="white-space:pre;"  >  </span>return x+y;</div><div><span style="white-space:pre;"  > </span>}</div><div><span style="white-space:pre;"  > </span>public static int add(int x,int y,int z)//返回值int类型</div><div><span style="white-space:pre;"  > </span>{</div><div><span style="white-space:pre;"  >  </span>return x+y+z;</div><div><span style="white-space:pre;"  > </span>}</div><div><span style="white-space:pre;"  > </span>public static double add(double x,double y)//返回值double类型</div><div><span style="white-space:pre;"  > </span>{</div><div><span style="white-space:pre;"  >  </span>return x+y;</div><div><span style="white-space:pre;"  > </span>}</div><div>}</div><div>/*</div><div>方法的重载就是在同一个类中允许同时存在一个以上的同名方法,只要它们的参</div><div>数个数或类型不同即可。在这种情况下,该方法就叫被重载了,这个过程称为方法的</div><div>重载。</div><div><br></div><div>输出结果:</div><div>int_sum = add(3,5) is : 8</div><div>int_sum = add(3,5,6) is : 14</div><div>double_sum = double(3.2,6.5) is : 9.7</div><div><br></div><div>可以发现上题中的 add 被重载了三次,但每个重载了的方法所能接受参数的个数</div><div>和类型不同,相信读者现在应该可以明白方法重载的概念了。</div><div><br></div><div>*/</div><div><br></div><wbr></div>
+	</div>
+</div>
+</body>
+</html>

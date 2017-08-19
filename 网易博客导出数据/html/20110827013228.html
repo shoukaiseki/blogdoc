@@ -1,0 +1,32 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=gbk">
+<title>蒋カイセキ 的博客</title>
+<style type="text/css">
+.blogcnt{line-height:160%;font-size:14px;text-align:left;word-wrap:break-word;}
+.blogcnt *{line-height:160%;}
+.blogcnt p{margin:0 0 10px;}
+.blogcnt ul,.nbw-blog ol{margin:5px 0 5px 40px;padding:0}
+.blogcnt em{font-style:italic;}
+.blogcnt blockquote{font-size:1em;margin:auto 0 auto 35px;}
+.blogcnt img{border:0;max-width:100%;}
+</style>
+</head>
+<body style="color:#444444;">
+<h1 id="blog-Title"><a href="index.html">蒋カイセキ 的博客</a></h1>
+<div id="" style="padding:0 20px;">
+	<h2 id="">java计算今天是今年的第几天</h2>
+	<h5 id="">2011-08-27 1:32:28&nbsp;&nbsp;&nbsp;<a href="http://blog.163.com/shoukaiseki/blog/static/192856149201172713228401/" target="_blank">查看原文&gt;&gt;</a></h5>
+	<div class="" id="" style="padding:0 20px;">
+		<div class="blogcnt" style="width:800px;"><span style="font-family: monospace; line-height: 22px; white-space: pre;"  ><font color="#ff0000"  size="4"  >查看高亮显示方式</font></span><a target="_blank" rel="nofollow" href="http://hi.baidu.com/jiangxinyi21/blog/item/556f2a2c98c49930d507421c.html"  >http://hi.baidu.com/jiangxinyi21/blog/item/556f2a2c98c49930d507421c.html</a><div><pre class="prettyprint"  ><p>/*查看高亮显示方式http://hi.baidu.com/jiangxinyi21/blog/item/556f2a2c98c49930d507421c.html<br> */<br>import java.text.DateFormat;<br>import java.text.ParseException;<br>import java.text.SimpleDateFormat;<br>import java.util.Calendar;<br>import java.util.Date;<br>import java.util.GregorianCalendar;<br><br>public class sd {<br> public static void main(String[] args) {<br>  int year, month, today, day;// 年月日<br>  int manydays = 1;// 今天是今年的第几天,今年的1月1日是今年的第一天<br>  // TODO Auto-generated method stub<br>  // 1<br>  // 定义时间格式，如：2011-08-25-22-43<br>  SimpleDateFormat bartDateFormat = new SimpleDateFormat(<br>    "yyyy-MM-dd-HH-mm");<br>  Date date = new Date(); // 取现在时间<br>  Calendar cal = Calendar.getInstance();<br>  cal.setTime(date);// 设置时间<br>  year = cal.get(Calendar.YEAR);// 取年份<br>  month = cal.get(Calendar.MONTH) + 1;// 取月份<br>  today = cal.get(Calendar.DAY_OF_MONTH);<br>  // 按照规定格式输出当前时间<br>  System.out.println(bartDateFormat.format(date)); // 2011-08-25-22-43<br>  System.out.println(year + "-" + month + "-" + next(month, year));<br>  for (int i = 1; i &lt;= month; i++) {<br>   day = next(i, year);// 本月一共几天<br>   System.out.println(day + "nichi " + i + " kongetsu no goukei");<br>   // 循环条件,j&lt;=每月的天数,如果在i==month的情况下j&gt;=today也不循环<br>   for (int j = 1; j &lt;= day &amp;&amp; !(i == month &amp;&amp; j &gt;= today); j++)<br>    manydays++;<br>   System.out.println("manydays=" + manydays);<br>  }<br>  System.out.println("houhou1: kyo ha kotoshi no " + manydays<br>    + " nichi medesu");<br>  /*<br>   * """"""""""""""""""""' ""方法二 """""""""""""""""""""<br>   */<br>  cal.set(2011, 0, 1);// 设置今年的1月1日<br>  long timeOne = cal.getTimeInMillis();<br>  cal.setTime(date);// 将日历翻到1945年八月十五日,7表示八月<br>  // System.out.println(<br>  long timeTwo = cal.getTimeInMillis();<br>  long daysapart = (timeTwo - timeOne) / (1000 * 60 * 60 * 24) + 1;// 二者时间相隔天数,第几天要加1<br>  System.out.println("houhou2: kyo ha kotoshi no " + daysapart<br>    + " nichi medesu");<br><br>  cal.set(1931, 8, 18);// 将日历翻到1931年九月十八日，8表示九月<br>  timeOne = cal.getTimeInMillis();<br>  cal.set(1945, 7, 15);// 将日历翻到1945年八月十五日,7表示八月<br>  timeTwo = cal.getTimeInMillis();<br>  daysapart = (timeTwo - timeOne) / (1000 * 60 * 60 * 24);// 二者时间相隔天数<br>  System.out.println("1945年8月15日和1931年9月18日相隔" + daysapart + "天");<br><br> }<br><br> /*<br>  * """""""""""""""""" 让enum类的变量指向下一个元素******************<br>  */<br> public static int next(int month, int year) {<br>  int kyo = 0;<br>  switch (month) {<br>  case 1:<br>   kyo = 31;<br>   break;<br>  case 2:<br>   if (year % 4 == 0 &amp;&amp; year % 100 != 0 || year % 400 == 0)<br>    kyo = 29;<br>   else<br>    kyo = 28;<br>   break;<br>  case 3:<br>   kyo = 31;<br>   break;<br>  case 4:<br>   kyo = 30;<br>   break;<br>  case 5:<br>   kyo = 31;<br>   break;<br>  case 6:<br>   kyo = 30;<br>   break;<br>  case 7:<br>   kyo = 31;<br>   break;<br>  case 8:<br>   kyo = 31;<br>   break;<br>  case 9:<br>   kyo = 30;<br>   break;<br>  case 10:<br>   kyo = 31;<br>   break;<br>  case 11:<br>   kyo = 30;<br>   break;<br>  case 12:<br>   kyo = 31;<br>   break;<br>  }<br>  return kyo;<br> }<br><br>}<br></p><div><br></div></pre><br></div></div>
+	</div>
+	<h3>评论</h3>
+	<div class="" id="" style="padding:0 20px;">
+			<div id="">
+				<h5 id="">java - 2014-05-14 16:36:48</h5>
+				<div>啃爹的玩意，直接用两行代码就搞定的事情写了那么多。Calendar calendar = Calendar.getInstance();<div>calendar.setTime(new Date());&nbsp;System.out.println("今天是今年的第"+calendar.get(Calendar.DAY_OF_YEAR)+"天");</div></div>
+			</div>
+	</div>
+</div>
+</body>
+</html>

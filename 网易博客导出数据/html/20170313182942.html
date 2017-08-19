@@ -1,0 +1,25 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=gbk">
+<title>蒋カイセキ 的博客</title>
+<style type="text/css">
+.blogcnt{line-height:160%;font-size:14px;text-align:left;word-wrap:break-word;}
+.blogcnt *{line-height:160%;}
+.blogcnt p{margin:0 0 10px;}
+.blogcnt ul,.nbw-blog ol{margin:5px 0 5px 40px;padding:0}
+.blogcnt em{font-style:italic;}
+.blogcnt blockquote{font-size:1em;margin:auto 0 auto 35px;}
+.blogcnt img{border:0;max-width:100%;}
+</style>
+</head>
+<body style="color:#444444;">
+<h1 id="blog-Title"><a href="index.html">蒋カイセキ 的博客</a></h1>
+<div id="" style="padding:0 20px;">
+	<h2 id="">oracle 服务启动失败</h2>
+	<h5 id="">2017-03-13 18:29:42&nbsp;&nbsp;&nbsp;<a href="http://blog.163.com/shoukaiseki/blog/static/192856149201721362942185/" target="_blank">查看原文&gt;&gt;</a></h5>
+	<div class="" id="" style="padding:0 20px;">
+		<div class="blogcnt" style="width:800px;"><div>startup 出错</div><div><br></div><div><div><font color="#ff0000"   >&nbsp;invalid specification for system parameter LOCAL_LISTENER</font></div><div><font color="#ff0000"   >&nbsp;syntax error or unresolved network name 'LISTENER_ORCL'</font></div></div><div><br></div><div>执行下面语句</div><div>create pfile from spfile;</div><div>将会在&nbsp;D:\app\orcl\product\11.2.0\dbhome_1\database 下面创建一个&nbsp;INITorcl.ORA 的文件</div><div>文件中添加 &nbsp;</div><div><font color="#0000ff"   >*.local_listener='(ADDRESS_LIST=(Address=(Protocol=tcp) (Host=WIN-9KCS687QL54)(Port=1521)))'</font></div><div><pre class="prettyprint"   ><p>orcl.__db_cache_size=335544320<br>orcl.__java_pool_size=8388608<br>orcl.__large_pool_size=8388608<br>orcl.__oracle_base='D:\app\orcl'#ORACLE_BASE set from environment<br>orcl.__pga_aggregate_target=444596224<br>orcl.__sga_target=847249408<br>orcl.__shared_io_pool_size=0<br>orcl.__shared_pool_size=478150656<br>orcl.__streams_pool_size=8388608<br>*.audit_file_dest='D:\app\orcl\admin\orcl\adump'<br>*.audit_trail='db'<br>*.compatible='11.2.0.0.0'<br>*.control_files='D:\app\orcl\oradata\orcl\control01.ctl','D:\app\orcl\flash_recovery_area\orcl\control02.ctl'<br>*.db_block_size=8192<br>*.db_domain=''<br>*.db_name='orcl'<br>*.db_recovery_file_dest='D:\app\orcl\flash_recovery_area'<br>*.db_recovery_file_dest_size=4039114752<br>*.diagnostic_dest='D:\app\orcl'<br>*.dispatchers='(PROTOCOL=TCP) (SERVICE=orclXDB)'<br>*.local_listener='LISTENER_ORCL'<br>*.memory_target=1288699904<br>*.open_cursors=2000<br>*.processes=500<br>*.remote_login_passwordfile='EXCLUSIVE'<br>*.sessions=555<br>*.undo_tablespace='UNDOTBS1'<br>*.local_listener='(ADDRESS_LIST=(Address=(Protocol=tcp) (Host=WIN-9KCS687QL54)(Port=1521)))'</p></pre><br></div><div>然后再启动服务</div>startup pfile='D:/app/orcl/product/11.2.0/dbhome_1/database/INITorcl.ORA'<wbr><br><div><br></div><div><br></div><div>这次启动成功了,但是shutdown之后再startup还是这样</div><div><br></div><div>那就需要设置默认了</div><div><br></div><div><pre class="prettyprint"   ><p>create pfile='D:/app/orcl/product/11.2.0/dbhome_1/database/pfile/INITorcl.ORA' from spfile;</p></pre>执行完之后,修改<span style="font-family: monospace; line-height: 28px; white-space: pre;"   >INITorcl.ORA后保存,然后在执行</span></div><div><br></div><div><pre class="prettyprint"   ><p>create spfile from pfile='D:/app/orcl/product/11.2.0/dbhome_1/database/pfile/INITorcl.ORA';</p></pre><br></div><div>在执行 shutdown ,startup 发现可以了</div></div>
+	</div>
+</div>
+</body>
+</html>

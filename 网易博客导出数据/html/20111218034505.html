@@ -1,0 +1,25 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=gbk">
+<title>蒋カイセキ 的博客</title>
+<style type="text/css">
+.blogcnt{line-height:160%;font-size:14px;text-align:left;word-wrap:break-word;}
+.blogcnt *{line-height:160%;}
+.blogcnt p{margin:0 0 10px;}
+.blogcnt ul,.nbw-blog ol{margin:5px 0 5px 40px;padding:0}
+.blogcnt em{font-style:italic;}
+.blogcnt blockquote{font-size:1em;margin:auto 0 auto 35px;}
+.blogcnt img{border:0;max-width:100%;}
+</style>
+</head>
+<body style="color:#444444;">
+<h1 id="blog-Title"><a href="index.html">蒋カイセキ 的博客</a></h1>
+<div id="" style="padding:0 20px;">
+	<h2 id="">Yum使用插件来加速</h2>
+	<h5 id="">2011-12-18 3:45:05&nbsp;&nbsp;&nbsp;<a href="http://blog.163.com/shoukaiseki/blog/static/192856149201111183455728/" target="_blank">查看原文&gt;&gt;</a></h5>
+	<div class="" id="" style="padding:0 20px;">
+		<div class="blogcnt" style="width:800px;"><span style="font-family: Geneva, Arial, Helvetica, sans-serif; line-height: 24px; -webkit-border-horizontal-spacing: 2px; -webkit-border-vertical-spacing: 2px;"  >1，使用axel来作为下载工具。</span><div><span style="font-family: Geneva, Arial, Helvetica, sans-serif; -webkit-border-horizontal-spacing: 2px; -webkit-border-vertical-spacing: 2px;"  ><span style="line-height: 24px;"  >yum install axel<br>[luyao@localhost btdown]$ wget&nbsp;</span><a style="line-height: 24px; color: rgb(34, 34, 156); text-decoration: none; " target="_blank" rel="nofollow" href="http://wilmer.gaast.net/downloads/axel-1.0b.tar.gz"  >http://wilmer.gaast.net/downloads/axel-1.0b.tar.gz</a><br><span style="line-height: 24px;"  >[luyao@localhost btdown]$ tar zxvf axel-1.0b.tar.gz</span><br><span style="line-height: 24px;"  >[luyao@localhost btdown]$ cd axel-1.0b</span><br><span style="line-height: 24px;"  >[luyao@localhost btdown]$ ./configure --i18n=1</span><br><span style="line-height: 24px;"  >[luyao@localhost btdown]$ make</span><br><span style="line-height: 24px;"  >[root@localhost btdown]# make install&nbsp;</span><br><span style="line-height: 24px;"  >[luyao@localhost btdown]$ wget&nbsp;</span><a style="line-height: 24px; color: rgb(34, 34, 156); text-decoration: none; " target="_blank" rel="nofollow" href="http://cnfreesoft.googlecode.com/svn/trunk/axelget/axelget.conf"  >http://cnfreesoft.googlecode.com/svn/trunk/axelget/axelget.conf</a><br><span style="line-height: 24px;"  >[luyao@localhost btdown]$ wget&nbsp;</span><a style="line-height: 24px; color: rgb(34, 34, 156); text-decoration: none; " target="_blank" rel="nofollow" href="http://cnfreesoft.googlecode.com/svn/trunk/axelget/axelget.py"  >http://cnfreesoft.googlecode.com/svn/trunk/axelget/axelget.py</a><br><span style="line-height: 24px;"  >[root@localhost btdown]# cp axelget.conf /etc/yum/pluginconf.d/</span><br><span style="line-height: 24px;"  >[root@localhost btdown]# cp axelget.py /usr/lib/yum-plugins/</span><br><br><span style="line-height: 24px;"  >2，使用fastmirror让它自动匹配最快的源</span><br><span style="line-height: 24px;"  >[root@localhost yum.repos.d]# yum install yum-fastestmirror</span><br><br><span style="line-height: 24px;"  >3，尝试更新一下，OK，所用的插件都正常。</span><br><span style="line-height: 24px;"  >[root@localhost luyao]# yum list</span><br><span style="line-height: 24px;"  >Loaded plugins: axelget, fastestmirror, refresh-packagekit</span><br><span style="line-height: 24px;"  >Loading mirror speeds from cached hostfile</span><br><span style="line-height: 24px;"  >........</span></span><wbr><br></div></div>
+	</div>
+</div>
+</body>
+</html>

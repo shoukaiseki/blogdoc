@@ -1,0 +1,25 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=gbk">
+<title>蒋カイセキ 的博客</title>
+<style type="text/css">
+.blogcnt{line-height:160%;font-size:14px;text-align:left;word-wrap:break-word;}
+.blogcnt *{line-height:160%;}
+.blogcnt p{margin:0 0 10px;}
+.blogcnt ul,.nbw-blog ol{margin:5px 0 5px 40px;padding:0}
+.blogcnt em{font-style:italic;}
+.blogcnt blockquote{font-size:1em;margin:auto 0 auto 35px;}
+.blogcnt img{border:0;max-width:100%;}
+</style>
+</head>
+<body style="color:#444444;">
+<h1 id="blog-Title"><a href="index.html">蒋カイセキ 的博客</a></h1>
+<div id="" style="padding:0 20px;">
+	<h2 id="">java 开启debug模式 tomcat debug</h2>
+	<h5 id="">2015-08-27 12:26:16&nbsp;&nbsp;&nbsp;<a href="http://blog.163.com/shoukaiseki/blog/static/192856149201572702541106/" target="_blank">查看原文&gt;&gt;</a></h5>
+	<div class="" id="" style="padding:0 20px;">
+		<div class="blogcnt" style="width:800px;">java 开启remote java Application 即 debug模式<wbr><div>只要在jvm加以下参数即可</div><div><pre class="prettyprint"   ><p><span style="font-family: 'Hiragino Sans GB W3', 'Hiragino Sans GB', Arial, Helvetica, simsun, 宋体; line-height: 28px; white-space: normal;"   >-Xdebug -Xrunjdwp:transport=dt_socket,address=5000,server=y,suspend=n&nbsp;</span></p></pre><br></div><div><br></div><div>tomcat debug&nbsp;</div><div>在catalina.bat中的<span style="line-height: 28px;"   >&nbsp;:doneSetArgs下面</span><span style="line-height: 28px;"   >添加下列语句即可</span></div><pre class="prettyprint"   ><p> set JAVA_OPTS=%JAVA_OPTS%   -Xdebug -Xrunjdwp:transport=dt_socket,address=5000,server=y,suspend=n </p></pre></div>
+	</div>
+</div>
+</body>
+</html>

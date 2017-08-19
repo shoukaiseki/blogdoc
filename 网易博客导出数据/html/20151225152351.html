@@ -1,0 +1,25 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=gbk">
+<title>蒋カイセキ 的博客</title>
+<style type="text/css">
+.blogcnt{line-height:160%;font-size:14px;text-align:left;word-wrap:break-word;}
+.blogcnt *{line-height:160%;}
+.blogcnt p{margin:0 0 10px;}
+.blogcnt ul,.nbw-blog ol{margin:5px 0 5px 40px;padding:0}
+.blogcnt em{font-style:italic;}
+.blogcnt blockquote{font-size:1em;margin:auto 0 auto 35px;}
+.blogcnt img{border:0;max-width:100%;}
+</style>
+</head>
+<body style="color:#444444;">
+<h1 id="blog-Title"><a href="index.html">蒋カイセキ 的博客</a></h1>
+<div id="" style="padding:0 20px;">
+	<h2 id="">MAXIMO客户机与服务器不同语言环境导致数据库配置保存错误</h2>
+	<h5 id="">2015-12-25 15:23:51&nbsp;&nbsp;&nbsp;<a href="http://blog.163.com/shoukaiseki/blog/static/1928561492015112532351331/" target="_blank">查看原文&gt;&gt;</a></h5>
+	<div class="" id="" style="padding:0 20px;">
+		<div class="blogcnt" style="width:800px;"><div><div>检查你要保存的表属性中 DEFAULTVALUE( 缺省值)的值是否有存在 &amp;DATETIME&amp; 之类的,因为不同语言环境只检查以下设置</div><div>&amp;AUTOKEY&amp; &amp;SYSDATE&amp; &amp;USERNAME&amp; &amp;APPNAME&amp; &amp;MBONAME&amp; &amp;OWNERNAME&amp; &amp;PERSONID&amp; &amp;SEQUENCE&amp;&nbsp;</div><div>除此之外的不同语言环境下就会出现保存错误</div><div><br></div><div><br></div><div>而处理方式可以是在psdi.app.configure.MaxAttributeCfg类里面的 getMboValueData(String attribute)方法中修改</div><div>修改后的信息如下:</div></div><div><br></div><div><pre class="prettyprint"   ><p> MboValueData mvd = super.getMboValueData(attribute);<br>        if(!firstDefaultvalueGet || toBeAdded() || !attribute.toUpperCase().equals("DEFAULTVALUE"))<br>            return mvd;<br>        String rawValue = mvd.getDataAsObject().toString();<br>        Locale systemLocale = MXServer.getMXServer().getSystemUserInfo().getLocale();<br>        TimeZone systemTimeZone = MXServer.getMXServer().getSystemUserInfo().getTimeZone();<br>        Locale userLocale = getUserInfo().getLocale();<br>        TimeZone userTimeZone = getUserInfo().getTimeZone();<br>        String userValue = null;<br>        if(rawValue.equals("&amp;DATETIME&amp;")<br>                ||rawValue.equals("&amp;DATETIME&amp;")<br>                ){<br>            userValue=rawValue;<br>        }else{<br>            userValue=((ConfigureService)getMboServer()).convertToLocale(rawValue, getString("maxtype"),<br>            systemLocale, systemTimeZone, userLocale, userTimeZone);<br>        }</p></pre><div>原方法里是在 psdi.app.configure.ConfigureService 类里的 convertToLocale方法里面做的判断,而我是提前做了判断,效果是一样的</div><div>原来的判断代码如下所示:</div></div><div><pre class="prettyprint"   ><p>public String convertToLocale(String inputValue, String maxtype, Locale fromLocale, TimeZone fromTimeZone, <br> Locale toLocale, TimeZone toTimeZone)<br>        throws MXException, RemoteException<br>    {<br>        if(inputValue == null || inputValue.equals(""))<br>            return inputValue;<br>        if(maxtype.equals("ALN") || maxtype.equals("UPPER") || maxtype.equals("LOWER") ||<br>        maxtype.equals("CLOB") || maxtype.equals("BLOB") || maxtype.equals("CRYPTO") || <br>        maxtype.equals("CRYPTOX") || maxtype.equals("YORN") || maxtype.equals("GL") || <br>        maxtype.equals("LONGALN"))<br>            return inputValue;<br>        if(fromLocale.equals(toLocale))<br>            return inputValue;<br>        if(inputValue.equals("&amp;AUTOKEY&amp;") || inputValue.equals("&amp;SYSDATE&amp;") || inputValue.equals("&amp;USERNAME&amp;")<br>        || inputValue.equals("&amp;APPNAME&amp;") || inputValue.equals("&amp;MBONAME&amp;") || inputValue.equals("&amp;OWNERNAME&amp;")<br>        || inputValue.equals("&amp;PERSONID&amp;") || inputValue.equals("&amp;SEQUENCE&amp;"))<br>            return inputValue;</p></pre><br></div><div><div>&nbsp;这个原因是因为不同的功能模块由不同人员开发导致的,开发团队内部人员未及时沟通吧</div></div></div>
+	</div>
+</div>
+</body>
+</html>

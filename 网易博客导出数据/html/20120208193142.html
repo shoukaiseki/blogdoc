@@ -1,0 +1,25 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=gbk">
+<title>蒋カイセキ 的博客</title>
+<style type="text/css">
+.blogcnt{line-height:160%;font-size:14px;text-align:left;word-wrap:break-word;}
+.blogcnt *{line-height:160%;}
+.blogcnt p{margin:0 0 10px;}
+.blogcnt ul,.nbw-blog ol{margin:5px 0 5px 40px;padding:0}
+.blogcnt em{font-style:italic;}
+.blogcnt blockquote{font-size:1em;margin:auto 0 auto 35px;}
+.blogcnt img{border:0;max-width:100%;}
+</style>
+</head>
+<body style="color:#444444;">
+<h1 id="blog-Title"><a href="index.html">蒋カイセキ 的博客</a></h1>
+<div id="" style="padding:0 20px;">
+	<h2 id="">vim格式化javascript及html代码</h2>
+	<h5 id="">2012-02-08 19:31:42&nbsp;&nbsp;&nbsp;<a href="http://blog.163.com/shoukaiseki/blog/static/19285614920121872957783/" target="_blank">查看原文&gt;&gt;</a></h5>
+	<div class="" id="" style="padding:0 20px;">
+		<div class="blogcnt" style="width:800px;"><div><div><div><span style="line-height: 22px;"  >转自:</span><a style="line-height: 22px; " rel="nofollow" href="http://atim.cn/read.php/1020.htm"  >http://atim.cn/read.php/1020.htm</a> </div><div><br></div><div>使用vim默认的格式化工具容易在格式化html与javascript混合的代码时很容易出现javascript没有按预想的规则显示代码.</div><div>所以推荐使用</div><div><a style="line-height: 22px; " rel="nofollow" href="http://www.vim.org/scripts/script.php?script_id=3081"  >http://www.vim.org/scripts/script.php?script_id=3081</a> </div><div>只需要将indent下的文件放入vim安装目录下 vimfiles/indent</div><div><font size="3"  color="#0000ff"  >我在win下测试后是放置压缩包中的html.vim和javascript.vim文件到.\vimfiles\plugin目录</font></div><div>重启vim使用"=G"命令就可以对html与javascript混合的代码进行格式化.</div></div><div><br></div></div><div><br></div><div><div>另转：<a target="_blank" rel="nofollow" href="http://blog.csdn.net/ph123456789/article/details/6369018"  >http://blog.csdn.net/ph123456789/article/details/6369018</a></div><div>最近在逛CSDN论坛时经常会苦恼一个问题——有些网友贴上去的代码没有用规范的格式贴上去，我贴到VIM里常常会需要手动调整格式，非常麻烦。每当这个时候就异常怀念以前用VC6.0时的ALT+F8……想下VIM作为一个程序员们最贴心的编辑器，显然不会对此坐视不理。经过一番的Search，果然就找到了一些最常用的简单技巧，笔记一下以备后来不时之需。&nbsp;</div><div>VIM格式化代码：&nbsp;</div><div>格式化全文指令 gg=G&nbsp;</div><div>自动缩进当前行指令 ==&nbsp;</div><div>&nbsp; &nbsp; &nbsp; 格式化当前光标接下来的8行 8=&nbsp;</div><div>&nbsp; &nbsp; &nbsp; 格式化选定的行 v 选中需要格式化的代码段 =&nbsp;</div><div>&nbsp; &nbsp; &nbsp; 备注：&nbsp;</div><div><font color="#ff0000"  >gg —— 到达文件最开始&nbsp;</font></div><div><font color="#ff0000"  >= —— 要求缩进&nbsp;</font></div><div><font color="#ff0000"  >G &nbsp; &nbsp; —— 直到文件尾&nbsp;</font></div><div>注释代码：(这个原理上就是使用VIM的正则替换)&nbsp;</div><div>以C++和Python为例。&nbsp;</div><div>注释连续行：&nbsp;</div><div>指令格式 :<font color="#ff0000"  >起始行</font>,<font color="#ff0000"  >终止行</font>s/<font color="#ff0000"  >要替换的字符</font>/<font color="#ff0000"  >替换为字符</font>/g&nbsp;</div><div>如，&nbsp;</div><div>&nbsp; &nbsp; &nbsp; C++源文件中注释掉10~20行，指令为：&nbsp;</div><div>:10,20s/^/////g&nbsp;</div><div>Python源文件中注释掉10~20行，指令为：&nbsp;</div><div>:10,20s/^/#/g&nbsp;</div><div>取消连续行注释：&nbsp;</div><div>指令格式同上。只是要替换字符与替换为字符要互换：&nbsp;</div><div>如，&nbsp;</div><div>&nbsp; &nbsp; &nbsp; 取消C++源文件中的10~20行的注释，指令为：&nbsp;</div><div>:10,20s/^//////g&nbsp;</div><div>取消Python源文件中的10~20行的注释，指令为：&nbsp;</div><div>:10,20s/^#//g</div></div></div>
+	</div>
+</div>
+</body>
+</html>

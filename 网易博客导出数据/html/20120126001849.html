@@ -1,0 +1,25 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=gbk">
+<title>蒋カイセキ 的博客</title>
+<style type="text/css">
+.blogcnt{line-height:160%;font-size:14px;text-align:left;word-wrap:break-word;}
+.blogcnt *{line-height:160%;}
+.blogcnt p{margin:0 0 10px;}
+.blogcnt ul,.nbw-blog ol{margin:5px 0 5px 40px;padding:0}
+.blogcnt em{font-style:italic;}
+.blogcnt blockquote{font-size:1em;margin:auto 0 auto 35px;}
+.blogcnt img{border:0;max-width:100%;}
+</style>
+</head>
+<body style="color:#444444;">
+<h1 id="blog-Title"><a href="index.html">蒋カイセキ 的博客</a></h1>
+<div id="" style="padding:0 20px;">
+	<h2 id="">Windows时间---RPC服务器不可用</h2>
+	<h5 id="">2012-01-26 0:18:49&nbsp;&nbsp;&nbsp;<a href="http://blog.163.com/shoukaiseki/blog/static/192856149201202601849366/" target="_blank">查看原文&gt;&gt;</a></h5>
+	<div class="" id="" style="padding:0 20px;">
+		<div class="blogcnt" style="width:800px;"><P>Windows Time服务没有启动或启动不正常会导致客户机与Internet服务器时间同步出错（RPC服务器不可用），一般的解决方法有如下三种，它们都是启动Windows Time服务：</P>  <P>方法一：RPC服务没有启动</P>  <P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; “开始”--〉“设置”--〉“控制面板”找到“管理工具”--〉“服务”，找到“Remote Procedure Call (RPC)”，双击打开，在“启动类型”里选择“自动”后，点击确定；找到“Remote Procedure Call (RPC) Locator”，双击打开，在“启动类型”里选择“自动”后，点击确定；最后重新启动电脑后，按照正确的方法再安装一遍软件即可解决问题。</P>  <P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 另外，如果您的系统是xp，在重新启动安装之前，“开始”——》“运行”，运行msconfig，选择的是“正常启动”，则就会加载所有服务，包括rpc服务；选择是“有选择的启动”，您必须选中“加载系统服务”一项保证服务启动时加载。如果不行，就继续下面操作</P>  <P>方法二：开始-控制面板-管理工具-服务 找到 Windows Time 服务项目，右击它-启用。然后进行时间同步操作即可。</P>  <P>方法三：开始-运行，输入 cmd 回车，在DOS窗口输入 下输入w32tm /register ，回车，若提示成功，再输入 net start "windows time"，提示成功后即可进行时间同步操作。</P>  <P>Windows默认提供两个服务器，其实我们可以临时使用其他的服务器。需要知道服务器的IP，比如，这个就不错，国家授时中心，IP为210.72.145.44。时间同步操作窗口的服务器是可以选中的，然后输入即可临时更改服务器。</P>  <P>给系统添加自定义同步时间服务器更加方便今后的时间同步操作。添加方法：打开注册表，找到 HKEY_LOCAL_MACHINE - SOFTWARE - Microsoft - Windows - CurrentVersion - DateTime - Servers，在右边窗格新建字符串值，名称为自然数，紧接着最末一个，比如，前面一个服务器为2，则建立一个名称为3的字符串值，其数值数据则为服务器域名或IP（比如前面提供的210.72.145.44）。</P>  <P>&nbsp;</P>  <P>附另外两种常见问题解决方案：</P>  <P>一、与服务器进行同步时间出错<BR>windows time 服务是打开状态，但点击“自动更新”时还是显示“Windows在与服务器进行同步时出错”，怎么回事？</P>  <P>&nbsp;</P>  <P>解决办法：<BR>1.双击右下角的时间；<BR>2.把服务器改成210.72.145.44（中科院国家授时中心的服务器） ；<BR>3.修改之后，一定记得要先点右下角的“应用”，再点“自动更新”就可以了，一般不会出错！即使是高峰时期，三次之内必成功，比美国的服务器好多了。 </P>  <P>二、自由选择时间同步间隔：<BR>系统默认的时间同步间隔只是7天，我们无法自由选择，使得这个功能在灵活性方面大打折扣。其实，我们也可以通过修改注册表来手动修改它的自动同步间隔。 </P>  <P>1. 在“开始”菜单→“运行”项下输入“Regedit”进入注册表编辑器； </P>  <P>2. 展开[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\W32Time \TimeProviders\NtpClient ] 分支，并双击 SpecialPollInterval 键值，将对话框中的“基数栏”选择到“十进制”上； <BR>3. 而这时在对话框中显示的数字正是自动对时的间隔(以秒为单位)，比如默认的604800就是由7(天)×24(时)×60(分)×60(秒)计算来的，看 明白了吧，如果您想让XP以多长时间自动对时，只要按这个公式算出具体的秒数，再填进去就好了。比如我填了3天，就是259200。<BR><WBR></P>  <P>转发来自 <A rel="nofollow" href="http://hi.baidu.com/fly_meng/blog/item/a2a68109547cd589d0581bc8.html"  >http://hi.baidu.com/fly_meng/blog/item/a2a68109547cd589d0581bc8.html</A></P>  <P>XP系统我用的方法是net start "windows time"</P>  <P>同步服务器设置为210.72.145.44</P></div>
+	</div>
+</div>
+</body>
+</html>

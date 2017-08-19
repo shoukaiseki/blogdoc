@@ -1,0 +1,25 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=gbk">
+<title>蒋カイセキ 的博客</title>
+<style type="text/css">
+.blogcnt{line-height:160%;font-size:14px;text-align:left;word-wrap:break-word;}
+.blogcnt *{line-height:160%;}
+.blogcnt p{margin:0 0 10px;}
+.blogcnt ul,.nbw-blog ol{margin:5px 0 5px 40px;padding:0}
+.blogcnt em{font-style:italic;}
+.blogcnt blockquote{font-size:1em;margin:auto 0 auto 35px;}
+.blogcnt img{border:0;max-width:100%;}
+</style>
+</head>
+<body style="color:#444444;">
+<h1 id="blog-Title"><a href="index.html">蒋カイセキ 的博客</a></h1>
+<div id="" style="padding:0 20px;">
+	<h2 id="">eclipse启动weblogic控制台显示乱码问题</h2>
+	<h5 id="">2016-07-05 11:49:32&nbsp;&nbsp;&nbsp;<a href="http://blog.163.com/shoukaiseki/blog/static/192856149201665114932564/" target="_blank">查看原文&gt;&gt;</a></h5>
+	<div class="" id="" style="padding:0 20px;">
+		<div class="blogcnt" style="width:800px;"><div>解决方法：&nbsp;</div><div><br></div><div><br></div><div>1.找到weblogic安装目录,当前项目配置的domain &nbsp;</div><div><br></div><div>2.找到bin下的setDomainEnv.cmd文件 &nbsp;</div><div><br></div><div>3.打开文件,从文件最后搜索第一个set JAVA_OPTIONS=%JAVA_OPTIONS%(应该是倒数第四行,空行除外),</div><div><br></div><div>修改为set JAVA_OPTIONS=%JAVA_OPTIONS% -Dfile.encoding=utf-8&nbsp;</div><div><br></div><wbr></div>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=gbk">
+<title>蒋カイセキ 的博客</title>
+<style type="text/css">
+.blogcnt{line-height:160%;font-size:14px;text-align:left;word-wrap:break-word;}
+.blogcnt *{line-height:160%;}
+.blogcnt p{margin:0 0 10px;}
+.blogcnt ul,.nbw-blog ol{margin:5px 0 5px 40px;padding:0}
+.blogcnt em{font-style:italic;}
+.blogcnt blockquote{font-size:1em;margin:auto 0 auto 35px;}
+.blogcnt img{border:0;max-width:100%;}
+</style>
+</head>
+<body style="color:#444444;">
+<h1 id="blog-Title"><a href="index.html">蒋カイセキ 的博客</a></h1>
+<div id="" style="padding:0 20px;">
+	<h2 id="">maximo 一个新创建的表,在使用表时,在表中新建数据时错误</h2>
+	<h5 id="">2011-11-09 21:06:11&nbsp;&nbsp;&nbsp;<a href="http://blog.163.com/shoukaiseki/blog/static/19285614920111099432692/" target="_blank">查看原文&gt;&gt;</a></h5>
+	<div class="" id="" style="padding:0 20px;">
+		<div class="blogcnt" style="width:800px;"><div>psdi.util.MXApplicationException: BMXAA7094E - 所输入的值 LYDC 无效。请输入有效的整数值。</div><div><span style="white-space:pre;"  > </span>at psdi.util.MXFormat.stringToLong(MXFormat.java:176)</div><div><span style="white-space:pre;"  > </span>at psdi.util.MaxType.setValue(MaxType.java:448)</div><div><span style="white-space:pre;"  > </span>at psdi.mbo.MboValue._setValue(MboValue.java:1142)</div><div><span style="white-space:pre;"  > </span>at psdi.mbo.MboValue.setValue(MboValue.java:1052)</div><div><span style="white-space:pre;"  > </span>at psdi.mbo.Mbo.setValue(Mbo.java:1975)</div><div><span style="white-space:pre;"  > </span>at psdi.mbo.Mbo.setDefaultSiteOrgSetValues(Mbo.java:4333)</div><div><span style="white-space:pre;"  > </span>at psdi.mbo.MboSet.addAtIndex(MboSet.java:3992)</div><div><span style="white-space:pre;"  > </span>at psdi.mbo.MboSet.add(MboSet.java:3914)</div><div><span style="white-space:pre;"  > </span>at psdi.mbo.MboSet.add(MboSet.java:3796)</div><div><span style="white-space:pre;"  > </span>at psdi.webclient.system.beans.DataBean.insert(DataBean.java:3038)</div><div><span style="white-space:pre;"  > </span>at psdi.webclient.system.beans.AppBean.insert(AppBean.java:1002)</div><div><span style="white-space:pre;"  > </span>at psdi.webclient.system.beans.AppBean.INSERT(AppBean.java:1022)</div><div><span style="white-space:pre;"  > </span>at jrockit.reflect.VirtualNativeMethodInvoker.invoke(Ljava.lang.Object;[Ljava.lang.Object;)Ljava.lang.Object;(Unknown Source)</div><div><span style="white-space:pre;"  > </span>at java.lang.reflect.Method.invoke(Ljava.lang.Object;[Ljava.lang.Object;I)Ljava.lang.Object;(Unknown Source)</div><div><span style="white-space:pre;"  > </span>at psdi.webclient.system.session.WebClientSession.defaultHandler(WebClientSession.java:951)</div><div><span style="white-space:pre;"  > </span>at psdi.webclient.system.session.WebClientSession.handleEvent(WebClientSession.java:845)</div><div><span style="white-space:pre;"  > </span>at psdi.webclient.system.session.WebClientSession.handleRequest(WebClientSession.java:503)</div><div><span style="white-space:pre;"  > </span>at psdi.webclient.system.controller.RequestManager.manageRequest(RequestManager.java:83)</div><div><span style="white-space:pre;"  > </span>at psdi.webclient.servlet.WebClientServlet.handleRequest(WebClientServlet.java:131)</div><div><span style="white-space:pre;"  > </span>at psdi.webclient.servlet.WebClientServlet.doPost(WebClientServlet.java:45)</div><div><span style="white-space:pre;"  > </span>at javax.servlet.http.HttpServlet.service(HttpServlet.java:763)</div><div><span style="white-space:pre;"  > </span>at javax.servlet.http.HttpServlet.service(HttpServlet.java:856)</div><div><span style="white-space:pre;"  > </span>at weblogic.servlet.internal.StubSecurityHelper$ServletServiceAction.run(StubSecurityHelper.java:225)</div><div><span style="white-space:pre;"  > </span>at weblogic.servlet.internal.StubSecurityHelper.invokeServlet(StubSecurityHelper.java:127)</div><div><span style="white-space:pre;"  > </span>at weblogic.servlet.internal.ServletStubImpl.execute(ServletStubImpl.java:230)</div><div><span style="white-space:pre;"  > </span>at weblogic.servlet.internal.TailFilter.doFilter(TailFilter.java:26)</div><div><span style="white-space:pre;"  > </span>at weblogic.servlet.internal.FilterChainImpl.doFilter(FilterChainImpl.java:42)</div><div><span style="white-space:pre;"  > </span>at com.shuto.jingqiao.RtxAccessFilter.doFilterInternal(RtxAccessFilter.java:57)</div><div><span style="white-space:pre;"  > </span>at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:76)</div><div><span style="white-space:pre;"  > </span>at weblogic.servlet.internal.FilterChainImpl.doFilter(FilterChainImpl.java:42)</div><div>在数据库配置中该表对象当时是设置为SITE(站点)级别</div><div>解决方案:</div><div>把属性中的SITEID的"等同对象"设为'SITE',把"与属性相同"改为'SITEID'</div><div>把属性中的ORGID的"等同对象"设为'ORG',把"与属性相同"改为'ORGID'</div><wbr></div>
+	</div>
+</div>
+</body>
+</html>

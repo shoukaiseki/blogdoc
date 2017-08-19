@@ -1,0 +1,25 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=gbk">
+<title>蒋カイセキ 的博客</title>
+<style type="text/css">
+.blogcnt{line-height:160%;font-size:14px;text-align:left;word-wrap:break-word;}
+.blogcnt *{line-height:160%;}
+.blogcnt p{margin:0 0 10px;}
+.blogcnt ul,.nbw-blog ol{margin:5px 0 5px 40px;padding:0}
+.blogcnt em{font-style:italic;}
+.blogcnt blockquote{font-size:1em;margin:auto 0 auto 35px;}
+.blogcnt img{border:0;max-width:100%;}
+</style>
+</head>
+<body style="color:#444444;">
+<h1 id="blog-Title"><a href="index.html">蒋カイセキ 的博客</a></h1>
+<div id="" style="padding:0 20px;">
+	<h2 id="">递归 SQL 级别 1 出现错误 ORA-01000: 超出打开游标的最大数</h2>
+	<h5 id="">2013-01-06 14:01:48&nbsp;&nbsp;&nbsp;<a href="http://blog.163.com/shoukaiseki/blog/static/1928561492013062148611/" target="_blank">查看原文&gt;&gt;</a></h5>
+	<div class="" id="" style="padding:0 20px;">
+		<div class="blogcnt" style="width:800px;"><br><pre class="prettyprint"  >package oraclesql;<br><br>import java.io.IOException;<br>import java.io.InputStream;<br>import java.sql.Connection;<br>import java.sql.DriverManager;<br>import java.sql.PreparedStatement;<br>import java.sql.ResultSet;<br>import java.sql.ResultSetMetaData;<br>import java.sql.SQLException;<br>import java.sql.Statement;<br>import java.util.Properties;<br><br>public class 游标最大值测试 {<br><br> static Connection con = null;<br> static Statement sm = null;<br> static ResultSet rs = null;<br> static String tableName = null;<br> static String cName = null;<br> static String result = null;<br> static String url = "jdbc:oracle:thin:@localhost:1521:orcl";<br> static String driver = "oracle.jdbc.driver.OracleDriver";<br> static String user = "maximo_75";<br> static String password = "maximo_75";<br><br> public void setDefuorutoConnection() {<br>  try {<br>   // （1）装载并注册数据库的JDBC驱动程序<br>   // 载入JDBC驱动：oracle安装目录下的jdbc\lib\classes12.jar<br>   println("正在试图加载驱动程序 " + driver);<br>   Class.forName(driver);<br>   println("驱动程序已加载");<br>   // 注册JDBC驱动：有些地方可不用此句<br>   println("url=" + url);<br>   println("user=" + user);<br>   println("password=" + password);<br>   println("正在试图连接数据库--------");<br>   java.sql.DriverManager<br>     .registerDriver(new oracle.jdbc.driver.OracleDriver());<br><br>   con = DriverManager.getConnection(url, user, password);<br><br>   println("OK,成功连接到数据库");<br><br>   /**<br>    * 关闭自动更新<br>    */<br>   con.setAutoCommit(false);<br>  } catch (Exception ex) {<br>   ex.printStackTrace();<br>   println(ex.getMessage(), true);<br>  }<br> }<br><br><br><br> public static void main(String[] args) throws SQLException {<br>  游标最大值测试 jd = new 游标最大值测试();<br>  jd.setDefuorutoConnection();<br>  //show parameter open_cursors;--查询允许的游标最大值<br>  //alter system set open_cursors=1000 scope=both;--修改游标最大值为1000<br>  <br>  //在该程序运行时执行下列语句,查询"执行  SELECT sysdate FROM dual 时"占用的游标数<br>  //select count(*) from v$open_cursor where sql_text like 'select rowid, sysdate FROM dual';<br>  <br>  //j为 游标最大值+1<br>  int j=3001;<br>  for (int i = 0; i &lt; j; i++) {<br>   jd.readData();<br>   System.out.println("i="+(i+1));<br>  }<br> }<br><br> public  void readData() {<br>  try {<br>   /*<br>    * 查询数据<br>    */<br>   Statement st = con.createStatement();<br>   st = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);<br>   ResultSet r = st<br>     .executeQuery("SELECT sysdate FROM dual");<br>   r.last();<br>   System.out.println("行数"+r.getRow());<br>   r.beforeFirst() ;//将光标移动到此 ResultSet 对象的开头，正好位于第一行之前。<br>   <br>   ResultSetMetaData rsmd=r.getMetaData();<br>   int column=rsmd.getColumnCount();<br>   System.out.println("列数为"+column);<br>   for (int i = 0; i &lt; rsmd.getColumnCount() ; i++) {<br>    System.out.print(rsmd.getColumnName(i+1)+"\t");<br>   }<br>   System.out.println();<br>   while (r.next()) {<br>    for (int i = 0; i &lt; column; i++) {<br>     System.out.print(r.getString(i+1)+"\t");<br>    }<br>    System.out.println();<br>   }<br><br>//   r.close();<br>//   st.close();<br>//   con.close();<br>   System.out.println("查询结束!");<br>  } catch (Exception ex) {<br>   ex.printStackTrace();<br>  }<br> }<br><br><br> public static void println() {<br><br> }<br><br> public static void println(String s, boolean b) {<br>  System.out.println(s);<br> }<br><br> public static void println(String s) {<br>  System.out.println(s);<br> }<br>}<br><br><p><br></p></pre></div>
+	</div>
+</div>
+</body>
+</html>

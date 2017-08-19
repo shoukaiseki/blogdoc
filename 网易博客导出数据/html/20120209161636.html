@@ -1,0 +1,25 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=gbk">
+<title>蒋カイセキ 的博客</title>
+<style type="text/css">
+.blogcnt{line-height:160%;font-size:14px;text-align:left;word-wrap:break-word;}
+.blogcnt *{line-height:160%;}
+.blogcnt p{margin:0 0 10px;}
+.blogcnt ul,.nbw-blog ol{margin:5px 0 5px 40px;padding:0}
+.blogcnt em{font-style:italic;}
+.blogcnt blockquote{font-size:1em;margin:auto 0 auto 35px;}
+.blogcnt img{border:0;max-width:100%;}
+</style>
+</head>
+<body style="color:#444444;">
+<h1 id="blog-Title"><a href="index.html">蒋カイセキ 的博客</a></h1>
+<div id="" style="padding:0 20px;">
+	<h2 id="">VIM配置</h2>
+	<h5 id="">2012-02-09 16:16:36&nbsp;&nbsp;&nbsp;<a href="http://blog.163.com/shoukaiseki/blog/static/19285614920121941636349/" target="_blank">查看原文&gt;&gt;</a></h5>
+	<div class="" id="" style="padding:0 20px;">
+		<div class="blogcnt" style="width:800px;"><div><br></div><div></div><div><div><br></div><div><br></div></div><div><pre class="prettyprint"  ><p>set backspace=indent,eol,start<br>""""""""""""""""""""""<br>""设置字体<br>""""""""""""""""""""""<br>"set guifont=文泉驿正黑\ 16<br>"set guifont=Monaco\ 12<br>set guifont=Courier\ New\ 12<br>set fenc="zh_CN.UTF-8""设定默认解码 <br>set fencs=zh_CN.UTF-8,utf-8,usc-bom,euc-jp,gb18030,gbk,gb2312,cp936<br>set cursorline              " 突出显示当前行<br>set nocp "或者 set nocompatible 用于关闭VI的兼容模式 <br>set number "显示行号 <br>set ai "或者 set autoindent vim使用自动对齐，也就是把当前行的对齐格式应用到下一行 <br>set si "或者 set smartindent 依据上面的对齐格式，智能的选择对齐方式<br>set tabstop=4 "设置tab键为4个空格<br>set sw=4 "或者 set shiftwidth 设置当行之间交错时使用4个空格<br>set ruler "设置在编辑过程中,于右下角显示光标位置的状态行 <br>set incsearch "设置增量搜索,这样的查询比较smart " 输入搜索内容时就显示搜索结果<br>set hlsearch                " 搜索时高亮显示被找到的文本<br>set showmatch "高亮显示匹配的括号 <br>set matchtime=5 "匹配括号高亮时间(单位为 1/10 s) <br>set ignorecase "在搜索的时候忽略大小写 <br>syntax on "高亮语法<br>syntax enable      " 设定配色方案<br>colorscheme molokai   "desert<br>let Tlist_Show_One_File=1    "教你高效地浏览源码 -- 插件: TagList<br>let Tlist_Exit_OnlyWindow=1    "教你高效地浏览源码 -- 插件: TagList<br><br>"set guifont=Sans:h14:Bold<br><br>"""""""""""""""""""""""""""""""<br> <br>"" winManager setting<br> <br>"""""""""""""""""""""""""""""""<br> <br>"设置界面分割<br> <br>"let g:winManagerWindowLayout = "BufExplorer,FileExplorer|TagList"<br> <br>let g:winManagerWindowLayout = "TagList|FileExplorer,BufExplorer"<br> <br>"设置winmanager的宽度，默认为25<br> <br>let g:winManagerWidth = 30<br>nmap &lt;silent&gt; &lt;F8&gt; :WMToggle&lt;cr&gt; "定义打开关闭winmanager按键<br>let g:winManagerWindowLayout='FileExplorer|TagList' "文件浏览器和窗口管理器 -- 插件: WinManager<br>let g:AutoOpenWinManager = 1      "自动打开文件浏览器0关1开<br>set autochdir               " 自动切换当前目录为当前文件所在的目录<br>"""""""""""""""""""""""""""""<br>""<br>""""""""""""""""""""""""""""<br>"set guioptions-=T           " 隐藏工具栏<br>"set guioptions-=m           " 隐藏菜单栏<br>set smartindent             " 开启新行时使用智能自动缩进<br>set cmdheight=1             " 设定命令行的行数为 1<br>set laststatus=2            " 显示状态栏 (默认值为 1, 无法显示状态栏)<br><br>set statusline=\ %&lt;%F[%1*%M%*%n%R%H]%=\ %y\ %0(%{&amp;fileformat}\ %{&amp;encoding}\ %c:%l/%L%)\ <br>                            " 设置在状态行显示的信息<br>set foldenable              " 开始折叠<br>set foldmethod=syntax       " 设置语法折叠<br>set foldcolumn=0            " 设置折叠区域的宽度<br>setlocal foldlevel=1        " 设置折叠层数为<br>"set foldclose=all           " 设置为自动关闭折叠   <br>"nnoremap &lt;space&gt; @=((foldclosed(line('.')) &lt; 0) ? 'zc' : 'zo')&lt;CR&gt;<br>                            " 用空格键来开关折叠<br>""""""""""""""""""""""""""""""<br>""<br>""""""""""""""""""""""""""""""<br>set cscopequickfix=s-,c-,d-,i-,t-,e-<br><br><br><br><br>""""""""""""""""""""""""""""""<br>""手动添加注释快捷键<br>""""""""""""""""""""""""""""""<br>"按Shift+V后按hjkl选择要注释的行(也可按Shift+↑↓←→选择),再按Shift+Ctrl+P进行注释,注释格式为:/**&lt;回车&gt;内容&lt;回车&gt;**/<br>"wmap&lt;C-S-P&gt;    Ctrl+Shift+P<br>"dO**/&lt;Esc&gt;PO/**&lt;Esc&gt; 便是依次按下以下按键<br>vmap &lt;C-S-P&gt;    dO**/&lt;Esc&gt;PO/**&lt;Esc&gt;<br><br><br>/**************************<br>**vim编码识别插件 fencview   http://www.vim.org/scripts/script.php?script_id=1708<br>**开启后会自动以html的编码设置来设置编码,而不是靠文件编码<br>** let g:fencview_html_filetypes='html' 改成'htmlabc'就不在支持html设置的编码格式</p><p>**    let g:fencview_auto_patterns='*.txt,*.htm{l\=}' 改成abchtm{l\=}<br>***************************/<br>"vim 解决打开文件乱码<br>"推荐水木社区的 mbbill 开发的 fencview 插件。<br>"该插件使用词频统计的方式识别编码，正确率非常高。<br><br>"这里下载：http://www.vim.org/scripts/script.php?script_id=1708<br>"下载完后把它移动到vim插件目录，vim7.2默认Linux应该是/usr/share/vim/vim72/plugin/            win下为Vim/vimfiles/plugin<br>"启用插件的时候，在vim命令模式下输入以下命令<br><br>":FencAutoDetect <span style="white-space:pre;"  >  </span>"自动检测文件编码 （推荐）<br>":FencView <span style="white-space:pre;"  >   </span>"在编码列表中选择文件的编码<br>":FencManualEncoding coding <span style="white-space:pre;"  > </span>"手动设置文件编码，用你想使用的编码代替coding<br><br></p></pre></div></div>
+	</div>
+</div>
+</body>
+</html>

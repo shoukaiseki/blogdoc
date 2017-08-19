@@ -1,0 +1,25 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=gbk">
+<title>蒋カイセキ 的博客</title>
+<style type="text/css">
+.blogcnt{line-height:160%;font-size:14px;text-align:left;word-wrap:break-word;}
+.blogcnt *{line-height:160%;}
+.blogcnt p{margin:0 0 10px;}
+.blogcnt ul,.nbw-blog ol{margin:5px 0 5px 40px;padding:0}
+.blogcnt em{font-style:italic;}
+.blogcnt blockquote{font-size:1em;margin:auto 0 auto 35px;}
+.blogcnt img{border:0;max-width:100%;}
+</style>
+</head>
+<body style="color:#444444;">
+<h1 id="blog-Title"><a href="index.html">蒋カイセキ 的博客</a></h1>
+<div id="" style="padding:0 20px;">
+	<h2 id="">rpm 安装指令全</h2>
+	<h5 id="">2011-12-22 5:58:46&nbsp;&nbsp;&nbsp;<a href="http://blog.163.com/shoukaiseki/blog/static/1928561492011112255846112/" target="_blank">查看原文&gt;&gt;</a></h5>
+	<div class="" id="" style="padding:0 20px;">
+		<div class="blogcnt" style="width:800px;"><div id="cnblogs_post_body"  style="box-sizing: border-box;"  ><p style="box-sizing: border-box; margin-top: 5px; margin-right: auto; margin-bottom: 5px; margin-left: auto;"  >rpm -ivh package.rpm 安装一个rpm包&nbsp;<br style="box-sizing: border-box;"  >rpm -ivh --nodeeps package.rpm 安装一个rpm包而忽略依赖关系警告&nbsp;<br style="box-sizing: border-box;"  >rpm -U package.rpm 更新一个rpm包但不改变其配置文件&nbsp;<br style="box-sizing: border-box;"  >rpm -F package.rpm 更新一个确定已经安装的rpm包&nbsp;<br style="box-sizing: border-box;"  >rpm -e package_name.rpm 删除一个rpm包&nbsp;<br style="box-sizing: border-box;"  >rpm -qa 显示系统中所有已经安装的rpm包&nbsp;<br style="box-sizing: border-box;"  >rpm -qa | grep httpd 显示所有名称中包含 "httpd" 字样的rpm包&nbsp;<br style="box-sizing: border-box;"  >rpm -qi package_name 获取一个已安装包的特殊信息&nbsp;<br style="box-sizing: border-box;"  >rpm -qg "System Environment/Daemons" 显示一个组件的rpm包&nbsp;<br style="box-sizing: border-box;"  >rpm -ql package_name 显示一个已经安装的rpm包提供的文件列表&nbsp;<br style="box-sizing: border-box;"  >rpm -qc package_name 显示一个已经安装的rpm包提供的配置文件列表&nbsp;<br style="box-sizing: border-box;"  >rpm -q package_name --whatrequires 显示与一个rpm包存在依赖关系的列表&nbsp;<br style="box-sizing: border-box;"  >rpm -q package_name --whatprovides 显示一个rpm包所占的体积&nbsp;<br style="box-sizing: border-box;"  >rpm -q package_name --scripts 显示在安装/删除期间所执行的脚本l&nbsp;<br style="box-sizing: border-box;"  >rpm -q package_name --changelog 显示一个rpm包的修改历史&nbsp;<br style="box-sizing: border-box;"  >rpm -qf /etc/httpd/conf/httpd.conf 确认所给的文件由哪个rpm包所提供&nbsp;<br style="box-sizing: border-box;"  >rpm -qp package.rpm&nbsp; -l 显示由一个尚未安装的rpm包提供的文件列表&nbsp;<br style="box-sizing: border-box;"  >rpm --import /media/cdrom/RPM-GPG-KEY 导入公钥数字证书&nbsp;<br style="box-sizing: border-box;"  >rpm --checksig package.rpm 确认一个rpm包的完整性&nbsp;<br style="box-sizing: border-box;"  >rpm -qa gpg-pubkey 确认已安装的所有rpm包的完整性&nbsp;&nbsp;<br style="box-sizing: border-box;"  >rpm -V package_name 检查文件尺寸、 许可、类型、所有者、群组、MD5检查以及最后修改时间&nbsp;<br style="box-sizing: border-box;"  >rpm -Va 检查系统中所有已安装的rpm包- 小心使用&nbsp;<br style="box-sizing: border-box;"  >rpm -Vp package.rpm 确认一个rpm包还未安装&nbsp;<br style="box-sizing: border-box;"  >rpm2cpio package.rpm | cpio --extract --make-directories&nbsp; *bin* 从一个rpm包运行可执行文件&nbsp;<br style="box-sizing: border-box;"  >rpm -ivh /usr/src/redhat/RPMS/`arch`/package.rpm 从一个rpm源码安装一个构建好的包&nbsp;<br style="box-sizing: border-box;"  >rpmbuild --rebuild package_name.src.rpm 从一个rpm源码构建一个 rpm 包</p><div><br></div></div><div id="blog_post_info_block"  style="box-sizing: border-box; margin-top: 20px;"  ><div id="BlogPostCategory"  style="box-sizing: border-box; color: rgb(75, 75, 75); font-family: verdana, Arial, helvetica, sans-seriff; font-size: 13px; line-height: 20px; text-align: -webkit-auto;"  ></div><div id="EntryTag"  style="box-sizing: border-box; font-size: 12px; color: rgb(75, 75, 75); font-family: verdana, Arial, helvetica, sans-seriff; line-height: 20px; text-align: -webkit-auto;"  ></div></div><wbr></div>
+	</div>
+</div>
+</body>
+</html>

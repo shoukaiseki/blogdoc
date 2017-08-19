@@ -1,0 +1,25 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=gbk">
+<title>蒋カイセキ 的博客</title>
+<style type="text/css">
+.blogcnt{line-height:160%;font-size:14px;text-align:left;word-wrap:break-word;}
+.blogcnt *{line-height:160%;}
+.blogcnt p{margin:0 0 10px;}
+.blogcnt ul,.nbw-blog ol{margin:5px 0 5px 40px;padding:0}
+.blogcnt em{font-style:italic;}
+.blogcnt blockquote{font-size:1em;margin:auto 0 auto 35px;}
+.blogcnt img{border:0;max-width:100%;}
+</style>
+</head>
+<body style="color:#444444;">
+<h1 id="blog-Title"><a href="index.html">蒋カイセキ 的博客</a></h1>
+<div id="" style="padding:0 20px;">
+	<h2 id="">maximo SqlFormat 高级格式化使用方法</h2>
+	<h5 id="">2015-12-14 16:13:50&nbsp;&nbsp;&nbsp;<a href="http://blog.163.com/shoukaiseki/blog/static/192856149201511144010660/" target="_blank">查看原文&gt;&gt;</a></h5>
+	<div class="" id="" style="padding:0 20px;">
+		<div class="blogcnt" style="width:800px;"><div><br></div><div><pre class="prettyprint"   ><p><span style="line-height: 28px;"   >//sourceMbo为要将 :字段名 替换的 Mbo</span></p><p><span style="line-height: 28px;"   >SqlFormat sqf = new SqlFormat(sourceMbo, "需您审核编号为 :CONTRACTNUM :VENDOR.NAME 合同");</span><br style="line-height: 28px;"   ><span style="line-height: 28px;"   >sqf.setIgnoreUnresolved(true);</span><br style="line-height: 28px;"   ><span style="line-height: 28px;"   >String val = sqf.resolveContent();</span><br style="line-height: 28px;"   ><span style="line-height: 28px;"   >System.out.println("val="+val);</span></p><p><span style="line-height: 28px;"   ><br></span></p><p>sqf = new SqlFormat(sourceMbo,"CONTRACTNUM=':CONTRACTNUM' and name=':VENDOR.NAME'");<br>sqf.setIgnoreUnresolved(true);<br>val = sqf.resolveContent();<br>System.out.println("val="+val);</p></pre>输出结果如下:&nbsp;</div><div>需您审核编号为 10364 &nbsp;东京人体工程学文化研究中心 合同</div><div><span style="font-family: monospace; line-height: 28px; white-space: pre;"   >CONTRACTNUM='</span><span style="line-height: 28px;"   >10364</span><span style="font-family: monospace; line-height: 28px; white-space: pre;"   >' and name='</span><span style="line-height: 28px;"   >东京人体工程学文化研究中心</span><span style="font-family: monospace; line-height: 28px; white-space: pre;"   >'</span></div></div>
+	</div>
+</div>
+</body>
+</html>

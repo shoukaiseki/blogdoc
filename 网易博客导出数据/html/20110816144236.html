@@ -1,0 +1,25 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=gbk">
+<title>蒋カイセキ 的博客</title>
+<style type="text/css">
+.blogcnt{line-height:160%;font-size:14px;text-align:left;word-wrap:break-word;}
+.blogcnt *{line-height:160%;}
+.blogcnt p{margin:0 0 10px;}
+.blogcnt ul,.nbw-blog ol{margin:5px 0 5px 40px;padding:0}
+.blogcnt em{font-style:italic;}
+.blogcnt blockquote{font-size:1em;margin:auto 0 auto 35px;}
+.blogcnt img{border:0;max-width:100%;}
+</style>
+</head>
+<body style="color:#444444;">
+<h1 id="blog-Title"><a href="index.html">蒋カイセキ 的博客</a></h1>
+<div id="" style="padding:0 20px;">
+	<h2 id="">itoa gcvt sizeof struct</h2>
+	<h5 id="">2011-08-16 14:42:36&nbsp;&nbsp;&nbsp;<a href="http://blog.163.com/shoukaiseki/blog/static/192856149201171624236813/" target="_blank">查看原文&gt;&gt;</a></h5>
+	<div class="" id="" style="padding:0 20px;">
+		<div class="blogcnt" style="width:800px;"><span style="font-family: 'AR PL UKai CN'; line-height: normal; font-size: medium;"><div style="background-color: rgb(255, 255, 255); font-size: 14px; font-family: Arial, 宋体; margin-top: 10px; margin-right: 10px; margin-bottom: 10px; margin-left: 10px; cursor: text; line-height: 1.8; word-wrap: break-word;"><p style="margin-top: 0.5em; margin-bottom: 0.5em;">/*</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">Itoa &nbsp;#include &lt;stdlib.h&gt;</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">原 型　char *itoa( int value, char *string,int radix);</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">功 能　把一整数转换为字符串 只限int类型整数</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">用 法 &nbsp;itoa(i,num,10);</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">　　i ----需要转换成字符串的数字</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">　　num---- 转换后保存字符串的变量</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">　　10---- 转换数字的基数（即进制）。10就是说按10进制转换数字。</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;还可以是2，8，16等等你喜欢的进制类型</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">函数名: gcvt &nbsp;#include &lt;stdlib.h&gt;</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">　　功 能: 把浮点数double转换成字符串char</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">　　用 法: char *gcvt(double value, int ndigit, char *buf);</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">value--被转换的值。ndigits--存储的有效数字位数。buf--结果的存储位置</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">&nbsp;</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">*/</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">#include &lt;string.h&gt;</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">#include &lt;stdlib.h&gt;</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">#include &lt;stdio.h&gt;　　　　 //定义输入／输出函数</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">typedef struct ColPointCloud</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">{</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">int CPC_x;</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">double CPC_y;</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">} ;</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">&nbsp;</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">main()&nbsp;</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">{</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">char strList[200];</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">struct ColPointCloud current;</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">current.CPC_x=23;</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">current.CPC_y=23.0595;</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">itoa(current.CPC_x,strList,10);</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">printf("current.CPC_x=%s.\n",strList);</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">gcvt(current.CPC_y,sizeof(current.CPC_y),strList);</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">/*sizeof是C/C++中的一个操作符（operator）,不是函数,是常量</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">这里是在测double current.CPC_y的数据长度</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">简单的说其作用就是返回一个对象或者类型所占的内存字节数。*/</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">printf("current.CPC_y=%s.\n",strList);</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">&nbsp;</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">printf("Good bye!\nPress any key to off exit!");</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">&nbsp; getch();</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">&nbsp; return 0;</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">}&nbsp;</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">&nbsp;</p></div></span><wbr></div>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=gbk">
+<title>蒋カイセキ 的博客</title>
+<style type="text/css">
+.blogcnt{line-height:160%;font-size:14px;text-align:left;word-wrap:break-word;}
+.blogcnt *{line-height:160%;}
+.blogcnt p{margin:0 0 10px;}
+.blogcnt ul,.nbw-blog ol{margin:5px 0 5px 40px;padding:0}
+.blogcnt em{font-style:italic;}
+.blogcnt blockquote{font-size:1em;margin:auto 0 auto 35px;}
+.blogcnt img{border:0;max-width:100%;}
+</style>
+</head>
+<body style="color:#444444;">
+<h1 id="blog-Title"><a href="index.html">蒋カイセキ 的博客</a></h1>
+<div id="" style="padding:0 20px;">
+	<h2 id="">maximo 发票错误 BMXAA2013E BMXAA1974E  不能批准发票</h2>
+	<h5 id="">2016-03-11 18:04:30&nbsp;&nbsp;&nbsp;<a href="http://blog.163.com/shoukaiseki/blog/static/19285614920162116430856/" target="_blank">查看原文&gt;&gt;</a></h5>
+	<div class="" id="" style="padding:0 20px;">
+		<div class="blogcnt" style="width:800px;"><div><br></div><div><pre class="prettyprint"   ><p><br>---maximo 发票错误 BMXAA2013E BMXAA1974E  不能批准发票---{{{1<br><br>变更发票状态已批准时候出现以下错误 <br>        BMXAA1974E 不能批准发票 {0} ，因为出现预料之外的错误。 请将服务器的堆栈跟踪日志发送给支持人员。<br>该错误来源出自 throw new MXApplicationException("invoice", "InvoiceApproval");  <br>是在 psdi.app.invoice.Invoice 类中的 validateForApproval() 方法 和 approve() 方法中抛出错误,<br>这个情况可以在maximo.ear/properties/logging.properties 日志配置文件中添加以下信息<br>  log4j.logger.maximo.application.INVOICE=DEBUG  <br><br>重启服务后发现日志如下<br>19 八月 2015 10:46:08:177 [DEBUG] InvoiceStatusHandler::changeStatus()<br>19 八月 2015 10:46:08:179 [DEBUG] InvoiceStatusHandler::approve()<br> 在 InvoiceStatusHandler 类中了 approve() 方法中看到调用的是 Invoice.validateForApproval()方法,然后我们反编译 Invoice类,修改该方法<br>    	e.printStackTrace();//添加打印日志输出<br>      throw new MXApplicationException("invoice", "InvoiceApproval"); <br><br>把类替换原有的系统类(主要备份系统原有类),然后重启服务再做操作,可以看到日志如下<br><br>19 八月 2015 10:56:00:732 [DEBUG] InvoiceStatusHandler::changeStatus()<br>19 八月 2015 10:56:00:740 [DEBUG] InvoiceStatusHandler::approve()<br>java.lang.ArrayIndexOutOfBoundsException: 1 &gt;= 0<br>	at java.util.Vector.elementAt(Vector.java:427)<br>	at psdi.app.invoice.Invoice.setFinancialPeriod(Invoice.java:3266)<br>	at psdi.app.invoice.Invoice.validateForApproval(Invoice.java:393)<br>	at psdi.app.invoice.InvoiceStatusHandler.approve(InvoiceStatusHandler.java:450)<br>	at psdi.app.invoice.InvoiceStatusHandler.changeStatus(InvoiceStatusHandler.java:373)<br><br>经过查看,setFinancialPeriod()方法中有这两句<br><br> FinancialServiceRemote finService = (FinancialServiceRemote)MXServer.getMXServer().lookup("FINANCIAL");<br>Vector fpVector = finService.getActiveFinancialPeriodInfo(getUserInfo(), getDate("glpostdate"), getString("orgid"));<br>由此可以发现原因是没有找到发票中  glpostdate(G/L 发布日期)字段 对应的财务周期条目<br><br>解决方法如下:进入" 科目表"应用,选中指定地点的行,"选择操作"-&gt;"财务周期", 添加一个财务周期 时间设置为 2010年-2088年1条就可以,具体按照需求进行<br> <br> </p></pre><br></div></div>
+	</div>
+</div>
+</body>
+</html>

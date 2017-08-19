@@ -1,0 +1,25 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=gbk">
+<title>蒋カイセキ 的博客</title>
+<style type="text/css">
+.blogcnt{line-height:160%;font-size:14px;text-align:left;word-wrap:break-word;}
+.blogcnt *{line-height:160%;}
+.blogcnt p{margin:0 0 10px;}
+.blogcnt ul,.nbw-blog ol{margin:5px 0 5px 40px;padding:0}
+.blogcnt em{font-style:italic;}
+.blogcnt blockquote{font-size:1em;margin:auto 0 auto 35px;}
+.blogcnt img{border:0;max-width:100%;}
+</style>
+</head>
+<body style="color:#444444;">
+<h1 id="blog-Title"><a href="index.html">蒋カイセキ 的博客</a></h1>
+<div id="" style="padding:0 20px;">
+	<h2 id="">atof strcpy memcpy strlen</h2>
+	<h5 id="">2011-08-16 14:41:41&nbsp;&nbsp;&nbsp;<a href="http://blog.163.com/shoukaiseki/blog/static/192856149201171624141477/" target="_blank">查看原文&gt;&gt;</a></h5>
+	<div class="" id="" style="padding:0 20px;">
+		<div class="blogcnt" style="width:800px;"><span style="font-family: 'AR PL UKai CN'; line-height: normal; font-size: medium;"><div style="background-color: rgb(255, 255, 255); font-size: 14px; font-family: Arial, 宋体; margin-top: 10px; margin-right: 10px; margin-bottom: 10px; margin-left: 10px; cursor: text; line-height: 1.8; word-wrap: break-word;"><p style="margin-top: 0.5em; margin-bottom: 0.5em;">/*</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">atof将字符串a转换成双精度浮点x</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">strcpy字符串赋值 &nbsp;因为*a="123abc456\0"是错误的</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">字符串不能这样赋值</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">*str其实和str[0]是等效的</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">另外str是数组，所以这个指针是常量，所以也不能使用类似str="asdf";的方式进行赋值。</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">你可以用&lt;string.h&gt;中的strcpy()函数，该函数会自动添加\0</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">&nbsp;strcpy</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">#include &lt;string.h&gt;</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">char *strcpy(char *str1, const char *str2);</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">把字符串str2(包括'\0')拷贝到字符串str1当中，并返回str1。</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">memcpy</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">#include &lt;string.h&gt;</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">void *memcpy(void *to, const void *from, size_t count);</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">把from中的count个字符拷贝到to中。并返回to。</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">&nbsp;</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">strlen</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">#include &lt;string.h&gt;</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">size_t strlen(const char *str);</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">返回字符串str的长度，'\0'不算在内。</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">&nbsp;</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">*/</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">#include &lt;stdlib.h&gt;</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">#include &lt;string.h&gt;</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">#include &lt;math.h&gt;　　　　　//定义数学函数</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">#include &lt;stdio.h&gt;　　　　 //定义输入／输出函数</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">&nbsp;</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">main()&nbsp;</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">{</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">double x;</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">char a[200]="8008206655";</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">char b[200];</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">x=atof(a);//atof将字符串a转换成双精度浮点x</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">printf("a=%s &nbsp;x=%lf\n",&amp;a,x);</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">strcpy(a,"123abc456");</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">x=atof(a);//atof将字符串a转换成双精度浮点x</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">printf("a=%s &nbsp;x=%lf\n",&amp;a,x);</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">memcpy(b,"123abc456",strlen("123abc456"));</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">x=atof(b);//atof将字符串a转换成双精度浮点x</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">printf("b=%s &nbsp;x=%lf\n",&amp;b,x);</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">printf("Good bye!\nPress any key to off exit!");</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">&nbsp; getch();</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">&nbsp; return 0;</p><p style="margin-top: 0.5em; margin-bottom: 0.5em;">}&nbsp;</p><div><br></div></div></span><wbr></div>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=gbk">
+<title>蒋カイセキ 的博客</title>
+<style type="text/css">
+.blogcnt{line-height:160%;font-size:14px;text-align:left;word-wrap:break-word;}
+.blogcnt *{line-height:160%;}
+.blogcnt p{margin:0 0 10px;}
+.blogcnt ul,.nbw-blog ol{margin:5px 0 5px 40px;padding:0}
+.blogcnt em{font-style:italic;}
+.blogcnt blockquote{font-size:1em;margin:auto 0 auto 35px;}
+.blogcnt img{border:0;max-width:100%;}
+</style>
+</head>
+<body style="color:#444444;">
+<h1 id="blog-Title"><a href="index.html">蒋カイセキ 的博客</a></h1>
+<div id="" style="padding:0 20px;">
+	<h2 id="">登录后无法进入桌面,又跳回登录窗口</h2>
+	<h5 id="">2011-08-23 16:12:14&nbsp;&nbsp;&nbsp;<a href="http://blog.163.com/shoukaiseki/blog/static/19285614920117234055269/" target="_blank">查看原文&gt;&gt;</a></h5>
+	<div class="" id="" style="padding:0 20px;">
+		<div class="blogcnt" style="width:800px;"><font color="#800080"  face="宋体"  size="5"  ><div><font color="#800080"  face="宋体"  size="5"  >因在gvim中自动开启输入发,以为是ibus配置有问题,删除了/etc/X11/xinit/xinput.d后没效果,就一狠心,把该目录下的所有文件及文件夹全部删除,重启之后就无法登入到桌面,密码是验证过去了,准备启动gnome了但是又跳回到登入窗口.整了4小时,终于在安装xinit之后可以用了,熟悉的Fedora 15出现了.</font></div><span style="line-height: 36px;"  ><br></span></font><div><font color="#800080"  face="宋体"  size="5"  >下载地址:<br></font><wbr><div><span style="background-color: rgb(245, 245, 245);"  ><div style="color: rgb(128, 0, 128); font-family: 宋体; font-size: 24px; line-height: 36px;"  >http://u.115.com/file/bhu0ivmx</div><div style="color: rgb(128, 0, 128); font-family: 宋体; font-size: 24px; line-height: 36px;"  >xorg-x11-xinit-1.0.9-20.fc15.i686.rpm</div><div style="color: rgb(128, 0, 128); font-family: 宋体; font-size: 24px; line-height: 36px;"  ><br></div><div style="color: rgb(128, 0, 128); font-family: 宋体; font-size: 24px; line-height: 36px;"  ><br></div><div><div><font color="#800080"  face="宋体"  size="5"  ><span style="line-height: 38px;"  >用XP系统下载之后放到c盘的rpm目录</span></font></div><div><font color="#800080"  face="宋体"  size="5"  ><span style="line-height: 38px;"  >mkdir /mnt/c</span></font></div><div><font color="#800080"  face="宋体"  size="5"  ><span style="line-height: 38px;"  >mount -t vfat -o iocharset=utf8 /dev/sda1 /mnt/c</span></font></div><div><font color="#800080"  face="宋体"  size="5"  ><span style="line-height: 38px;"  >cd /mnt/c</span></font></div><div><font color="#800080"  face="宋体"  size="5"  ><span style="line-height: 38px;"  >cd rpm</span></font></div></div></span><span style="color: rgb(128, 0, 128); font-family: 宋体; line-height: 36px; font-size: x-large;"  ><a style="line-height: 38px; " target="_blank" rel="nofollow" href="http://u.115.com/file/bhu0ivmx"  >rpm --nodeps -i xorg-x11-xinit-1.0.9-20.fc15.i686.rpm</a></span><span style="background-color: rgb(245, 245, 245);"  ><div><div><font color="#800080"  face="宋体"  size="5"  ><span style="line-height: 38px;"  >安装好之后无提示</span></font></div><div><font color="#800080"  face="宋体"  size="5"  ><span style="line-height: 38px;"  >其中的--nodeps是强制性覆盖安装</span></font></div><div><font color="#800080"  face="宋体"  size="5"  ><span style="line-height: 38px;"  ><br></span></font></div><div><font color="#800080"  face="宋体"  size="5"  ><span style="line-height: 38px;"  ><br></span></font></div><div><font color="#800080"  face="宋体"  size="5"  ><span style="line-height: 38px;"  >注:在无法登录的时候有时创建新用户也无法使用</span></font></div><div><font color="#800080"  face="宋体"  size="5"  ><span style="line-height: 38px;"  >useradd &nbsp;java //创建一个名为java的账户</span></font></div><div><font color="#800080"  face="宋体"  size="5"  ><span style="line-height: 38px;"  >passwd &nbsp; java //给账户java设置密码</span></font></div><div><font color="#800080"  face="宋体"  size="5"  ><span style="line-height: 38px;"  >userdel -r java &nbsp;//删除账户,加上-r表示连同账户目录一起删除</span></font></div><div><font color="#800080"  face="宋体"  size="5"  ><span style="line-height: 38px;"  >who 查看当前登录用户信息</span></font></div><div><font color="#800080"  face="宋体"  size="5"  ><span style="line-height: 38px;"  >cat /etc/passwd 查看所有系统用户信息</span></font></div></div></span></div></div></div>
+	</div>
+</div>
+</body>
+</html>

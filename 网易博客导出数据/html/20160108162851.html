@@ -1,0 +1,25 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=gbk">
+<title>蒋カイセキ 的博客</title>
+<style type="text/css">
+.blogcnt{line-height:160%;font-size:14px;text-align:left;word-wrap:break-word;}
+.blogcnt *{line-height:160%;}
+.blogcnt p{margin:0 0 10px;}
+.blogcnt ul,.nbw-blog ol{margin:5px 0 5px 40px;padding:0}
+.blogcnt em{font-style:italic;}
+.blogcnt blockquote{font-size:1em;margin:auto 0 auto 35px;}
+.blogcnt img{border:0;max-width:100%;}
+</style>
+</head>
+<body style="color:#444444;">
+<h1 id="blog-Title"><a href="index.html">蒋カイセキ 的博客</a></h1>
+<div id="" style="padding:0 20px;">
+	<h2 id="">maximo 附件名带空格url地址</h2>
+	<h5 id="">2016-01-08 16:28:51&nbsp;&nbsp;&nbsp;<a href="http://blog.163.com/shoukaiseki/blog/static/1928561492016084710987/" target="_blank">查看原文&gt;&gt;</a></h5>
+	<div class="" id="" style="padding:0 20px;">
+		<div class="blogcnt" style="width:800px;"><div>当附件中存在空格的时候,maximo进行URL转码会将空格转换为+</div><div>为什么会这样呢?</div><div>编译下面的代码</div><div><br></div><div><pre class="prettyprint"   ><p>import java.io.UnsupportedEncodingException;<br>import java.net.URLEncoder;<br><br><br>public class Test {<br>    <br>    <br>    public static void main(String args[]) throws UnsupportedEncodingException<br>    {<br>    	String file_encoding = System.getProperty("file.encoding");<br>    	System.out.println("file_encoding="+file_encoding);<br>        String encodedPercentSign = URLEncoder.encode(" ", System.getProperty("file.encoding"));<br>        System.out.println("encodedPercentSign="+encodedPercentSign);<br><br>    }<br>}<br></p></pre>可以看到输出信息,URLEncoder.encode方法会将空格转换为+号</div><div><pre class="prettyprint"   ><p>shoukaiseki@shoukaiseki:/tmp/win/candelfile$ javac Test.java &amp;&amp; java Test<br>file_encoding=UTF-8<br>encodedPercentSign=+</p></pre><div><span style="line-height: 28px;"   >如果在webclient目录新建一个文件,12 3.txt</span></div></div><div>你在访问&nbsp;http://localhost:9081/maximo/webclient/12+3.txt&nbsp;</div><div>如果你的maximo服务中间件容器是websphere,那么是能够正常访问的</div><div>如果容器是weblogic或者tomcat,很遗憾,不能正常访问</div><div>这样看来,这种方式只适用与你的附件服务是在websphere容器中运行才有效</div><div>而一般我们的附件都是在ibm httpd或者apache httpd服务中运行的,所以此方式无效</div><div><br></div><div>问题解决方案:</div><div>系统属性中,将<font color="#ff0000"   > mxe.doclink.multilang.linux.websphere </font>设置为<font color="#ff0000"   > false </font>即可</div><div><br></div><div>追踪关联:</div><div>该属性的描述为 "<font color="#ff0000"   >应用程序是否正在 Linux WebSphere 平台上运行</font>" ,然而通过doclink 一词我们可以理解为,"<font color="#ff0000"   >附件</font>应用程序是否正在 Linux WebSphere 平台上运行" ,因为该属性只在3个类中用到</div><div><pre class="prettyprint"   ><p>psdi/webclient/servlet/RedirectServlet<br>psdi/webclient/system/controller/AppInstance<br>psdi/util/CommonUtil<br></p><p><br></p><br><p>其中CommonUtil中有个 EncodeFilePath 方法,会将 + 转换为 %20</p><p>但是该方法只在 <span style="line-height: 28px; font-family: 'Hiragino Sans GB W3', 'Hiragino Sans GB', Arial, Helvetica, simsun, 宋体;"   >psdi/webclient/beans/report/SilentPrintServlet.java 类中存在调用</span></p><div><br></div></pre><br></div></div>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=gbk">
+<title>蒋カイセキ 的博客</title>
+<style type="text/css">
+.blogcnt{line-height:160%;font-size:14px;text-align:left;word-wrap:break-word;}
+.blogcnt *{line-height:160%;}
+.blogcnt p{margin:0 0 10px;}
+.blogcnt ul,.nbw-blog ol{margin:5px 0 5px 40px;padding:0}
+.blogcnt em{font-style:italic;}
+.blogcnt blockquote{font-size:1em;margin:auto 0 auto 35px;}
+.blogcnt img{border:0;max-width:100%;}
+</style>
+</head>
+<body style="color:#444444;">
+<h1 id="blog-Title"><a href="index.html">蒋カイセキ 的博客</a></h1>
+<div id="" style="padding:0 20px;">
+	<h2 id="">Fedora 17 终端查看实时网速 rate</h2>
+	<h5 id="">2012-06-03 2:52:26&nbsp;&nbsp;&nbsp;<a href="http://blog.163.com/shoukaiseki/blog/static/1928561492012532522651/" target="_blank">查看原文&gt;&gt;</a></h5>
+	<div class="" id="" style="padding:0 20px;">
+		<div class="blogcnt" style="width:800px;"><br><br><pre class="prettyprint"  ><p>#!/bin/sh<br>#rate -t #实时显示 <br>#rate   #显示一次<br>#网卡名需要自定义<br>#僅適合Fedora 17<br><br>#HL_START="\033[37;40;1m"<br>HL_START="\033[31;42;1m"<br>HL_END="\033[0m"<br>DEV_NAME="wlan0"<br>#DEV_NAME="p5p1"<br><br><br>function disp_usage()<br>{<br> printf "usage : $1 [DEV_NAME] [ TIMES | -t ]\n\n"<br> printf " DEV_NAME the name of the network device, default: eth0\n"<br> printf " TIMES the times of counts, default: 1\n"<br> printf " -t counting until break\n"<br><br>}<br><br><br>if [ $# -eq 0 ]<br>then<br> TOTAL_TIME=1<br>elif [ $1 == "-h" ]<br>then<br> disp_usage $0<br> exit 0<br>elif [ $1 == "--help" ]<br>then<br> disp_usage $0<br> exit 0<br>elif [ $1 == "-t" ]<br>then<br> TOTAL_TIME=65535<br>elif [ $# -eq 1 ]<br>then<br> DEV_NAME=$1<br> TOTAL_TIME=1<br>elif [ $2 == "-t" ]<br>then<br> DEV_NAME=$1<br> TOTAL_TIME=65535<br>else<br> DEV_NAME=$1<br> TOTAL_TIME=$2<br>fi<br><br>echo "the Rate of Network, by dorainm, dora...@gmail.com"<br>echo "-----------------------------------------------------"<br>echo "DEV_NAME is $DEV_NAME"<br><br>count=0<br>while [ $count -lt $TOTAL_TIME ]<br>do<br> #<br> #RX_FIRST=$(/sbin/ifconfig $DEV_NAME | awk '/RX bytes/{print $2}' | awk -F: '{print $2}')<br> #TX_FIRST=$(/sbin/ifconfig $DEV_NAME | awk '/RX bytes/{print $6}' | awk -F: '{print $2}')<br> # echo "FIRST = $FIRST"<br> #sleep 1<br> #RX_SECOND=$(/sbin/ifconfig $DEV_NAME | awk '/RX bytes/{print $2}' | awk -F: '{print $2}')<br> #TX_SECOND=$(/sbin/ifconfig $DEV_NAME | awk '/RX bytes/{print $6}' | awk -F: '{print $2}')<br> # echo "SECOND = $SECOND"<br><br><br><br> #net-tools 1.60<br> #ifconfig 1.42 (2001-04-13)<br> RX_FIRST=$(/sbin/ifconfig $DEV_NAME | awk '/RX packets/{print $5}')<br> TX_FIRST=$(/sbin/ifconfig $DEV_NAME | awk '/TX packets/{print $5}')<br> # echo "FIRST = $FIRST"<br> sleep 1<br> RX_SECOND=$(/sbin/ifconfig $DEV_NAME | awk '/RX packets/{print $5}')<br> TX_SECOND=$(/sbin/ifconfig $DEV_NAME | awk '/TX packets/{print $5}')<br> # echo "SECOND = $SECOND"<br> printf "RX_FIRST=$RX_FIRST\n"<br> printf "RX_SECOND=$RX_SECOND\n"<br> printf "TX_FIRST=$TX_FIRST\n"<br> printf "TX_SECOND=$TX_SECOND\n"<br> ((RX_FIRST=$RX_SECOND-$RX_FIRST))<br> ((TX_FIRST=$TX_SECOND-$TX_FIRST))<br><br><br> if [ $RX_FIRST -gt 1048576 ]<br> then<br>  RX_FIRST=$(echo "scale=3; $RX_FIRST / 1048576" | bc -l)<br>  printf "RX Rate = $HL_START%.3F$HL_END MB/S\t" $RX_FIRST<br> elif [ $RX_FIRST -gt 1024 ]<br> then<br>  RX_FIRST=$(echo "scale=3; $RX_FIRST / 1024" | bc -l)<br>  # ((RX_FIRST=($RX_FIRST/1024)))<br>  printf "RX Rate = $HL_START%.3F$HL_END KB/S\t" $RX_FIRST<br> else<br>  printf "RX Rate = $HL_START$RX_FIRST$HL_END B/S \t"<br> fi<br><br><br> if [ $RX_SECOND -gt 1048576 ]<br> then<br>  RX_SECOND=$(echo "scale=3; $RX_SECOND / 1048576" | bc -l)<br>  printf "Totle Bytes : $HL_START$RX_SECOND$HL_END MB\n"<br> elif [ $RX_SECOND -gt 1024 ]<br> then<br>  RX_SECOND=$(echo "scale=3; $RX_SECOND / 1024" | bc -l)<br>  printf "Totle Bytes : $HL_START$RX_SECOND$HL_END KB\n"<br> else<br>  printf "Totle Bytes : $HL_START$RX_SECOND$HL_END B\n"<br> fi<br><br><br> if [ $TX_FIRST -gt 1048576 ]<br> then<br>  TX_FIRST=$(echo "scale=3; $TX_FIRST / 1048576" | bc -l)<br>  printf "TX Rate = $HL_START%.3F$HL_END MB/S\t" $TX_FIRST<br> elif [ $TX_FIRST -gt 1024 ]<br> then<br>  TX_FIRST=$(echo "scale=3; $TX_FIRST / 1024" | bc -l)<br>  printf "TX Rate = $HL_START%.3F$HL_END KB/S\t" $TX_FIRST<br> else<br>  printf "TX Rate = $HL_START$TX_FIRST$HL_END B/S \t"<br> fi<br><br><br> if [ $TX_SECOND -gt 1048576 ]<br> then<br>  TX_SECOND=$(echo "scale=3; $TX_SECOND / 1048576" | bc -l)<br>  printf "Totle Bytes : $HL_START$TX_SECOND$HL_END MB\n"<br> elif [ $TX_SECOND -gt 1024 ]<br> then<br>  TX_SECOND=$(echo "scale=3; $TX_SECOND / 1024" | bc -l)<br>  printf "Totle Bytes : $HL_START$TX_SECOND$HL_END KB\n"<br> else<br>  printf "Totle Bytes : $HL_START$TX_SECOND$HL_END B\n"<br> fi<br><br><br> ((count=$count+1))<br> echo "-----------------------------------------------------"<br>done<br><br><br>echo "All Done" <br><br></p></pre></div>
+	</div>
+</div>
+</body>
+</html>
