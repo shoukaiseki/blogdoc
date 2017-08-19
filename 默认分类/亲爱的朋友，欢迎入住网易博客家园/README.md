@@ -1,6 +1,6 @@
 # 亲爱的朋友，欢迎入住网易博客家园
 
-![image](https://raw.githubusercontent.com/shoukaiseki/blogdoc/master/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/%E4%BA%B2%E7%88%B1%E7%9A%84%E6%9C%8B%E5%8F%8B%EF%BC%8C%E6%AC%A2%E8%BF%8E%E5%85%A5%E4%BD%8F%E7%BD%91%E6%98%93%E5%8D%9A%E5%AE%A2%E5%AE%B6%E5%9B%AD/001.jpg)
+![image](https://raw.githubusercontent.com/shoukaiseki/blogdoc/master/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/%E4%BA%B2%E7%88%B1%E7%9A%84%E6%9C%8B%E5%8F%8B%EF%BC%8C%E6%AC%A2%E8%BF%8E%E5%85%A5%E4%BD%8F%E7%BD%91%E6%98%93%E5%8D%9A%E5%AE%A2%E5%AE%B6%E5%9B%AD/img/001.jpg)
 
 亲爱的shoukaiseki，
 
