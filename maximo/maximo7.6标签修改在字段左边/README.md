@@ -4,7 +4,7 @@
 mxe.webclient.verticalLabels  使基本叶子级控件使用上方（垂直而不是水平）的标签。
 
 ### 图1
-![image](https://raw.githubusercontent.com/shoukaiseki/blogdoc/master/maximo7.6%E6%A0%87%E7%AD%BE%E4%BF%AE%E6%94%B9%E5%9C%A8%E5%AD%97%E6%AE%B5%E5%B7%A6%E8%BE%B9/img/001.png)
+![image](https://raw.githubusercontent.com/shoukaiseki/blogdoc/master/maximo/maximo7.6%E6%A0%87%E7%AD%BE%E4%BF%AE%E6%94%B9%E5%9C%A8%E5%AD%97%E6%AE%B5%E5%B7%A6%E8%BE%B9/img/001.png)
 
 ## 复选框checkbox标签修改到右边,框在左边(如图1效果)
 
