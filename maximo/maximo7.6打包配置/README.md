@@ -1,4 +1,4 @@
-# maximo打包配置
+# maximo7.6打包配置
 
 businessobjects.jar/META-INF/MANIFEST.MF 添加信息
 
