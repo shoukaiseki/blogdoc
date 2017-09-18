@@ -12,9 +12,5 @@ git config --global credential.helper store
 [credential] 
 helper = store 
 ```
-```Config
-[credential] 
-helper = store 
-```
 
 完成之后输入了密码就好保存了
