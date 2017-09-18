@@ -8,7 +8,11 @@ git config --global credential.helper store
 
 执行完后去查看 %HOME%\.gitconfig 这个文件，发现多了一项： 
 
-```Conf
+```Ini
+[credential] 
+helper = store 
+```
+```Config
 [credential] 
 helper = store 
 ```
