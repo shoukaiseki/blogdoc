@@ -26,8 +26,6 @@ create database maxdb  using codeset UTF-8 territory CN
 
 #### 授权 运行 db2 之后执行以下语句
 ```Sql
-grant connect on database to user  db2admin 
-
 connect to  maxdb
 
 grant connect on database to user db2admin
@@ -54,4 +52,13 @@ db2 backup db maxdb user db2admin using mima to c:\abc\def
 
 ```Shell
 db2 restore db maxdb user db2admin using mima from C:\db2_bak\db2_bak
+```
+
+SQL2542N  根据所提供的源数据库别名 "MAXDB" 和时间戳记 
+""，找不到与数据库映像文件相匹配的文件。
+
+文件名为 MAXDB76.0.DB2.DBPART000.20170608095935.001 ,则数据库名称为 maxdb76 ,最后使用 into maxdb 恢复到 maxdb 数据库
+
+```Shell
+db2 restore db maxdb76  user db2admin using maximo7.6 from C:\db2_bak\DB2_bak into maxdb
 ```
