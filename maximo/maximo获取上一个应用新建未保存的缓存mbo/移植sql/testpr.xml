@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<presentation beanclass="com.wmc.webclient.test2.TestAdjustmentAppBean" id="testpr" ismobile="false" mboname="TEST2" resultstableid="results_showlist" version="6.0.0" viewport="1041x600">
+	<page id="mainrec" scroll="false">
+		<include controltoclone="pageHeader" id="INCLUDE-pageHeader"/>
+		<clientarea id="clientarea">
+			<tabgroup id="maintabs" style="form">
+				<tab default="true" id="results" label="List" type="list">
+					<menubar event="search" id="actiontoolbar1" sourcemethod="getAppSearchOptions"/>
+					<table id="results_showlist" inputmode="readonly" label="TABLE TITLE" mboname="TEST2" selectmode="multiple">
+						<tablebody displayrowsperpage="20" filterable="true" filterexpanded="true" id="results_showlist_tablebody">
+							<tablecol dataattribute="TEST2ID" filterable="false" id="results_showlist_column_select" mxevent="toggleselectrow" mxevent_desc="Select Row {0}" sortable="false" type="event"/>
+							<tablecol dataattribute="TEST2ID" id="results_showlist_column_link" mxevent="selectrecord" mxevent_desc="Go To %1" type="link" usefieldsizegroup="false"/>
+							<tablecol dataattribute="TEST2ID" id="results_showlist_column1"/>
+							<tablecol dataattribute="DESCRIPTION" id="results_showlist_column2"/>
+							<tablecol filterable="false" id="results_bookmark" mxevent="BOOKMARK" mxevent_desc="Add to Bookmarks" mxevent_icon="btn_addtobookmarks.gif" sortable="false" type="event"/>
+						</tablebody>
+					</table>
+				</tab>
+				<tab id="main" label="Main" type="insert">
+					<section id="maintab_section">
+						<textbox dataattribute="TEST2ID" id="maintab_attr1" inputmode="readonly"/>
+						<textbox dataattribute="DESCRIPTION" id="maintab_attr2" lookup="longdesc"/>
+						<textbox dataattribute="type" id="1508231454907" lookup="valuelist"/>
+						<textbox dataattribute="ORGID" id="maintab_attr4" inputmode="readonly"/>
+						<textbox dataattribute="SITEID" id="maintab_attr6" inputmode="readonly"/>
+					</section>
+					<table id="testprline" label="PRLINE" relationship="TEST2A">
+						<defaultvalue dataattribute="TEST2ID" defaulttype="insert" fromattribute="TEST2ID" fromdatasrc="mainrecord" id="1369664492323"/>
+						<tablebody id="1508230861965">
+							<tablecol id="1510393207667" mxevent="toggledetailstate"/>
+							<tablecol dataattribute="TEST2AID" id="1508230861968" inputmode="readonly"/>
+							<tablecol dataattribute="TEST2ID" id="1508230903351" inputmode="readonly"/>
+							<tablecol dataattribute="A" id="1508231496371"/>
+							<tablecol dataattribute="B" id="1508231496372"/>
+							<tablecol id="1510304896846" mxevent="toggledeleterow" type="event"/>
+						</tablebody>
+						<buttongroup id="1369664594114">
+							<pushbutton id="1369664594122" label="新建行" mxevent="addrow"/>
+						</buttongroup>
+						<tabledetails id="1508230861971">
+							<section id="1518230861971"/>
+						</tabledetails>
+					</table>
+				</tab>
+			</tabgroup>
+		</clientarea>
+		<include controltoclone="pageFooter" id="INCLUDE-pageFooter"/>
+	</page>
+
+	<dialog beanclass="psdi.webclient.system.beans.QbeBean" id="searchmore" inputmode="query" label="More Search Fields">
+		<section id="searchmore_1">
+			<textbox dataattribute="TEST2ID" id="searchmore_attr1"/>
+			<textbox dataattribute="DESCRIPTION" id="searchmore_attr2"/>
+			<textbox dataattribute="DESCRIPTION_LONGDESCRIPTION" id="searchmore_attr3"/>
+			<checkbox dataattribute="HASLD" id="searchmore_attr4"/>
+			<textbox dataattribute="TYPE" id="searchmore_attr5"/>
+			<textbox dataattribute="SITEID" id="searchmore_attr6"/>
+			<textbox dataattribute="ORGID" id="searchmore_attr7"/>
+		</section>
+		<buttongroup id="searchmore_buttongroup">
+			<pushbutton default="true" id="searchmore_buttongroup_1" label="Find" mxevent="dialogok"/>
+			<pushbutton id="qbe_restoreappdefault_button" label="恢复应用程序缺省值" mxevent="qbeclear"/>
+			<pushbutton id="qbe_revisebutton" label="修订" menutype="SEARCHMOREREVISE" targetid="searchmore"/>
+			<pushbutton id="searchmore_buttongroup_3" label="Cancel" mxevent="qbecancel"/>
+		</buttongroup>
+	</dialog>
+
+	<dialog beanclass="psdi.webclient.system.beans.ViewBookmarksBean" id="searchbook" label="我的书签" mboname="TEST2">
+		<table id="bookmarks_table" inputmode="readonly" selectmode="single">
+			<tablebody displayrowsperpage="20" filterable="true" id="bookmarks_table_tablebody">
+				<tablecol dataattribute="TEST2ID" id="bookmarks_tablecolumn_1" mxevent="selectrecord" type="link"/>
+				<tablecol dataattribute="description" id="bookmarks_tablecolumn_2"/>
+				<tablecol filterable="false" id="bookmarks_tablecolumn_3" mxevent="instantdelete" mxevent_desc="Delete" mxevent_icon="btn_delete.gif" sortable="false" type="event"/>
+			</tablebody>
+		</table>
+		<buttongroup id="bookmarks_2">
+			<pushbutton default="true" id="bookmarks_2_1" label="确定" mxevent="dialogok"/>
+		</buttongroup>
+	</dialog>
+	<configurationblock id="datastore_configurationblock">
+	</configurationblock>
+</presentation>
