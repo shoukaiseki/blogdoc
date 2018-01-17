@@ -85,10 +85,10 @@ O/S-Error: (OS 5) 拒绝访问。
 
 添加完文件权限中就多了信息
 
-![image](https://raw.githubusercontent.com/shoukaiseki/blogdoc/master/oracle/win10%E4%B8%8B12c%E5%88%9B%E5%BB%BA%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%AE%9E%E4%BE%8B%E5%90%8E%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%AE%9E%E4%BE%8B%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/img/004.png)
+![image](https://raw.githubusercontent.com/shoukaiseki/blogdoc/master/oracle/win10%E4%B8%8B12c%E5%88%9B%E5%BB%BA%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%AE%9E%E4%BE%8B%E5%90%8E%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%AE%9E%E4%BE%8B%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/img/005.png)
 
 
-然而,E:\oracle\oradata\orcl 目录下面的所有文件都确实权限,一个一个添加太麻烦
+然而,E:\oracle\oradata\orcl 目录下面的所有文件和目录都需要权限,一个一个添加太麻烦
 
 写了个批处理文件,你机子的实例服务名,实例目录替换掉,保存为cmd文件,然后用管理员权限运行即可
 
