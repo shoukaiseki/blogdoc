@@ -65,7 +65,7 @@ O/S-Error: (OS 5) 拒绝访问。
 
 #### 检查文件的权限,如下图所示
 
-![image](https://raw.githubusercontent.com/shoukaiseki/blogdoc/master/oracle/win10%E4%B8%8B12c%E5%88%9B%E5%BB%BA%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%AE%9E%E4%BE%8B%E5%90%8E%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%AE%9E%E4%BE%8B%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/img/001.jpg)
+![image](https://raw.githubusercontent.com/shoukaiseki/blogdoc/master/oracle/win10%E4%B8%8B12c%E5%88%9B%E5%BB%BA%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%AE%9E%E4%BE%8B%E5%90%8E%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%AE%9E%E4%BE%8B%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/img/001.png)
 
 命名是ORCL实例的文件,但是权限变成了 ORCLGKB 的权限
 
@@ -73,19 +73,19 @@ O/S-Error: (OS 5) 拒绝访问。
 
 用户名就为服务名,系统服务中查看
 
-![image](https://raw.githubusercontent.com/shoukaiseki/blogdoc/master/oracle/win10%E4%B8%8B12c%E5%88%9B%E5%BB%BA%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%AE%9E%E4%BE%8B%E5%90%8E%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%AE%9E%E4%BE%8B%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/img/002.jpg)
+![image](https://raw.githubusercontent.com/shoukaiseki/blogdoc/master/oracle/win10%E4%B8%8B12c%E5%88%9B%E5%BB%BA%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%AE%9E%E4%BE%8B%E5%90%8E%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%AE%9E%E4%BE%8B%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/img/002.png)
 
 实例的服务,复制此账户的名称
 
-![image](https://raw.githubusercontent.com/shoukaiseki/blogdoc/master/oracle/win10%E4%B8%8B12c%E5%88%9B%E5%BB%BA%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%AE%9E%E4%BE%8B%E5%90%8E%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%AE%9E%E4%BE%8B%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/img/003.jpg)
+![image](https://raw.githubusercontent.com/shoukaiseki/blogdoc/master/oracle/win10%E4%B8%8B12c%E5%88%9B%E5%BB%BA%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%AE%9E%E4%BE%8B%E5%90%8E%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%AE%9E%E4%BE%8B%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/img/003.png)
 
 文件授权中添加账户
 
-![image](https://raw.githubusercontent.com/shoukaiseki/blogdoc/master/oracle/win10%E4%B8%8B12c%E5%88%9B%E5%BB%BA%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%AE%9E%E4%BE%8B%E5%90%8E%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%AE%9E%E4%BE%8B%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/img/004.jpg)
+![image](https://raw.githubusercontent.com/shoukaiseki/blogdoc/master/oracle/win10%E4%B8%8B12c%E5%88%9B%E5%BB%BA%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%AE%9E%E4%BE%8B%E5%90%8E%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%AE%9E%E4%BE%8B%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/img/004.png)
 
 添加完文件权限中就多了信息
 
-![image](https://raw.githubusercontent.com/shoukaiseki/blogdoc/master/oracle/win10%E4%B8%8B12c%E5%88%9B%E5%BB%BA%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%AE%9E%E4%BE%8B%E5%90%8E%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%AE%9E%E4%BE%8B%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/img/004.jpg)
+![image](https://raw.githubusercontent.com/shoukaiseki/blogdoc/master/oracle/win10%E4%B8%8B12c%E5%88%9B%E5%BB%BA%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%AE%9E%E4%BE%8B%E5%90%8E%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%AE%9E%E4%BE%8B%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/img/004.png)
 
 
 然而,E:\oracle\oradata\orcl 目录下面的所有文件都确实权限,一个一个添加太麻烦
