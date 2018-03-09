@@ -43,10 +43,10 @@
 	</buttongroup>
 </table>
 ```
-wraplength="50" 效果
+wraplength="30" 效果
 
 ![image](https://raw.githubusercontent.com/shoukaiseki/blogdoc/master/maximo/maximo%E5%88%97%E8%A1%A8%E4%B8%AD%E6%98%BE%E7%A4%BA%E8%87%AA%E5%8A%A8%E6%8D%A2%E8%A1%8C/img/001.png)
 
-wraplength="30" 效果
+wraplength="50" 效果
 
 ![image](https://raw.githubusercontent.com/shoukaiseki/blogdoc/master/maximo/maximo%E5%88%97%E8%A1%A8%E4%B8%AD%E6%98%BE%E7%A4%BA%E8%87%AA%E5%8A%A8%E6%8D%A2%E8%A1%8C/img/002.png)
