@@ -23,9 +23,11 @@ Insert into TESTDT (NAME,A,B) values ('ioCdl',to_date('1970-01-01 12:46:18','RRR
 
 https://docs.oracle.com/database/121/JJDBC/apxref.htm#JJDBC28913
 
+```Sql
 select * from TESTDT where a ={ts '1970-01-01 12:46:18'}
 
 select {ts '1970-01-01 12:46:18'} from dual
+```
 
 
 ## 测试java代码
