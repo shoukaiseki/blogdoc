@@ -63,9 +63,9 @@ CPU核心	十核
 
 比如:"yes".equals(a)  JVM实例化一个字符串会先去内存区域寻找有没相同值的string类,而且会在栈中存放地址位,造成不必要的CPU资源内存资源浪费
 
+具体的编码优化规则查看 [阿里巴巴编码规范](https://edu.aliyun.com/certification/cldt02)
 
-
-暂时写到这
+<a href="http://write.blog.csdn.net/postlist" target="_blank">麦田里的码农</a>
 
 
 
@@ -152,9 +152,9 @@ shift
 goto setArgs
 :doneSetArgs
 
-@REM 此处增加 start
+@REM 此处为增加的 start
 set JAVA_OPTS= -server %JAVA_OPTS%
-@REM 此处增加 end
+@REM 此处为增加的 end
 rem Execute Java with the applicable properties
 if not "%JPDA%" == "" goto doJpda
 if not "%SECURITY_POLICY_FILE%" == "" goto doSecurity
