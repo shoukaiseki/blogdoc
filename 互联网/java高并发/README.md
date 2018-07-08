@@ -73,9 +73,11 @@ CPU核心	十核
 
 ## JVM 性能优化
 
-### ①.JVM工作模式
+### ①JVM工作模式
 
-JVM 运行时有 client VM 与 server VM  两种模式,我们先用jsp查看一下当前的工作模式
+JVM 运行时有 client VM 与 server VM  两种模式,server 模式性能好,到底好在哪?参照 [JVM client模式和Server模式的区别](https://blog.csdn.net/tang_123_/article/details/6018219)
+
+我们先用jsp查看一下当前的工作模式
 
 http://www.shoukaiseki.top/qrcode/jvm.jsp
 
@@ -127,11 +129,47 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 显示结果如下
 
 ```
-java.vm.name=Java HotSpot(TM) Server VM JVM版本= 1.8.0_151
-JVM缺省路径=C:\Program Files\Java\jdk1.8.0_151\jre 
-java.version=1.8.0_151 
-java.class.version=52.0 
-Java 虚拟机中的内存总量=123MB 
-Java 虚拟机试图使用的最大内存量=247MB 
-Java 虚拟机中的空闲内存量=55MB
+java.vm.name=Java HotSpot(TM) Client VM JVM版本= 1.8.0_151
 ```
+可以看出是工作在 Client 模式
+
+怎么切换到 Server 模式呢?如果是用win系统下服务形式启动的,JVM选择jdk/jre/bin/server 下的 jvm.dll
+
+![image](https://raw.githubusercontent.com/shoukaiseki/blogdoc/master/%E4%BA%92%E8%81%94%E7%BD%91/java%E9%AB%98%E5%B9%B6%E5%8F%91/img/001.png)
+
+如果是linux系统或者startup启动的,那么在catalina中加java运行参数 
+
+##### win系统
+
+```Bat
+:execCmd
+rem Get remaining unshifted command line arguments and save them in the
+set CMD_LINE_ARGS=
+:setArgs
+if ""%1""=="""" goto doneSetArgs
+set CMD_LINE_ARGS=%CMD_LINE_ARGS% %1
+shift
+goto setArgs
+:doneSetArgs
+
+@REM 此处增加 start
+set JAVA_OPTS= -server %JAVA_OPTS%
+@REM 此处增加 end
+rem Execute Java with the applicable properties
+if not "%JPDA%" == "" goto doJpda
+if not "%SECURITY_POLICY_FILE%" == "" goto doSecurity
+%_EXECJAVA% %JAVA_OPTS% %CATALINA_OPTS% %DEBUG_OPTS% -classpath "%CLASSPATH%" -Dcatalina.base="%CATALINA_BASE%" -Dcatalina.home="%CATALINA_HOME%" -Djava.io.tmpdir="%CATALINA_TMPDIR%" %MAINCLASS% %CMD_LINE_ARGS% %ACTION%
+goto end
+:doSecurity
+%_EXECJAVA% %JAVA_OPTS% %CATALINA_OPTS% %DEBUG_OPTS% -classpath "%CLASSPATH%" -Djava.security.manager -Djava.security.policy=="%SECURITY_POLICY_FILE%" -Dcatalina.base="%CATALINA_BASE%" -Dcatalina.home="%CATALINA_HOME%" -Djava.io.tmpdir="%CATALINA_TMPDIR%" %MAINCLASS% %CMD_LINE_ARGS% %ACTION%
+goto end
+:doJpda
+if not "%SECURITY_POLICY_FILE%" == "" goto doSecurityJpda
+%_EXECJAVA% %JAVA_OPTS% %JPDA_OPTS% %CATALINA_OPTS% %DEBUG_OPTS% -classpath "%CLASSPATH%" -Dcatalina.base="%CATALINA_BASE%" -Dcatalina.home="%CATALINA_HOME%" -Djava.io.tmpdir="%CATALINA_TMPDIR%" %MAINCLASS% %CMD_LINE_ARGS% %ACTION%
+goto end
+:doSecurityJpda
+%_EXECJAVA% %JAVA_OPTS% %JPDA_OPTS% %CATALINA_OPTS% %DEBUG_OPTS% -classpath "%CLASSPATH%" -Djava.security.manager -Djava.security.policy=="%SECURITY_POLICY_FILE%" -Dcatalina.base="%CATALINA_BASE%" -Dcatalina.home="%CATALINA_HOME%" -Djava.io.tmpdir="%CATALINA_TMPDIR%" %MAINCLASS% %CMD_LINE_ARGS% %ACTION%
+goto end
+```
+
+
