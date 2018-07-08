@@ -1,4 +1,4 @@
-# java高并发
+# java增加并发数量
 
 作为java程序员,我们就像赛车手,狙击手一样的角色,我们要挑战高并发,就像是一个赛车手如何把这辆赛车开到极致,就像一个狙击手要在极限距离击中目标
 
@@ -70,3 +70,68 @@ CPU核心	十核
 
 
 
+
+## JVM 性能优化
+
+### ①.JVM工作模式
+
+JVM 运行时有 client VM 与 server VM  两种模式,我们先用jsp查看一下当前的工作模式
+
+http://www.shoukaiseki.top/qrcode/jvm.jsp
+
+```Jsp
+<%@ page language="java" import="java.util.*,java.net.URL" pageEncoding="UTF-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <base href="<%=basePath%>">
+    
+    <title>查看java版本</title>
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+	<meta property="qc:admins" content="4746776325477164510063757" >
+	<!--
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	-->
+  </head>
+  
+  <body>
+	<br>
+	java.vm.name=<%=System.getProperty("java.vm.name")%>
+    JVM版本= <%=System.getProperty("java.version", "not specified")%><br>
+    JVM缺省路径=<%=System.getProperty("java.home", "not specified")%>
+	<br>
+	java.version=<%=System.getProperty("java.version")%>
+	<br>
+	java.class.version=<%=System.getProperty("java.class.version")%>
+	<br>
+	Java 虚拟机中的内存总量=<%=Runtime.getRuntime().totalMemory()/1024/1024%>MB
+	<br>
+	Java 虚拟机试图使用的最大内存量=<%=Runtime.getRuntime().maxMemory()/1024/1024%>MB
+	<br>
+	Java 虚拟机中的空闲内存量=<%=Runtime.getRuntime().freeMemory()/1024/1024%>MB
+
+  </body>
+</html>
+
+```
+
+显示结果如下
+
+```
+java.vm.name=Java HotSpot(TM) Server VM JVM版本= 1.8.0_151
+JVM缺省路径=C:\Program Files\Java\jdk1.8.0_151\jre 
+java.version=1.8.0_151 
+java.class.version=52.0 
+Java 虚拟机中的内存总量=123MB 
+Java 虚拟机试图使用的最大内存量=247MB 
+Java 虚拟机中的空闲内存量=55MB
+```
