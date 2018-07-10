@@ -1,0 +1,1002 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.17" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 2.3.2.r232_v20090521 Build &lt;2.3.2.v20090601-0700></property>
+    <property name="units">in</property>
+    <text-property name="title">拆分合并table</text-property>
+    <list-property name="userProperties">
+        <structure>
+            <property name="name">Data Cube.mainDataSet1.x</property>
+            <property name="type">integer</property>
+            <property name="isVisible">false</property>
+        </structure>
+        <structure>
+            <property name="name">Data Cube.mainDataSet1.y</property>
+            <property name="type">integer</property>
+            <property name="isVisible">false</property>
+        </structure>
+        <structure>
+            <property name="name">Data Cube.mainDataSet1.width</property>
+            <property name="type">integer</property>
+            <property name="isVisible">false</property>
+        </structure>
+        <structure>
+            <property name="name">Data Cube.mainDataSet1.height</property>
+            <property name="type">integer</property>
+            <property name="isVisible">false</property>
+        </structure>
+    </list-property>
+    <property name="Data Cube.mainDataSet1.x">135</property>
+    <property name="Data Cube.mainDataSet1.y">80</property>
+    <property name="Data Cube.mainDataSet1.width">264</property>
+    <property name="Data Cube.mainDataSet1.height">200</property>
+    <method name="initialize"><![CDATA[importPackage(Packages.com.ibm.tivoli.maximo.report.script);
+
+mxReportScriptContext = MXReportScriptContext.initialize(reportContext);
+
+mxReportScriptContext.setDefaultLogLevel("DEBUG");
+mxReportScriptContext.setDefaultLogFile("w:/拆分合并table.log");
+i=0;]]></method>
+    <method name="afterFactory"><![CDATA[MXReportScriptContext.close();]]></method>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
+    <data-sources>
+        <script-data-source name="maximoDataSource" id="751"/>
+    </data-sources>
+    <data-sets>
+        <script-data-set name="mainDataSet" id="8">
+            <list-property name="resultSetHints">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">MEISHOU</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">id</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">TANNKA</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">DANJIA</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">OKANE</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">MEISHOU</property>
+                </structure>
+                <structure>
+                    <property name="columnName">id</property>
+                </structure>
+                <structure>
+                    <property name="columnName">TANNKA</property>
+                </structure>
+                <structure>
+                    <property name="columnName">DANJIA</property>
+                </structure>
+                <structure>
+                    <property name="columnName">OKANE</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">MEISHOU</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">id</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">TANNKA</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">DANJIA</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">OKANE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">maximoDataSource</property>
+            <method name="open"><![CDATA[mainDataSet = MXReportDataSetProvider.create(this.getDataSource().getName(), this.getName());
+mainDataSet.open();
+
+var sqlText = new String();
+
+ sqlText =""
+ + "select id,MEISHOU,TANNKA,DANJIA,OKANE from TABLETEST_01"
+ ;
+  
+mainDataSet.setQuery(sqlText);
+
+]]></method>
+            <method name="fetch"><![CDATA[if (!mainDataSet.fetch())
+	return (false);
+// Add a line for each output column
+// The specific get method should match the data type of the output column.
+
+row["id"] = mainDataSet.getString("id");
+row["MEISHOU"] = mainDataSet.getString("MEISHOU");
+row["TANNKA"] = mainDataSet.getString("TANNKA");
+row["DANJIA"] = mainDataSet.getString("DANJIA");
+row["OKANE"] = mainDataSet.getString("OKANE");
+
+return (true);
+]]></method>
+        </script-data-set>
+        <script-data-set name="mainDataSet1" id="886">
+            <list-property name="resultSetHints">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">MEISHOU</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">id</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">SIYOU</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">SIYOUNAME</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">MEISHOU</property>
+                </structure>
+                <structure>
+                    <property name="columnName">id</property>
+                </structure>
+                <structure>
+                    <property name="columnName">SIYOU</property>
+                </structure>
+                <structure>
+                    <property name="columnName">SIYOUNAME</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">MEISHOU</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">id</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">SIYOU</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">SIYOUNAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">maximoDataSource</property>
+            <method name="open"><![CDATA[mainDataSet1 = MXReportDataSetProvider.create(this.getDataSource().getName(), this.getName());
+mainDataSet1.open();
+
+var sqlText = new String();
+
+ sqlText =""
+ + "select id,MEISHOU,TANNKA,DANJIA,OKANE from TABLETEST_01  order by id"
+ ;
+  
+mainDataSet1.setQuery(sqlText);
+
+]]></method>
+            <method name="fetch"><![CDATA[if(i%3==0){
+if (!mainDataSet1.fetch())
+	return (false);
+// Add a line for each output column
+// The specific get method should match the data type of the output column.
+row["SIYOU"] = mainDataSet1.getString("TANNKA");
+row["SIYOUNAME"]= "  早";
+}else if(i%3==1){
+row["SIYOU"] = mainDataSet1.getString("DANJIA");
+row["SIYOUNAME"]= "晚";
+}else{
+row["SIYOU"] = mainDataSet1.getString("OKANE");
+row["SIYOUNAME"]= " 中";
+}
+row["id"] = mainDataSet1.getInteger("id");
+row["MEISHOU"] = mainDataSet1.getString("MEISHOU");
+i++;
+return (true);
+]]></method>
+        </script-data-set>
+    </data-sets>
+    <cubes>
+        <tabular-cube name="Data Cube" id="845">
+            <property name="dimensions">
+                <tabular-dimension name="Group" id="848">
+                    <property name="defaultHierarchy">NewTabularHierarchy</property>
+                    <property name="hierarchies">
+                        <tabular-hierarchy name="NewTabularHierarchy" id="849">
+                            <property name="levels">
+                                <tabular-level name="MEISHOU" id="850">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">MEISHOU</property>
+                                </tabular-level>
+                            </property>
+                        </tabular-hierarchy>
+                    </property>
+                </tabular-dimension>
+                <tabular-dimension name="Group1" id="851">
+                    <property name="defaultHierarchy">NewTabularHierarchy1</property>
+                    <property name="hierarchies">
+                        <tabular-hierarchy name="NewTabularHierarchy1" id="852">
+                            <property name="levels">
+                                <tabular-level name="id" id="853">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">id</property>
+                                </tabular-level>
+                            </property>
+                        </tabular-hierarchy>
+                    </property>
+                </tabular-dimension>
+                <tabular-dimension name="Group3" id="969">
+                    <property name="defaultHierarchy">NewTabularHierarchy3</property>
+                    <property name="hierarchies">
+                        <tabular-hierarchy name="NewTabularHierarchy3" id="970">
+                            <property name="levels">
+                                <tabular-level name="SIYOUNAME" id="971">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">SIYOUNAME</property>
+                                </tabular-level>
+                            </property>
+                        </tabular-hierarchy>
+                    </property>
+                </tabular-dimension>
+                <tabular-dimension name="Group2" id="1014">
+                    <property name="defaultHierarchy">NewTabularHierarchy2</property>
+                    <property name="hierarchies">
+                        <tabular-hierarchy name="NewTabularHierarchy2" id="1015">
+                            <property name="levels">
+                                <tabular-level name="id" id="1016">
+                                    <property name="dataType">float</property>
+                                    <property name="levelType">dynamic</property>
+                                    <property name="columnName">id</property>
+                                </tabular-level>
+                            </property>
+                        </tabular-hierarchy>
+                    </property>
+                </tabular-dimension>
+            </property>
+            <property name="measureGroups">
+                <tabular-measure-group name="Summary Field" id="991">
+                    <property name="measures">
+                        <tabular-measure name="SIYOU" id="992">
+                            <expression name="measureExpression">dataSetRow["SIYOU"]</expression>
+                            <property name="dataType">string</property>
+                        </tabular-measure>
+                    </property>
+                </tabular-measure-group>
+            </property>
+            <property name="dataSet">mainDataSet1</property>
+        </tabular-cube>
+    </cubes>
+    <styles>
+        <style name="report" id="4">
+            <property name="backgroundPositionX">center</property>
+            <property name="backgroundPositionY">center</property>
+            <property name="fontFamily">"Verdana"</property>
+            <property name="fontSize">10pt</property>
+            <property name="borderTopStyle">none</property>
+            <property name="textAlign">center</property>
+            <property name="verticalAlign">middle</property>
+            <property name="whiteSpace">normal</property>
+        </style>
+        <style name="crosstab-cell" id="5">
+            <property name="backgroundPositionX">center</property>
+            <property name="backgroundPositionY">center</property>
+            <property name="fontFamily">"宋体"</property>
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">none</property>
+            <property name="borderLeftWidth">1%</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+            <property name="marginLeft">0pt</property>
+            <property name="paddingTop">1pt</property>
+            <property name="paddingLeft">1pt</property>
+            <property name="paddingBottom">1pt</property>
+            <property name="paddingRight">1pt</property>
+            <property name="textAlign">center</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="topMargin">0.25in</property>
+            <property name="leftMargin">0.25in</property>
+            <property name="bottomMargin">0.25in</property>
+            <property name="rightMargin">0.25in</property>
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <extended-item extensionName="Crosstab" extensionVersion="2.3.0" id="993">
+            <property name="measureDirection">horizontal</property>
+            <property name="measures">
+                <extended-item extensionName="MeasureView" id="1008">
+                    <property name="measure">SIYOU</property>
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="1009">
+                            <property name="aggregationOnRow">Group3/SIYOUNAME</property>
+                            <property name="content">
+                                <data id="1010">
+                                    <property name="resultSetColumn">SIYOU_Group3/SIYOUNAME</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="1011">
+                            <property name="content">
+                                <label id="1012">
+                                    <text-property name="text">杀敌数</text-property>
+                                </label>
+                            </property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+            </property>
+            <property name="rows">
+                <extended-item extensionName="CrosstabView" id="995">
+                    <property name="views">
+                        <extended-item extensionName="DimensionView" id="1017">
+                            <property name="dimension">Group2</property>
+                            <property name="levels">
+                                <extended-item extensionName="LevelView" name="NewLevel View3" id="1018">
+                                    <property name="level">Group2/id</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="1019">
+                                            <property name="content">
+                                                <data name="id1" id="1020">
+                                                    <property name="resultSetColumn">id_1</property>
+                                                </data>
+                                            </property>
+                                            <property name="textTransform">none</property>
+                                            <property name="verticalAlign">middle</property>
+                                            <property name="widows">2</property>
+                                            <property name="drop">none</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                            </property>
+                        </extended-item>
+                        <extended-item extensionName="DimensionView" id="1021">
+                            <property name="dimension">Group</property>
+                            <property name="levels">
+                                <extended-item extensionName="LevelView" name="NewLevel View" id="1022">
+                                    <property name="level">Group/MEISHOU</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="1023">
+                                            <property name="content">
+                                                <data name="MEISHOU" id="1024">
+                                                    <method name="onPrepare"><![CDATA[
+	this.getStyle().textAlign="center";]]></method>
+                                                    <method name="onCreate"><![CDATA[	this.getStyle().textAlign="center";]]></method>
+                                                    <property name="resultSetColumn">MEISHOU</property>
+                                                </data>
+                                            </property>
+                                            <property name="verticalAlign">middle</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                            </property>
+                        </extended-item>
+                        <extended-item extensionName="DimensionView" id="1004">
+                            <property name="dimension">Group3</property>
+                            <property name="levels">
+                                <extended-item extensionName="LevelView" name="NewLevel View2" id="1005">
+                                    <property name="level">Group3/SIYOUNAME</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="1006">
+                                            <property name="content">
+                                                <data name="SIYOUNAME" id="1007">
+                                                    <method name="onCreate"><![CDATA[
+		if(this.value=="TANNKA"){
+			this.getStyle().setBackgroundColor("RGB(255,20,147)");//测试
+		}
+		if(this.value=="DANJIA"){
+			this.getStyle().setBackgroundColor("RGB(153,50,204)");//测试
+		}
+		if(this.value=="OKANE"){
+			this.getStyle().setBackgroundColor("RGB(0,206,209)");//测试
+		}]]></method>
+                                                    <property name="resultSetColumn">SIYOUNAME</property>
+                                                </data>
+                                            </property>
+                                            <property name="verticalAlign">middle</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                            </property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+            </property>
+            <property name="hideMeasureHeader">false</property>
+            <property name="header">
+                <extended-item extensionName="CrosstabCell" id="994">
+                    <property name="backgroundRepeat">repeat</property>
+                    <property name="textAlign">center</property>
+                </extended-item>
+            </property>
+            <method name="onPrepare"><![CDATA[//onPrepare准备
+function onPrepareCrosstab(crosstab,reportContext)
+{
+	importPackage(Packages.org.eclipse.birt.report.model.simpleapi);
+	crosstab.getStyle().setFontSize("12pt");
+	crosstab.getStyle().setFontFamily("宋体");
+	
+	
+	crosstab.getStyle().borderBottomColor="#000000";
+	crosstab.getStyle().borderBottomStyle="solid";
+	crosstab.getStyle().borderBottomWidth="medium";
+	crosstab.getStyle().borderLeftColor="#000000";
+	crosstab.getStyle().borderLeftStyle="solid";
+	crosstab.getStyle().borderLeftWidth="medium";
+	crosstab.getStyle().borderRightColor="#000000";
+	crosstab.getStyle().borderRightStyle="solid";
+	crosstab.getStyle().borderRightWidth="medium";
+	crosstab.getStyle().borderTopColor="#000000";
+	crosstab.getStyle().borderTopStyle="solid";
+	crosstab.getStyle().borderTopWidth="medium";
+	crosstab.getStyle().textAlign="center";
+	
+
+}
+]]></method>
+            <method name="onCreate"><![CDATA[
+//onCreate创建
+function onCreateCell(cellInst,reportContext)
+{
+
+	/*************
+	**代表Drops区
+	*************/
+	if(cellInst.getCellType()=="header"){
+		cellInst.getStyle().setBackgroundColor("#FFFF00");//测试
+		cellInst.getStyle().setFontSize("16");
+	}else{
+		cellInst.getStyle().textAlign="center";
+	}
+		cellInst.getStyle().textAlign="center";
+
+	
+	/*************
+	**aggregation是property 的name名称,Summary Fields数据区
+	*************/
+	if(cellInst.getCellType()=="aggregation"){
+		if(cellInst.getDataValue("SIYOUNAME")=="TANNKA"){
+			cellInst.getStyle().setBackgroundColor("RGB(255,20,147)");//测试
+		}
+		
+		/*************
+		**Summary Field字段的 Column Binding Nam
+		*************/
+		if(reportContext.evaluate("measure['SIYOU']") >20000){
+		/*************
+		**对字符类型有讲究
+		*************/			
+		//if(cellInst.getDataValue("RYOU_Group1/MEISHOU_Group2/SIYOU") > 20000){
+		
+			cellInst.getStyle().setBackgroundColor("green");//测试
+			cellInst.getStyle().setColor("White");//测试
+		}
+
+	}
+	cellInst.getStyle().borderBottomColor="#000000";
+	cellInst.getStyle().borderBottomStyle="solid";
+	cellInst.getStyle().borderBottomWidth="thin";
+	cellInst.getStyle().borderLeftColor="#000000";
+	cellInst.getStyle().borderLeftStyle="solid";
+	cellInst.getStyle().borderLeftWidth="thin";
+	cellInst.getStyle().borderRightColor="#000000";
+	cellInst.getStyle().borderRightStyle="solid";
+	cellInst.getStyle().borderRightWidth="thin";
+	cellInst.getStyle().borderTopColor="#000000";
+	cellInst.getStyle().borderTopStyle="solid";
+	cellInst.getStyle().borderTopWidth="thin";
+}
+
+/**
+ * Called when crosstab is being created.
+ *
+ * @param crosstabInst
+ *            ICrosstabInstance
+ * @param reportContext
+ *            IReportContext
+ */
+
+function onCreateCrosstab( crosstabInst, reportContext )
+{
+	crosstabInst.getStyle().textAlign="center";
+}
+]]></method>
+            <property name="backgroundPositionX">center</property>
+            <property name="backgroundPositionY">center</property>
+            <property name="textTransform">none</property>
+            <property name="verticalAlign">middle</property>
+            <property name="whiteSpace">normal</property>
+            <property name="widows">2</property>
+            <property name="marginTop">0pt</property>
+            <property name="marginLeft">0pt</property>
+            <property name="cube">Data Cube</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">SIYOUNAME</property>
+                    <expression name="expression">dimension["Group3"]["SIYOUNAME"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">SIYOU_Group3/SIYOUNAME</property>
+                    <expression name="expression">measure["SIYOU"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group3/SIYOUNAME</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">sum</property>
+                </structure>
+                <structure>
+                    <property name="name">id_1</property>
+                    <expression name="expression">dimension["Group2"]["id"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">MEISHOU</property>
+                    <expression name="expression">dimension["Group"]["MEISHOU"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <property name="zIndex">0</property>
+        </extended-item>
+        <grid id="946">
+            <property name="textAlign">center</property>
+            <property name="width">100%</property>
+            <column id="947"/>
+            <row id="948">
+                <cell id="949"/>
+            </row>
+            <row id="950">
+                <cell id="951"/>
+            </row>
+            <row id="952">
+                <cell id="953">
+                    <table id="807">
+                        <property name="marginTop">30pt</property>
+                        <property name="marginLeft">0pt</property>
+                        <property name="verticalAlign">middle</property>
+                        <property name="whiteSpace">normal</property>
+                        <property name="width">50%</property>
+                        <property name="dataSet">mainDataSet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">MEISHOU</property>
+                                <expression name="expression">dataSetRow["MEISHOU"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">id</property>
+                                <expression name="expression">dataSetRow["id"]</expression>
+                                <property name="dataType">integer</property>
+                            </structure>
+                            <structure>
+                                <property name="name">TANNKA</property>
+                                <expression name="expression">dataSetRow["TANNKA"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">DANJIA</property>
+                                <expression name="expression">dataSetRow["DANJIA"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">OKANE</property>
+                                <expression name="expression">dataSetRow["OKANE"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <column id="820"/>
+                        <column id="843"/>
+                        <column id="816"/>
+                        <column id="826"/>
+                        <column id="832"/>
+                        <column id="836"/>
+                        <header>
+                            <row id="808">
+                                <cell id="817">
+                                    <method name="onCreate"><![CDATA[	this.getStyle().borderBottomColor="#000000";
+	this.getStyle().borderBottomStyle="solid";
+	this.getStyle().borderBottomWidth="thin";
+	this.getStyle().borderLeftColor="#000000";
+	this.getStyle().borderLeftStyle="solid";
+	this.getStyle().borderLeftWidth="thin"; 
+	this.getStyle().borderRightColor="#000000";
+	this.getStyle().borderRightStyle="solid";
+	this.getStyle().borderRightWidth="thin";
+	this.getStyle().borderTopColor="#000000";
+	this.getStyle().borderTopStyle="solid";
+	this.getStyle().borderTopWidth="thin";
+	this.getStyle().setFontSize("10pt");
+	this.getStyle().setFontFamily("宋体");]]></method>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="821">
+                                        <method name="onCreate"><![CDATA[	this.getStyle().setFontSize("12pt");
+	this.getStyle().setFontFamily("宋体");
+	this.getStyle().textAlign="center";
+	this.getStyle().fontWeight="Bold";]]></method>
+                                        <text-property name="text">id</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="841">
+                                    <method name="onCreate"><![CDATA[	this.getStyle().borderBottomColor="#000000";
+	this.getStyle().borderBottomStyle="solid";
+	this.getStyle().borderBottomWidth="thin";
+	this.getStyle().borderLeftColor="#000000";
+	this.getStyle().borderLeftStyle="solid";
+	this.getStyle().borderLeftWidth="thin"; 
+	this.getStyle().borderRightColor="#000000";
+	this.getStyle().borderRightStyle="solid";
+	this.getStyle().borderRightWidth="thin";
+	this.getStyle().borderTopColor="#000000";
+	this.getStyle().borderTopStyle="solid";
+	this.getStyle().borderTopWidth="thin";
+	this.getStyle().setFontSize("10pt");
+	this.getStyle().setFontFamily("宋体");]]></method>
+                                    <label id="1027">
+                                        <method name="onCreate"><![CDATA[//表内字体这里设置
+this.getStyle().fontWeight="bold";
+this.getStyle().fontSize="12pt";
+this.getStyle().color="blue";
+]]></method>
+                                        <text-property name="text">拆分单元格</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="809">
+                                    <method name="onCreate"><![CDATA[	this.getStyle().borderBottomColor="#000000";
+	this.getStyle().borderBottomStyle="solid";
+	this.getStyle().borderBottomWidth="thin";
+	this.getStyle().borderLeftColor="#000000";
+	this.getStyle().borderLeftStyle="solid";
+	this.getStyle().borderLeftWidth="thin"; 
+	this.getStyle().borderRightColor="#000000";
+	this.getStyle().borderRightStyle="solid";
+	this.getStyle().borderRightWidth="thin";
+	this.getStyle().borderTopColor="#000000";
+	this.getStyle().borderTopStyle="solid";
+	this.getStyle().borderTopWidth="thin";
+	this.getStyle().setFontSize("10pt");
+	this.getStyle().setFontFamily("宋体");]]></method>
+                                    <label id="810">
+                                        <method name="onCreate"><![CDATA[	this.getStyle().setFontSize("12pt");
+	this.getStyle().setFontFamily("宋体");
+	this.getStyle().textAlign="center";
+	this.getStyle().fontWeight="Bold";]]></method>
+                                        <text-property name="text">MEISHOU</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="823">
+                                    <method name="onCreate"><![CDATA[	this.getStyle().borderBottomColor="#000000";
+	this.getStyle().borderBottomStyle="solid";
+	this.getStyle().borderBottomWidth="thin";
+	this.getStyle().borderLeftColor="#000000";
+	this.getStyle().borderLeftStyle="solid";
+	this.getStyle().borderLeftWidth="thin"; 
+	this.getStyle().borderRightColor="#000000";
+	this.getStyle().borderRightStyle="solid";
+	this.getStyle().borderRightWidth="thin";
+	this.getStyle().borderTopColor="#000000";
+	this.getStyle().borderTopStyle="solid";
+	this.getStyle().borderTopWidth="thin";
+	this.getStyle().setFontSize("10pt");
+	this.getStyle().setFontFamily("宋体");]]></method>
+                                    <label id="827">
+                                        <method name="onCreate"><![CDATA[	this.getStyle().setFontSize("12pt");
+	this.getStyle().setFontFamily("宋体");
+	this.getStyle().textAlign="center";
+	this.getStyle().fontWeight="Bold";]]></method>
+                                        <text-property name="text">TANNKA</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="829">
+                                    <method name="onCreate"><![CDATA[	this.getStyle().borderBottomColor="#000000";
+	this.getStyle().borderBottomStyle="solid";
+	this.getStyle().borderBottomWidth="thin";
+	this.getStyle().borderLeftColor="#000000";
+	this.getStyle().borderLeftStyle="solid";
+	this.getStyle().borderLeftWidth="thin"; 
+	this.getStyle().borderRightColor="#000000";
+	this.getStyle().borderRightStyle="solid";
+	this.getStyle().borderRightWidth="thin";
+	this.getStyle().borderTopColor="#000000";
+	this.getStyle().borderTopStyle="solid";
+	this.getStyle().borderTopWidth="thin";
+	this.getStyle().setFontSize("10pt");
+	this.getStyle().setFontFamily("宋体");]]></method>
+                                    <label id="837">
+                                        <method name="onPrepare"><![CDATA[	this.getStyle().setFontSize("12pt");
+	this.getStyle().setFontFamily("宋体");
+	this.getStyle().textAlign="center";
+	this.getStyle().fontWeight="Bold";]]></method>
+                                        <text-property name="text">DANJIA</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="833">
+                                    <method name="onCreate"><![CDATA[	this.getStyle().borderBottomColor="#000000";
+	this.getStyle().borderBottomStyle="solid";
+	this.getStyle().borderBottomWidth="thin";
+	this.getStyle().borderLeftColor="#000000";
+	this.getStyle().borderLeftStyle="solid";
+	this.getStyle().borderLeftWidth="thin"; 
+	this.getStyle().borderRightColor="#000000";
+	this.getStyle().borderRightStyle="solid";
+	this.getStyle().borderRightWidth="thin";
+	this.getStyle().borderTopColor="#000000";
+	this.getStyle().borderTopStyle="solid";
+	this.getStyle().borderTopWidth="thin";
+	this.getStyle().setFontSize("10pt");
+	this.getStyle().setFontFamily("宋体");]]></method>
+                                    <label id="839">
+                                        <method name="onPrepare"><![CDATA[	this.getStyle().setFontSize("12pt");
+	this.getStyle().setFontFamily("宋体");
+	this.getStyle().textAlign="center";
+	this.getStyle().fontWeight="Bold";]]></method>
+                                        <text-property name="text">OKANE</text-property>
+                                    </label>
+                                </cell>
+                            </row>
+                        </header>
+                        <detail>
+                            <row id="811">
+                                <property name="verticalAlign">middle</property>
+                                <property name="widows">2</property>
+                                <cell id="818">
+                                    <method name="onCreate"><![CDATA[	this.getStyle().borderBottomColor="#000000";
+	this.getStyle().borderBottomStyle="solid";
+	this.getStyle().borderBottomWidth="thin";
+	this.getStyle().borderLeftColor="#000000";
+	this.getStyle().borderLeftStyle="solid";
+	this.getStyle().borderLeftWidth="thin"; 
+	this.getStyle().borderRightColor="#000000";
+	this.getStyle().borderRightStyle="solid";
+	this.getStyle().borderRightWidth="thin";
+	this.getStyle().borderTopColor="#000000";
+	this.getStyle().borderTopStyle="solid";
+	this.getStyle().borderTopWidth="thin";
+	this.getStyle().setFontSize("10pt");
+	this.getStyle().setFontFamily("宋体");]]></method>
+                                    <data id="822">
+                                        <method name="onCreate"><![CDATA[	this.getStyle().setFontSize("12pt");
+	this.getStyle().setFontFamily("宋体");
+	this.getStyle().textAlign="left";
+	this.getStyle().fontWeight="Bold";
+	this.getStyle().marginLeft="10pt";]]></method>
+                                        <property name="resultSetColumn">id</property>
+                                    </data>
+                                </cell>
+                                <cell id="842">
+                                    <method name="onCreate"><![CDATA[	this.getStyle().borderBottomColor="#000000";
+	this.getStyle().borderBottomStyle="solid";
+	this.getStyle().borderBottomWidth="thin";
+	this.getStyle().borderLeftColor="#000000";
+	this.getStyle().borderLeftStyle="solid";
+	this.getStyle().borderLeftWidth="thin"; 
+	this.getStyle().borderRightColor="#000000";
+	this.getStyle().borderRightStyle="solid";
+	this.getStyle().borderRightWidth="thin";
+	this.getStyle().borderTopColor="#000000";
+	this.getStyle().borderTopStyle="solid";
+	this.getStyle().borderTopWidth="thin";
+	this.getStyle().setFontSize("10pt");
+	this.getStyle().setFontFamily("宋体");
+	//this.colSpan="3";
+	this.verticalPosition="<tr><td>121212</td></tr><tr><td>12121212</td></tr>";
+	this.horizontalPosition="<tr><td>121212</td></tr><tr><td>12121212</td></tr>";
+	this.text="<tr><td>121212</td></tr><tr><td>12121212</td></tr>";
+	]]></method>
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <property name="textAlign">center</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <text id="1026">
+                                        <property name="fontWeight">normal</property>
+                                        <property name="paddingTop">0pt</property>
+                                        <property name="paddingLeft">0pt</property>
+                                        <property name="paddingBottom">0pt</property>
+                                        <property name="paddingRight">0pt</property>
+                                        <property name="whiteSpace">normal</property>
+                                        <method name="onCreate"><![CDATA[//表内字体这里设置
+//其它单元格居中在detail中设置 Property-Advanced-Text-Vertical alignment=middle
+this.getStyle().fontWeight="bold";
+this.getStyle().fontSize="12pt";
+this.getStyle().color="blue";
+
+
+
+this.text=""
+	+"	<table cellpadding=\"0\" style=\"  border-collapse: collapse; empty-cells: show; width:100%;\">"
+
+	+"						<tr>"
+	+"						"
+	+"							<th   style=\"  width:50%; background-color: rgb(255, 255, 0); border-right: thin solid rgb(0, 0, 0);  border-bottom: thin solid rgb(0, 0, 0);\" valign=\"middle\" align=\"center\">"
+	+"								<div>TANNKA</div>"
+	+"							</th>"
+	+"							<td style=\" width:50%; background-color: rgb(255, 255, 0); border-bottom: thin solid rgb(0, 0, 0); thin solid rgb(0, 0, 0);\" align=\"center\">"
+	+"								<div>"+row["TANNKA"]+"</div>"
+	+"							</td>"
+	+"						</tr>"
+	+"						<tr valign=\"top\">"
+	+"							<th style=\"color: white;background-color: green; border-right: thin solid rgb(0, 0, 0);border-bottom: thin solid rgb(0, 0, 0); \" valign=\"middle\" align=\"center\">"
+	+"								<div>DANJIA</div>"
+	+"							</th>"
+	+"							<td style=\"color: white;background-color: green;\" align=\"center\">"
+	+"								<div>"+row["DANJIA"]+"</div>"
+	+"							</td>"
+	+"						</tr>"
+	+"						<tr valign=\"top\" >"
+	+"							<th  style=\" background-color: rgb(0,191,255);   border-right: thin solid rgb(0, 0, 0) ;\"  valign=\"middle\" align=\"center\">"
+	+"								<div>OKANE</div>"
+	+"							</th>"
+	+"							<td  style=\" background-color: rgb(0,191,255);  border-top: thin solid rgb(0, 0, 0);\"  valign=\"middle\" align=\"center\">"
+	+"								<div>"+row["OKANE"]+"</div>"
+	+"							</td>"
+	+"						</tr>"
+	+"					</table>"
+;]]></method>
+                                        <property name="contentType">html</property>
+                                        <text-property name="content"><![CDATA[请查看Script]]></text-property>
+                                    </text>
+                                </cell>
+                                <cell id="812">
+                                    <method name="onCreate"><![CDATA[	this.getStyle().borderBottomColor="#000000";
+	this.getStyle().borderBottomStyle="solid";
+	this.getStyle().borderBottomWidth="thin";
+	this.getStyle().borderLeftColor="#000000";
+	this.getStyle().borderLeftStyle="solid";
+	this.getStyle().borderLeftWidth="thin"; 
+	this.getStyle().borderRightColor="#000000";
+	this.getStyle().borderRightStyle="solid";
+	this.getStyle().borderRightWidth="thin";
+	this.getStyle().borderTopColor="#000000";
+	this.getStyle().borderTopStyle="solid";
+	this.getStyle().borderTopWidth="thin";
+	this.getStyle().setFontSize("10pt");
+	this.getStyle().setFontFamily("宋体");]]></method>
+                                    <data id="813">
+                                        <method name="onCreate"><![CDATA[	this.getStyle().setFontSize("12pt");
+	this.getStyle().setFontFamily("宋体");
+	this.getStyle().textAlign="center";
+	this.getStyle().fontWeight="Bold";
+	//this.getStyle().marginLeft="10pt";]]></method>
+                                        <property name="resultSetColumn">MEISHOU</property>
+                                    </data>
+                                </cell>
+                                <cell id="824">
+                                    <method name="onCreate"><![CDATA[	this.getStyle().borderBottomColor="#000000";
+	this.getStyle().borderBottomStyle="solid";
+	this.getStyle().borderBottomWidth="thin";
+	this.getStyle().borderLeftColor="#000000";
+	this.getStyle().borderLeftStyle="solid";
+	this.getStyle().borderLeftWidth="thin"; 
+	this.getStyle().borderRightColor="#000000";
+	this.getStyle().borderRightStyle="solid";
+	this.getStyle().borderRightWidth="thin";
+	this.getStyle().borderTopColor="#000000";
+	this.getStyle().borderTopStyle="solid";
+	this.getStyle().borderTopWidth="thin";
+	this.getStyle().setFontSize("10pt");
+	this.getStyle().setFontFamily("宋体");]]></method>
+                                    <data id="828">
+                                        <method name="onCreate"><![CDATA[	this.getStyle().setFontSize("12pt");
+	this.getStyle().setFontFamily("宋体");
+	this.getStyle().textAlign="left";
+	this.getStyle().fontWeight="Bold";
+	this.getStyle().marginLeft="10pt";]]></method>
+                                        <property name="resultSetColumn">TANNKA</property>
+                                    </data>
+                                </cell>
+                                <cell id="830">
+                                    <method name="onCreate"><![CDATA[	this.getStyle().borderBottomColor="#000000";
+	this.getStyle().borderBottomStyle="solid";
+	this.getStyle().borderBottomWidth="thin";
+	this.getStyle().borderLeftColor="#000000";
+	this.getStyle().borderLeftStyle="solid";
+	this.getStyle().borderLeftWidth="thin"; 
+	this.getStyle().borderRightColor="#000000";
+	this.getStyle().borderRightStyle="solid";
+	this.getStyle().borderRightWidth="thin";
+	this.getStyle().borderTopColor="#000000";
+	this.getStyle().borderTopStyle="solid";
+	this.getStyle().borderTopWidth="thin";
+	this.getStyle().setFontSize("10pt");
+	this.getStyle().setFontFamily("宋体");]]></method>
+                                    <data id="838">
+                                        <method name="onCreate"><![CDATA[	this.getStyle().setFontSize("12pt");
+	this.getStyle().setFontFamily("宋体");
+	this.getStyle().textAlign="left";
+	this.getStyle().fontWeight="Bold";
+	this.getStyle().marginLeft="10pt";]]></method>
+                                        <property name="resultSetColumn">DANJIA</property>
+                                    </data>
+                                </cell>
+                                <cell id="834">
+                                    <method name="onCreate"><![CDATA[	this.getStyle().borderBottomColor="#000000";
+	this.getStyle().borderBottomStyle="solid";
+	this.getStyle().borderBottomWidth="thin";
+	this.getStyle().borderLeftColor="#000000";
+	this.getStyle().borderLeftStyle="solid";
+	this.getStyle().borderLeftWidth="thin"; 
+	this.getStyle().borderRightColor="#000000";
+	this.getStyle().borderRightStyle="solid";
+	this.getStyle().borderRightWidth="thin";
+	this.getStyle().borderTopColor="#000000";
+	this.getStyle().borderTopStyle="solid";
+	this.getStyle().borderTopWidth="thin";
+	this.getStyle().setFontSize("10pt");
+	this.getStyle().setFontFamily("宋体");]]></method>
+                                    <data id="840">
+                                        <method name="onCreate"><![CDATA[	this.getStyle().setFontSize("12pt");
+	this.getStyle().setFontFamily("宋体");
+	this.getStyle().textAlign="left";
+	this.getStyle().fontWeight="Bold";
+	this.getStyle().marginLeft="10pt";]]></method>
+                                        <property name="resultSetColumn">OKANE</property>
+                                    </data>
+                                </cell>
+                            </row>
+                        </detail>
+                    </table>
+                </cell>
+            </row>
+        </grid>
+    </body>
+</report>

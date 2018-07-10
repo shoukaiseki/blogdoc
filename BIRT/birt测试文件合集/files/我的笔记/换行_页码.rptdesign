@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.17" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 2.3.2.r232_v20090521 Build &lt;2.3.2.v20090601-0700></property>
+    <property name="units">in</property>
+    <method name="initialize"><![CDATA[
+
+page=1;
+
+test=new String();
+
+rowCount=1;	//自动换行，保持默认值为1，到达最大行数时重置该值，
+			//保证打印成PDF时不会出现因为系统自动换行而一页分两页打（第二页只有一行）
+			
+	]]></method>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <styles>
+        <style name="report" id="4">
+            <property name="fontFamily">"Verdana"</property>
+            <property name="fontSize">10pt</property>
+            <property name="textAlign">center</property>
+            <property name="verticalAlign">middle</property>
+        </style>
+        <style name="crosstab-cell" id="5">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="6">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">custom</property>
+            <property name="height">140mm</property>
+            <property name="width">243mm</property>
+            <property name="topMargin">0.25in</property>
+            <property name="leftMargin">0.25in</property>
+            <property name="bottomMargin">0.25in</property>
+            <property name="rightMargin">0.25in</property>
+            <page-footer>
+                <grid id="1031">
+                    <property name="width">100%</property>
+                    <list-property name="boundDataColumns">
+                        <structure>
+                            <property name="name">Column Binding</property>
+                            <expression name="expression">page</expression>
+                            <property name="dataType">integer</property>
+                        </structure>
+                    </list-property>
+                    <column id="1032"/>
+                    <column id="1054"/>
+                    <column id="1056"/>
+                    <column id="1046"/>
+                    <column id="1044"/>
+                    <column id="1033"/>
+                    <column id="1034"/>
+                    <column id="1049"/>
+                    <column id="1063"/>
+                    <column id="1035"/>
+                    <column id="1066"/>
+                    <column id="1068"/>
+                    <row id="1036">
+                        <cell id="1037">
+                            <label id="1057">
+                                <text-property name="text">Total Page unfiltered</text-property>
+                            </label>
+                        </cell>
+                        <cell id="1053">
+                            <auto-text id="1061">
+                                <property name="textAlign">right</property>
+                                <method name="onPrepare"><![CDATA[//只有onPrepare中触发一次脚本
+page++;]]></method>
+                                <method name="onCreate"><![CDATA[page++;]]></method>
+                                <method name="onRender"><![CDATA[page++;]]></method>
+                                <method name="onPageBreak"><![CDATA[page++;]]></method>
+                                <property name="type">total-page-unfiltered</property>
+                            </auto-text>
+                        </cell>
+                        <cell id="1055">
+                            <label id="1052">
+                                <property name="fontFamily">"宋体"</property>
+                                <text-property name="text">总页数</text-property>
+                            </label>
+                        </cell>
+                        <cell id="1045">
+                            <auto-text id="1060">
+                                <property name="textAlign">right</property>
+                                <method name="onPrepare"><![CDATA[page++;]]></method>
+                                <method name="onCreate"><![CDATA[page++;]]></method>
+                                <method name="onRender"><![CDATA[page++;]]></method>
+                                <method name="onPageBreak"><![CDATA[page++;]]></method>
+                                <property name="type">total-page</property>
+                            </auto-text>
+                        </cell>
+                        <cell id="1043">
+                            <label id="1047">
+                                <text-property name="text">Page Number unfiltered</text-property>
+                            </label>
+                        </cell>
+                        <cell id="1038">
+                            <auto-text id="1059">
+                                <property name="textAlign">right</property>
+                                <method name="onPrepare"><![CDATA[page++;]]></method>
+                                <method name="onCreate"><![CDATA[page++;]]></method>
+                                <method name="onRender"><![CDATA[page++;]]></method>
+                                <method name="onPageBreak"><![CDATA[page++;]]></method>
+                                <property name="type">page-number-unfiltered</property>
+                            </auto-text>
+                        </cell>
+                        <cell id="1039">
+                            <label id="1050">
+                                <property name="fontFamily">"宋体"</property>
+                                <text-property name="text">当前页码</text-property>
+                            </label>
+                        </cell>
+                        <cell id="1048">
+                            <auto-text id="1030">
+                                <property name="textAlign">right</property>
+                                <list-property name="visibility">
+                                    <structure>
+                                        <property name="format">all</property>
+                                        <expression name="valueExpr">if(++page%3==0){
+	false
+}else{
+	true
+}</expression>
+                                    </structure>
+                                </list-property>
+                                <method name="onPrepare"><![CDATA[page++;]]></method>
+                                <method name="onCreate"><![CDATA[page++;]]></method>
+                                <method name="onRender"><![CDATA[page++;]]></method>
+                                <method name="onPageBreak"><![CDATA[page++;]]></method>
+                                <property name="type">page-number</property>
+                            </auto-text>
+                        </cell>
+                        <cell id="1062">
+                            <text id="1064">
+                                <property name="fontFamily">"宋体"</property>
+                                <property name="contentType">auto</property>
+                                <text-property name="content"><![CDATA[添加测试
+<BR>
+经测试,页脚不受js控制,只是传递参数给打印机,是由打印机生成
+<BR>
+//只有auto-text的onPrepare中触发一次脚本]]></text-property>
+                            </text>
+                        </cell>
+                        <cell id="1040">
+                            <data id="1041">
+                                <property name="resultSetColumn">Column Binding</property>
+                            </data>
+                        </cell>
+                        <cell id="1065">
+                            <label id="1070">
+                                <text-property name="text">纯正版</text-property>
+                            </label>
+                        </cell>
+                        <cell id="1067">
+                            <auto-text id="1069">
+                                <property name="textAlign">right</property>
+                                <property name="type">page-number</property>
+                            </auto-text>
+                        </cell>
+                    </row>
+                </grid>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <table id="7">
+            <property name="textAlign">center</property>
+            <property name="width">100%</property>
+            <column id="14"/>
+            <column id="19"/>
+            <header>
+                <row id="8">
+                    <cell id="9">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">1px</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">1px</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">1px</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">1px</property>
+                    </cell>
+                    <cell id="16">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">1px</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">1px</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">1px</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">1px</property>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="10">
+                    <property name="pageBreakAfter">always</property>
+                    <cell id="11">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">1px</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">1px</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">1px</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">1px</property>
+                        <property name="textTransform">none</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="15">
+                            <property name="verticalAlign">middle</property>
+                            <method name="onCreate"><![CDATA[var v = this.text; 
+v = v.toString(); 
+if(v.length()>6){ 
+    v = v.substring(0,3)+"\n"+v.substring(3,v.length()); 
+} 
+this.text =v; ]]></method>
+                            <text-property name="text">蒋中正-蒋カイセキ</text-property>
+                        </label>
+                    </cell>
+                    <cell id="17">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">1px</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">1px</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">1px</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">1px</property>
+                        <label id="21">
+                            <property name="verticalAlign">middle</property>
+                            <method name="onCreate"><![CDATA[	//自动换行,Data是需防止因为null报错 this.getValue()!=null
+	if(this.text!=null){
+	fromString=this.text;
+	leng=4;//允许每行字数
+	str="";
+	
+	imaBasho=0;
+	for(i=0;i<fromString.length();i++){
+		//js中没有byte数组，用这个代替
+		s=fromString.substring(imaBasho,i);
+		//str+=i+s;
+		
+		if(s.getBytes().length>=leng){
+			if(str!=""){
+				str+="\n";
+			}
+			if(imaBasho<i&amp;&amp;s.getBytes().length>leng){
+				i--;
+			}
+			s=fromString.substring(imaBasho,i);
+			str+=s;
+			
+			imaBasho=i;
+			rowCount++;
+		}
+	}
+	if(str!=""){
+		str+="\n";
+	}
+	str+=fromString.substring(imaBasho,fromString.length());
+// var cArr = this.match(/[^\x00-\xff]/ig);   
+	this.text=str;
+	//自动换行结束
+	
+test="字符串长度="+fromString.getBytes().length+"\n"
+	+"String.length="+fromString.length()+"\n"
+	+"行数="+rowCount+"\n"
+	+"允许每行字数="+leng;
+	}
+]]></method>
+                            <text-property name="text">蒋中正-蒋カイセキ-张灵甫</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="12">
+                    <cell id="13">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">1px</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">1px</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">1px</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">1px</property>
+                    </cell>
+                    <cell id="18">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">1px</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">1px</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">1px</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">1px</property>
+                    </cell>
+                </row>
+            </footer>
+        </table>
+        <label id="22">
+            <property name="fontFamily">"宋体"</property>
+            <property name="fontSize">10pt</property>
+            <property name="textAlign">center</property>
+            <method name="onRender"><![CDATA[this.text=test;]]></method>
+        </label>
+        <label id="33">
+            <text-property name="text">下面的是页码</text-property>
+        </label>
+    </body>
+</report>

@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.17" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 2.3.2.r232_v20090521 Build &lt;2.3.2.v20090601-0700></property>
+    <property name="units">in</property>
+    <method name="initialize"><![CDATA[importPackage(Packages.com.ibm.tivoli.maximo.report.script);
+
+mxReportScriptContext = MXReportScriptContext.initialize(reportContext);
+
+mxReportScriptContext.setDefaultLogLevel("DEBUG");
+mxReportScriptContext.setDefaultLogFile("W:/financeWO.log");
+
+
+
+sql=new String();
+printStoreloc=new String();
+
+
+//统计是否为最后一个分页类别
+isEnd=0;
+  listLength=0;
+//统计是否为最后一个分页类别
+var  list   =   new   Object();   
+  list.add   =   function(key,value){this[key]=value} ;  
+  list.get   =   function(key){return   this[key]}  ; 
+
+
+//将maximo中的支持多选过滤的字符串转换成Oracle的in格式
+function maximoForQuery(fromString){
+	strs= new Array(); //定义一数组
+str=fromString.replace(/=/g,"");
+strs=str.split(","); //字符分割     
+toString="'"
+for (i=0;i<strs.length ;i++ )    
+    {    
+		if(i!=0){
+			toString=toString+",'"
+		}
+       	toString=toString+""+strs[i]+"'";    //分割后的字符输出
+    } 
+
+	return toString;
+}
+
+/**
+
+ * 时间对象的格式化;
+
+ */
+
+Date.prototype.format = function(format) {
+
+    /*
+
+     * eg:format="YYYY-MM-dd hh:mm:ss";
+
+     */
+
+    var o = {
+
+        "M+" :this.getMonth() + 1, // month
+
+        "d+" :this.getDate(), // day
+
+        "h+" :this.getHours(), // hour
+
+        "m+" :this.getMinutes(), // minute
+
+        "s+" :this.getSeconds(), // second
+
+        "q+" :Math.floor((this.getMonth() + 3) / 3), // quarter
+
+        "S" :this.getMilliseconds()
+
+    // millisecond
+
+    }
+
+
+
+    if (/(y+)/.test(format)) {
+
+        format = format.replace(RegExp.$1, (this.getFullYear() + "")
+
+                .substr(4 - RegExp.$1.length));
+
+    }
+
+
+
+    for ( var k in o) {
+
+        if (new RegExp("(" + k + ")").test(format)) {
+
+            format = format.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k]
+
+                    : ("00" + o[k]).substr(("" + o[k]).length));
+
+        }
+
+    }
+
+    return format;
+
+}
+
+]]></method>
+    <method name="afterFactory"><![CDATA[MXReportScriptContext.close();]]></method>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <data-sources>
+        <script-data-source name="maximoDataSource" id="751"/>
+    </data-sources>
+    <data-sets>
+        <script-data-set name="mainDataSet" id="752">
+            <list-property name="resultSetHints">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">yuza</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">systemdate</property>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">num_decimal</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">yuza</property>
+                </structure>
+                <structure>
+                    <property name="columnName">systemdate</property>
+                </structure>
+                <structure>
+                    <property name="columnName">num_decimal</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">yuza</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">systemdate</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">num_decimal</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">maximoDataSource</property>
+            <method name="open"><![CDATA[maximoDataSet = MXReportDataSetProvider.create(this.getDataSource().getName(), this.getName());
+maximoDataSet.open();
+
+var sqlText = new String();
+var konofinancialperiod =new String();
+// Add query to sqlText variable.
+sqlText = "\n"
+  +"select sysdate from dual"
+;
+
+
+maximoDataSet.setQuery(sqlText);
+
+
+
+maximoDataSet1 = MXReportDataSetProvider.create(this.getDataSource().getName(), this.getName());
+maximoDataSet1.open();
+
+var sqlText02 =new String();
+
+sqlText02 = "\n"
++"select user from dual "
+;
+
+sqlText02 ="\n"
++"SELECT ROWNUM yuza,1234.56 num_decimal FROM dual CONNECT BY LEVEL <= 10";
+
+maximoDataSet1.setQuery(sqlText02);]]></method>
+            <method name="fetch"><![CDATA[//标识,如果maximoDataSet1有数据,而maximoDataSet无数据导致无法创建行
+//如果在全局中创建变量可以限制行数,或者固定显示行数
+
+var rogo=false;
+if (maximoDataSet.fetch()){
+	row["systemdate"] = maximoDataSet.getString("sysdate");
+	rogo=true;
+}else{
+	row["systemdate"] = new Date(2012,11,12,12,12,12);
+	//row["systemdate"] = null;
+}
+
+
+if (!maximoDataSet1.fetch()){
+		if(rogo){
+		return(true);
+	}else{
+		return (false);
+	}
+}else{
+
+// Add a line for each output column
+// The specific get method should match the data type of the output column.
+row["yuza"] = ""+maximoDataSet1.getString("yuza");
+row["num_decimal"]=maximoDataSet1.getDouble("num_decimal");
+
+return (true);
+}]]></method>
+        </script-data-set>
+    </data-sets>
+    <styles>
+        <style name="headFont" id="1283">
+            <property name="fontFamily">"宋体"</property>
+            <property name="fontSize">12pt</property>
+            <property name="fontWeight">bold</property>
+            <property name="fontStyle">normal</property>
+            <property name="textLineThrough">none</property>
+            <property name="textOverline">none</property>
+            <property name="textUnderline">none</property>
+            <property name="textAlign">center</property>
+            <property name="verticalAlign">middle</property>
+        </style>
+        <style name="headTable" id="1284">
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1px</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1px</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1px</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1px</property>
+        </style>
+        <style name="detailFontCenter" id="1286">
+            <property name="fontFamily">"宋体"</property>
+            <property name="fontSize">12pt</property>
+            <property name="textAlign">center</property>
+            <property name="verticalAlign">middle</property>
+        </style>
+        <style name="detailFontLeft" id="1287">
+            <property name="fontFamily">"宋体"</property>
+            <property name="fontSize">12pt</property>
+            <property name="paddingLeft">3pt</property>
+            <property name="textAlign">left</property>
+            <property name="verticalAlign">middle</property>
+        </style>
+        <style name="detailFontRightNum#0_0000" id="1288">
+            <property name="fontFamily">"宋体"</property>
+            <property name="fontSize">12pt</property>
+            <property name="paddingRight">3pt</property>
+            <structure name="numberFormat">
+                <property name="category">Custom</property>
+                <property name="pattern">#0.0000</property>
+            </structure>
+            <property name="textAlign">right</property>
+            <property name="verticalAlign">middle</property>
+        </style>
+        <style name="detailFontCenteryyyy-MM-dd hh:mm" id="1311">
+            <property name="fontFamily">"宋体"</property>
+            <property name="fontSize">12pt</property>
+            <structure name="dateTimeFormat">
+                <property name="category">Custom</property>
+                <property name="pattern">yyyy-MM-dd HH:mm</property>
+            </structure>
+            <property name="textAlign">center</property>
+            <property name="verticalAlign">middle</property>
+        </style>
+        <style name="detailFontCenteryyyy-MM-dd" id="1312">
+            <property name="fontFamily">"宋体"</property>
+            <property name="fontSize">12pt</property>
+            <structure name="dateTimeFormat">
+                <property name="category">Custom</property>
+                <property name="pattern">yyyy-MM-dd</property>
+            </structure>
+            <property name="textAlign">center</property>
+            <property name="verticalAlign">middle</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="topMargin">0.25in</property>
+            <property name="leftMargin">0.25in</property>
+            <property name="bottomMargin">0.25in</property>
+            <property name="rightMargin">0.25in</property>
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <table id="1289">
+            <property name="width">100%</property>
+            <property name="dataSet">mainDataSet</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">yuza</property>
+                    <property name="displayName">yuza</property>
+                    <expression name="expression">dataSetRow["yuza"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">systemdate</property>
+                    <property name="displayName">systemdate</property>
+                    <expression name="expression">dataSetRow["systemdate"]</expression>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="name">num_decimal</property>
+                    <property name="displayName">num_decimal</property>
+                    <expression name="expression">dataSetRow["num_decimal"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <column id="1326"/>
+            <column id="1308"/>
+            <column id="1316"/>
+            <column id="1309"/>
+            <column id="1310"/>
+            <header>
+                <row id="1290">
+                    <cell id="1323">
+                        <property name="style">headTable</property>
+                        <label id="1327">
+                            <property name="style">headFont</property>
+                            <text-property name="text">yuza</text-property>
+                        </label>
+                    </cell>
+                    <cell id="1291">
+                        <property name="style">headTable</property>
+                        <label id="1292">
+                            <property name="style">headFont</property>
+                            <text-property name="text">yuza</text-property>
+                        </label>
+                    </cell>
+                    <cell id="1313">
+                        <property name="style">headTable</property>
+                        <label id="1317">
+                            <property name="style">headFont</property>
+                            <text-property name="text">systemdate</text-property>
+                        </label>
+                    </cell>
+                    <cell id="1293">
+                        <property name="style">headTable</property>
+                        <label id="1294">
+                            <property name="style">headFont</property>
+                            <text-property name="text">systemdate</text-property>
+                        </label>
+                    </cell>
+                    <cell id="1295">
+                        <property name="style">headTable</property>
+                        <label id="1296">
+                            <property name="style">headFont</property>
+                            <text-property name="text">num_decimal</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="1297">
+                    <cell id="1324">
+                        <property name="style">headTable</property>
+                        <data id="1328">
+                            <property name="style">detailFontLeft</property>
+                            <property name="resultSetColumn">yuza</property>
+                        </data>
+                    </cell>
+                    <cell id="1298">
+                        <property name="style">headTable</property>
+                        <data id="1299">
+                            <property name="style">detailFontCenter</property>
+                            <property name="resultSetColumn">yuza</property>
+                        </data>
+                    </cell>
+                    <cell id="1314">
+                        <property name="style">headTable</property>
+                        <data id="1318">
+                            <property name="style">detailFontCenteryyyy-MM-dd</property>
+                            <property name="resultSetColumn">systemdate</property>
+                        </data>
+                    </cell>
+                    <cell id="1300">
+                        <property name="style">headTable</property>
+                        <data id="1301">
+                            <property name="style">detailFontCenteryyyy-MM-dd hh:mm</property>
+                            <property name="resultSetColumn">systemdate</property>
+                        </data>
+                    </cell>
+                    <cell id="1302">
+                        <property name="style">headTable</property>
+                        <data id="1303">
+                            <property name="style">detailFontRightNum#0_0000</property>
+                            <property name="fontSize">12pt</property>
+                            <property name="resultSetColumn">num_decimal</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="1304">
+                    <cell id="1325">
+                        <property name="style">headTable</property>
+                    </cell>
+                    <cell id="1305">
+                        <property name="style">headTable</property>
+                    </cell>
+                    <cell id="1315">
+                        <property name="style">headTable</property>
+                    </cell>
+                    <cell id="1306">
+                        <property name="style">headTable</property>
+                    </cell>
+                    <cell id="1307">
+                        <property name="style">headTable</property>
+                    </cell>
+                </row>
+            </footer>
+        </table>
+    </body>
+</report>

@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.17" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 2.3.2.r232_v20090521 Build &lt;2.3.2.v20090601-0700></property>
+    <property name="units">in</property>
+    <method name="initialize"><![CDATA[importPackage(Packages.com.ibm.tivoli.maximo.report.script);
+
+mxReportScriptContext = MXReportScriptContext.initialize(reportContext);
+
+mxReportScriptContext.setDefaultLogLevel("DEBUG");
+mxReportScriptContext.setDefaultLogFile("w:/多个结果集.log");
+
+var thisstartdate=new Date();]]></method>
+    <method name="afterFactory"><![CDATA[MXReportScriptContext.close();]]></method>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <data-sources>
+        <script-data-source name="maximoDataSource" id="751"/>
+    </data-sources>
+    <data-sets>
+        <script-data-set name="mainDataSet" id="752">
+            <list-property name="resultSetHints">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">yuza</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">systemdate</property>
+                    <property name="dataType">date-time</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">yuza</property>
+                </structure>
+                <structure>
+                    <property name="columnName">systemdate</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">yuza</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">systemdate</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">maximoDataSource</property>
+            <method name="open"><![CDATA[maximoDataSet = MXReportDataSetProvider.create(this.getDataSource().getName(), this.getName());
+maximoDataSet.open();
+
+var sqlText = new String();
+var konofinancialperiod =new String();
+// Add query to sqlText variable.
+sqlText = "\n"
+  +"select sysdate from dual"
+;
+
+
+maximoDataSet.setQuery(sqlText);
+
+
+
+maximoDataSet1 = MXReportDataSetProvider.create(this.getDataSource().getName(), this.getName());
+maximoDataSet1.open();
+
+var sqlText02 =new String();
+
+sqlText02 = "\n"
++"select user from dual "
+;
+
+sqlText02 ="\n"
++"SELECT ROWNUM yuza FROM dual CONNECT BY LEVEL <= 10";
+
+maximoDataSet1.setQuery(sqlText02);]]></method>
+            <method name="fetch"><![CDATA[//标识,如果maximoDataSet1有数据,而maximoDataSet无数据导致无法创建行
+//如果在全局中创建变量可以限制行数,或者固定显示行数
+
+var rogo=false;
+if (maximoDataSet.fetch()){
+	row["systemdate"] = maximoDataSet.getString("sysdate");
+	rogo=true;
+}else{
+	row["systemdate"] = new Date(2012,11,12,12,12,12);
+	//row["systemdate"] = null;
+}
+
+
+if (!maximoDataSet1.fetch()){
+		if(rogo){
+		return(true);
+	}else{
+		return (false);
+	}
+}else{
+
+// Add a line for each output column
+// The specific get method should match the data type of the output column.
+row["yuza"] = ""+maximoDataSet1.getString("yuza");
+
+
+return (true);
+}]]></method>
+        </script-data-set>
+    </data-sets>
+    <styles>
+        <style name="report" id="4">
+            <property name="fontFamily">"Verdana"</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="5">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="6">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="topMargin">0.25in</property>
+            <property name="leftMargin">0.25in</property>
+            <property name="bottomMargin">0.25in</property>
+            <property name="rightMargin">0.25in</property>
+            <page-footer>
+                <text id="3">
+                    <property name="textAlign">right</property>
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <table id="1281">
+            <property name="width">100%</property>
+            <property name="dataSet">mainDataSet</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">user</property>
+                    <property name="displayName">yuza</property>
+                    <expression name="expression">dataSetRow["yuza"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">systemdate</property>
+                    <property name="displayName">systemdate</property>
+                    <expression name="expression">dataSetRow["systemdate"]</expression>
+                    <property name="dataType">date-time</property>
+                </structure>
+            </list-property>
+            <column id="1295"/>
+            <column id="1296"/>
+            <header>
+                <row id="1282">
+                    <cell id="1283">
+                        <data id="1297">
+                            <property name="resultSetColumn">systemdate</property>
+                        </data>
+                    </cell>
+                    <cell id="1285">
+                        <text id="1299">
+                            <property name="contentType">html</property>
+                            <text-property name="content"><![CDATA[<DL border="1">
+<UL>
+<B>
+</FONT>
+dfv
+</B>
+</UL>
+<UL>
+dfv
+</UL>
+</DL> definition Term  ]]></text-property>
+                        </text>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="1287">
+                    <cell id="1288">
+                        <data id="1289">
+                            <property name="resultSetColumn">user</property>
+                        </data>
+                    </cell>
+                    <cell id="1290">
+                        <data id="1291">
+                            <property name="resultSetColumn">systemdate</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="1292">
+                    <cell id="1293"/>
+                    <cell id="1294"/>
+                </row>
+            </footer>
+        </table>
+    </body>
+</report>
