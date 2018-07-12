@@ -12,7 +12,7 @@
 
 就能知道先获得"主机004"的IP和端口,再根据"数据库004"创建连接,对004表进行查询,查询效率完全没有大数据量带来的影响
 
-![image](https://raw.githubusercontent.com/shoukaiseki/blogdoc/master/%E5%85%A8%E7%90%83%E6%80%A7%E4%BA%BF%E5%85%86%E7%BA%A7%E5%88%AB%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9E%B6%E6%9E%84/img/001.png)
+![image](https://raw.githubusercontent.com/shoukaiseki/blogdoc/master/%E4%BA%92%E8%81%94%E7%BD%91/%E5%85%A8%E7%90%83%E6%80%A7%E4%BA%BF%E5%85%86%E7%BA%A7%E5%88%AB%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9E%B6%E6%9E%84/img/001.png)
 
 
 
