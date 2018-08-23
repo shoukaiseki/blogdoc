@@ -1,10 +1,15 @@
 # \redis快速启动停止服务
 
+## 安装expect
+```Bash
+sudo apt-get install expect
+```
+
 shell配合expect实现自动输入密码启动redis服务
 
 /bin/redis-start
 
-```Shell
+```Bash
 #!/usr/bin/expect
 spawn echo "redis start now"
 set timeout 100
@@ -18,7 +23,7 @@ spawn echo "redis start success"
 
 /bin/redis-stop
 
-```Shell
+```Bash
 #!/usr/bin/expect
 
 spawn echo "redis stop now"
