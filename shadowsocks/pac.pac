@@ -4,8 +4,10 @@
 var proxy = "PROXY 127.0.0.1:8118;";
 
 var rules = [
-  ".google.com",
-  ".lsxszzg.com",
+  "||app.getpostman.com",
+  "||firefox.org",
+  "||google.com",
+  "||lsxszzg.com",
   "|http://85.17.73.31/",
   "||alien-ufos.com",
   "||altrec.com",
