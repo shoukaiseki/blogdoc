@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=firefox
+Exec=firefox
+Icon= /media/linuxdata/data/opt/firefox/browser/chrome/icons/default/default32.png
+Terminal=false
+Type=Application
+Categories=GTK;GNOME;X-GNOME-NetworkSettings;Network;
+

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=DataGrip
+Exec=datagrip
+Icon= /media/linuxdata/data/opt/DataGrip-2018.2.2/bin/datagrip.png
+Terminal=false
+Type=Application
+Categories=Development;
