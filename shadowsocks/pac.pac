@@ -4,6 +4,8 @@
 var proxy = "PROXY 127.0.0.1:8118;";
 
 var rules = [
+  "||doubleclick.net",
+  "||google-analytics.com",
   "||google.cn",
   "||mozilla.net",
   "||app.getpostman.com",

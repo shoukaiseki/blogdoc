@@ -91,7 +91,7 @@ source ~/.bashrc
 
 ### 后台运行并输出到日志文件
 ```Bash
-sudo sslocal -c /etc/shadowsocks/client.conf --log-file /tmp/log/sslocal.log -v -d start
+sudo sslocal -c /etc/shadowsocks/client.conf --log-file /tmp/shadowsocks_sslocal.log -v -d start
 ```
 
 
@@ -109,12 +109,12 @@ sudo vim /etc/supervisor/supervisor.conf
 ```Conf
 [program:shadowsocks]
 /*command=sslocal -c /etc/shadowsocks/client.conf*/
-command=sslocal -c /etc/shadowsocks/client.conf --log-file /tmp/log/sslocal.log -v -d start
+command=sslocal -c /etc/shadowsocks/client.conf --log-file /tmp/shadowsocks_sslocal.log -v -d start
 autostart=true
 autorestart=true
 user=root
 log_stderr=true
-logfile=/tmp/log/shadowsocks.log
+logfile=/tmp/shadowsocks_shadowsocks.log
 ```
 
 使用以下命令进行启动或停止
