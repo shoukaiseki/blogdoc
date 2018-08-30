@@ -4,6 +4,8 @@
 var proxy = "PROXY 127.0.0.1:8118;";
 
 var rules = [
+  "||doubleclick.net",
+  "||securepubads.g.doubleclick.net",
   "*.doubleclick.net",
   ".doubleclick.net",
   "doubleclick.net",
