@@ -4,11 +4,6 @@
 var proxy = "PROXY 127.0.0.1:8118;";
 
 var rules = [
-  "||doubleclick.net",
-  "||securepubads.g.doubleclick.net",
-  "*.doubleclick.net",
-  ".doubleclick.net",
-  "doubleclick.net",
   "||google-analytics.com",
   "||google.cn",
   "||mozilla.net",
@@ -39,7 +34,6 @@ var rules = [
   "||juliepost.com",
   "|http://www.m-sport.co.uk",
   "||macgamestore.com",
-  ".doubleclick.net",
   "||metarthunter.com",
   "||mfxmedia.com",
   ".cloudshare.com",
