@@ -1263,7 +1263,7 @@ var rules = [
   "||gmodules.com",
   "||goo.gl",
   "/^https?:\\/\\/[^\\/]+google\\.(.*)/",
-  "||google-analytics.com",
+  //"||google-analytics.com",
   "||googleapis.com",
   "||googleartproject.com",
   "||googlecode.com",
