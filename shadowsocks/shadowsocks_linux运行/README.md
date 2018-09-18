@@ -88,3 +88,39 @@ export ftp_proxy=http://127.0.0.1:8118/
 ```Bash
 source ~/.bashrc 
 ```
+
+### 后台运行并输出到日志文件
+```Bash
+sudo sslocal -c /etc/shadowsocks/client.conf --log-file /tmp/shadowsocks_sslocal.log -v -d start
+```
+
+
+### 使用 supervisor 管理自启动
+安装supervisor并增加配置
+
+```Bash
+sudo apt-get install supervisor
+
+sudo vim /etc/supervisor/supervisor.conf
+```
+
+在配置文件最后添加以下内容
+
+```Conf
+[program:shadowsocks]
+/*command=sslocal -c /etc/shadowsocks/client.conf*/
+command=sslocal -c /etc/shadowsocks/client.conf --log-file /tmp/shadowsocks_sslocal.log -v -d start
+autostart=true
+autorestart=true
+user=root
+log_stderr=true
+logfile=/tmp/shadowsocks_shadowsocks.log
+```
+
+使用以下命令进行启动或停止
+
+```Bash
+sudo service supervisor restart
+sudo service supervisor start
+sudo service supervisor stop
+```
