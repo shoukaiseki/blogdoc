@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<service>
+    <id>apiview_service</id>
+    <name>apiview_service</name>
+    <description>服务说明</description>
+	<!--env 为设置环境变量,%BASE%为当前目录-->
+    <env name="APIVIEW_HOME" value="%BASE%"/>
+    <logpath>%APIVIEW_HOME%\logs</logpath>
+    <executable>D:\usr\java\jdk1.8.0_131\bin\java.exe</executable>
+    <arguments> -Xms128m -Xmx512m  -jar %APIVIEW_HOME%\apiview.jar</arguments>
+  
+    <log mode="roll-by-size">
+        <sizeThreshold>10240</sizeThreshold>
+        <keepFiles>8</keepFiles>
+    </log>
+</service>
