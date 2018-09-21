@@ -75,6 +75,7 @@ sudo sh -c 'cat  /dev/null > logs/spring.log '
 ## 服务配置说明
 
 
+```properties
 [Unit] 
 Description : 服务的简单描述 
 Documentation ： 服务文档 
@@ -101,4 +102,5 @@ WantedBy：服务安装的用户模式，从字面上看，就是想要使用这
 $sudo systemctl enable nginx.service
 
 就会在/etc/systemd/system/multi-user.target.wants/目录下新建一个/usr/lib/systemd/system/nginx.service 文件的链接。
+```
 
