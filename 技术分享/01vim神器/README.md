@@ -1,5 +1,5 @@
 # vim神器
-https://raw.githubusercontent.com/shoukaiseki/blogdoc/master/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/01vim%E7%A5%9E%E5%99%A8/img/vim.gif
+![image](https://raw.githubusercontent.com/shoukaiseki/blogdoc/master/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/01vim%E7%A5%9E%E5%99%A8/img/vim.gif)
 
 ## zencoding插件emmet
 
