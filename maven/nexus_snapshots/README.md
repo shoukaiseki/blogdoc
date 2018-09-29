@@ -90,7 +90,9 @@ mvn clean package -U
 
 ## Maven系列二setting.xml 配置详解
 
-来自https://www.cnblogs.com/yangxia-test/p/4409736.html
+官方文档 http://maven.apache.org/settings.html
+
+中文说明来自 https://www.cnblogs.com/yangxia-test/p/4409736.html
 
 文件存放位置
 
