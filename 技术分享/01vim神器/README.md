@@ -1,6 +1,26 @@
 # vim神器
 ![image](https://raw.githubusercontent.com/shoukaiseki/blogdoc/master/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/01vim%E7%A5%9E%E5%99%A8/img/vim.gif)
 
+## 摘要
+演讲时候的系统:linux mint19 (基于ubuntu和deppin的桌面操作系统)
+
+终端:guake
+
+vim: win版本安装vim在本git下面files目录下,解压到d:/usr目录后,执行 D:\usr\Vim\vim_win7.reg 即可,右键点击文件会有提示列表"I VIM打开",选择这个选项的快捷键为"I"
+
+常用命令笔记: http://sksweb.shoukaiseki.top/html/web/vim.html
+
+### chrome 精品插件
+#### undo close tab
+查看之前关闭浏览的网页
+
+
+#### SwitchyOmega
+代理
+
+#### Fullscreen Anything
+最大化视频图片整个网页
+
 ## zencoding插件emmet
 
 <c-y> 代表 Ctrl + y 
