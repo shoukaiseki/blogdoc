@@ -19,4 +19,15 @@ public class HelloController {
         return "hello";
     }
 
+    public void test(){
+        String a1="";
+        System.out.println(a1);
+
+        String a2="";
+        System.out.println(a2);
+
+    }
+
+
+
 }
