@@ -282,6 +282,26 @@ https://repo.spring.io/snapshot
 #### Storage
 Blob store: e
 
+### sonatype-releases
+Name: sonatype-releases
+
+#### Maven2
+
+Verslon Pollcy: Release
+
+Remote storage:
+https://oss.sonatype.org/content/repositories/releases/
+
+
+### sonatype-snapshots
+Name: sonatype-snapshots
+
+#### Maven2
+
+Verslon Pollcy: snapshot
+
+Remote storage:
+https://oss.sonatype.org/content/repositories/snapshots/
 
 ### mypublice
 ```
