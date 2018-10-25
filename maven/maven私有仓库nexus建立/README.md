@@ -217,42 +217,6 @@ https://jitpack.io
 Blob store: e
 
 
-### mypublice
-```
-Name:mypublice
-Format: maven2
-Type: hosted
-Onllne: yes
-```
-
-#### Maven2
-
-Verslon Pollcy: Release
-
-
-#### Storage
-Blob store: e
-#### Hosted
-Deployment pollcy: Allow redeploy
-
-
-### mypublice-snapshot
-```
-Name:mypublice-snapshot
-Format: maven2
-Type: hosted
-Onllne: yes
-```
-
-#### Maven2
-
-Verslon Pollcy: Snapshot
-
-#### Storage
-Blob store: e
-
-#### Hosted
-Deployment pollcy: Allow redeploy
 
 
 ### spring-milestones
@@ -319,6 +283,42 @@ https://repo.spring.io/snapshot
 Blob store: e
 
 
+### mypublice
+```
+Name:mypublice
+Format: maven2
+Type: hosted
+Onllne: yes
+```
+
+#### Maven2
+
+Verslon Pollcy: Release
+
+
+#### Storage
+Blob store: e
+#### Hosted
+Deployment pollcy: Allow redeploy
+
+
+### mypublice-snapshot
+```
+Name:mypublice-snapshot
+Format: maven2
+Type: hosted
+Onllne: yes
+```
+
+#### Maven2
+
+Verslon Pollcy: Snapshot
+
+#### Storage
+Blob store: e
+
+#### Hosted
+Deployment pollcy: Allow redeploy
 
 ## 总仓库地址设置
 
