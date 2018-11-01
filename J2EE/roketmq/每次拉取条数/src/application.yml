@@ -1,0 +1,33 @@
+server:
+  port: 17003
+
+hkedou:
+  mq:
+    im:
+      group:
+        user:
+          create:
+            topic: imCreateUser
+            consumerGroup: ImCreateUserConsumerGroup
+            pullInterval: 3000
+            pullBatchSize: 500
+            consumeMessageBatchMaxSize: 500
+
+spring:
+  rocketmq:
+    nameServer: 192.168.0.198:9876
+  application:
+    name: rocketmq-consume-im-app-main
+  profiles:
+    active: druid #activitydb
+
+logging:
+  level:
+    root: warn
+    com.hkedou.orighere.mq.im: debug
+    com:
+      hkedou:
+        test: debug
+  pattern:
+    #    logger[35] 类名包名长度为35
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} %-4relative [%thread] %-5level [%logger{80}]: %msg %n"
