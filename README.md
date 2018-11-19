@@ -16,6 +16,38 @@
 
 # 博客转移为markdown语法
 
+```plantuml
+@startuml
+"生成本次操作缓存key\n缓存value变量" -down-> "查询缓存key是否有对应值"
+if "查询缓存key成功" then
+	-->[true] if "查询缓存key是否有成功" then
+	  -down->[true] "证明lpop成功但是业务未处理"
+	  --> "处理业务"
+	  if "删除缓存key成功" then
+	     -->[true] (*)
+	  else
+	     -->[false] "保存到本地缓存删除key队列"
+	  endif
+	  --> (*)
+	else
+	  -down->[false] "使用获取第一个元素\nwatch key\nlindex key 0"
+	  --> "缓存value变量=lindex获取的值"
+	  --> "multi\nlpop key\nset 缓存key 缓存value\nexec"
+	  if "事务执行返回成功" then
+	     -->[true] "处理业务"
+	  else
+	     -->[false] "查询缓存key是否有对应值"
+	  endif
+	endif
+else
+  -->[false] "查询出错"
+  --> "缓存value变量不为空"
+  "缓存value变量不为空" -->[true] "保存到本地缓存业务处理队列"
+	  --> (*)
+  "缓存value变量不为空" -->[false] (*)
+endif
+@enduml
+```
 
 
 ```Java
