@@ -10,7 +10,7 @@ http://repo.jenkins-ci.org/releases/com/sun/winsw/winsw/
 
 都可以下载
 
-改名之后创建 apiview-service.xml
+改名为 apiview-service.exe 之后创建 apiview-service.xml
 
 ```Xml
 <?xml version="1.0" encoding="UTF-8" ?>
