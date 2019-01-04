@@ -5,7 +5,7 @@
 
 ```
 -- 创建用户
-CREATE USER 'root'@'%' IDENTIFIED BY '@H666777kd';
+CREATE USER 'root'@'%' IDENTIFIED BY '@123qwe';
 -- 授权
 GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';
 
