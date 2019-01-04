@@ -8,4 +8,9 @@
 CREATE USER 'root'@'%' IDENTIFIED BY '@H666777kd';
 -- 授权
 GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';
+
+
+-- 删除用户
+drop user root@'%';
 ```
+
