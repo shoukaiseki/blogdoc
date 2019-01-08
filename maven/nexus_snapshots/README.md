@@ -80,6 +80,7 @@ mvn clean package -U
 		</repositories>
 	</profile>
 </profiles>
+<!-- 必须添加,不然profiles不生效 -->
 <activeProfiles>
 	<activeProfile>nexus</activeProfile>
 </activeProfiles>
