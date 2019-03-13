@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=WebStorm
+Exec=webstorm
+Icon=/media/linuxdata/data/opt-icon/webstorm.png
+Terminal=false
+Type=Application
+Categories=Development;
