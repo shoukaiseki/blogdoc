@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=gnome-calculator
+Exec=calc
+Icon=gnome-calculator
+Terminal=false
+Type=Application
+Categories=Development;
