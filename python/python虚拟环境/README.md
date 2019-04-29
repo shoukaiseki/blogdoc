@@ -1,5 +1,11 @@
 # pipenv
 
+## 安装pip
+```
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python get-pip.py
+```
+
 ## 安装虚拟环境管理器
 ```
 sudo pip3 install pipenv
