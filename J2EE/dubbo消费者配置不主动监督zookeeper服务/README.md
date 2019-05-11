@@ -6,15 +6,44 @@
 ## 方法一:springboot yml配置方式
 ```yaml
 dubbo:
+  consumer:
+    retries: '0'
+    check: 'true'
+```
+
+
+### consumer完整dubbo配置
+```yaml
+dubbo:
+  consumer:
+    retries: '0'
+    check: 'true'
   registry:
     address: zookeeper://zookeeper.shoukaiseki.top:2181?client=curator
     id: test-app
   application:
     qos-enable: 'false'
     name: test-app
+```
+
+### provider完整dubbo配置
+```yaml
+dubbo:
+  registry:
+    address: zookeeper://zookeeper.shoukaiseki.top:2181?client=curator
+    id: test-provider
+  protocol:
+    port: '-1'
+  application:
+    qosEnable: 'false'
+    name: test-provider
+  provider:
+    filter: exceptionfilter
+    retries: '0'
+  scan:
+    basePackages: org.shoukaiseki
   consumer:
     retries: '0'
-    check: 'true'
 ```
 
 ## 方法二:springboot 类配置方式
