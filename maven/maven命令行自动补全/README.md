@@ -1,5 +1,9 @@
 # maven 命令行自动补全
 
+#### 官方方案 
+https://github.com/juven/maven-bash-completion
+
+## 现用的方案
 ## /etc/bash_completion.d/maven
 
 ### centos
