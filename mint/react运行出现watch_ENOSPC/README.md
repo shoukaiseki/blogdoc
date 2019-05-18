@@ -35,7 +35,9 @@ Error: watch ENOSPC
 
 当前问题主要是因为 gulp 的 watch 需要监听很多文件的改动，但是 fedora、 ubuntu系统的文件句柄其实是有限制的，因此可以使用以下命令：
 
-执行一下shell即可
+执行以下shell即可
 ```shell
 echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 ```
+
+对于以上 Linux 下 gulp 报错 Error：watch ENOSPC 的解决方法就介绍完了
