@@ -83,3 +83,10 @@ echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo s
 ```
 
 或者idea启动的 arguments 增加PORT=8008 
+
+
+
+
+## 
+cnpm install
+
