@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<service>
+    <id>nginx_service</id>
+    <name>nginx_service</name>
+    <description>服务说明</description>
+	<!--env 为设置环境变量,%BASE%为当前目录-->
+    <env name="NGINX_HOME" value="%BASE%"/>
+    <logpath>%NGINX_HOME%\logs</logpath>
+    <log mode="roll-by-size">
+        <sizeThreshold>10240</sizeThreshold>
+        <keepFiles>8</keepFiles>
+    </log>
+    <executable>D:\usr\nginx\nginx.exe</executable>
+	<executable>%NGINX_HOME%\nginx.exe</executable>
+	<startarguments>-p %NGINX_HOME%</startarguments>
+	<stopexecutable>%NGINX_HOME%\nginx.exe</stopexecutable>
+	<stoparguments>-p %NGINX_HOME% -s stop</stoparguments>
+</service>
