@@ -49,5 +49,5 @@ http://repo.jenkins-ci.org/releases/com/sun/winsw/winsw/
 
 之后用管理员运行以下命令创建服务,无需停止服务脚本命令
 ```bat
-apiview-service.exe install
+nginx-service.exe install
 ```
