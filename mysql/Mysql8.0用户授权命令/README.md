@@ -14,3 +14,13 @@ GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';
 drop user root@'%';
 ```
 
+```sql
+create database ruoyi character set utf8;
+
+create user 'ruoyi'@'%' identified by '123abc';
+
+grant all privileges on ruoyi.* to 'ruoyi'@'%';
+
+
+flush privileges;
+```
