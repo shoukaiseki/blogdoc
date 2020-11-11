@@ -10,19 +10,19 @@ Ranger 使用自己的文件打开程序，名为rifle，它的配置文件为 ~
 
 
 html用select-editor(vim)打开,放在其他 x?html? 前面
-```Bash
+```
 ext x?html?, has vim,             terminal = ${VISUAL:-$EDITOR} -- "$@"
 ```
 
 例如，如下的代码指定 kile 为打开 tex 文件的默认程序。
 
-```Bash
+```
 ext tex = kile "$@"
 ```
 
 使用 xdg-utils 来打开所有文件，设置 $EDITOR 和 $PAGER:
 
-```Bash
+```
 else = xdg-open "$1"
 label editor = "$EDITOR" -- "$@"
 label pager  = "$PAGER" -- "$@"
