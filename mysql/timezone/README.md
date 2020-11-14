@@ -94,3 +94,177 @@ default-time-zone='+08:00'
 ```
 -Duser.timezone=Asia/Shanghai
 ```
+
+
+## springboot
+thymeleaf 中的 th:value="${#dates.format(testTime, 'yyyy-MM-dd HH:mm:ss')}"  是按照系统时区进行格式化的
+
+而jackson是按照配置的 spring.jackson.time-zone: GMT+8 进行格式化的
+
+### TestController 代码
+```Java
+package com.ruoyi.project.wzcxs.test;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
+
+/**
+ *
+ **/
+@Controller("TestControllerTest001")
+@RequestMapping("/wzcxs/test")
+public class TestController {
+
+    private String prefix = "wzcxs/test";
+
+    @GetMapping("/test001")
+    public String test001(ModelMap mmap)
+    {
+//        Dates dates=new Dates();
+        Date testTime = new Date();
+        mmap.put("testTime", testTime);
+//        String format = dates.format(testTime, "yyyy-MM-dd HH:mm:ss");
+//        mmap.put("testTimeFormat", format);
+
+        Calendar cal = Calendar.getInstance();
+        int offset = cal.get(Calendar.ZONE_OFFSET);
+        cal.add(Calendar.MILLISECOND, -offset);
+        Long timeStampUTC = cal.getTimeInMillis();
+        Long timeStamp = System.currentTimeMillis();
+        Long timeZoneLong = (timeStamp - timeStampUTC) / (1000 * 3600);
+        System.out.println(timeZoneLong.intValue());
+
+        TimeZone defaultTimeZone = TimeZone.getDefault();
+
+        StringBuffer sb= new StringBuffer("timeZone="+timeZoneLong.intValue() +",defaultTimeZone="+defaultTimeZone.getID());
+
+
+        TimeZone timeZone = TimeZone.getDefault();
+        String pattern="yyyy-MM-dd HH:mm:ss";
+
+        Calendar c = Calendar.getInstance(timeZone);
+        c.setTime(testTime);
+
+        Locale locale=Locale.getDefault();
+        SimpleDateFormat sdf = new SimpleDateFormat(pattern, locale);
+        sdf.setTimeZone(timeZone);
+        sb.append("\n");
+        sb.append("timeZone.id=").append(timeZone.getID());
+        sb.append(",timeZone.time=").append(sdf.format(c.getTime()));
+        System.out.println(timeZone.getID());
+        System.out.println(sdf.format(c.getTime()));
+
+
+        timeZone=TimeZone.getTimeZone("+01:00");
+        sdf.setTimeZone(timeZone);
+        sb.append("\n");
+        sb.append("timeZone.id=").append(timeZone.getID());
+        sb.append(",timeZone.time=").append(sdf.format(c.getTime()));
+        System.out.println(timeZone.getID());
+        System.out.println(sdf.format(c.getTime()));
+
+
+        timeZone=TimeZone.getTimeZone("Asia/Tokyo");
+        sdf.setTimeZone(timeZone);
+        sb.append("\n");
+        sb.append("timeZone.id=").append(timeZone.getID());
+        sb.append(",timeZone.time=").append(sdf.format(c.getTime()));
+        System.out.println(timeZone.getID());
+        System.out.println(sdf.format(c.getTime()));
+
+        mmap.put("str", sb.toString());
+        return prefix + "/test001";
+    }
+
+}
+```
+
+test001.html代码
+```html
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <th:block th:include="include :: header('测试')" />
+    <th:block th:include="include :: datetimepicker-css" />
+</head>
+<body class="white-bg">
+    <div class="wrapper wrapper-content animated fadeInRight ibox-content">
+        <form class="form-horizontal m" id="form-test" >
+            <div class="form-group">
+                <label class="col-sm-3 control-label">时间：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input id="contractTime" name="contractTime" th:value="${#dates.format(testTime, 'yyyy-MM-dd HH:mm:ss')}" class="form-control"  type="text" placeholder="yyyy-MM-dd HH:mm:ss">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">CET：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input id="contractTime02" name="contractTime" th:value="${#dates.format(#calendars.createForTimeZone(#calendars.year(testTime), #calendars.month(testTime), #calendars.day(testTime), #calendars.hour(testTime), #calendars.minute(testTime),'CET'), 'yyyy-MM-dd HH:mm:ss')}" class="form-control"  type="text" placeholder="yyyy-MM-dd HH:mm:ss">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">PST：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input id="contractTime03" name="contractTime" th:value="${#dates.format(#calendars.createForTimeZone(#calendars.year(testTime), #calendars.month(testTime), #calendars.day(testTime), #calendars.hour(testTime), #calendars.minute(testTime),'PST'), 'yyyy-MM-dd HH:mm:ss')}" class="form-control"  type="text" placeholder="yyyy-MM-dd HH:mm:ss">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">GMT：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input id="contractTime04" name="contractTime" th:value="${#dates.format(#calendars.createForTimeZone(#calendars.year(testTime), #calendars.month(testTime), #calendars.day(testTime), #calendars.hour(testTime), #calendars.minute(testTime),'GMT'), 'yyyy-MM-dd HH:mm:ss')}" class="form-control"  type="text" placeholder="yyyy-MM-dd HH:mm:ss">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">GMT+8：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input id="contractTime05" name="contractTime" th:value="${#dates.format(#calendars.createForTimeZone(#calendars.year(testTime), #calendars.month(testTime), #calendars.day(testTime), #calendars.hour(testTime), #calendars.minute(testTime),'GMT+8'), 'yyyy-MM-dd HH:mm:ss')}" class="form-control"  type="text" placeholder="yyyy-MM-dd HH:mm:ss">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">str：</label>
+                <div class="col-sm-8">
+                    <textarea rows="10" name="str" th:text="${str}" class="form-control" type="text" />
+                </div>
+            </div>
+        </form>
+    </div>
+    <th:block th:include="include :: footer" />
+    <th:block th:include="include :: datetimepicker-js" />
+    <script th:inline="javascript">
+        layui.use('laydate', function(){
+            var laydate = layui.laydate;
+            laydate.render({
+                elem: '#contractTime',
+                type: 'datetime',
+                trigger: 'click'
+            });
+        });
+    </script>
+</body>
+</html>
+```
+
+
