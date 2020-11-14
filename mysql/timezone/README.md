@@ -79,7 +79,7 @@ character-set-server=utf8
  
 default-storage-engine=INNODB
 
-default-time-zone='+00:00'
+default-time-zone='+08:00'
 ```
 
 ## mybatis在插入时间时会使用对比springboot运行的服务器时间与数据库时间，进行时间差转换
@@ -87,3 +87,10 @@ default-time-zone='+00:00'
 
 
 
+
+
+
+
+```
+-Duser.timezone=Asia/Shanghai
+```
