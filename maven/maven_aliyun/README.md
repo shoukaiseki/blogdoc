@@ -1,0 +1,74 @@
+# maven 阿里云
+
+```xml
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                      http://maven.apache.org/xsd/settings-1.0.0.xsd">
+  <localRepository/>
+  <interactiveMode/>
+  <usePluginRegistry/>
+  <offline/>
+  <pluginGroups/>
+  <servers/>
+  <mirrors>
+    <mirror>
+     <id>aliyunmaven</id>
+     <mirrorOf>central</mirrorOf>
+     <name>阿里云公共仓库</name>
+     <url>https://maven.aliyun.com/repository/central</url>
+    </mirror>
+	<mirror>
+		<id>aliyunmaven</id>
+		<mirrorOf>*</mirrorOf>
+		<name>阿里云公共仓库</name>
+		<url>https://maven.aliyun.com/repository/public</url>
+	</mirror>
+    <mirror>
+      <id>repo1</id>
+      <mirrorOf>central</mirrorOf>
+      <name>central repo</name>
+      <url>https://repo1.maven.org/maven2/</url>
+    </mirror>
+  </mirrors>
+  <proxies/>
+  <activeProfiles/>
+  <profiles>
+    <profile>  
+        <repositories>
+           <repository>
+                <id>aliyunmaven</id>
+                <name>aliyunmaven</name>
+                <url>https://maven.aliyun.com/repository/public</url>
+                <layout>default</layout>
+                <releases>
+                        <enabled>true</enabled>
+                </releases>
+                <snapshots>
+                        <enabled>false</enabled>
+                </snapshots>
+            </repository>
+            <repository>
+                <id>MavenCentral</id>
+                <url>https://repo1.maven.org/maven2/</url>
+            </repository>
+            <repository>
+                <id>aliyunmavenApache</id>
+                <url>https://maven.aliyun.com/repository/apache-snapshots</url>
+            </repository>
+			<repository>
+				<id>spring</id>
+				<url>https://maven.aliyun.com/repository/spring</url>
+				<releases>
+					<enabled>true</enabled>
+				</releases>
+				<snapshots>
+					<enabled>false</enabled>
+				</snapshots>
+			</repository>
+        </repositories>             
+     </profile>
+  </profiles>
+</settings>
+
+```
