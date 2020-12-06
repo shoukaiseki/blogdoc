@@ -1,6 +1,91 @@
 # nginx根据二级域名代理到不同服务
 
+## 方式一
+```
 
+
+#user  nobody;
+worker_processes  1;
+
+#error_log  logs/error.log;
+#error_log  logs/error.log  notice;
+#error_log  logs/error.log  info;
+
+#pid        logs/nginx.pid;
+
+
+events {
+    worker_connections  1024;
+}
+
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                      '$status $body_bytes_sent "$http_referer" '
+                      '"$http_user_agent" "$http_x_forwarded_for"';
+
+    #access_log  logs/access.log  main;
+
+    sendfile        on;
+    #tcp_nopush     on;
+
+    #keepalive_timeout  0;
+    keepalive_timeout  65;
+
+    #gzip  on;
+
+    server {
+        listen       80;
+		#参考地址 http://blog.csdn.net/Metropolis_cn/article/details/73613022?locationNum=7&fps=1
+		server_name  www.shoukaiseki.cn;
+        
+        #access_log  logs/host.access.log  main;
+        location / {
+			root   html;
+			index  index.html index.htm;
+			#default_type    application/json;
+			#return 502 '{"status":502,"msg":"服务正在升级，请稍后再试…… http_host=$http_host domain=$domain is_matched=$is_matched"}';
+        }
+
+        #error_page  404              /404.html;
+
+        # redirect server error pages to the static page /50x.html
+        #
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
+    }
+	
+	server {  
+		listen 80;
+		server_name  api.shoukaiseki.cn;
+
+		location / {
+			proxy_set_header   X-Real-IP $remote_addr;
+			proxy_set_header   Host      $http_host;
+			proxy_pass http://localhost:8182; 
+		}
+	}
+	
+	server {  
+		listen 80;
+		server_name  sksweb.shoukaiseki.cn;
+
+		location / {
+			proxy_set_header   X-Real-IP $remote_addr;
+			proxy_set_header   Host      $http_host;
+			proxy_pass http://localhost:81; 
+		}
+	}
+
+}
+```
+## 方式二 
+性能估计没有方式一好
 ```
 #user  nobody;
 worker_processes  1;
