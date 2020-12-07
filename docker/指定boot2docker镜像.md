@@ -4,6 +4,10 @@
 ```
 docker-machine.exe create --driver virtualbox --virtualbox-boot2docker-url=boot2docker.iso default
 ```
+#### 指定仓库地址并指定镜像
+```
+docker-machine.exe create --engine-registry-mirror=http://hub-mirror.c.163.com --driver virtualbox --virtualbox-boot2docker-url=boot2docker.iso default
+```
 
 ### 删除虚拟机
 ```
