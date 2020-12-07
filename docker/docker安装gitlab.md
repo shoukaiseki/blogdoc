@@ -43,15 +43,15 @@ sudo mkdir /e
 sudo mkdir /e/gitlab
 mount -t vboxsf e/gitlab /e/gitlab
 ```
+接下来再创建gitlab容器
 
-#### 以下方式没法指定存储路径
+#### windows server 2008以下方式没法指定存储路径
 ```
 docker volume create gitlab-logs
 docker volume create gitlab-config
 docker volume create gitlab-data
 ```
 
-接下来再创建gitlab容器
 
 ### 根据image创建容器
 ```shell
