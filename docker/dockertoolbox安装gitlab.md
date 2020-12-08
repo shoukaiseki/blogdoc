@@ -154,3 +154,4 @@ docker-machine start default
 http://192.168.99.100:8080
 
 
+目录权限问题，启动不了
