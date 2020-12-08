@@ -151,7 +151,14 @@ docker-machine start default
 
 使用 docker-machine.exe env 查看的IP访问 gitlab
 
-http://192.168.99.100:8080
+http://192.168.99.100:9080
 
 
 目录权限问题，启动不了
+
+不加目录映射创建的能够运行
+```
+docker run --privileged=true -d -p 9443:443 -p 9080:80 -p 9880:8080 -p 9022:22 --name=gitlab  05a6354fcece
+```
+
+需要用 https://github.com/calavera/docker-volume-glusterfs 中的插件开个磁盘卷服务才能将数据存储到本地磁盘
