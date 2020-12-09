@@ -163,3 +163,43 @@ docker run --privileged=true -d -p 9443:443 -p 9080:80 -p 9880:8080 -p 9022:22 -
 ```
 
 需要用 https://github.com/calavera/docker-volume-glusterfs 中的插件开个磁盘卷服务才能将数据存储到本地磁盘
+
+
+
+## 更改gitlab获取clone地址时的url
+### 方式一
+sudo vim /opt/gitlab/embedded/service/gitlab-rails/config/gitlab.yml
+
+```
+production: &base
+  #
+  # 1. GitLab app settings
+  # ==========================
+
+  ## GitLab settings
+  gitlab:
+    ## Web server settings (note: host is the FQDN, do not include http://)
+    host: gitlab.shoukaiseki.cn
+    port: 10008
+    https: false
+```
+修改完之后重启
+```
+gitlab-ctl restart
+```
+
+### 方式二(未测试)
+ vim /etc/gitlab/gitlab.rb
+ ```
+ 修改external_url
+ ```
+ gitlab-ctl reconfigure
+
+reconfigure完之后修改ngnix配置
+
+vim /var/opt/gitlab/nginx/conf/gitlab-http.conf
+
+```
+  listen *:80;
+  server_name localhost;
+```
