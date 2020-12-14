@@ -4,3 +4,7 @@
 Alt+Shift+K
 ## json格式化tab缩进
 File -> Setting -> Editor -> Code Style -> YAML 右边的  Indent 设置为4
+
+
+### java代码转成kotlin
+Ctrl+Alt+Shift+K 
