@@ -3,6 +3,7 @@
 
 ## 数据转换
 
+
 ### Long数组转换为String数组
 ```java
 List<Long> list=new ArrayList();
@@ -20,6 +21,7 @@ logger.debug(JSON.toJSONString(objects));
 ```
 
 ### 对象转map(JSONObject)
+collect 执行后才会 执行表达式中的[JSONObject o = (JSONObject) JSONObject.toJSON(obj);]转换方法
 ```java
 static class TestModel{
 	private String a;
