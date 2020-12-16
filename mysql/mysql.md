@@ -38,3 +38,34 @@ create table test_virtual
  engine = innodb default charset = utf8mb4 auto_increment = 1000   comment '测试虚拟字段';
 alter table test_virtual add item_cost double(20,2) generated always as (if(amount=0,0,line_cost/amount)) comment '单位成本' after test_virtual_id;
 ```
+
+
+### 触发器
+##### [HY000][1419] You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable)
+如果报该错误,需用root用户执行
+```sql
+set global log_bin_trust_function_creators = 1;
+```
+
+#### 更新时 rowstamp 自增
+
+```sql
+DROP TRIGGER IF EXISTS inventory_balance_rowstamp;
+create trigger inventory_balance_rowstamp before update on inventory_balance FOR EACH ROW
+begin
+    set @rowstamp= old.rowstamp;
+    set NEW.rowstamp=@rowstamp+1;
+end;
+```
+mybatis 中更新时也写上自增,双重保护
+
+```xml
+	update inventory_balance
+	set rowstamp=rowstamp+1
+		,amount=#{amount}
+		,line_cost = #{lineCost}
+	<where>
+		rowstamp=rowstamp
+		and inventory_balance_id = #{inventoryBalanceId}
+	</where>
+```
