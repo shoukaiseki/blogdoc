@@ -67,3 +67,23 @@ private static void test007() {
 }
 
 ```
+
+### 获取map中的第一个value值
+
+```java
+        Map<String,TestModel> map=new HashMap<>();
+        TestModel testModel=new TestModel();
+        testModel.setA("a1");
+        testModel.setB("b1");
+        map.put("1",testModel);
+        testModel=new TestModel();
+        testModel.setA("a2");
+        testModel.setB("b2");
+        map.put("2",testModel);
+
+        System.out.println("map="+JSONObject.toJSONString(map));
+
+//        map=new HashMap<>();
+        TestModel obj = map.values().stream().findFirst().orElse(null);
+        System.out.println(JSONObject.toJSONString(obj));
+```
