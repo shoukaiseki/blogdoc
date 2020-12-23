@@ -8,6 +8,8 @@ python3 -m http.server
 
 ```
 python3 -m http.server 9000 –directory /home
+
+python3 -m http.server 9000 --bind 192.168.0.200
 ```
 
 
