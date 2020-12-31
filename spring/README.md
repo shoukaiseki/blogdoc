@@ -38,3 +38,13 @@ public class ProcessActionServiceImpl implements IProcessActionService {
 	
 }
 ```
+
+
+### RequestBody,RequestParam 混合使用
+```java
+    public ProcessActionInfo actionProcess(@RequestBody ActionInfo actionInfo, OwnerInfo tmp)
+    {
+		return null;
+	}
+
+```
