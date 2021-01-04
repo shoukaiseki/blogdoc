@@ -1,7 +1,18 @@
 # lambda表达式
 
 
+###
+
+##### 数组对象中某列的值转换为数组
+
+```java
+Long[] userIds = userList.stream().map((obj) -> obj.getUserId()).toArray(Long[]::new);
+
+```
+
+
 ## 数据转换
+
 
 
 ### Long数组转换为String数组
