@@ -45,6 +45,7 @@ alter table test_virtual add item_cost double(20,2) generated always as (if(amou
 如果报该错误,需用root用户执行
 ```sql
 set global log_bin_trust_function_creators = 1;
+
 ```
 
 #### 更新时 rowstamp 自增
