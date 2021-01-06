@@ -17,6 +17,8 @@
 
 ![image](https://gitee.com/shoukaiseki/blogdoc/raw/master/aliyun/OSS%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E6%9C%8D%E5%8A%A1/img/003.png)
 
+创建之后会，页面右侧有个选项的弹窗提示，不用管，在旁边灰色区域随便点击一下，即可开始准备 创建信息的填写
+![image](https://gitee.com/shoukaiseki/blogdoc/raw/master/aliyun/OSS%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E6%9C%8D%E5%8A%A1/img/003a.jpg)
 
 "Bucket 名称" 随意取,地域根据自己所在城市挑选最近的,其它按照图片中的选项选择
 
@@ -30,7 +32,7 @@
 
 ## 访问密钥创建
 wb-testoss
-### 点击右上角头像,选择访问控制
+### 鼠标移至右上角头像,点击访问控制
 ![image](https://gitee.com/shoukaiseki/blogdoc/raw/master/aliyun/OSS%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E6%9C%8D%E5%8A%A1/img/006.png)
 
 #### 点击"权限策略管理"->"创建权限策略"
@@ -62,11 +64,14 @@ wb-testoss
 点击确认之后返回
 
 #### RAM角色管理->创建RAM角色
+![image](https://gitee.com/shoukaiseki/blogdoc/raw/master/aliyun/OSS%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E6%9C%8D%E5%8A%A1/img/009a.jpg)
 
  选择阿里云帐号,点击下一步
 ![image](https://gitee.com/shoukaiseki/blogdoc/raw/master/aliyun/OSS%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E6%9C%8D%E5%8A%A1/img/009.png)
 
-角色名称随意填写, "选择云帐号"选择当前云帐号
+角色名称随意填写, 
+![image](https://gitee.com/shoukaiseki/blogdoc/raw/master/aliyun/OSS%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E6%9C%8D%E5%8A%A1/img/011a.jpg)
+"选择云帐号"选择当前云帐号
 ![image](https://gitee.com/shoukaiseki/blogdoc/raw/master/aliyun/OSS%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E6%9C%8D%E5%8A%A1/img/010.png)
 
 之后点击"为角色授权","授权范围"选择"云帐号全部资源",
@@ -76,8 +81,10 @@ wb-testoss
 ![image](https://gitee.com/shoukaiseki/blogdoc/raw/master/aliyun/OSS%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E6%9C%8D%E5%8A%A1/img/011.png)
 之后点击确定->完成
 
-再在 RAM角色管理 列表中点击你创建的角色,点击 ARN 右边的复制,将内容发给 开发人员
+再在 RAM角色管理 列表中点击你创建的角色
+![image](https://gitee.com/shoukaiseki/blogdoc/raw/master/aliyun/OSS%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E6%9C%8D%E5%8A%A1/img/013a.jpg)
 
+点击 ARN 右边的复制,将内容发给 开发人员
 ![image](https://gitee.com/shoukaiseki/blogdoc/raw/master/aliyun/OSS%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E6%9C%8D%E5%8A%A1/img/013.png)
 
 #### 点击左边菜单栏"用户",然后 创建用户
@@ -93,7 +100,9 @@ wb-testoss
 AccessKey ID LTAI4G6sEQTsZAXggdCUDHKA
 AccessKey Secret 03uAygpYWdrLFPaOIxWw5SaF9R3bWc
 ```
-再点击左边菜单栏"用户",点击用户列表中刚才建立的用户,点击"权限管理"标签页
+再点击左边菜单栏"用户",点击用户列表中刚才建立的用户,
+![image](https://gitee.com/shoukaiseki/blogdoc/raw/master/aliyun/OSS%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E6%9C%8D%E5%8A%A1/img/017a.jpg)
+点击"权限管理"标签页
 ![image](https://gitee.com/shoukaiseki/blogdoc/raw/master/aliyun/OSS%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E6%9C%8D%E5%8A%A1/img/017.png)
 
 添加权限 
@@ -123,7 +132,14 @@ AccessKey Secret 03uAygpYWdrLFPaOIxWw5SaF9R3bWc
 ```
 http://*
 ```
+允许Methods
+
+```
+GET/POST/PUT/DELETE/HEAD 都选上
+```
+
 允许 Headers
+
 ```
 *
 ```
