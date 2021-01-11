@@ -48,3 +48,109 @@ public class ProcessActionServiceImpl implements IProcessActionService {
 	}
 
 ```
+
+
+## 事务
+@Transactional
+
+```
+/**
+ * 自动编号Service业务层处理
+ * 
+ * @author wb
+ * @date 2021-01-09
+ */
+@Service
+public class AutoNumberServiceImpl implements IAutoNumberService 
+{
+    @Autowired
+    private AutoNumberMapper autoNumberMapper;
+
+    @Transactional
+    @Override
+    public Integer nextNumber(String site, String ownerName, Integer year, Integer month, Integer day,Integer startNewNumber){
+        Integer integer = baseNextNumber(site, ownerName, year, month, day, startNewNumber);
+        return integer;
+    }
+
+    @Transactional
+    @Override
+    public Integer nextNumber(String site, String ownerName, Integer year, Integer month, Integer day){
+        Integer integer = baseNextNumber(site, ownerName, year, month, day, null);
+        return integer;
+    }
+
+
+
+    @Transactional
+    public Integer baseNextNumber(String site, String ownerName, Integer year, Integer month, Integer day,Integer startNewNumber){
+        Integer startNewNumberTmp=startNewNumber!=null?startNewNumber:1;
+        AutoNumber autoNumber ;
+
+        int i = autoNumberMapper.updateAutoNumberCurrentNumber(site, ownerName, year, month, day);
+        if(i==1){
+            autoNumber = autoNumberMapper.selectAutoNumberByOwner(site, ownerName, year, month, day);
+//            return autoNumber.getCurrentNumber();
+            throw new MessageVirtualException("");
+        }
+        autoNumber=new AutoNumber();
+        autoNumber.setSite(site);
+        autoNumber.setOwnerName(ownerName);
+        autoNumber.setYear(year);
+        autoNumber.setMonth(month);
+        autoNumber.setDay(day);
+        autoNumber.setCurrentNumber(startNewNumberTmp);
+        BaseEntity.setCreate(autoNumber,TokenUserUtils.getUserName(),DateUtils.getNowDate());
+        i = autoNumberMapper.insertAutoNumber(autoNumber);
+        if(i==1){
+            return startNewNumberTmp;
+        }
+        throw new MessageVirtualException("保存失败,请重试");
+    }
+
+    @Override
+    public String formatNextNumberYearMonthDay( String site, String ownerName, int numberOfDigits) {
+        return formatNextNumber(DateUtils.getNowDate(),site,ownerName,true,true,true,numberOfDigits);
+    }
+
+    public String formatNextNumber(Date date, String site, String ownerName, boolean showYear, boolean showMonth, boolean showDay, int numberOfDigits){
+        Calendar cal= Calendar.getInstance();
+        cal.setTime(date);
+        Integer year=null;
+        StringBuilder sb=new StringBuilder();
+        if(showYear){
+            year= cal.get(Calendar.YEAR);
+            sb.append(String.format("%d",year));
+        }
+        Integer month=null;
+        if(showMonth){
+            month = cal.get(Calendar.MONTH)+1;
+            //不足2位则补零
+            sb.append(String.format("%02d",month));
+        }
+        Integer day=null;
+        if(showDay){
+            day = cal.get(Calendar.DAY_OF_MONTH);
+            //不足2位则补零
+            sb.append(String.format("%02d",day));
+        }
+
+//        @Resource
+//        IAutoNumberService autoNumberService;
+        //如果使用方法1
+        //autoNumberService.formatNextNumberYearMonthDay,调用没有事务功能
+        //autoNumberService.formatNextNumber,调用有事务功能
+        //证明事务只支持2层调用,3层调用会失效
+        //采用方法2使用代理执行,调用时会有事务功能
+//        方法1
+//        Integer num = nextNumber(site,ownerName, year, month, day);
+//        方法2
+        Integer num = ((AutoNumberServiceImpl)AopContext.currentProxy()).nextNumber(site,ownerName, year, month, day);
+        sb.append(String.format("%0"+numberOfDigits+"d",num));
+        return sb.toString();
+    }
+
+}
+```
+
+
