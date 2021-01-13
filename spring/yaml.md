@@ -1,5 +1,6 @@
 # spring中yaml配置
 
+## 配置文件中使用list
 ```yaml
 wb:
     spring:
@@ -76,4 +77,41 @@ public class SecurityMatcherAuthorization {
         this.urls = urls;
     }
 }
+```
+
+## 其它地方文档
+### springboot-yml内list、map组合写法
+```
+yml:
+myProps:
+  varmaplist:
+      key11:
+        - t1
+        - t2
+        - t3
+      key22:
+        - t11
+        - t22
+        - t33
+  list:
+    - topic1
+    - topic2
+    - topic3
+  maps: {key1: 'value1', key2: 'value2'}
+MyProps:
+@Component
+@Data
+@Configuration
+@PropertySource(value = {"classpath:/bootstrap.yml"}, encoding = "utf-8")
+@ConfigurationProperties(prefix = "myProps")
+public class MyProps {
+
+    private List<String> list;
+
+
+    private Map<String,String> maps;
+
+    private Map<String,List<String>> varmaplist;
+}
+ 
 ```
