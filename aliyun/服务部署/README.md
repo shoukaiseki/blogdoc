@@ -1,4 +1,8 @@
-# 服务布置
+# 服务部署
+
+## 创建用户
+groupadd springbootgroup
+useradd springboot -G springbootgroup
 
 ## RDS云数据库
 #### 参数设置
@@ -137,6 +141,7 @@ mkdir /data/server
 mkdir /data/server/springboot
 mkdir /data/server/springboot/temp
 cd /data/server/springboot
+chown -R springboot.springbootgroup springboot
 ```
 
 #### 新增启动脚本
@@ -156,8 +161,14 @@ SPRING_OPTS=" -Dlogging.path=$APP_HOME/templogs/  --spring.config.location=$APP_
 LOG_PATH=$APP_HOME/logs/$AppName.log
 
 echo java $JVM_OPTS -jar $APP_HOME/$AppName $SPRING_OPTS 
-java $JVM_OPTS -jar $APP_HOME/$AppName $SPRING_OPTS > $APP_HOME/spring.log
+su springboot java $JVM_OPTS -jar $APP_HOME/$AppName $SPRING_OPTS > $APP_HOME/spring.log
 ```
+
+vim /data/server/springboot/servicerun.sh
+```shell
+su springboot /data/server/springboot/runspringboot.sh
+```
+
 #### 新建配置文件
 ```bash
 vim /data/server/springboot/application.yml
@@ -401,7 +412,7 @@ WorkingDirectory=/data/server/springboot/temp/
 PrivateTmp=true
 Restart=always
 Type=simple
-ExecStart=/usr/bin/bash /data/server/springboot/runspringboot.sh
+ExecStart=/usr/bin/bash /data/server/springboot/servicerun.sh
 ExecStop=/usr/bin/kill -15  $MAINPID
 
 
