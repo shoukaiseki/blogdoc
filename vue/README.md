@@ -5,3 +5,12 @@
 this.actionNodeNameOptions.unshift({dictValue:"",dictLabel:"无选择"})
 ```
 
+正则判断数字
+```javascript
+var reg = /^-?\d+(\.?[0-9]+)?$/;
+var value='1.2';
+reg.test(value)
+```
+
+
+
