@@ -14,6 +14,8 @@
 ## 参数验证
 @Validated：可以用在类型、方法和方法参数上。但是不能用在成员属性（字段）上
 @Valid：可以用在方法、构造函数、方法参数和成员属性（字段）上
+
+
 ### service中参数验证
 在service的class注解上添加@Validated，然后在接口入参上添加@Valid 注解。
 
@@ -39,6 +41,48 @@ public class ProcessActionServiceImpl implements IProcessActionService {
 }
 ```
 
+### 验证
+
+##### @NotBlank
+CharSequence子类型 
+验证注解的元素值不为空(不为null、去除首位空格后长度为0)，不同于@NotEmpty，@NotBlank只应用于字符串且在比较时会去除字符串的首位空格
+##### @Length(min=下限, max=上限)
+CharSequence子类型 
+验证注解的元素值长度在min和max区间内
+
+##### @NotEmpty
+CharSequence子类型、Collection、Map、数组 
+验证注解的元素值不为null且不为空(字符串长度不为0、集合大小不为0)
+
+##### @Range(min=最小值, max=最大值)
+
+BigDecimal,BigInteger,CharSequence, byte, short, int, long等原子类型和包装类型
+
+验证注解的元素值在最小值和最大值之间
+
+##### @Email(regexp=正则表达式,
+
+flag=标志的模式)
+
+CharSequence子类型(如String)
+
+验证注解的元素值是Email，也可以通过regexp和flag指定自定义的email格式
+
+##### @Pattern(regexp=正则表达式,
+
+flag=标志的模式)
+
+String，任何CharSequence的子类型
+
+验证注解的元素值与指定的正则表达式匹配
+
+##### @Valid
+
+任何非原子类型
+
+指定递归验证关联的对象；
+
+如用户对象中有个地址对象属性，如果想在验证用户对象时一起验证地址对象的话，在地址对象上加@Valid注解即可级联验证
 
 ### RequestBody,RequestParam 混合使用
 ```java
