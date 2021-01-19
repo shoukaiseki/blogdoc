@@ -1,6 +1,22 @@
 # vue-ruoyi
 
-字典第一列增加空字符选项
+## 输入框按钮同一排
+```vue
+	<el-form-item label="钢卷号" prop="var01">
+	  <el-input v-model="form.itemId" placeholder="请输入钢卷号" >
+
+		<el-button type="primary" slot="suffix"  @click="showLookupInventoryBalance('a')">选择</el-button>
+<!--       <i class="el-icon-search" slot="suffix" @click="showLookupInventoryBalance">-->
+<!--          点击选择-->
+<!--            </i>-->
+	  </el-input>
+	</el-form-item>
+
+```
+
+
+
+## 字典第一列增加空字符选项
 ```
 this.actionNodeNameOptions.unshift({dictValue:"",dictLabel:"无选择"})
 ```
