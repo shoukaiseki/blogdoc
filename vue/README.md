@@ -70,3 +70,37 @@ this.form = this.$options.data().form
 ```
 this.$refs.form.clearValidate() // 重置校验表单
 ```
+
+
+
+
+### 复选框
+如果出现点击复选框无显示更新,是因为 v-model 是二级字段，修改 v-model 为一级字段可解决，即 v-model="form.processShowFlagArray" 修改为 v-model="processShowFlagArray"
+
+```html
+              <el-checkbox-group v-model="processShowFlagArray"  size="medium">
+<!--                <el-checkbox-button-->
+<!--                  v-for="(dict, index) in processShowFlagOptions"-->
+<!--                  :key="dict.dictValue"-->
+<!--                  :label="dict.dictValue"-->
+<!--                   border>-->
+<!--                  {{dict.dictLabel}}-->
+<!--                </el-checkbox-button>-->
+                <el-checkbox
+                  @change="handleChangeProcessShowFlag"
+                  v-for="dict in processShowFlagOptions"
+                  :key="dict.dictValue"
+                  :label="dict.dictValue">
+                  {{dict.dictLabel}}
+                </el-checkbox>
+              </el-checkbox-group>
+
+//data中
+processShowFlagArray:[],
+
+handleAdd() {
+	this.processShowFlagArray=["1","2","4","8"];
+}
+
+```
+
