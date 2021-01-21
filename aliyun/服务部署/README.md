@@ -1,8 +1,10 @@
 # 服务部署
 
 ## 创建用户
+```
 groupadd springbootgroup
 useradd springboot -G springbootgroup
+```
 
 ## RDS云数据库
 #### 参数设置
