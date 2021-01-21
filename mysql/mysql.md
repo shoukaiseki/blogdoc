@@ -1,6 +1,14 @@
 # mysql
 
 
+### 修改表锁时间
+
+```
+SHOW GLOBAL VARIABLES LIKE 'lock_wait_timeout';
+SHOW GLOBAL VARIABLES LIKE 'innodb_lock_wait_timeout';
+set global lock_wait_timeout= 300;
+
+```
 
 
 
