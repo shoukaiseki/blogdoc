@@ -1,0 +1,14 @@
+[Unit]
+Description=springboot
+
+[Service]
+WorkingDirectory=/data/server/springboot/temp/
+PrivateTmp=true
+Restart=always
+Type=simple
+ExecStart=/bin/bash /data/server/springboot/servicerun.sh 
+ExecStop=/usr/bin/kill -15  $MAINPID
+
+
+[Install]
+WantedBy=multi-user.target
