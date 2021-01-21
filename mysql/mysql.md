@@ -1,7 +1,7 @@
 # mysql
 
 
-### 修改表锁时间
+### 修改表锁等待时间
 
 ```
 SHOW GLOBAL VARIABLES LIKE 'lock_wait_timeout';
@@ -9,6 +9,18 @@ SHOW GLOBAL VARIABLES LIKE 'innodb_lock_wait_timeout';
 set global lock_wait_timeout= 300;
 
 ```
+
+##### 释放/终止表锁线程
+```
+select * from information_schema.innodb_trx;
+```
+根据 trx_mysql_thread_id 进行kill 终止该线程
+
+```
+kill 507;
+```
+
+
 
 
 
