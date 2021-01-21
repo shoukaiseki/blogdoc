@@ -145,6 +145,8 @@ mkdir /data/server/springboot
 mkdir /data/server/springboot/temp
 cd /data/server
 chown -R springboot.springbootgroup springboot
+mkdir /home/springboot
+chown -R springboot.springbootgroup /home/springboot
 ```
 
 #### 新增启动脚本
@@ -405,6 +407,10 @@ spring:
 ```
 sudo vim /lib/systemd/system/springboot.service
 ```
+```
+sudo vim /usr/lib/systemd/system/springboot.service
+```
+
 内容如下
 ```
 [Unit]
