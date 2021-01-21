@@ -82,6 +82,7 @@ systemctl stop nginx
 
 ### 前端代码
 ```
+mkdir /data/server
 mkdir /data/server/web
 ```
 打包成 dist.tar.gz 上传到 /data/server/web
@@ -142,7 +143,7 @@ yum install java-11-openjdk.x86_64
 mkdir /data/server
 mkdir /data/server/springboot
 mkdir /data/server/springboot/temp
-cd /data/server/springboot
+cd /data/server
 chown -R springboot.springbootgroup springboot
 ```
 
