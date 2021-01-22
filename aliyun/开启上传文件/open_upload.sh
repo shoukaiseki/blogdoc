@@ -1,9 +1,9 @@
 #!/bin/bash - 
 #===============================================================================
 #
-#          FILE: open_upload_http.sh
+#          FILE: open_upload.sh
 # 
-#         USAGE: ./open_upload_http.sh 
+#         USAGE: ./open_upload.sh 
 # 
 #   DESCRIPTION: 
 # 
@@ -13,10 +13,10 @@
 #         NOTES: ---
 #        AUTHOR: YOUR NAME (), 
 #  ORGANIZATION: 
-#       CREATED: 2021年01月22日 18时11分59秒
+#       CREATED: 2021年01月23日 02时40分57秒
 #      REVISION:  ---
 #===============================================================================
 
 set -o nounset                              # Treat unset variables as an error
-python /data/server/droopy8123 -m '来上传文件啊'
+su springboot /bin/open_upload_http.sh
 
