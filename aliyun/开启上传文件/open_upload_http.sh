@@ -18,5 +18,5 @@
 #===============================================================================
 
 set -o nounset                              # Treat unset variables as an error
-python /data/server/droopy -m '来上传文件啊'
+python /data/server/droopy8123 -m '来上传文件啊'
 
