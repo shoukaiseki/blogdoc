@@ -120,3 +120,10 @@ handleAdd() {
 
 ```
 
+
+## 自定义组建
+变更v-model绑定的值
+```javascript
+this.$emit("input", this.currentValue);
+```
+
