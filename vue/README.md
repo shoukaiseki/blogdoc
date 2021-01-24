@@ -28,6 +28,25 @@ var value='1.2';
 reg.test(value)
 ```
 
+提取数字并加一
+```javascript
+        try{
+			this.productionOrder.startChildrenNum="A123B";
+          let startChildrenNum=this.productionOrder.startChildrenNum.replace(/[^0-9]/ig,"")
+          //连续的数字才处理
+          if (this.productionOrder.startChildrenNum.indexOf(startChildrenNum) > -1) {
+            // console.log("startChildrenNum=",startChildrenNum)
+            var a=(parseInt(startChildrenNum)+1);
+            // console.log("a=",a)
+			let newNum=this.productionOrder.startChildrenNum.replace(startChildrenNum,a+"");
+			this.form.proLineNumber=newNum;
+          }
+        }catch (e){
+          console.log(e)
+        }
+
+```
+
 
 ## 重置表单
 --- 我们需要为每个form-item加上prop属性，要不然无法清空（大部分的问题就是出在这）
