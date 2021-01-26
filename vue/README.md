@@ -1,5 +1,10 @@
 # vue-ruoyi
 
+## 对象比较\
+```vue
+valueEquals(a,b)
+```
+
 ## 输入框按钮同一排
 ```vue
 	<el-form-item label="钢卷号" prop="var01">
