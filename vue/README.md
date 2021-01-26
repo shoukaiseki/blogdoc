@@ -4,6 +4,26 @@
 ```vue
 valueEquals(a,b)
 ```
+### input输入框 回车触发绑定事件失效,变成刷新页面
+```
+<!-- 在 form中增加 @submit.native.prevent 即可 -->
+      <el-form  :model="queryParams" ref="queryForm" :inline="true" @submit.native.prevent>
+        <el-form-item label="表名称" prop="searchValue">
+          <el-input
+            v-model="queryParams.searchValue"
+            placeholder="请输入表名称"
+            clearable
+            size="small"
+            @keyup.enter.native="handleQuery"
+          />
+        </el-form-item>
+        <el-form-item>
+          <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>
+          <el-button icon="el-icon-refresh" size="mini" @click="resetQuery">重置</el-button>
+        </el-form-item>
+      </el-form>
+
+```
 
 ## 输入框按钮同一排
 ```vue
