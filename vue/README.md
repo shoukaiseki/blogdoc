@@ -1,5 +1,29 @@
 # vue-ruoyi
 
+# iview、element等@change方法，保留默认参数再获取到自定义参
+```vue
+<Select v-model="selectCoin" @on-change="getValue(...arguments,3,4)">
+    <Option v-for="item in coinList" :value="item.value" :key="item.value">{{ item.label }}</Option>
+</Select>
+
+getValue(value,num1,num2){
+//这里的形参具体多少取决于上面实参的多少，比如change的默认值有两个，那么这里的形参就应该写四个（两个是自定义参数）
+  console.log(arguments);  //  Arguments(2) ["BTC","ETH" ,3,4]
+},
+```
+或者
+```vue
+<Select v-model="selectCoin" @on-change="getValue(3,4,...arguments)">
+    <Option v-for="item in coinList" :value="item.value" :key="item.value">{{ item.label }}</Option>
+</Select>
+
+getValue(num1,num2,value){
+//这里的形参具体多少取决于上面实参的多少，比如change的默认值有两个，那么这里的形参就应该写四个（两个是自定义参数）
+  console.log(arguments);  //  Arguments(2) ["BTC","ETH" ,3,4]
+},
+```
+
+
 ## 对象比较\
 ```vue
 valueEquals(a,b)
