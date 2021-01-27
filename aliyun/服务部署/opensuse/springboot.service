@@ -7,7 +7,7 @@ PrivateTmp=true
 Restart=always
 Type=simple
 ExecStart=/bin/bash /data/server/springboot/servicerun.sh 
-ExecStop=/usr/bin/kill -15  $MAINPID
+ExecStop=/usr/bin/kill -9  $MAINPID
 
 
 [Install]
