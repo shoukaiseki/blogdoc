@@ -1,6 +1,6 @@
 # vue-ruoyi
 
-# iview、element等@change方法，保留默认参数再获取到自定义参
+## iview、element等@change方法，保留默认参数再获取到自定义参
 ```vue
 <Select v-model="selectCoin" @on-change="getValue(...arguments,3,4)">
     <Option v-for="item in coinList" :value="item.value" :key="item.value">{{ item.label }}</Option>
@@ -22,6 +22,9 @@ getValue(num1,num2,value){
   console.log(arguments);  //  Arguments(2) ["BTC","ETH" ,3,4]
 },
 ```
+
+#### 未验证
+<Input v-model="value14" placeholder="Enter something..." clearable style="width: 200px" @on-change="(event) => {changeNumber(event, params)}"/>
 
 
 ## 对象比较\
