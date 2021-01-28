@@ -25,6 +25,9 @@ mkdir /data
 mkdir /data/server
 mkdir /data/server/springboot
 mkdir /data/server/web
+mkdir /data/server/springboot/wb520
+mkdir /data/server/springboot/wb520/logs
+mkdir /data/server/springboot/wb520/templogs
 
 groupadd springbootgroup
 useradd springboot -G springbootgroup
@@ -49,3 +52,5 @@ systemctl daemon-reload
 systemctl enable redis.service
 systemctl start redis
 
+
+echo '如果systemctl方式起不了服务,则将 /data/server/springboot 777 授权'
