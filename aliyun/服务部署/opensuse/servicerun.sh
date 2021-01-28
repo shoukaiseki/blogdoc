@@ -18,4 +18,4 @@
 #===============================================================================
 
 set -o nounset                              # Treat unset variables as an error
-su springboot /data/server/springboot/runspringboot.sh
+su springboot /data/server/springboot/wb520/runspringboot.sh

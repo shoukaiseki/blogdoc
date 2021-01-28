@@ -411,6 +411,10 @@ sudo vim /lib/systemd/system/springboot.service
 ```
 sudo vim /usr/lib/systemd/system/springboot.service
 ```
+##### 查看服务起动日志
+```
+sudo journalctl -f -u springboot.service
+```
 
 内容如下
 ```
