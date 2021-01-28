@@ -1,0 +1,14 @@
+[Unit]
+Description=springboot
+
+[Service]
+WorkingDirectory=/data/server/springboot/wb520/temp/
+PrivateTmp=true
+Restart=always
+Type=simple
+ExecStart=/bin/bash /data/server/springboot/wb520/servicerun.sh 
+ExecStop=/bin/bash /data/server/springboot/wb520/stopspringboot.sh
+
+
+[Install]
+WantedBy=multi-user.target
