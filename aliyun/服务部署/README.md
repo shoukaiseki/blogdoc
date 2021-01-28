@@ -150,9 +150,10 @@ chown -R springboot.springbootgroup /home/springboot
 ```
 
 #### 新增启动脚本
-````bash
+```bash
 vim /data/server/springboot/runspringboot.sh
 ```
+
 内容如下
 ```shell
 #!/bin/bash
