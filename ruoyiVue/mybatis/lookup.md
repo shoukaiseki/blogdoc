@@ -1,7 +1,7 @@
 # lookup
 
 ```xml
-            <if test="searchValueList != null and includeItemIdList.length &gt; 0">
+            <if test="searchValueList != null and searchValueList.length &gt; 0">
                 <foreach item="temp" collection="searchValueList">
                     and (comment like concat('%',#{temp},'%')
                     or name like concat('%',#{temp},'%')
