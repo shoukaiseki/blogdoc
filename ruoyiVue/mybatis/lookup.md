@@ -10,4 +10,20 @@
                     )
                 </foreach>
             </if>
+			
+```
+
+## 位判断
+
+```xml
+
+
+            <if test="lookupBitFilter != null">
+                <if test="lookupBitFilter 	&amp; 1">
+                    and leader_user_id  is null
+                </if>
+                <if test="lookupBitFilter 	&amp; 2">
+                    and responsible_user_id  is null
+                </if>
+            </if>
 ```
