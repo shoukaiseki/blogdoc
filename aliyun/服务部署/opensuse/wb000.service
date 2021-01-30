@@ -2,12 +2,12 @@
 Description=springboot
 
 [Service]
-WorkingDirectory=/data/server/springboot/wb520/temp/
+WorkingDirectory=/data/server/springboot/wb000/temp/
 PrivateTmp=true
 Restart=always
 Type=simple
-ExecStart=/bin/bash /data/server/springboot/wb520/servicerun.sh 
-ExecStop=/bin/bash /data/server/springboot/wb520/stopspringboot.sh
+ExecStart=/bin/bash /data/server/springboot/wb000/servicerun.sh 
+ExecStop=/bin/bash /data/server/springboot/wb000/stopspringboot.sh
 
 
 [Install]
