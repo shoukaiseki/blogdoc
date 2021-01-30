@@ -72,6 +72,7 @@ wget https://gitee.com/shoukaiseki/blogdoc/raw/master/aliyun/%E6%9C%8D%E5%8A%A1%
 sed -i "s/wb000/${projectName}/g" stopspringboot.sh
 sed -i "s/wb000/${projectName}/g" servicerun.sh
 sed -i "s/wb000/${projectName}/g" runspringboot.sh
+sed -i "s/wb000/${projectName}/g" wb000.service
 cp stopspringboot.sh  /data/server/springboot/$projectName/
 cp servicerun.sh  /data/server/springboot/$projectName/
 cp runspringboot.sh  /data/server/springboot/$projectName/
