@@ -20,7 +20,8 @@
 set -o nounset                              # Treat unset variables as an error
 
 if [ ! -n "$1" ]; then
-  echo "$1 is empty"
+  echo "请输入服务名称"
+  echo "sh install-springboot.sh 服务名"
   exit 1
 fi
 
