@@ -24,6 +24,11 @@ if [ ! -n "$1" ]; then
   exit 1
 fi
 
+CRTDIR=$(pwd)
+
+
+echo projectName=$1
+projectName=$1
 
 
 zypper install ranger -y
@@ -32,10 +37,10 @@ mkdir /data
 mkdir /data/server
 mkdir /data/server/springboot
 mkdir /data/server/web
-mkdir /data/server/springboot/wb000
-mkdir /data/server/springboot/wb000/logs
-mkdir /data/server/springboot/wb000/templogs
-mkdir /data/server/springboot/wb000/temp
+mkdir /data/server/springboot/$projectName
+mkdir /data/server/springboot/$projectName/logs
+mkdir /data/server/springboot/$projectName/templogs
+mkdir /data/server/springboot/$projectName/temp
 
 
 
@@ -57,12 +62,25 @@ else
 	echo 'jdk已存在'
 fi
 
+cd $CRTDIR
 wget https://gitee.com/shoukaiseki/blogdoc/raw/master/aliyun/%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2/opensuse/wb000.service
 wget https://gitee.com/shoukaiseki/blogdoc/raw/master/aliyun/%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2/opensuse/stopspringboot.sh
 wget https://gitee.com/shoukaiseki/blogdoc/raw/master/aliyun/%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2/opensuse/servicerun.sh
 wget https://gitee.com/shoukaiseki/blogdoc/raw/master/aliyun/%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2/opensuse/runspringboot.sh
 
-sed -i 's/wb000/wb001/g' stopspringboot.sh
+sed -i "s/wb000/${projectName}/g" stopspringboot.sh
+sed -i "s/wb000/${projectName}/g" servicerun.sh
+sed -i "s/wb000/${projectName}/g" runspringboot.sh
+cp stopspringboot.sh  /data/server/springboot/$projectName/
+cp servicerun.sh  /data/server/springboot/$projectName/
+cp runspringboot.sh  /data/server/springboot/$projectName/
+cp wb000.service /usr/lib/systemd/system/${projectName}.service
+chmod 777 stopspringboot.sh
+chmod 777 servicerun.sh
+chmod 777 runspringboot.sh
+
+systemctl daemon-reload
+systemctl enable ${projectName}.service
 
 echo '如果systemctl方式起不了服务,则将 /data/server/springboot 777 授权'
 
