@@ -1,7 +1,7 @@
 #!/bin/bash
 
-APP_HOME=/data/server/springboot/wb520
-AppName=wb520-admin.jar
+APP_HOME=/data/server/springboot/wb000
+AppName=wb000-admin.jar
 CATALINA_TMPDIR=$APP_HOME/temp
 
 #JVM参数

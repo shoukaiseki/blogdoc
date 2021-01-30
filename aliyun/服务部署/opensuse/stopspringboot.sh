@@ -19,7 +19,7 @@
 
 set -o nounset                              # Treat unset variables as an error
 
-AppName=wb520-admin.jar
+AppName=wb000-admin.jar
 echo "Stop $AppName"
 
 PID=""
