@@ -72,6 +72,7 @@ sed -i "s/wb000/${projectName}/g" stopspringboot.sh
 sed -i "s/wb000/${projectName}/g" servicerun.sh
 sed -i "s/wb000/${projectName}/g" runspringboot.sh
 sed -i "s/wb000/${projectName}/g" wb000.service
+sed -i "s/wb000/${projectName}/g" nginx-wb000.conf
 cp stopspringboot.sh  /data/server/springboot/$projectName/
 cp servicerun.sh  /data/server/springboot/$projectName/
 cp runspringboot.sh  /data/server/springboot/$projectName/
@@ -79,6 +80,8 @@ cp wb000.service /usr/lib/systemd/system/${projectName}.service
 chmod 777 /data/server/springboot/$projectName/stopspringboot.sh
 chmod 777  /data/server/springboot/$projectName/servicerun.sh
 chmod 777  /data/server/springboot/$projectName/runspringboot.sh
+
+cp nginx-wb000.conf /etc/nginx/conf.d/$projectName.conf
 
 systemctl daemon-reload
 systemctl enable ${projectName}.service
