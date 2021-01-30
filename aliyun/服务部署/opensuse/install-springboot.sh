@@ -75,9 +75,9 @@ cp stopspringboot.sh  /data/server/springboot/$projectName/
 cp servicerun.sh  /data/server/springboot/$projectName/
 cp runspringboot.sh  /data/server/springboot/$projectName/
 cp wb000.service /usr/lib/systemd/system/${projectName}.service
-chmod 777 stopspringboot.sh
-chmod 777 servicerun.sh
-chmod 777 runspringboot.sh
+chmod 777 /data/server/springboot/$projectName/stopspringboot.sh
+chmod 777  /data/server/springboot/$projectName/servicerun.sh
+chmod 777  /data/server/springboot/$projectName/runspringboot.sh
 
 systemctl daemon-reload
 systemctl enable ${projectName}.service
