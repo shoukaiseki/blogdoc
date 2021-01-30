@@ -53,6 +53,8 @@ if [ ! -d "/data/usr/jdk-11.0.9" ]; then
 	cd /data/usr
 	wget http://asus88.vicp.net:9000/jdk/jdk-11.0.9_linux-x64_bin.tar.gz
 	tar zxvf jdk-11.0.9_linux-x64_bin.tar.gz
+else
+	echo 'jdk已存在'
 fi
 
 wget https://gitee.com/shoukaiseki/blogdoc/raw/master/aliyun/%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2/opensuse/wb000.service
