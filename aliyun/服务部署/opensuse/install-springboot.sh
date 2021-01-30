@@ -32,7 +32,6 @@ echo projectName=$1
 projectName=$1
 
 
-zypper install ranger -y
 
 mkdir /data
 mkdir /data/server
@@ -83,6 +82,7 @@ chmod 777  /data/server/springboot/$projectName/runspringboot.sh
 
 systemctl daemon-reload
 systemctl enable ${projectName}.service
+echo 就会在/etc/systemd/system/multi-user.target.wants/目录下新建一个/usr/lib/systemd/system/nginx.service 文件的链接。
 
 echo '如果systemctl方式起不了服务,则将 /data/server/springboot 777 授权'
 
