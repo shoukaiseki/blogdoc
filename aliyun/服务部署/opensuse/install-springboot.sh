@@ -33,10 +33,12 @@ projectName=$1
 
 
 
-mkdir /data
-mkdir /data/server
-mkdir /data/server/springboot
-mkdir /data/server/web
+if [ ! -d "/data/server/springboot" ]; then
+	mkdir /data
+	mkdir /data/server
+	mkdir /data/server/springboot
+	mkdir /data/server/web
+fi
 mkdir /data/server/springboot/$projectName
 mkdir /data/server/springboot/$projectName/logs
 mkdir /data/server/springboot/$projectName/templogs
