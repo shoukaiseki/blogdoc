@@ -215,3 +215,45 @@ handleAdd() {
 this.$emit("input", this.currentValue);
 ```
 
+## 字符串拼接
+
+
+### 文件绑定{{}}中的字符串拼接：直接在{{}}内拼接：
+
+```vue
+  <template v-if="userList">
+              <div v-for="(item,index) in userList" :key="index">
+                {{item.userName+'('+item.userAccount+')'}}
+              </div>
+ </template>
+```
+### vue标签属性绑定中的字符串拼接：写法有两种：:title="`字符串${xx}`"   或   :title="'字符串' + xx"  都可以。其中，{}里面可以写js方法。如：
+
+```vue
+ <el-option
+                  v-for="item in tableData"
+                 :key="item.account"
+                 :label= '`${item.name}${item.account}`'
+                 :value="item.account"
+                 :height = "schoolHeight">
+               </el-option>
+ <el-submenu v-show="item.childList.length > 0" :index="item.id"  :class='`menu${item.id}`'>
+ ```
+### js中的字符串拼接：
+
+` 是`旁边的符号.  是国际标准万国码的全形抑音符（全宽重音符号） 英文名为【FULLWIDTH GRAVE ACCENT】。位于万国码uFF40。
+```
+this.personList.forEach(item => {
+          item.label = `${item.userName}(${item.account})`;
+        });
+this.$bus.$emit(`${this.activeName}-reload`, this.searchData);
+switchStatus(row) {
+      this.$Modal.confirm({
+        title: '提示',
+        content: `是否确认切换状态为${row.isDelete === 1 ? '否' : '是'}？`,
+        onOk: () => {
+          row.isDelete = row.isDelete === 0 ? 1 : 0;
+        }
+      });
+    },
+```
