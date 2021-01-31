@@ -1,5 +1,22 @@
 # vue-ruoyi
 
+#### 只读加 readonly,这样显示文字不会暗色
+```vue
+       <el-form-item label="项目" prop="virtualProductionOrderIdLabel">
+        <el-input
+          v-model="queryParams.virtualProductionOrderIdLabel"
+          placeholder="请选择项目"
+          readonly
+          size="small"
+          @keyup.enter.native="handleQuery"
+        >
+          <el-button type="primary" slot="suffix"  @click="showLookupProductionOrder('queryParams.productionOrderId')">选择</el-button>
+
+        </el-input>
+      </el-form-item>
+
+```
+
 ## iview、element等@change方法，保留默认参数再获取到自定义参
 ```vue
 <Select v-model="selectCoin" @on-change="getValue(...arguments,3,4)">
