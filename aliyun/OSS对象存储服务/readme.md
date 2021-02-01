@@ -48,12 +48,13 @@ wb-testoss
 			"Effect": "Allow",
 			"Action": [
 				"oss:ListObjects",
-			"oss:PutObject",
-			"oss:GetObject"
+				"oss:PutObject",
+				"oss:GetObject",
+				"oss:AbortMultipartUpload"
 			],
 			"Resource": [
 				"acs:oss:*:*:wb-testoss", 
-			"acs:oss:*:*:wb-testoss/*"
+				"acs:oss:*:*:wb-testoss/*"
 			]
 		}
 		]
