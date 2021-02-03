@@ -27,3 +27,11 @@
                 </if>
             </if>
 ```
+
+
+## 级联
+
+```xml
+        <association property="virtualInventoryItem"     column="item_id" javaType="InventoryItem" select="com.ruoyi.project.inventory.mapper.InventoryItemMapper.selectInventoryItemById" />
+
+```
