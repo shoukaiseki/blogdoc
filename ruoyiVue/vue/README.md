@@ -278,6 +278,6 @@ switchStatus(row) {
             </el-table-column>
 
 
-                <el-input @input="(val)=>inputRestrictedDecimal({value:val,rowData:scope.row,attrName:'lineCost'})"  v-model="scope.row.lineCost" @change="handleChangeDepositBomListTable(scope.row)"
+                <el-input  @input="(val)=>inputRestrictedDecimal({value:val,rowData:scope.row,attrName:'lineCost',precision:2})"  v-model="scope.row.lineCost" @change="handleChangeDepositBomListTable(scope.row)"
                 ></el-input>
 ```
