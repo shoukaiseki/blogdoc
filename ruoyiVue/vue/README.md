@@ -1,5 +1,6 @@
 # vue-ruoyi
 
+
 #### 只读加 readonly,这样显示文字不会暗色
 ```vue
        <el-form-item label="项目" prop="virtualProductionOrderIdLabel">
@@ -101,7 +102,7 @@ reg.test(value)
 ```javascript
         try{
 			this.productionOrder.startChildrenNum="A123B";
-          let startChildrenNum=this.productionOrder.startChildrenNum.replace(/[^0-9]/ig,"")
+          let startchildrennum=this.productionorder.startchildrennum.replace(/[^0-9]/ig,"")
           //连续的数字才处理
           if (this.productionOrder.startChildrenNum.indexOf(startChildrenNum) > -1) {
             // console.log("startChildrenNum=",startChildrenNum)
@@ -256,4 +257,27 @@ switchStatus(row) {
         }
       });
     },
+```
+
+#### 限制输入数字
+```vue
+            <el-table-column label="数量" align="center" prop="amount" :width="140">
+              <template slot-scope="scope">
+                <el-input-number  :precision="2" :controls="false"  v-model="scope.row.amount"
+                                  @change="handleChangeDepositBomListTable(scope.row)"
+                                 size="small"
+                ></el-input-number>
+              </template>
+            </el-table-column>
+
+            <el-table-column label="行成本" align="center" prop="lineCost">
+              <template slot-scope="scope">
+                <el-input @input="(val)=>((scope.row.amount=val.match(/^\d*(\.?\d{0,2})/g)[0]) || null)"  v-model="scope.row.lineCost" @change="handleChangeDepositBomListTable(scope.row)"
+                ></el-input>
+              </template>
+            </el-table-column>
+
+
+                <el-input @input="(val)=>inputRestrictedDecimal({value:val,rowData:scope.row,attrName:'lineCost'})"  v-model="scope.row.lineCost" @change="handleChangeDepositBomListTable(scope.row)"
+                ></el-input>
 ```
