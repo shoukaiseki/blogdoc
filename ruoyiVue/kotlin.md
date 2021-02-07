@@ -74,3 +74,17 @@ open class LocationServiceImpl : ILocationService {
 
 }
 ```
+
+
+## 可变参数
+
+```kotlin
+    open fun format(vararg params:Any):MessageVirtualException{
+        if (this.message==null) {
+            return this
+        }
+		//可变参数向下传递时加上 *
+        this.message=StringUtils.format(super.message,*params)
+        return this
+    }
+```
