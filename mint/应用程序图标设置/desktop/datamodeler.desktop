@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Oracle Data Modeler
+Comment=Oracle Data Modeler
+Icon=/media/linuxdata/opt-icon/datamodeler.png
+Exec=datamodeler
+Terminal=false
+Type=Application
