@@ -1,5 +1,33 @@
 # vue-ruoyi
 
+### 跳转另一个页面
+跳转传递参数
+```vue
+handleJumpProductionWorkpieceProcedure(row){
+	const productionWorkpieceId = row.productionWorkpieceId||this.currentRowProductionWorkpiece.productionWorkpieceId;
+	this.$router.push({
+		path:'./ProductionWorkpieceProcedure',
+		query:{
+			productionWorkpieceId: productionWorkpieceId,
+		}
+	})
+},
+```
+接收参数
+```vue
+initPage(){
+	//main.js 需要增加原型方法引入
+	//import {checkRole,checkPermi} from "@/utils/permission";
+	// Vue.prototype.checkRole = checkRole
+	
+	this.queryParams.productionWorkpieceId=this.$route.query.productionWorkpieceId;
+	
+	this.isAdmin=this.checkRole(['admin']);
+	this.isSystem=this.checkRole(['system'])||this.isAdmin;
+	this.getList();
+},
+```
+
 
 #### 只读加 readonly,这样显示文字不会暗色
 ```vue
