@@ -25,7 +25,9 @@
 
  pwd=123456
  #生成的名称
- name="test6.shoukaiseki.cn"
+ name="wb520.shoukaiseki.cn"
+ dname="wb520.shoukaiseki.cn"
+ OU="www.digicert.com"
  tmpPath=$(cd "$(dirname "$0")"; pwd) 
  echo "tmpPath ${tmpPath}"
  echo $0
@@ -34,7 +36,7 @@ echo 生成jks
 rm -Rf  jks
 mkdir jks
 cd jks
-keytool -genkeypair -alias $name -keystore $name.jks -storetype pkcs12 -keypass $pwd -storepass $pwd  -keyalg RSA -keysize 2048 -validity 365 -dname "CN=http://test6.shoukaiseki.cn,OU=xx，O=dy, L=nb,ST=zj,C=china"
+keytool -genkeypair -alias $name -keystore $name.jks -storetype pkcs12 -keypass $pwd -storepass $pwd  -keyalg RSA -keysize 2048 -validity 36500 -dname "CN=${dname},OU=${OU}，O=DigiCert Inc, L=nb,ST=zj,C=china"
 
 keytool -exportcert -keystore $name.jks -file $name.cer -alias $name -storepass $pwd
 cd ${tmpPath}
