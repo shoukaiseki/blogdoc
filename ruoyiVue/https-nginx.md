@@ -46,8 +46,8 @@ server {
 
  pwd=123456
  #生成的名称
- name="wb520.shoukaiseki.cn"
- dname="wb520.shoukaiseki.cn"
+ name="test6.shoukaiseki.cn"
+ dname="test6.shoukaiseki.cn"
  OU="www.digicert.com"
  tmpPath=$(cd "$(dirname "$0")"; pwd) 
  echo "tmpPath ${tmpPath}"
@@ -57,7 +57,7 @@ echo 生成jks
 rm -Rf  jks
 mkdir jks
 cd jks
-keytool -genkeypair -alias $name -keystore $name.jks -storetype pkcs12 -keypass $pwd -storepass $pwd  -keyalg RSA -keysize 2048 -validity 36500 -dname "CN=${dname},OU=${OU}，O=DigiCert Inc, L=nb,ST=zj,C=china"
+keytool -genkeypair -alias $name -keystore $name.jks -storetype pkcs12 -keypass $pwd -storepass $pwd  -keyalg RSA -keysize 2048 -validity 3650 -dname "CN=${dname}, OU=${OU}, O=DigiCert Inc, L=nb,ST=zj, C=china"
 
 keytool -exportcert -keystore $name.jks -file $name.cer -alias $name -storepass $pwd
 cd ${tmpPath}
@@ -72,12 +72,13 @@ cd ${tmpPath}
 pwd
 
 
-echo "转换pfx->pem/key"
+echo "------------------转换pfx->pem/key"
 rm -Rf pem
 mkdir pem
-openssl pkcs12 -in $tmpPath/pfx/$name.pfx -nodes -out $tmpPath/pem/$name.pem -password pass:$pwd
-openssl rsa -in $tmpPath/pem/$name.pem -out $tmpPath/pem/$name.key
+openssl pkcs12  -in $tmpPath/pfx/$name.pfx -nodes -out $tmpPath/pem/$name.pem -password pass:$pwd 
+openssl rsa  -in $tmpPath/pem/$name.pem -out $tmpPath/pem/$name.key 
 cd ${tmpPath}
 keytool -list -v -keystore $tmpPath/jks/$name.jks -storepass $pwd
+
 
 ```
