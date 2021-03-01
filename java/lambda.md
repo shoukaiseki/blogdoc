@@ -1,7 +1,12 @@
 # lambda表达式
 
 
-###
+
+### 数组中是否存在元素
+if (!virtualCompanyProcedureConfList.stream().filter((o) -> o.getProcedureConfId().equals(procedureConf.getProcedureConfId())).findFirst().isPresent()) {
+	//不存在
+}
+
 
 ##### 数组对象中某列的值转换为数组
 
