@@ -1,5 +1,12 @@
 # lookup
 
+### 前端排序
+```
+      queryParams.orderByColumn='create_time'
+      queryParams.isAsc='asc'
+```
+
+
 ```xml
             <if test="searchValueList != null and searchValueList.length &gt; 0">
                 <foreach item="temp" collection="searchValueList">
