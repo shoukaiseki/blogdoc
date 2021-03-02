@@ -7,6 +7,8 @@
 <script>
 export default {
   name: "${COMPONENT_NAME}",
+  comments:{
+  },
   data() {
     return {
       //是否为超管
