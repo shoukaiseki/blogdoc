@@ -13,8 +13,6 @@ export default {
       isAdmin: false,
       //是否为管理员
       isSystem: false,
-      //全页面遮罩
-      allloading: false,
       // 遮罩层
       loading: true,
 
