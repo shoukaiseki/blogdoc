@@ -117,6 +117,8 @@ valueEquals(a,b)
 ## 字典第一列增加空字符选项
 ```
 this.actionNodeNameOptions.unshift({dictValue:"",dictLabel:"无选择"})
+//删除数组元素,删除索引位开始1个元素
+this.form.virtualSaleOrderCreateProductionOrderBomList.splice(index,1)
 ```
 
 正则判断数字
