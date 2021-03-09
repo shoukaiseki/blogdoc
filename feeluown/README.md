@@ -18,3 +18,9 @@ sudo pip3 install fuo-qqmusic -i http://mirrors.aliyun.com/pypi/simple --trusted
 ```
 sudo pip3 install fuo-xiami -i http://mirrors.aliyun.com/pypi/simple --trusted-host mirrors.aliyun.com
 ```
+
+
+## 歌词背景色透明
+右键点击歌词->设置背景颜色 Alpha channel设置为0是全透明
+鼠标放歌词上面会有提示快捷键
+歌词框右下角可以调整歌词框大小
