@@ -1,5 +1,42 @@
 # vue-ruoyi
 
+## 组件颜色配置
+
+### el-input背景色 
+```vue
+<el-input v-model="ownerInfo.data.itemId"  readonly :BackgroundColor="ownerInfoStyle()"/>
+
+<style >
+/*红色*/
+.el-input__inner[BackgroundColor="danger"] {
+    background-color: #FF6347;
+}
+/*background-color: #F56C6C;*/
+/*橙色*/
+.el-input__inner[BackgroundColor="warning"] {
+    background-color: #E6A23C;
+}
+/*绿色*/
+.el-input__inner[BackgroundColor="success"] {
+    background-color: #67C23A;
+}
+</style >
+```
+
+### el-form-item背景色 
+```vue
+          <el-form-item label="物资清单存在嵌套循环配置" class="item" label-width="500">
+          </el-form-item>
+<style >
+.item .el-form-item__label{
+    background-color: #FF6347;
+    color: #000000
+}
+</style >
+```
+
+
+
 ### 跳转另一个页面
 跳转传递参数
 ```vue
