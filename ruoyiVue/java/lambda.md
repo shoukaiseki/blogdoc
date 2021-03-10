@@ -7,6 +7,10 @@ if (!virtualCompanyProcedureConfList.stream().filter((o) -> o.getProcedureConfId
 	//不存在
 }
 
+### 过滤
+productionOrder.setVirtualTargetBomList(inventoryBomList.stream().filter((bom) -> ProductionOrder.BOM_TYPE_TARGET.equals(bom.getBomType())).collect(Collectors.toList()));
+productionOrder.setVirtualSourceBomList(inventoryBomList.stream().filter((bom) -> ProductionOrder.BOM_TYPE_SOURCE.equals(bom.getBomType())).collect(Collectors.toList()));
+
 
 ##### 数组对象中某列的值转换为数组
 
