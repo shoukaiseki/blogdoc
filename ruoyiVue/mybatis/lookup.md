@@ -1,5 +1,32 @@
 # lookup
 
+## 位判断
+```java
+    /**
+     * 所有位状态都为 1 的位
+     */
+    private Integer bitStatusAndTrue;
+
+    /**
+     * 所有位状态都为 0 的位
+     */
+    private Integer bitStatusAndFalse;
+```
+
+```xml
+	<if test="bitStatusAndTrue != null and bitStatusAndTrue != 0">
+		<![CDATA[
+	 and (bit_status & #{bitStatusAndTrue})=#{bitStatusAndTrue}
+	 ]]>
+	</if>
+	<if test="bitStatusAndFalse != null and bitStatusAndFalse != 0">
+		<![CDATA[
+	 and !(bit_status & #{bitStatusAndFalse})
+	 ]]>
+	</if>
+```
+
+
 ### 前端排序
 ```
       queryParams.orderByColumn='create_time'
