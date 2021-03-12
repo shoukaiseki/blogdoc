@@ -1,5 +1,11 @@
 # vue-ruoyi
 
+## table
+#### 更新行
+```vue
+ this.$set(this.virtualSourceBomList, index, row);
+```
+
 ## 组件颜色配置
 
 ### el-input背景色 
