@@ -4,6 +4,15 @@
 ```shell
 zypper install nginx
 ```
+安装完修改配置
+```shell
+vim /etc/nginx/nginx.conf
+```
+```nginx
+    include vhosts.d/*.conf;
+#后面添加以下语句
+    include conf.d/*.conf;
+```
 ### 安装redis
 ```
 zypper install redis
