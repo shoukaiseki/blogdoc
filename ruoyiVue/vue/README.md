@@ -348,3 +348,31 @@ switchStatus(row) {
                 <el-input  @input="(val)=>inputRestrictedDecimal({value:val,rowData:scope.row,attrName:'lineCost',precision:2})"  v-model="scope.row.lineCost" @change="handleChangeDepositBomListTable(scope.row)"
                 ></el-input>
 ```
+
+
+
+### 提示输入框
+```vue
+      this.$prompt('请输入数量', '库存修改', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+
+        inputValue:parseInt(row.amount),
+        inputPattern: /^\+?[0-9][0-9]*$/,
+        inputErrorMessage: '请输入数量'
+      }).then(({ value }) => {
+        var params={
+          inventoryBalanceId:row.inventoryBalanceId,
+          amount:parseInt(value),
+        }
+        editamountInventoryBalance(params).then(res=>{
+          console.log(res)
+          row.amount=parseInt(value);
+          this.msgSuccess('修改成功')
+        })
+        
+      }).catch(() => {
+            
+      });
+
+```
