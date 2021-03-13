@@ -6,6 +6,13 @@
  this.$set(this.virtualSourceBomList, index, row);
 ```
 
+## el-input
+### 限制输入整数数字
+```vue
+                  <el-input-number  :controls="false" v-model="demoDomain4.numValue1" :precision="0" :min="0" width="120px">
+                  </el-input-number>
+```
+
 ## 组件颜色配置
 
 ### el-input背景色 
