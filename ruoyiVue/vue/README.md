@@ -1,5 +1,20 @@
 # vue-ruoyi
 
+```vue
+data(){
+	return {
+		//不存在的对象,只为 webStorm 中代码提示字段不存在,
+		//不方便判断子表数据有无拼写错误
+		//如果关闭 webStorm 验证,则无法判断主表字段名是否存在错误的
+			nullDomain:{
+				economicOrderQuantity:null,
+			  	minimumQuantity:null,
+		   }
+	}
+	)
+
+```
+
 ## table
 #### 更新行
 ```vue
