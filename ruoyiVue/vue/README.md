@@ -1,4 +1,14 @@
 # vue-ruoyi
+## 渲染回调
+组件全部渲染完成后执行
+https://www.jianshu.com/p/a7550c0e164f
+
+如果调用子组建方法时出错,说明子组建还未渲染完成,bom还不存在,所以需要等组建全部渲染完成后才执行
+```javascript
+this.$nextTick(()=>{
+	this.$refs.seeReserveRelationInfoRef.init(itemId,tabName)
+});
+```
 
 ```vue
 data(){
