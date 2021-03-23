@@ -38,6 +38,44 @@ data(){
                   </el-input-number>
 ```
 
+### 限制只能输入指定字符
+
+```vue
+            <el-form-item label="搜索内容" prop="searchValueListSearch">
+                <el-input
+                    v-model="searchValueListSearch"
+                    placeholder="请输入搜索内容"
+                    clearable
+                    size="small"
+                    @keyup.enter.native="handleQuery"
+                    @input="test"
+                />
+            </el-form-item>
+
+        test(val){
+            console.log("test",val)
+            val.replace('')
+            //限制只能输入指定内容
+            let tmp=val.replace(/[^0-9\,]/g,"");
+            console.log("tmp",tmp)
+            this.searchValueListSearch = tmp;
+        },
+
+        test1(val){
+            console.log("test",val)
+            //限制只能输入指定内容
+            let tmp=val.match(/[0-9\,]/g);
+            if(!tmp){
+                tmp=''
+            }else{
+                tmp=tmp.join('')
+            }
+            console.log("tmp",tmp)
+            this.searchValueListSearch = tmp;
+        },
+
+```
+
 ## 组件颜色配置
 
 ### el-input背景色 
