@@ -111,7 +111,12 @@ data(){
 </style >
 ```
 
-
+### 跳转后返回
+```vue
+	Global.$emit("removeCache", "closeSelectedTag", this.$route);
+	this.$store.dispatch("tagsView/delView", this.$route);
+	this.$router.go(-1)
+```
 
 ### 跳转另一个页面
 跳转传递参数
@@ -125,6 +130,9 @@ handleJumpProductionWorkpieceProcedure(row){
 		}
 	})
 },
+
+
+
 ```
 接收参数
 ```vue
