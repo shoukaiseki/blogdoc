@@ -5,6 +5,23 @@ ReflectUtils
 ## UserDetailsService接口实现类
 com.ruoyi.framework.web.service.UserDetailsServiceImpl
 
+## 读取资源文件
+```
+URL url = ClassUtils.getDefaultClassLoader().getResource("sensi_words.txt");
+
+
+
+ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
+Resource[] resources =resolver.getResources("classpath:sensi_words.txt");
+for (Resource resource : resources) {
+	byte[] bytes = FileCopyUtils.copyToByteArray(resource.getInputStream());
+	String string = new String(bytes,"UTF-8");
+	String filename = resource.getFilename();
+	logger.debug(string);
+	logger.debug(filename);
+}
+
+```
 
 ## 泛型
 ```
