@@ -60,6 +60,28 @@
                     and responsible_user_id  is null
                 </if>
             </if>
+
+
+
+        <if test="lookupBitFilter != null">
+            <if test="lookupBitFilter 	&amp; 1">
+                and bom.status != 1
+            </if>
+            <if test="lookupBitFilter 	&amp; 2">
+                and bom.quantity &gt; bom.handled_quantity
+            </if>
+            <if test="lookupBitFilter 	&amp; 4">
+                <![CDATA[
+                         and (bom.bit_flag & 2)=2
+                 ]]>
+            </if>
+            <if test="lookupBitFilter 	&amp; 2048">
+                <![CDATA[
+                         and (bom.bit_flag & 2048)=0
+                 ]]>
+            </if>
+        </if>
+			
 ```
 
 
