@@ -131,8 +131,6 @@ handleJumpProductionWorkpieceProcedure(row){
 	})
 },
 
-
-
 ```
 接收参数
 ```vue
