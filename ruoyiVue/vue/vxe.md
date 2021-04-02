@@ -18,6 +18,12 @@ immediate=true 时,每输入一个字符都会触发 change 方法
 </vxe-input>
 ```
 
+## 默认不显示列
+```vue
+<vxe-table-column v-if="isAdmin"  title="创建者" align="center" field="createUserId"  :visible="false"/>
+```
+
+
 
 ## 展开子表
 ```vue
