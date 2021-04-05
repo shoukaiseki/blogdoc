@@ -6,6 +6,7 @@
 <vxe-input :immediate="false" v-model="scope.row.quantity"  type="number" min="0" @change="handleChangeQuantity(scope.row)"></vxe-input>
 ```
 immediate=true 时,每输入一个字符都会触发 change 方法
+:controls="false" 隐藏上下箭头
 
 ## 时间选择器
 ```vue
