@@ -41,6 +41,22 @@ data(){
 ```vue
                   <el-input-number  :controls="false" v-model="demoDomain4.numValue1" :precision="0" :min="0" width="120px">
                   </el-input-number>
+
+```
+#### 注意
+queryParams默认值不能为null,如果为null,则默认值会是0
+
+错误方式
+```vue
+queryParams:{
+    itemId: null,
+}
+```
+可用
+```vue
+queryParams:{
+    itemId: undefined,
+}
 ```
 
 ### 限制只能输入指定字符
