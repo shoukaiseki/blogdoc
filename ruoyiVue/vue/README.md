@@ -1,4 +1,9 @@
 # vue-ruoyi
+## 获取当前用户ID
+```
+this.$store.state.user.userId
+```
+
 ## 渲染回调
 组件全部渲染完成后执行
 https://www.jianshu.com/p/a7550c0e164f
