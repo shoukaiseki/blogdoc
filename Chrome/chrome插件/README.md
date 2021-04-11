@@ -6,6 +6,9 @@
 
 点击播放之后,音乐加载100%完成 会在左下角出现链接,点击下载
 
+### 注意
+需要点下页面的链接什么的,让也没触发重新渲染,才能看见
+
 ```
 下载软件插件 https://chrome.google.com/webstore/detail/mfjkgbjaikamkkojmakjclmkianficch#  迅雷,快车等
 AdbLOCK  最受欢迎的Google 浏览器扩充功能，拥有超过2 百万位使用者！阻挡网路上所有的广告。 
