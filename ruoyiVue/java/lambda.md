@@ -15,8 +15,9 @@ productionOrder.setVirtualSourceBomList(inventoryBomList.stream().filter((bom) -
 ##### 数组对象中某列的值转换为数组
 
 ```java
-Long[] userIds = userList.stream().map((obj) -> obj.getUserId()).toArray(Long[]::new);
+Long[] userIds = userList.stream().map(SysUser::getUserId).toArray(Long[]::new);
 
+Long[] userIds = userList.stream().map((obj) -> obj.getUserId()).toArray(Long[]::new);
 ```
 
 
