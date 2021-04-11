@@ -1,5 +1,11 @@
 # chrome插件 
 
+
+## Sound Pirate
+下载豆瓣，虾米，Jing.fm，SongTaste，落网，人人电台，QQ音乐，网易云音乐，新浪乐库，搜狗音乐，QQ音乐电台，酷我，5Sing
+
+点击播放之后,音乐加载100%完成 会在左下角出现链接,点击下载
+
 ```
 下载软件插件 https://chrome.google.com/webstore/detail/mfjkgbjaikamkkojmakjclmkianficch#  迅雷,快车等
 AdbLOCK  最受欢迎的Google 浏览器扩充功能，拥有超过2 百万位使用者！阻挡网路上所有的广告。 
@@ -13,5 +19,4 @@ TED下载1.8                 右下角显示下载窗口
 迅雷、快车、旋风专用链自动破解3.9.7         自动把页面里的迅雷,快车Flashget,旋风链接替换为真实地址,使用你自己喜欢的下载方式来下载.
 
 
-Sound Pirate		下载豆瓣，虾米，Jing.fm，SongTaste，落网，人人电台，QQ音乐，网易云音乐，新浪乐库，搜狗音乐，QQ音乐电台，酷我，5Sing
 ```
