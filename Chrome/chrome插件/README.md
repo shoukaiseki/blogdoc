@@ -7,7 +7,8 @@
 点击播放之后,音乐加载100%完成 会在左下角出现链接,点击下载
 
 ### 注意
-需要点下页面的链接什么的,让也没触发重新渲染,才能看见
+#### 网易云音乐
+需要点下 生成外链播放器 的,让也没触发重新渲染,才能看见
 
 ```
 下载软件插件 https://chrome.google.com/webstore/detail/mfjkgbjaikamkkojmakjclmkianficch#  迅雷,快车等
