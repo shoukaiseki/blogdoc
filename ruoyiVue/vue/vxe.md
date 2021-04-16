@@ -18,7 +18,7 @@ immediate=true 时,每输入一个字符都会触发 change 方法
 
 ## 时间选择器
 ```vue
-<!--       弹不出测试下 :transfer="false" 或 :transfer="false"-->
+<!--       弹不出测试下 :transfer="false" 或 :transfer="true"-->
 <vxe-input
 	:disabled="globalReadonly(form)"
 	v-model="form.actualStartTime"
