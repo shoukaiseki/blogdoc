@@ -1,0 +1,16 @@
+[Unit]
+Description=Redis persistent key-value database
+After=network.target
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+PrivateTmp=true
+Restart=always
+Type=simple
+ExecStart=/usr/sbin/redis-server /etc/redis.conf --supervised systemd
+ExecStop=/usr/bin/kill -15  $MAINPID
+
+
+[Install]
+WantedBy=multi-user.target
