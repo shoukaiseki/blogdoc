@@ -33,9 +33,13 @@ projectName=$1
 
 
 
+groupadd springbootgroup
+useradd springboot -G springbootgroup
+
 if [ ! -d "/data/server/springboot" ]; then
 	mkdir /data
 	mkdir /data/server
+	chmod 777 /data/server
 	mkdir /data/server/springboot
 fi
 mkdir /data/server/springboot/$projectName
@@ -49,9 +53,6 @@ mkdir /data/server/web/$projectName
 
 
 
-groupadd springbootgroup
-useradd springboot -G springbootgroup
-
 cd /data/server
 chown -R springboot.springbootgroup springboot
 mkdir /home/springboot
@@ -63,6 +64,8 @@ if [ ! -d "/data/usr/jdk-11.0.9" ]; then
 	cd /data/usr
 	wget http://asus88.vicp.net:9000/jdk/jdk-11.0.9_linux-x64_bin.tar.gz
 	tar zxvf jdk-11.0.9_linux-x64_bin.tar.gz
+	chmod 777 /data/usr
+	chmod 777 /data/usr/jdk-11.0.9
 else
 	echo 'jdk已存在'
 fi
