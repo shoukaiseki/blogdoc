@@ -38,4 +38,6 @@ wget http://asus88.vicp.net:9000/vim/vimconf.tar.gz
 tar zxvf vimconf.tar.gz
 cp -r vimconf/. /root
 wget http://asus88.vicp.net:9000/vim/molokai.vim
-cp molokai.vim /usr/share/vim/vim74/colors/
+if [ ! -f "/usr/share/vim/vim74/colors/molokai.vim" ]; then
+	cp molokai.vim /usr/share/vim/vim74/colors/molokai.vim
+fi
