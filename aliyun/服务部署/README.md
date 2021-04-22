@@ -443,3 +443,19 @@ sudo systemctl enable springboot.service
 systemctl start springboot
 ```
 
+
+#### 删除服务
+https://blog.csdn.net/stpice/article/details/104569146/
+禁用服务
+```
+systemctl disable springboot1.service
+```
+屏蔽服务
+```
+systemctl unmask springboot1.service
+
+```
+取消屏蔽
+```
+systemctl unmask springboot1.service
+```
