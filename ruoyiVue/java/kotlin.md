@@ -88,3 +88,13 @@ open class LocationServiceImpl : ILocationService {
         return this
     }
 ```
+
+## 方法默认值
+会生成多个方法,可不传有默认值的参数
+```
+    @JvmStatic
+    @JvmOverloads
+   fun sum(column: String,alias:String=column): String {
+        return "ifnull(sum(${column})) as $alias"
+    }
+```
