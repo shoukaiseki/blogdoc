@@ -64,8 +64,9 @@ if [ ! -d "/data/usr/jdk-11.0.9" ]; then
 	cd /data/usr
 	wget http://asus88.vicp.net:9000/jdk/jdk-11.0.9_linux-x64_bin.tar.gz
 	tar zxvf jdk-11.0.9_linux-x64_bin.tar.gz
-	chmod 777 /data/usr
-	chmod 777 /data/usr/jdk-11.0.9
+	#chmod -R 777 /data/usr
+	chown  springboot.springbootgroup /data/usr
+	chown -R springboot.springbootgroup /data/usr/jdk-11.0.9
 else
 	echo 'jdk已存在'
 fi
