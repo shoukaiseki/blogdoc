@@ -18,5 +18,32 @@
 #===============================================================================
 
 set -o nounset                              # Treat unset variables as an error
+# 有的版本不支持,使用下面的方式
+#zypper install ranger -y
 
-zypper install ranger -y
+
+
+
+if [ ! -d "/data" ]; then
+	mkdir /data
+fi
+if [ ! -d "/data/usr" ]; then
+	mkdir /data/usr
+fi
+if [ ! -d "/tmp/win" ]; then
+	mkdir /tmp/win
+fi
+cd /tmp/win
+wget https://ranger.github.io/ranger-1.9.3.tar.gz
+tar zxvf ranger-1.9.3.tar.gz
+mv ranger-1.9.3 /data/usr
+ln -s /data/usr/ranger-1.9.3/ranger.py /bin/ranger
+echo '如果ranger 运行不了,则修改pranger.py 将第一行的python改成 python3即可'
+
+wget http://asus88.vicp.net:9000/vim/vimconf.tar.gz
+tar zxvf vimconf.tar.gz
+cp -r vimconf/. /root
+wget http://asus88.vicp.net:9000/vim/molokai.vim
+if [ ! -f "/usr/share/vim/vim74/colors/molokai.vim" ]; then
+	cp molokai.vim /usr/share/vim/vim74/colors/molokai.vim
+fi
