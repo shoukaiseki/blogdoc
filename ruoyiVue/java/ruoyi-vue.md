@@ -4,6 +4,23 @@
 ```
 用于验证的用户信息保存 com.ruoyi.framework.web.service.UserDetailsServiceImpl
 ```
+## 免密码登录
+```
+    @Resource
+    private TokenService tokenService;
+
+
+        //跳过校验
+        LoginUser loginUser = new LoginUser();
+        String accessToken = this.getAccessToken(weChat);
+//        loginUser.setAccess_token(accessToken);
+        String token = tokenService.createToken(loginUser);
+        loginUser.setToken(token);
+        loginUser.setOpenId(wechat_openid);
+        loginUser.setConsumerUser(consumerUserTmp);
+        return loginUser;
+
+```
 
 ```java
 package com.ruoyi.framework.web.service;
