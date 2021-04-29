@@ -4,16 +4,39 @@
 
 ```vue
 <vxe-input :immediate="false" v-model="scope.row.quantity"  type="number" min="0" @change="handleChangeQuantity(scope.row)"></vxe-input>
-```
+
 immediate=true 时,每输入一个字符都会触发 change 方法
 :controls="false" 隐藏上下箭头,需配合  :immediate="false" ,不然每输入一个字符都会触发 change 事件
 
 		<vxe-table-column title="数量" align="center" field="quantity" :min-width="100" width="120"  :edit-render="{}" >
 				<template  #default="scope">
-					<vxe-input v-model="scope.row.quantity" :immediate="false" :controls="false" type="number" min="0" @change="handleChangeSourceBomTableQuantity(scope.row)">
+					<vxe-input v-model="scope.row.quantity" :immediate="false" :controls="false" type="number" min="0" @change="handleChangeSourceBomTableQuantity(scope.row,scope,...arguments)">
 					</vxe-input>
 			</template>
 		</vxe-table-column>
+
+        handleChangeSourceBomTableQuantity(row,scope,args){
+            const {value,$event}=args
+            // console.log("handleChangeInventoryMoveOrderBomTableQuantity",JSON.stringify(args))
+            // {"value":"122","$event":{"type":"check"}}
+            // {"value":"122","$event":{"isTrusted":true}}
+            //会触发两次change事件,只取成功的提交
+            if($event.isTrusted){
+                const data={
+                    inventoryBomId: row.inventoryBomId,
+                    quantity: row.quantity,
+                }
+                updateTargetBom(data).then(response=>{
+                    this.msgSuccess("修改成功")
+                    // this.$refs.inventoryMoveOrderBomTableRef.updateStatus(scope)
+                }).catch(error=>{
+                    this.msgError("修改失败,列表将重新刷新")
+                    // this.initPage();
+                })
+            }
+        },
+		
+```
 
 
 ## 时间选择器
