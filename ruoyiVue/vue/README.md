@@ -479,3 +479,92 @@ switchStatus(row) {
       });
 
 ```
+
+
+### 树结构
+#### 懒加载
+如果 hasChildren: 'hasChildren' 中的hasChildren有值就会启用懒加载
+而且为true的行无展开按钮
+```
+            :tree-props="{children: 'children', hasChildren: 'hasChildren'}"
+```
+##### 方案1:不启用懒加载
+修改 hasChildren 属性名
+```
+            :tree-props="{children: 'children', hasChildren: 'haveChildren'}"
+```
+
+##### 方案2:使用懒加载
+需要添加两个参数
+```
+            :lazy="true"
+            :load="loadItemClassificationListChildren"
+
+修改为
+            :tree-props="{children: 'child', hasChildren: 'hasChildren'}"
+```
+并定义加载方法
+```
+
+        loadItemClassificationListChildren(tree,treeNode,resole){
+            setTimeout(()=>{
+                resole(tree.children)
+            },200)
+        },
+```
+##### 示例table
+```
+        <el-table
+            v-loading="loading"
+            default-expand-all
+            :data="ItemClassificationList"
+            row-key="itemClassificationId"
+            :lazy="true"
+            :load="loadItemClassificationListChildren"
+            :tree-props="{children: 'child', hasChildren: 'haveChildren'}"
+        >
+            <el-table-column label="描述" align="center" prop="description" />
+            <el-table-column label="分类长描述" align="center" prop="icfLongDesc" />
+            <el-table-column label="编号" align="center" prop="icfNum" />
+            <el-table-column label="编号分隔符" align="center" prop="icfSeparator" />
+            <el-table-column label="分类长编号" align="center" prop="icfLongNum" />
+            <el-table-column label="编号位数" align="center" prop="numberOfDigits" />
+            <el-table-column label="当前编号" align="center" prop="currentNumber" />
+            <el-table-column label="父级" align="center" prop="parentId" />
+            <el-table-column label="注释" align="center" prop="comment" />
+            <el-table-column label="小记" align="center" prop="notepad" />
+            <el-table-column label="备注" align="center" prop="remark" />
+            <el-table-column label="部门" align="center" prop="deptId" />
+            <el-table-column v-if="isSystem" label="状态" align="center">
+                <template slot-scope="scope">
+                    <el-switch :disabled="true" v-model="scope.row.status" active-value="0" inactive-value="1"></el-switch>
+                </template>
+            </el-table-column>
+            <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
+                <template slot-scope="scope">
+                    <el-button
+                        size="mini"
+                        type="text"
+                        icon="el-icon-plus"
+                        @click="handleAdd(scope.row)"
+                        v-hasPermi="['inventory:ItemClassification:add']"
+                    >增加子级</el-button>
+                    <el-button
+                        size="mini"
+                        type="text"
+                        icon="el-icon-edit"
+                        @click="handleUpdate(scope.row)"
+                        v-hasPermi="['inventory:ItemClassification:edit']"
+                    >修改</el-button>
+                    <el-button
+                        size="mini"
+                        type="text"
+                        icon="el-icon-delete"
+                        @click="handleDelete(scope.row)"
+                        v-hasPermi="['inventory:ItemClassification:remove']"
+                    >删除</el-button>
+                </template>
+            </el-table-column>
+        </el-table>
+
+```
