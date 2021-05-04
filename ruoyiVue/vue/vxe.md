@@ -11,6 +11,27 @@ import 'vxe-table-plugin-element/dist/style.css'
 VXETable.use(VXETablePluginElement)
 
 ```
+```
+<vxe-table-column field="var03" title="var03" :edit-render="{name: 'ElSelect',options: taxRateOptions,optionProps:{value:'dictValue',label:'dictLabel'}}"  min-width="180">
+</vxe-table-column>
+
+```
+
+### 自定义渲染
+```
+                            <vxe-table-column field="taxRate" title="税率" :edit-render="{autofocus: '.custom-input'}" min-width="180">
+                                <template v-slot:edit="{ row }">
+                                    <el-select
+                                        v-model="row.taxRate"
+                                        filterable
+                                        clearable
+                                    >
+<!--                                        <el-option v-for="item in taxRateOptions" :key="item.dictValue" :value="item.dictValue" :label="item.dictLabel" />-->
+                                        <el-option v-for="item in taxRateOptions" :key="item.dictValue" :value="item.value" :label="item.label" />
+                                    </el-select>
+                                </template>
+                            </vxe-table-column>
+```
 
 ## vxe-input
 
