@@ -136,3 +136,12 @@ immediate=true 时,每输入一个字符都会触发 change 方法
         },
 
 ```
+
+
+
+
+
+## table
+vxe-pager 有bug,编辑模式下切换下一页刷新了整个页面
+```
+```
