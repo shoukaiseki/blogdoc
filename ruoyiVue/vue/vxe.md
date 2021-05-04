@@ -16,6 +16,13 @@ VXETable.use(VXETablePluginElement)
 </vxe-table-column>
 
 ```
+值变更事件
+```
+<vxe-table-column field="taxUnitCost" title="含税单位成本"
+				  :edit-render="{name: '$input', props: {type: 'float', digits: 2, placeholder: '请输入数值'},events:{change: handleChangeTaxUnitCost}}"
+				  min-width="120">
+</vxe-table-column>
+```
 
 ### 自定义渲染
 ```
