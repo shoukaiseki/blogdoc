@@ -98,3 +98,32 @@ open class LocationServiceImpl : ILocationService {
         return "ifnull(sum(${column})) as $alias"
     }
 ```
+
+
+
+## let
+https://blog.csdn.net/u013064109/article/details/78786646
+```
+ //kotlin
+ 
+ fun main(args: Array<String>) {
+    val result = "testLet".let {
+        println(it.length)
+        1000
+    }
+    println(result)
+ }
+ 
+ //java
+ 
+ public final class LetFunctionKt {
+   public static final void main(@NotNull String[] args) {
+      Intrinsics.checkParameterIsNotNull(args, "args");
+      String var2 = "testLet";
+      int var4 = var2.length();
+      System.out.println(var4);
+      int result = 1000;
+      System.out.println(result);
+   }
+}
+```

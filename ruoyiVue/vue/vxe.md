@@ -1,9 +1,24 @@
 # vxe
 
+## 渲染
+自带的 select 渲染存在bug,下拉框被覆盖
+使用 element-ui 渲染插件
+```
+npm install  vxe-table-plugin-element element-ui
+
+import VXETablePluginElement from 'vxe-table-plugin-element'
+import 'vxe-table-plugin-element/dist/style.css'
+VXETable.use(VXETablePluginElement)
+
+```
+
 ## vxe-input
 
 ```vue
 <vxe-input :immediate="false" v-model="scope.row.quantity"  type="number" min="0" @change="handleChangeQuantity(scope.row)"></vxe-input>
+
+<vxe-input v-model="form.companyCost" placeholder="请输入" type="float" :immediate="false" :controls="false" min="0"></vxe-input>
+
 
 immediate=true 时,每输入一个字符都会触发 change 方法
 :controls="false" 隐藏上下箭头,需配合  :immediate="false" ,不然每输入一个字符都会触发 change 事件
