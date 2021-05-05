@@ -145,3 +145,16 @@ immediate=true 时,每输入一个字符都会触发 change 方法
 vxe-pager 有bug,编辑模式下切换下一页刷新了整个页面
 ```
 ```
+
+### 分页
+```
+                <vxe-pager
+                    align="right"
+                    v-show="unAllocatedRequestTable.total>0"
+                    :current-page.sync="unAllocatedRequestTable.queryParams.pageNum"
+                    :page-size.sync="unAllocatedRequestTable.queryParams.pageSize"
+                    :total="unAllocatedRequestTable.total"
+                    :layouts="['PrevJump', 'PrevPage', 'JumpNumber', 'NextPage', 'NextJump', 'Sizes', 'FullJump', 'Total']"
+                    @page-change="listUnAllocatedRequest()"
+                />
+```
