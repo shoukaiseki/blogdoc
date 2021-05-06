@@ -3,12 +3,14 @@
 ## 换行
 ```java
     /**
-     * <pre>
+     * <pre> pre 里面的会乱码
+     * </pre>
+     * {@code
      * 变更标志,桉位判断,用于主子表同时修改提交表单时子表修改/删除,新增处理时对无变更的数据不走处理
      *    &1:  新增 toBeAdd()    判断 true:需新增
      *    &2:  修改 toBeModify() 判断 true:需更新
      *    &4:  修改 toBeDelete() 判断 true:需删除
-     * </pre>
+	 * }
      */
 
 ```
@@ -20,6 +22,7 @@
     /**
      * <pre>
      * 搜索值列表
+		 </pre>
      * {@code
      <if test="searchValueList != null and searchValueList.length &gt; 0">
 		 <foreach item="temp" collection="searchValueList">
@@ -29,7 +32,6 @@
 		 </foreach>
      </if>
       }
-     </pre>
      */
 ```
 
