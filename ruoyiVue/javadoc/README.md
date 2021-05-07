@@ -1,7 +1,12 @@
 # javadoc
 
+
 ## 换行
  pre 里面的会乱码 @code 中文都会乱码
+### 用jar中pre,code里面的源码注释乱码
+选择查看的源码,点击 Alt+Ctrl+Q 
+或者点击源码浏览框的右上角的 Enter Reader Mode查看
+
 推荐使用  <br> 换行
 ```java
     /**
