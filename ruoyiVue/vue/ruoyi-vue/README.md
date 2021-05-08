@@ -1,5 +1,17 @@
 # 若依vue
 
+### el-tabs禁止点击
+```vue
+                <el-tabs  readonly @input="resetInventoryHistory()" v-model="queryParamsTabPaneFilterValue">
+                    <el-tab-pane
+                        :disabled="inventoryHistoryTable.loading"
+                        v-for="(item, index) in tabPaneFilterOptionList"
+                                 :label="item.dictLabel"
+                                 :name="''+item.dictValue">
+                    </el-tab-pane>
+                </el-tabs>
+
+```
 ### title修改
 ```
 src/layout/components/Sidebar/Logo.vue
