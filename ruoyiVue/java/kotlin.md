@@ -99,6 +99,33 @@ open class LocationServiceImpl : ILocationService {
     }
 ```
 
+### 静态方法默认值
+```kotlin
+import org.shoukaiseki.aqoeous.builder.AqoeousBuilder.aqoeous
+import org.shoukaiseki.aqoeous.builder.RelationshipBuilder.paramName
+import org.shoukaiseki.aqoeous.model.CustomQO
+
+object ChildAqoeous {
+
+
+    @JvmStatic
+    @JvmOverloads
+    fun inventoryItemQueryObjectChild(resultName:String="item",sourceData:String="itemId"): CustomQO {
+        val qo= aqoeous()
+            .resultName(resultName)
+            .mergeParent(true)
+            .listFirstMergeParent(true)
+            .relationships(
+                paramName("exactQueryUniqueIdList")
+                    .sourceDatas(sourceData)
+            )
+            .build()
+
+        return qo
+    }
+}
+```
+
 
 
 ## let

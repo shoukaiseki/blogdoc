@@ -1,4 +1,9 @@
 # mysql
+## 异常
+### DuplicateKeyException
+唯一索引冲突
+
+
 ##生成随机数
 ```
 update inventory_balance set sort=rand()*1000 ,item_feature='' where 1=1;
