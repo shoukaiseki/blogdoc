@@ -14,16 +14,27 @@
 ```
 
 ```xml
-	<if test="bitStatusAndTrue != null and bitStatusAndTrue != 0">
-		<![CDATA[
-	 and (bit_status & #{bitStatusAndTrue})=#{bitStatusAndTrue}
-	 ]]>
-	</if>
-	<if test="bitStatusAndFalse != null and bitStatusAndFalse != 0">
-		<![CDATA[
-	 and !(bit_status & #{bitStatusAndFalse})
-	 ]]>
-	</if>
+            <if test="bitStatusAndTrue != null and bitStatusAndTrue != 0">
+                <![CDATA[
+             and (bit_status & #{bitStatusAndTrue})=#{bitStatusAndTrue}
+             ]]>
+            </if>
+            <if test="bitStatusAndFalse != null and bitStatusAndFalse != 0">
+                <![CDATA[
+             and !(bit_status & #{bitStatusAndFalse})
+             ]]>
+            </if>
+
+            <if test="bitFlagAndTrue != null and bitFlagAndTrue != 0">
+                <![CDATA[
+             and (bit_flag & #{bitFlagAndTrue})=#{bitFlagAndTrue}
+             ]]>
+            </if>
+            <if test="bitFlagAndFalse != null and bitFlagAndFalse != 0">
+                <![CDATA[
+             and !(bit_flag & #{bitFlagAndFalse})
+             ]]>
+            </if>
 ```
 
 
