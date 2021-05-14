@@ -35,6 +35,19 @@
              and !(bit_flag & #{bitFlagAndFalse})
              ]]>
             </if>
+
+
+        <if test="processStatusAndTrue != null and processStatusAndTrue != 0">
+            <![CDATA[
+             and (process_status & #{processStatusAndTrue})=#{processStatusAndTrue}
+             ]]>
+        </if>
+        <if test="processStatusFalse != null and processStatusFalse != 0">
+            <![CDATA[
+             and !(process_status & #{processStatusFalse})
+             ]]>
+        </if>
+			
 ```
 
 
