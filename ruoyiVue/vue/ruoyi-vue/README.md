@@ -5,13 +5,66 @@
                 <el-tabs  readonly @input="resetInventoryHistory()" v-model="queryParamsTabPaneFilterValue">
                     <el-tab-pane
                         :disabled="inventoryHistoryTable.loading"
-                        v-for="(item, index) in tabPaneFilterOptionList"
+                        v-for="(item, index) in queryParamsTabPanelOptionList"
                                  :label="item.dictLabel"
                                  :name="''+item.dictValue">
                     </el-tab-pane>
                 </el-tabs>
 
 ```
+#### table选项
+```
+      <el-row>
+          <el-col :span="24">
+              <el-tabs @input="handleQuery()" v-model="queryParamsTabPaneFilterValue">
+                  <el-tab-pane v-for="(item, index) in queryParamsTabPanelOptionList"
+                               :label="item.dictLabel"
+                               :name="''+item.dictValue">
+                  </el-tab-pane>
+              </el-tabs>
+          </el-col>
+      </el-row>
+
+        // 查询参数
+        queryParamsTabPaneFilterValue: "1",
+        queryParamsTabPanelOptionList: [
+            {
+                dictValue: 0,
+                dictLabel: '全部'
+            },
+            {
+                dictValue: 1,
+                dictLabel: '待处理生产不合格'
+            },
+            {
+                dictValue: 2,
+                dictLabel: '待处理采购不合格'
+            },
+        ],
+	  
+
+        queryParams.ownerName=undefined
+        switch (Number(this.queryParamsTabPaneFilterValue)) {
+            case 0:
+                //全部
+                queryParams.ownerName='production_order';
+                break;
+            case 1:
+                //生产不合格
+                queryParams.ownerName='production_order';
+                break;
+            case 2:
+                //任务订单
+                // proType in ('outside','inside')
+                queryParams.lookupBitFilter=2
+                break;
+            default:
+                //这里是没有找到对应的值处理
+                break
+        }
+
+```
+
 ### title修改
 ```
 src/layout/components/Sidebar/Logo.vue
