@@ -12,26 +12,57 @@ long total = PageHelper.count(() -> {
 
 
 ### 排序
+
+```vue
+            orderByFilterOptionList: [
+                {
+                    dictValue: 1,
+                    dictLabel: '加急靠前'
+                },
+                {
+                    dictValue: 2,
+                    dictLabel: '加急靠后'
+                },
+                // {
+                //     dictValue: 3,
+                //     dictLabel: '置顶在前'
+                // },
+                // {
+                //     dictValue: 4,
+                //     dictLabel: '置顶在后'
+                // },
+                {
+                    dictValue: 5,
+                    dictLabel: '新单子在前'
+                },
+                {
+                    dictValue: 6,
+                    dictLabel: '新单子在后'
+                },
+            ],
+
+```
+
 ```xml
                 <foreach item="temp" collection="virtualOrderByFilterList" open=" order by" separator="," close="">
                     <choose>
                         <when test="temp==1">
-                            urgented asc
-                        </when>
-                        <when test="temp==2">
                             urgented desc
                         </when>
-                        <when test="temp==3">
-                            sort asc
+                        <when test="temp==2">
+                            urgented asc
                         </when>
-                        <when test="temp==4">
+                        <when test="temp==3">
                             sort desc
                         </when>
+                        <when test="temp==4">
+                            sort asc
+                        </when>
                         <when test="temp==5">
-                            production_order_id is null
+                            sale_order_id desc
                         </when>
                         <when test="temp==6">
-                            production_order_id desc is null
+                            sale_order_id asc
                         </when>
                         <otherwise>
                         </otherwise>
