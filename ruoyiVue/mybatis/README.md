@@ -9,3 +9,34 @@ long total = PageHelper.count(() -> {
 		assStoreContentMapper.selectAssStoreContentVOList(assStoreContent);
 });
 ```
+
+
+### 排序
+```xml
+                <foreach item="temp" collection="virtualOrderByFilterList" open=" order by" separator="," close="">
+                    <choose>
+                        <when test="temp==1">
+                            urgented asc
+                        </when>
+                        <when test="temp==2">
+                            urgented desc
+                        </when>
+                        <when test="temp==3">
+                            sort asc
+                        </when>
+                        <when test="temp==4">
+                            sort desc
+                        </when>
+                        <when test="temp==5">
+                            production_order_id is null
+                        </when>
+                        <when test="temp==6">
+                            production_order_id desc is null
+                        </when>
+                        <otherwise>
+                        </otherwise>
+
+                    </choose>
+                </foreach>
+
+```
