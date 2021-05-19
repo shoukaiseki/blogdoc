@@ -1,5 +1,10 @@
 # java后台
 
+## valid
+```
+validator.validate(qo,new BeanPropertyBindingResult(qo,resultName+qoName));
+```
+
 ## 反射工具类
 ReflectUtils
 ## UserDetailsService接口实现类
