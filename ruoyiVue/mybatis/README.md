@@ -71,3 +71,69 @@ long total = PageHelper.count(() -> {
                 </foreach>
 
 ```
+
+## 选项过滤
+```vue
+        <el-row>
+            <el-col :span="24">
+                <p>
+                    <el-tabs @input="handleQuery()" v-model="queryParamsTabPaneFilterValue">
+                        <el-tab-pane
+                            :disabled="loading"
+                            v-for="(item, index) in tabPanelFilterOptionList"
+                            :label="item.dictLabel"
+                            :name="''+item.dictValue">
+                        </el-tab-pane>
+                    </el-tabs>
+                </p>
+            </el-col>
+        </el-row>
+
+
+
+            tabPanelFilterOptionList:[
+                {
+                    dictValue: 0,
+                    dictLabel: '全部'
+                },
+                {
+                    dictValue: 1,
+                    dictLabel: '待发货'
+                },
+                {
+                    dictValue: 2,
+                    dictLabel: '待送达'
+                },
+                {
+                    dictValue: 3,
+                    dictLabel: '已送达'
+                },
+            ],
+            // 查询参数
+            queryParamsTabPaneFilterValue: "1",
+
+
+            switch (Number(this.queryParamsTabPaneFilterValue)) {
+                case 0:
+                    //全部
+                    queryParams.status=""
+                    break;
+                case 1:
+                    //主工单
+                    //parent_id =0
+                    queryParams.processStatusAndTrue=4
+                    break;
+                case 2:
+                    queryParams.processStatusAndTrue=2
+                    //任务订单
+                    queryParams.validFlag=0
+                    queryParams.status="0"
+                    queryParams.showVirtualBitFilter|=1
+                    this.showDeliveryColumn=true;
+                    break;
+                default:
+                    //这里是没有找到对应的值处理
+                    break
+            }
+
+```
