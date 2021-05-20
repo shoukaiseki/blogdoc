@@ -110,7 +110,7 @@ long total = PageHelper.count(() -> {
                 },
             ],
             // 查询参数
-            queryParamsTabPaneFilterValue: "1",
+            queryParamsTabPaneFilterValue: "0",
 
 
             switch (Number(this.queryParamsTabPaneFilterValue)) {
