@@ -6,6 +6,7 @@ npm install vue-pdf -D
 ```
 ### 自定义浏览组建
 #### 使用
+高度没法调整,转化后相当于是张图片
 ```
 		<showPdf
 			:src="previewDialog.url"
