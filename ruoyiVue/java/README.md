@@ -16,3 +16,37 @@
 ##问题
 ### IDEA2021.1启动SpringBoot项目出现java程序包:xxx不存在
 https://blog.csdn.net/lzzdhhhh/article/details/105907772
+
+
+
+
+## 排序
+
+```java
+  //重新排序
+    @Override
+    public void resetSortOrderByList(List<ProductionOrder> productionOrderList){
+        ProductionOrder previousNode=null;
+        List<ProductionOrder> updateList=new ArrayList<>();
+        for (ProductionOrder productionOrder : productionOrderList) {
+            String id = productionOrder.getId();
+            productionOrder.setNextNodeId("");
+            productionOrder.setPreviousNodeId("");
+            if(previousNode!=null){
+               previousNode.setNextNodeId(id);
+                productionOrder.setPreviousNodeId(previousNode.getId());
+            }
+            previousNode=productionOrder;
+            updateList.add(productionOrder);
+        }
+
+        for (ProductionOrder productionOrder : updateList) {
+            ProductionOrder productionOrderTmp = get(productionOrder.getId());
+            productionOrderTmp.setNextNodeId(productionOrder.getNextNodeId());
+            productionOrderTmp.setPreviousNodeId(productionOrder.getPreviousNodeId());
+            productionOrderTmp.setSortOrder(productionOrder.getSortOrder());
+            update(productionOrderTmp);
+        }
+
+    }
+```
