@@ -50,3 +50,37 @@ https://blog.csdn.net/lzzdhhhh/article/details/105907772
 
     }
 ```
+
+## 获取参数类型,json转化为参数所需对象
+### SyncActionUtils
+```
+        Method method = BusinessEntityManager.getMethod(businessEntityService.getTableName(), beanName);
+
+        Type[] genericParameterTypes = method.getGenericParameterTypes();
+//        Class<?>[] parameterTypes = method.getParameterTypes();
+        if (genericParameterTypes.length!=1) {
+            throw new RuntimeException(syncActionRequest.getOwnerName()+"["+syncActionRequest.getBeanName()+"]调用的方法需要多个参数,请修改 syncAction 方法");
+        }
+        Type genericParameterType = genericParameterTypes[0];
+//        Class<?> parameterType = parameterTypes[0];
+//        if (parameterType.equals(List.class)) {
+//            Type genericSuperclass = parameterType.getGenericSuperclass();
+//
+//        }
+        Object obj = domainToJavaBeanForType(syncActionRequest.getDomain(), genericParameterType);
+        try {
+            Object invoke = method.invoke(businessEntityService, obj);
+            return (T) invoke;
+        } catch (Exception e) {
+            throw new RuntimeException(businessEntityService.getTableName()+"["+beanName+"]方法调用出错",e);
+        }
+		
+```
+
+
+#### 参考自
+```
+org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter
+	public Object read(Type type, @Nullable Class<?> contextClass, HttpInputMessage inputMessage)
+
+```
