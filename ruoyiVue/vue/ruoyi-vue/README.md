@@ -118,3 +118,12 @@ this.form.datetime01=this.parseTime(new Date(),'{y}-{m}-{d}')
     </el-form>
 
 ```
+
+
+## 问题
+### element-ui中dialog和el-image组件冲突问题
+dialog编辑框中点击小图片预览图片被dialog框覆盖遮挡的BUG, BUG本质是如果el-image-viewer组件在el-dialog里面，el-dialog的层级是优先的, 所以解决的关键在于提高el-iage-viewer的层级, 直接在对应的el-image组件添加属性:zIndex=“9999”, 因为el-image是允许传入zIndex参数的, 但是官方文档没有提及
+
+```
+<el-image  :zIndex="99999999" style="width: 100px; height: 100px;" :src="form.avatar" fit="contain" :preview-src-list="[form.avatar]"></el-image>
+```
