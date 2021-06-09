@@ -84,3 +84,37 @@ org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter
 	public Object read(Type type, @Nullable Class<?> contextClass, HttpInputMessage inputMessage)
 
 ```
+
+
+## PathVariable，URL中带有斜线
+### 例如链接
+http://test7.shoukaiseki.cn/anon/filePreview/sys_notice/b74446ca00274b178be3ca2910d7302b.png
+#### 原方式
+会有问题,无法匹配该Controller
+```
+ @RequestMapping(value = "/anon/filePreview/{ossname}", method = RequestMethod.GET)
+    public void view(@PathVariable String ossname,
+                     @RequestParam(required = false, defaultValue = "true") Boolean preview,
+                     @RequestParam(required = false, defaultValue = "UTF-8") String charset,
+                     HttpServletResponse response) throws Exception {
+	}
+
+```
+
+#### 可用方式
+```
+    @RequestMapping(value = "/anon/filePreview/**", method = RequestMethod.GET)
+    public void view(
+                     @RequestParam(required = false, defaultValue = "true") Boolean preview,
+                     @RequestParam(required = false, defaultValue = "UTF-8") String charset,
+                     HttpServletRequest request,
+                     HttpServletResponse response) throws Exception {
+
+        String path = request.getAttribute(HandlerMapping.PATH_WITHIN_HANDLER_MAPPING_ATTRIBUTE).toString();
+        String bestMatchingPattern = request.getAttribute(HandlerMapping.BEST_MATCHING_PATTERN_ATTRIBUTE).toString();
+
+        //** 的内容
+        String ossname = new AntPathMatcher().extractPathWithinPattern(bestMatchingPattern, path);
+   }
+
+```
