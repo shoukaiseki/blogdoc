@@ -1,5 +1,10 @@
 # opensuse安装服务
 
+### 安装字体配置
+```shell
+zypper install fontconfig -y
+```
+
 ### 安装nginx
 ```shell
 zypper install nginx

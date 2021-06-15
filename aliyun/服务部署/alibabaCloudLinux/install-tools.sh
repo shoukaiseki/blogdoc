@@ -50,3 +50,5 @@ if [ -d "/usr/share/vim/vim80" ]; then
 		cp molokai.vim /usr/share/vim/vim80/colors/molokai.vim
 	fi
 fi
+
+yum install fontconfig -y
