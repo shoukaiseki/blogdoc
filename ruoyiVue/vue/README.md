@@ -663,3 +663,28 @@ switchStatus(row) {
         </el-table>
 
 ```
+
+
+
+### 方法中调用过滤器
+
+```
+    filters:{
+        filterImgUrl(e){
+            return e.map(item=>item.url)
+        },
+        filterDocumentId(e){
+            return e.map(item=>item.wbDocumentId)
+        },
+        numchange(e){
+            return (e*100).toFixed(2)
+        }
+    },
+    methods: {
+        getDocumentIdList(){
+			let documentIdList = this.$options.filters['filterDocumentId'](this.virtualDocumentList)
+		},
+	}
+
+```
+
