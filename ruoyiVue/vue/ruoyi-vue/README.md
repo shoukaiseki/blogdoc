@@ -13,10 +13,11 @@
 
 ```
 #### table选项
+el-tabs要使用 @tab-click 因为 @input 会触发2次
 ```
       <el-row>
           <el-col :span="24">
-              <el-tabs @input="handleQuery()" v-model="queryParamsTabPaneFilterValue">
+              <el-tabs @tab-click="handleQuery()" v-model="queryParamsTabPaneFilterValue">
                   <el-tab-pane v-for="(item, index) in queryParamsTabPanelOptionList"
                                :label="item.dictLabel"
                                :name="''+item.dictValue">
