@@ -18,6 +18,8 @@
 #===============================================================================
 
 #set -o nounset                              # Treat unset variables as an error
+yum install fontconfig -y
+
 
 if [ ! -n "$1" ]; then
   echo "请输入服务名称"

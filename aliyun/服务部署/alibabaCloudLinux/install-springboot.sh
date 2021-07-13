@@ -19,6 +19,9 @@
 
 #set -o nounset                              # Treat unset variables as an error
 
+yum install fontconfig -y
+
+
 if [ ! -n "$1" ]; then
   echo "请输入服务名称"
   echo "sh install-springboot.sh 服务名"
