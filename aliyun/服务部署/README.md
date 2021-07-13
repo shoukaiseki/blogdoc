@@ -525,6 +525,7 @@ Caused by: java.lang.NullPointerException: null
 
 ```
 #### 解决方案需要安装字体配置
+font
 ```
 yum install fontconfig
 ```
