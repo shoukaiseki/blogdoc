@@ -66,6 +66,16 @@ el-tabs要使用 @tab-click 因为 @input 会触发2次
 
 ```
 
+#### 默认显示边框
+
+```vue
+Element.Table.props.border={
+    default: true,
+    type: Boolean
+}
+```
+
+
 ### title修改
 ```
 src/layout/components/Sidebar/Logo.vue
