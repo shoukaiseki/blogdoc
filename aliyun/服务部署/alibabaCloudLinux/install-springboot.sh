@@ -86,9 +86,11 @@ sed -i "s/wb000/${projectName}/g" servicerun.sh
 sed -i "s/wb000/${projectName}/g" runspringboot.sh
 sed -i "s/wb000/${projectName}/g" wb000.service
 sed -i "s/wb000/${projectName}/g" nginx-wb000.conf
+sed -i "s/wb000/${projectName}/g" wgetjar.sh
 cp stopspringboot.sh  /data/server/springboot/$projectName/
 cp servicerun.sh  /data/server/springboot/$projectName/
 cp runspringboot.sh  /data/server/springboot/$projectName/
+cp wgetjar.sh  /data/server/springboot/$projectName/
 cp wb000.service /usr/lib/systemd/system/${projectName}.service
 chmod 777 /data/server/springboot/$projectName/stopspringboot.sh
 chmod 777  /data/server/springboot/$projectName/servicerun.sh
