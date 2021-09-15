@@ -1,5 +1,81 @@
 # mybatis
 
+## 查询字段声明
+
+```
+itemIdGreaterThan
+itemIdLessThan
+
+
+statusAndTrue
+statusAndFalse
+
+    /**
+     * 包含主键列表
+     <pre>
+     {@code
+		<if test="includeUniqueIdList != null">
+			<choose>
+				<when test="includeUniqueIdList.length==0">
+					and inventory_balance_id is null
+				</when>
+				<otherwise>
+					andinventory_balance_id in
+					<foreach item="temp" collection="includeUniqueIdList" open="(" separator="," close=")">
+						#{temp}
+					</foreach>
+				</otherwise>
+
+			</choose>
+		</if>
+     }
+     </pre>
+     *
+     */
+    private Long[] includeUniqueIdList;
+
+
+    /**
+     * 排除主键列表
+     <pre>
+     {@code
+		<if test="includeUniqueIdList != null and includeUniqueIdList.length &gt; 0">
+			and inventory_balance_id not in
+			<foreach item="temp" collection="includeUniqueIdList" open="(" separator="," close=")">
+				#{temp}
+			</foreach>
+		</if>
+     }
+     </pre>
+     */
+    private Long[] excludeUniqueIdList;
+
+
+    /**
+     * <pre>
+     *     精确查找主键列表,该值如果不为null时,将会使用主键精确查找,
+     *     无视delFlag标识,用于关联查询
+     * </pre>
+     */
+    private Long[] exactQueryUniqueIdList;
+
+
+//find_in_set(#{proRootIdFindInSetStr},pro_root_id_arr)
+private Long proRootIdFindInSetStr;
+
+
+```
+
+### itemIdExistsBom
+```
+exists (select 1 from .... itemIdExistsBom)
+```
+### nameFindLike
+```
+//name like concat('%',#{temp},'%')
+nameFindLike
+```
+
 ## 某个查询不使用缓存,则加上此句
 flushCache="true" useCache="false"
 
