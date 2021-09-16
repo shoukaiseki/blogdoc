@@ -29,7 +29,8 @@ if [ ! -d "/tmp/win" ]; then
 	mkdir /tmp/win
 fi
 cd /tmp/win
-wget https://ranger.github.io/ranger-1.9.3.tar.gz
+#wget https://ranger.github.io/ranger-1.9.3.tar.gz
+wget http://mvn.shoukaiseki.cn:9000/aliyun/ranger-1.9.3.tar.gz
 tar zxvf ranger-1.9.3.tar.gz
 mv ranger-1.9.3 /data/usr
 ln -s /data/usr/ranger-1.9.3/ranger.py /bin/ranger
