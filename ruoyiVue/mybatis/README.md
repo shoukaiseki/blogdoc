@@ -215,3 +215,47 @@ long total = PageHelper.count(() -> {
             }
 
 ```
+
+
+### 调用方法
+https://blog.csdn.net/weixin_30133813/article/details/114122333
+
+https://www.136.la/java/show-31106.html
+#### mybatis
+```xml
+        select
+            needs.*,
+            product.code productCode,
+            ${@SqlUtils@formatRelationshipSql("supplier","needs.supplierId")},
+            ( select name from tbl_supplier where supplierId=needs.supplierId ) as supplierName2,
+
+            product.category productCategory,
+            (select sum(amount) from tbl_produce_receive where marketNeedId=needs.marketNeedId) as receiveAmount,
+            (select sum(amount) from tbl_product_record where productId=needs.productId) as stockAmount
+        from tbl_market_needs needs
+			
+
+```
+#### java
+```java
+import org.shoukaiseki.common.utils.StringUtils;
+
+import java.util.Objects;
+
+/**
+ *
+ **/
+public class SqlUtils {
+
+	//只能为静态方法
+    public static String formatRelationshipSql(String tableName, String tableColumn) {
+        return formatRelationshipSql(tableName, tableColumn, "supplierName");
+    }
+    public static String formatRelationshipSql(String businessName, String tableColumn, String aliasName){
+        if(Objects.equals("supplier",businessName)){
+            return StringUtils.format("( select name from tbl_supplier where supplierId={} ) as {}",tableColumn,aliasName);
+        }
+        return StringUtils.format("未知的 businessName={} ，请查看 BaseDomain.getFormatRelationshipSql 是否存在",businessName);
+    }
+}
+```
