@@ -8,6 +8,15 @@
 源代码clone下来,所有文件中都不存在 JsonFormat 字符
 
 
+## 设置时区
+
+```
+// 处理转换成json的日期格式
+ObjectMapper objectMapper = new ObjectMapper();
+objectMapper.setDateFormat(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"));
+objectMapper.setTimeZone(TimeZone.getTimeZone("GMT+8"));
+
+```
 ## camel-fastjson
 dataformats
 
