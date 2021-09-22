@@ -1,4 +1,6 @@
 # 若依vue
+###
+const genTable = Object.assign({}, basicForm.model, genForm.model);
 
 ### el-button
 按钮禁用时也能够提示,button外层加个  div
