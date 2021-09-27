@@ -27,11 +27,6 @@ const genTable = Object.assign({}, basicForm.model, genForm.model);
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-
-.propup-button{
-    border: 1px solid #2d8cf0;
-    color: #2d8cf0;
-}
 </style>
 	
 
