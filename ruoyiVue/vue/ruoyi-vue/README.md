@@ -10,6 +10,31 @@ const genTable = Object.assign({}, basicForm.model, genForm.model);
 				<el-button :disabled="!selectedItem" class="uni-button" type="primary" @click="update">修改</el-button>
 			</div>
 		</el-tooltip>
+
+		
+```
+
+### el-tooltip 换行
+```vue
+	<el-tooltip class="item" effect="dark" placement="top">
+		<pre  slot="content">{{scope.row.nameFormula}}</pre>
+		<div class="oneLine">{{scope.row.nameFormula}}</div>
+	</el-tooltip>
+
+<style>
+.oneLine {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.propup-button{
+    border: 1px solid #2d8cf0;
+    color: #2d8cf0;
+}
+</style>
+	
+
 ```
 
 
