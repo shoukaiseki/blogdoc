@@ -101,3 +101,11 @@ public class CompanyServiceImpl<T> implements ICompanyService<T>
                 multiValueMap.get("You"));
     }
 ```
+
+
+### 补空格
+
+```
+System.out.println("java补空格:"+String.format("%1$-35s","a")); //35代表字符串总长度，如果字符串本身不够35，则会在其后补空格凑位数
+System.out.println("java补空格后字符串的长度:"+String.format("%1$-35s","a").length());
+```
