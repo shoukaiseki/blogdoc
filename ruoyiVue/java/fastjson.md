@@ -1,5 +1,12 @@
 # fastjson
 
+## 忽略属性序列化
+```java
+    @JsonIgnore
+    @JsonProperty
+    @JSONField(serialize = false)
+```
+
 ## 时间格式化
 ```java
     @JSONField(format="yyyy-MM-dd HH:mm:ss")
