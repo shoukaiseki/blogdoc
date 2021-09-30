@@ -1,4 +1,14 @@
 # mysql
+
+## 复制表
+
+### mysql 8.0需要复制表结构之后
+```
+create table sys_user_bak like sys_user;
+insert into sys_user_bak select * from sys_user;
+```
+
+
 ## 异常
 ### DuplicateKeyException
 唯一索引冲突
