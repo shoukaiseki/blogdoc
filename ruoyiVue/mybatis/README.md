@@ -259,3 +259,22 @@ public class SqlUtils {
     }
 }
 ```
+
+
+
+### mybatisLog插件无sql输出
+#### 首先需要开启日志输出
+#### 还需要指定日志输出格式,以下配置可用
+```
+# 日志配置
+logging:
+    pattern:
+        console: '%d{YYYY-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{20} - [%method,%line] - %msg%n'
+        #    logger[35] 类名包名长度为35
+#        console: "%d{yyyy-MM-dd HH:mm:ss.SSS} %-4relative [%thread] %-5level [%logger{80}]: %msg %n"
+    level:
+        root: warn
+        org.shoukaiseki.inittable: debug
+        org.shoukaiseki.autumn: debug
+        com.wb: debug
+```
