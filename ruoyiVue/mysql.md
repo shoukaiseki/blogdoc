@@ -8,6 +8,20 @@ create table sys_user_bak like sys_user;
 insert into sys_user_bak select * from sys_user;
 ```
 
+### 修改字符集
+
+修改表字符集
+```
+ALTER TABLE sys_user DEFAULT CHARACTER SET utf8mb4;
+```
+
+
+#### 修改字段字符集
+修改remark 字段的字符集
+```
+ALTER TABLE sys_user CHANGE remark remark  TEXT CHARACTER SET utf8mb4;
+```
+
 
 ## 异常
 ### DuplicateKeyException
