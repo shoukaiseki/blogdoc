@@ -19,7 +19,7 @@ ALTER TABLE sys_user DEFAULT CHARACTER SET utf8mb4;
 #### 修改字段字符集
 修改remark 字段的字符集
 ```
-ALTER TABLE sys_user CHANGE remark remark  TEXT CHARACTER SET utf8mb4;
+ALTER TABLE sys_user  modify remark  varchar(500) CHARACTER SET utf8mb4  default '' null comment '备注'
 ```
 
 
