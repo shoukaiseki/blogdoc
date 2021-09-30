@@ -1,5 +1,12 @@
 # lambda表达式
 
+### 分组
+
+```java
+		List<ProductRecord> productRecords=marketSendAO.getProductRecordList();
+Map<Integer, List<ProductRecord>> map = productRecords.stream().collect(Collectors.groupingBy(o -> (((ProductRecord) o).getMarketId())));
+
+```
 
 
 ### 数组中是否存在元素
