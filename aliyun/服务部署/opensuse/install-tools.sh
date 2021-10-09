@@ -22,6 +22,7 @@ set -o nounset                              # Treat unset variables as an error
 #zypper install ranger -y
 
 
+URL_PATH="https://wb-test-apk.oss-cn-hangzhou.aliyuncs.com/server"
 
 
 if [ ! -d "/data" ]; then
@@ -35,16 +36,16 @@ if [ ! -d "/tmp/win" ]; then
 fi
 cd /tmp/win
 #wget https://ranger.github.io/ranger-1.9.3.tar.gz
-wget http://mvn.shoukaiseki.cn:9000/aliyun/ranger-1.9.3.tar.gz
+wget $URL_PATH/aliyun/ranger-1.9.3.tar.gz
 tar zxvf ranger-1.9.3.tar.gz
 mv ranger-1.9.3 /data/usr
 ln -s /data/usr/ranger-1.9.3/ranger.py /bin/ranger
 echo '如果ranger 运行不了,则修改pranger.py 将第一行的python改成 python3即可'
 
-wget http://asus88.vicp.net:9000/vim/vimconf.tar.gz
+wget $URL_PATH/vim/vimconf.tar.gz
 tar zxvf vimconf.tar.gz
 cp -r vimconf/. /root
-wget http://asus88.vicp.net:9000/vim/molokai.vim
+wget  $URL_PATH/vim/molokai.vim
 if [ ! -f "/usr/share/vim/vim74/colors/molokai.vim" ]; then
 	cp molokai.vim /usr/share/vim/vim74/colors/molokai.vim
 fi
