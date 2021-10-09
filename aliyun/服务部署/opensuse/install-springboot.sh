@@ -18,7 +18,8 @@
 #===============================================================================
 
 #set -o nounset                              # Treat unset variables as an error
-yum install fontconfig -y
+zypper install fontconfig -y
+URL_PATH="https://wb-test-apk.oss-cn-hangzhou.aliyuncs.com/server"
 
 
 if [ ! -n "$1" ]; then
@@ -63,7 +64,7 @@ chown -R springboot.springbootgroup /home/springboot
 if [ ! -d "/data/usr/jdk-11.0.9" ]; then
 	mkdir /data/usr
 	cd /data/usr
-	wget http://asus88.vicp.net:9000/jdk/jdk-11.0.9_linux-x64_bin.tar.gz
+	wget $URL_PATH/jdk/jdk-11.0.9_linux-x64_bin.tar.gz
 	tar zxvf jdk-11.0.9_linux-x64_bin.tar.gz
 else
 	echo 'jdk已存在'
