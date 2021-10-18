@@ -17,3 +17,23 @@ const newList= list&&list.map(item=>(
 ))
 console.log(newList)
 ```
+
+## list 遍历
+
+```
+	dictTypeList.forEach((item)=>{
+		dictTypeMap[item.dictType]=item
+
+		queryObjectList.push(sysDictDataTableQueryObject({
+			dictType: item.dictType,
+		}))
+	})
+
+```
+
+## map遍历
+
+```
+for (let key of Object.keys(resData)) {
+}
+```
