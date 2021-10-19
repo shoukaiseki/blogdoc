@@ -689,3 +689,8 @@ switchStatus(row) {
 
 ```
 
+
+### 临时变量
+```vue
+{{ void (value1 = item[key], value2 = item2[key]) }}
+```
