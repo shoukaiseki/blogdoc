@@ -179,3 +179,9 @@ dialog编辑框中点击小图片预览图片被dialog框覆盖遮挡的BUG, BUG
 ```
 <el-image  :zIndex="99999999" style="width: 100px; height: 100px;" :src="form.avatar" fit="contain" :preview-src-list="[form.avatar]"></el-image>
 ```
+
+## 动态列,列显示错位
+```vue
+	<!--        动态列,列显示错位,官方建议增加一个 width为1的列-->
+	<!--            <el-table-column width="1"/>-->
+```
