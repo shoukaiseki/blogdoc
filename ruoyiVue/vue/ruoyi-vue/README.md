@@ -6,12 +6,16 @@ const genTable = Object.assign({}, basicForm.model, genForm.model);
 按钮禁用时也能够提示,button外层加个  div
 ```vue
 		<el-tooltip class="item" effect="dark" content="点击行中任何位置,行底色变化之后才能点击" placement="top">
+			<span>
+				<el-button :disabled="!selectedItem" class="uni-button" type="primary" @click="update">修改</el-button>
+			</span>
+		</el-tooltip>
+		
+		<el-tooltip class="item" effect="dark" content="点击行中任何位置,行底色变化之后才能点击" placement="top">
 			<div>
 				<el-button :disabled="!selectedItem" class="uni-button" type="primary" @click="update">修改</el-button>
 			</div>
 		</el-tooltip>
-
-		
 ```
 
 ### el-tooltip 换行
