@@ -118,3 +118,20 @@ http://test7.shoukaiseki.cn/anon/filePreview/sys_notice/b74446ca00274b178be3ca29
    }
 
 ```
+### 手动回滚
+```
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+
+```
+
+#### 获取下个ID
+```
+        List<Long> data=new ArrayList<>();
+        Workshop workshop = new Workshop();
+        workshop.setName(""+RandomUtils.nextLong(0x00,0xffff));
+        workshopService.insertWorkshop(workshop);
+        workshopService.deleteWorkshopByIds(workshop.getWorkshopId());
+        data.add(workshop.getWorkshopId());
+		TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+		return AjaxResult.successData("出错了:"+data);
+```
