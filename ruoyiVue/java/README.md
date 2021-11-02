@@ -135,3 +135,106 @@ http://test7.shoukaiseki.cn/anon/filePreview/sys_notice/b74446ca00274b178be3ca29
 		TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 		return AjaxResult.successData("出错了:"+data);
 ```
+
+
+### HttpClient提交文件,参数
+
+```
+    public static void main(String[] args) throws Exception {
+        LogbackLevelSetting.debugLevel("com.test");
+
+        String uri = "http://127.0.0.1:10000/anon/testFile";
+
+        String imgUrl = "http://127.0.0.1:20000/static/img/logo.d5c869a6.png";
+
+        HashMap<String, Object> params = new HashMap<>();
+        params.put("asus","linux");
+        params.put("fileName",RandomUtils.nextLong()+".png");
+//        uri = uri+"?"+formatUrlParam(params);
+        logger.debug("uri={}",uri);
+
+
+        DefaultHttpClient httpClient = new DefaultHttpClient();
+        HttpPost httpPost ;
+        httpPost = new HttpPost(uri);
+        ContentType contentType = ContentType.IMAGE_PNG;
+
+        Charset charset = Charset.forName("UTF-8");
+
+        Map<String, ContentBody> reqParam = new HashMap<String,ContentBody>();
+        
+        ContentType multipartFormData = ContentType.MULTIPART_FORM_DATA;
+        //不加字符集会乱码
+        reqParam.put("fileName", new StringBody(RandomUtils.nextLong()+ "是打开父级"+".png",charset));
+//        reqParam.put("lepUrlc", new InputStreamBody(inputstream,"asus.png"));
+        String filename = FileHttpUtils.getFileName(imgUrl);
+        logger.debug("filename={}",filename);
+        reqParam.put("lepUrlc", new ByteArrayBody(readUrlBytes(imgUrl), filename));
+
+
+        MultipartEntityBuilder multipartEntityBuilder = MultipartEntityBuilder.create();
+        multipartEntityBuilder.setCharset(charset);
+        for(Map.Entry<String,ContentBody> param : reqParam.entrySet()){
+            multipartEntityBuilder.addPart(param.getKey(), param.getValue());
+        }
+        multipartEntityBuilder.addTextBody("param1","asus");
+        httpPost.setEntity(multipartEntityBuilder.build());
+        HttpResponse response = httpClient.execute(httpPost);
+        // 打印执行结果
+        String x = EntityUtils.toString(response.getEntity(), "UTF-8");
+        logger.debug("reString={}", x);
+    }
+
+
+
+    public static byte[] readUrlBytes(String imgUrl){
+        boolean error=false;
+        InputStream inputstream=null;
+        HttpURLConnection uc=null;
+        byte[] bytes=null;
+        try{
+            URL url = new URL(imgUrl);
+            uc = (HttpURLConnection) url.openConnection();
+            uc.setDoInput(true);//设置是否要从 URL 连接读取数据,默认为true
+            uc.connect();
+            inputstream = uc.getInputStream();
+            bytes = inputstream.readAllBytes();
+        }catch (Throwable t){
+            logger.error("imgUrl="+imgUrl,t);
+        }finally {
+            if (inputstream!=null) {
+                try {
+                    inputstream.close();
+                } catch (IOException e) {
+                }
+                if (uc!=null) {
+                    uc.disconnect();
+                }
+            }
+        }
+        if(error){
+            throw new RuntimeException("读取文件出错"+imgUrl);
+        }
+        return bytes;
+    }
+	
+
+    /**
+     * 获取的文件名,没有路径名
+     * @param fileName           文件名
+     * @param fileNameMaxLength  60
+     * @return
+     */
+    public static final String getFileName(String fileName){
+        String fileNameTmp=fileName;
+        fileNameTmp=fileNameTmp.replaceAll("\\\\","/");
+        if(fileNameTmp.indexOf("/")>-1){
+            if(fileNameTmp.lastIndexOf("/")+1<fileNameTmp.length()){
+                fileNameTmp=fileNameTmp.substring(fileNameTmp.lastIndexOf("/")+1);
+            }
+        }
+        return fileNameTmp;
+    }
+	
+```
+
