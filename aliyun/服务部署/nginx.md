@@ -22,6 +22,7 @@ server {
 		#代理转发时去除 /wb001-api
 		rewrite ^/wb001-api/(.*) /$1 break; 
 		proxy_pass   http://127.0.0.1:10001;
+		proxy_read_timeout  3600;
 	}
 
 	location /wb520-api/ {
@@ -33,6 +34,7 @@ server {
 		#代理转发时去除 /wb520-api
 		rewrite ^/wb520-api/(.*) /$1 break; 
 		proxy_pass http://localhost:10520/;
+		proxy_read_timeout  3600;
 	}
 }
 ```
