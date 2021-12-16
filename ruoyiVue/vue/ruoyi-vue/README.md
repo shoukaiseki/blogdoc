@@ -192,7 +192,8 @@ dialog编辑框中点击小图片预览图片被dialog框覆盖遮挡的BUG, BUG
 
 
 ## 3级路由不缓存失效
-
+### 方法一
+中途如果存在缓存的页面,互相切换时有存在失效
 ```vue
                 <keep-alive :max="20" :exclude="notCacheName">
 <!--                    :key="key"-->
