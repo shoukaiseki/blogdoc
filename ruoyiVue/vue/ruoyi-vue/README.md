@@ -189,3 +189,24 @@ dialog编辑框中点击小图片预览图片被dialog框覆盖遮挡的BUG, BUG
 	<!--        动态列,列显示错位,官方建议增加一个 width为1的列-->
 	<!--            <el-table-column width="1"/>-->
 ```
+
+
+## 3级路由不缓存失效
+
+```vue
+                <keep-alive :max="20" :exclude="notCacheName">
+<!--                    :key="key"-->
+<!--                    key 去掉 3级目录不缓存就生效了-->
+                    <router-view style="margin: 20px;"/>
+                </keep-alive>
+
+```
+
+```
+export default {
+	//vue命名规范,PascalCase 命名方式,首字母必须大写
+	//3级路由首字母也不许大写
+    name: "ProReworkProcedureTaskPage",
+}
+
+```
