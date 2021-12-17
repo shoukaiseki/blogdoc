@@ -238,3 +238,7 @@ http://test7.shoukaiseki.cn/anon/filePreview/sys_notice/b74446ca00274b178be3ca29
 	
 ```
 
+## 源代码下载不下来idea download sources
+```
+mvn dependency:resolve -Dclassifier=sources
+```

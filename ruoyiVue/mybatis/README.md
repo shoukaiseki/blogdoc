@@ -278,3 +278,61 @@ logging:
         org.shoukaiseki.autumn: debug
         com.wb: debug
 ```
+
+
+## 表达式ognl
+### 调用方法
+```xml
+<!-- 属性中不能 ${} -->
+            <foreach item="temp" collection='@MybatisXmlUtils@convertAutumnParamsSearchValueList(autumnParams,"appSearchValueListCustomize")'>
+                and (pro.itemName like concat('%',#{temp},'%')
+                    or pro.itemNum like concat('%',#{temp},'%')
+                )
+            </foreach>
+```
+
+### 调试表达式
+https://www.cnblogs.com/cenyu/p/6233942.html
+
+
+```java
+package test;
+
+import org.apache.ibatis.ognl.Ognl;
+import org.apache.ibatis.ognl.OgnlContext;
+import org.apache.ibatis.ognl.OgnlException;
+import org.apache.ibatis.scripting.xmltags.OgnlCache;
+import org.apache.ibatis.scripting.xmltags.OgnlClassResolver;
+import org.junit.jupiter.api.Test;
+
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
+
+/**
+ * **/ public class TestOgnl {
+
+    private static final OgnlClassResolver CLASS_RESOLVER = new OgnlClassResolver();
+    private static final Map<String, Object> expressionCache = new ConcurrentHashMap<>();
+
+    @Test
+    void test001() throws OgnlException {
+        Object root=Map.of("id",1,"autumnParams",Map.of("appSearchValueListCustomize","asus linux fedora"));
+        String expression="${MybatisXmlUtils}'asus'";
+        expression="@MybatisXmlUtils@convertAutumnParamsSearchValueList(autumnParams,\"appSearchValueListCustomize\")";
+//        expression="@MybatisXmlUtils@asus()";
+        Object value = OgnlCache.getValue(expression, root);
+        System.out.println(value);
+    }
+
+    private static Object parseExpression(String expression) throws OgnlException {
+        Object node = expressionCache.get(expression);
+        if (node == null) {
+            node = Ognl.parseExpression(expression);
+            expressionCache.put(expression, node);
+        }
+        return node;
+    }
+
+}
+```
