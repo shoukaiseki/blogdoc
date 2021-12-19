@@ -694,3 +694,38 @@ switchStatus(row) {
 ```vue
 {{ void (value1 = item[key], value2 = item2[key]) }}
 ```
+
+### 提示框 确定在左边,取消右边
+```css
+//设置取消按钮向右浮动，左magin为10px，即与确定按钮间距为10px
+.btn-custom-cancel {
+    float: right;
+    margin-left: 10px;
+}
+
+```
+
+```vue
+            this.$confirm('是否完成开始生产？', "提示", {
+                confirmButtonText: "确定",
+                cancelButtonText: "取消",
+                cancelButtonClass: 'btn-custom-cancel',
+                type: "info"
+            }).then(()=> {
+                syncActionQueryMultipleActionEasy02({
+                    sa:{
+                        autumnServiceName: 'proPlanProProcedureMain',
+                        beanName: `startWorkProductionOrder`,
+                        domain: {
+                            productionOrderId: row[this.mainTable.uniqueId],
+                        },
+                    },
+                    success:(saRes)=>{
+                        this.getMainList();
+                        this.msgSuccess();
+                    },
+                })
+
+            })
+
+```
