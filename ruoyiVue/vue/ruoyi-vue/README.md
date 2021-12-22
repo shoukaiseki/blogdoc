@@ -211,3 +211,12 @@ export default {
 }
 
 ```
+
+
+## 获取用户信息
+
+```
+this.$store.state.user.userId
+//可用属性查看
+src/store/modules/user.js
+```
