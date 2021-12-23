@@ -220,3 +220,22 @@ this.$store.state.user.userId
 //可用属性查看
 src/store/modules/user.js
 ```
+
+
+### 菜单栏位置
+SidebarItem.vue
+
+```
+    .el-submenu__title {
+        //padding:0 !important;
+        padding-left: 5px !important;
+        //菜单栏显示更多的字,错位展示
+        //padding-left: 5px !important;
+    }
+
+    .el-menu-item {
+        padding-left: 5px !important;
+        //菜单栏显示更多的字,错位展示
+        //padding-left: 12px !important;
+    }
+```
