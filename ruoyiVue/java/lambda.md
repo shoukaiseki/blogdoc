@@ -3,7 +3,7 @@
 ### 分组
 
 ```java
-		List<ProductRecord> productRecords=marketSendAO.getProductRecordList();
+List<ProductRecord> productRecords=marketSendAO.getProductRecordList();
 Map<Integer, List<ProductRecord>> map = productRecords.stream().collect(Collectors.groupingBy(o -> (((ProductRecord) o).getMarketId())));
 
 ```
