@@ -1,4 +1,19 @@
 # lookup
+## delFlag过滤
+```xml
+            <choose>
+                <when test="delFlag != null and delFlag!=99">
+                    and t1.delFlag=#{delFlag}
+                </when>
+                <when test="delFlag != null and delFlag==99">
+                <!-- delFlag为99时,不进行delFlag过滤 -->
+                </when>
+                <otherwise>
+                    and t1.delFlag=0
+                </otherwise>
+            </choose>
+```
+
 
 ## 位判断
 ```java
