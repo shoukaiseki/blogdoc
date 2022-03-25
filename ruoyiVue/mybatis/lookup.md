@@ -218,3 +218,26 @@ com.github.pagehelper.util.PageObjectUtil
         return page;
     }
 ```
+
+## 查询不分页
+（一）在执行这个不分页的查询之前，先把分页的参数拿到：
+
+Page page = PageHelper.getLocalPage();
+
+（二）然后把当前线程中的PageHelper本地变量移除：
+
+PageMethod.clearPage();
+
+（三）执行不需要分页的查询
+
+
+
+（四）把PageHelper的参数设置回去：
+
+PageHelper.startPage(page.getPageNum(),page.getPageSize());
+
+（五）执行需要分页的查询。完毕
+
+（六）遇到过分页可以但是一直不查总数的，那就手动查一下并设置进去：
+
+page.setTotal(xxxxxx);//这里就是上面第五步执行查询的语句的总数。
