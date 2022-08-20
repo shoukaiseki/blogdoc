@@ -1,8 +1,11 @@
 # jxls excel模板
 
 合并单元格有效
+
+但是excel转xml失效
 ```xml
 	<properties>
+        <!-- 最新版本-转html不行,poi-ooxml版本过高 -->
 		<poi-ooxml.version>5.0.0</poi-ooxml.version>
 		<jxls.version>2.10.0</jxls.version>
 		<jxls-jexcel.version>1.0.9</jxls-jexcel.version>
