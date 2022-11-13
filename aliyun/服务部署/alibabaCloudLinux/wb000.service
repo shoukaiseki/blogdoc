@@ -1,5 +1,8 @@
 [Unit]
-Description=springboot
+Description=springboot wb000
+After=network.target
+After=network-online.target
+Wants=network-online.target
 
 [Service]
 WorkingDirectory=/data/server/springboot/wb000/temp/
