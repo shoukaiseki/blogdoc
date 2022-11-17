@@ -20,7 +20,7 @@ statusAndFalse
 					and inventory_balance_id is null
 				</when>
 				<otherwise>
-					andinventory_balance_id in
+					and inventory_balance_id in
 					<foreach item="temp" collection="includeUniqueIdList" open="(" separator="," close=")">
 						#{temp}
 					</foreach>
