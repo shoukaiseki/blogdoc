@@ -1,3 +1,7 @@
+## BestTrace
+Linux使用BestTrace进行路由跟踪，支持显示IP归属地
+### 注意
+必须在安装目录下执行才可以,不然不显示归属地
 
 ## 安装rabbitvcs
 sudo apt search rabbitvcs
