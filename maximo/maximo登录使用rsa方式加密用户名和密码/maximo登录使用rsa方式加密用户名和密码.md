@@ -206,7 +206,7 @@ D:\IBM\WebSphere\AppServer\profiles\ctgDmgr01\config\cells\ctgCell01\application
 
 
 ```xml
-	<!-- Uncomment this line for Cross Site Scripting Problem -->
+		<!-- Uncomment this line for Cross Site Scripting Problem -->
 	<filter>
           <filter-name>HttpCrossSiteScriptingSecurity</filter-name>
           <filter-class>psdi.webclient.system.filter.HttpCrossSiteScriptingSecurity</filter-class>
@@ -216,30 +216,16 @@ D:\IBM\WebSphere\AppServer\profiles\ctgDmgr01\config\cells\ctgCell01\application
                           </init-param>
 
       </filter>
-```
-	在此处后面添加
-```xml
-	<!-- rsalogin  Start -->
+	  
+	<!--添加的内容 rsalogin  Start -->
 	<filter>
 		<filter-name>rsalogin</filter-name>
 		<filter-class>org.shoukaiseki.webclient.login.LoginFilter</filter-class>
 	</filter>
 	<filter-mapping>
 		<filter-name>rsalogin</filter-name>
-		<url-pattern>/rsalogin/login.jsp</url-pattern>
+		<url-pattern>/login/rsalogin</url-pattern>
 	</filter-mapping>
-    <!-- rsalogin End -->
-	
-	
-	<!-- rsalogin  Start -->
-	<!--<filter>
-		<filter-name>rsalogin</filter-name>
-		<filter-class>org.shoukaiseki.webclient.login.LoginFilter</filter-class>
-	</filter>
-	<filter-mapping>
-		<filter-name>rsalogin</filter-name>
-		<url-pattern>/rsalogin/login.jsp</url-pattern>
-	</filter-mapping>-->
     <!-- rsalogin End -->
 ```
 
